@@ -22,7 +22,7 @@
 
 
 
-+(MSHTTPClient *)createHTTPClientWithMiddleware:(id<MSGraphMiddlewareProtocol>)middleware{
++(MSHTTPClient *)createHTTPClientWithMiddleware:(id<MSGraphMiddleware>)middleware{
     MSHTTPClient *httpClient = [[MSHTTPClient alloc] init];
     [httpClient setMiddleware:middleware];
     return httpClient;

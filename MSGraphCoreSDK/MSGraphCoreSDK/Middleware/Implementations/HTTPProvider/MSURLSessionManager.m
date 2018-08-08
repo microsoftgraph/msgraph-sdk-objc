@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 #import "MSURLSessionManager.h"
-#import "MSNSURLSessionTaskDelegate.h"
+#import "MSURLSessionTaskDelegate.h"
 
 @interface MSURLSessionManager()
 
@@ -11,7 +11,7 @@
 
 @property (strong, nonatomic) NSMutableDictionary *taskDelegates;
 
-@property (nonatomic, strong) id<MSGraphMiddlewareProtocol> nextMiddleware;
+@property (nonatomic, strong) id<MSGraphMiddleware> nextMiddleware;
 
 @end
 
@@ -224,8 +224,8 @@ willPerformHTTPRedirection:(NSHTTPURLResponse *)redirectResponse
 //    [dataTask resume];
 }
 
--(void)setNext:(id<MSGraphMiddlewareProtocol>)nextMiddleware{
-    id<MSGraphMiddlewareProtocol> tempMiddleware;
+-(void)setNext:(id<MSGraphMiddleware>)nextMiddleware{
+    id<MSGraphMiddleware> tempMiddleware;
     if(self.nextMiddleware){
         tempMiddleware = self.nextMiddleware;
     }

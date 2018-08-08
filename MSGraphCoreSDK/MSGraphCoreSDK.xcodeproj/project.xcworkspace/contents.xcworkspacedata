@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:MSGraphSDK.xcodeproj">
+      location = "self:/Users/vikasdadheech/MicrosoftGraph/ObjC/MSGraphSDK/MSGraphCoreSDK.xcodeproj">
    </FileRef>
 </Workspace>

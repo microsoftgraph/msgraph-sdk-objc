@@ -44,7 +44,7 @@ typedef void(^MSURLSessionTaskCompletion)(id responseObject, NSURLResponse *resp
  */
 - (void)task:(NSURLSessionTask *)task didCompleteDownload:(NSURL *)downloadLocation;
 
-//to -do
+
 - (NSData *)getData;
 
 

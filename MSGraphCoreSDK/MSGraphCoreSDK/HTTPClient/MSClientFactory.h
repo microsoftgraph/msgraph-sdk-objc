@@ -20,7 +20,7 @@
 
 +(MSHTTPClient *)creatHTTPClientWithAuthenticationProvider:(id<MSAuthenticationProvider>)authenticationProvider;
 
-+(MSHTTPClient *)createHTTPClientWithMiddleware:(id<MSGraphMiddlewareProtocol>)middleware;
++(MSHTTPClient *)createHTTPClientWithMiddleware:(id<MSGraphMiddleware>)middleware;
 
 
 @end

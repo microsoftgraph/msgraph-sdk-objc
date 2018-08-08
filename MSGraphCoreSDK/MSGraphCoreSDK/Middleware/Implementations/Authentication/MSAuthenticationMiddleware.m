@@ -7,7 +7,7 @@
 
 @interface MSAuthenticationMiddleware()
 
-@property (nonatomic, strong) id<MSGraphMiddlewareProtocol> nextMiddleware;
+@property (nonatomic, strong) id<MSGraphMiddleware> nextMiddleware;
 
 @end
 
@@ -27,8 +27,8 @@
     }];
 }
 
--(void)setNext:(id<MSGraphMiddlewareProtocol>)nextMiddleware{
-    id<MSGraphMiddlewareProtocol> tempMiddleware;
+-(void)setNext:(id<MSGraphMiddleware>)nextMiddleware{
+    id<MSGraphMiddleware> tempMiddleware;
     if(self.nextMiddleware){
         tempMiddleware = self.nextMiddleware;
     }

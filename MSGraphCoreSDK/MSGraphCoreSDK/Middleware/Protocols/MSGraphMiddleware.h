@@ -1,5 +1,5 @@
 //
-//  MSGraphMiddlewareProtocol.h
+//  MSGraphMiddleware.h
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 //
 
@@ -19,11 +19,11 @@ typedef NS_ENUM(NSInteger, MSGraphRequestType){
 //Completion handler to be called when request finishes
 typedef void (^HTTPRequestCompletionHandler)(id data, NSURLResponse * _Nullable response, NSError * _Nullable error);
 
-@protocol MSGraphMiddlewareProtocol <NSObject>
+@protocol MSGraphMiddleware <NSObject>
 
 -(void)execute:(MSTaskParameters *)taskParameters forRequestType:(MSGraphRequestType)requestType withCompletionHandler:(HTTPRequestCompletionHandler)completionHandler;
 
--(void)setNext:(id<MSGraphMiddlewareProtocol>)nextMiddleware;
+-(void)setNext:(id<MSGraphMiddleware>)nextMiddleware;
 
 
 @end

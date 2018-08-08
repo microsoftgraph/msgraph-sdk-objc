@@ -15,14 +15,13 @@ FOUNDATION_EXPORT const unsigned char MSGraphSDKVersionString[];
 #ifndef MSSDK_h
 #define MSSDK_h
 
-#define GraphBaseUrl @"https://graph.microsoft.com/v1.0"
+#import "MSGraphCoreSDK/MSAuthenticationProvider.h"
+#import "MSGraphCoreSDK/MSHttpProvider.h"
+#import "MSGraphCoreSDK/MSGraphMiddleware.h"
 
-#import "MSGraphSDK/MSAuthenticationProvider.h"
-#import "MSGraphSDK/MSHttpProvider.h"
-#import "MSGraphSDK/MSGraphMiddlewareProtocol.h"
-
-#import "MSGraphSDK/MSURLSessionManager.h"
-#import "MSGraphSDK/MSClientFactory.h"
+#import "MSGraphCoreSDK/MSURLSessionManager.h"
+#import "MSGraphCoreSDK/MSClientFactory.h"
+#import "MSGraphCoreSDK/MSConstants.h"
 
 #endif
 
