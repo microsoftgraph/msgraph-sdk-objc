@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		170002BDB44A57A4C0412091 /* libPods-MSGraphCoreSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F5C3BD0D04143165450346 /* libPods-MSGraphCoreSDK.a */; };
+		2E99334A867D96A4E8E39E58 /* libPods-MSGraphCoreSDKTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F659D4C4F533FE1EE486F69 /* libPods-MSGraphCoreSDKTests.a */; };
 		E5069AC8211AAEC900432372 /* MSConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = E5069AC6211AAEC900432372 /* MSConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5069AC9211AAEC900432372 /* MSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = E5069AC7211AAEC900432372 /* MSConstants.m */; };
+		E5069AD9211C1AD500432372 /* MSGraphCoreSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5069AD8211C1AD500432372 /* MSGraphCoreSDKTests.m */; };
+		E5069ADB211C1AD500432372 /* MSGraphCoreSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DC73DA211412BF0040BAB6 /* MSGraphCoreSDK.framework */; };
+		E5069AE2211C323D00432372 /* MSURLSessionManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5069AE1211C323D00432372 /* MSURLSessionManagerTests.m */; };
 		E5DC73DF211412BF0040BAB6 /* MSGraphCoreSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73DD211412BF0040BAB6 /* MSGraphCoreSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5DC7403211418050040BAB6 /* MSAuthenticationMiddleware.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73EB211418040040BAB6 /* MSAuthenticationMiddleware.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5DC7405211418050040BAB6 /* MSURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DC73EE211418040040BAB6 /* MSURLSessionManager.m */; };
@@ -27,9 +32,28 @@
 		E5DC741D21142C430040BAB6 /* MSHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DC741921142C430040BAB6 /* MSHTTPClient.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		E5069ADC211C1AD500432372 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5DC73D1211412BF0040BAB6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5DC73D9211412BF0040BAB6;
+			remoteInfo = MSGraphCoreSDK;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		0CFE9F7642CC4E8078E79CA9 /* Pods-MSGraphCoreSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSGraphCoreSDK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MSGraphCoreSDK/Pods-MSGraphCoreSDK.debug.xcconfig"; sourceTree = "<group>"; };
+		148791843A9973F8800BA033 /* Pods-MSGraphCoreSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSGraphCoreSDKTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MSGraphCoreSDKTests/Pods-MSGraphCoreSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1F659D4C4F533FE1EE486F69 /* libPods-MSGraphCoreSDKTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MSGraphCoreSDKTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D194EBB5CFE5F16EA3EC95B /* Pods-MSGraphCoreSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSGraphCoreSDKTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MSGraphCoreSDKTests/Pods-MSGraphCoreSDKTests.release.xcconfig"; sourceTree = "<group>"; };
+		90F5C3BD0D04143165450346 /* libPods-MSGraphCoreSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MSGraphCoreSDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5069AC6211AAEC900432372 /* MSConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSConstants.h; sourceTree = "<group>"; };
 		E5069AC7211AAEC900432372 /* MSConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSConstants.m; sourceTree = "<group>"; };
+		E5069AD6211C1AD500432372 /* MSGraphCoreSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MSGraphCoreSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5069AD8211C1AD500432372 /* MSGraphCoreSDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSGraphCoreSDKTests.m; sourceTree = "<group>"; };
+		E5069ADA211C1AD500432372 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5069AE1211C323D00432372 /* MSURLSessionManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionManagerTests.m; sourceTree = "<group>"; };
 		E5DC73DA211412BF0040BAB6 /* MSGraphCoreSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MSGraphCoreSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5DC73DD211412BF0040BAB6 /* MSGraphCoreSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSGraphCoreSDK.h; sourceTree = "<group>"; };
 		E5DC73DE211412BF0040BAB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,19 +72,50 @@
 		E5DC741721142C420040BAB6 /* MSHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSHTTPClient.h; sourceTree = "<group>"; };
 		E5DC741821142C420040BAB6 /* MSClientFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSClientFactory.h; sourceTree = "<group>"; };
 		E5DC741921142C430040BAB6 /* MSHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSHTTPClient.m; sourceTree = "<group>"; };
+		F85C5ADB62B7F2F2D5BE52ED /* Pods-MSGraphCoreSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSGraphCoreSDK.release.xcconfig"; path = "Pods/Target Support Files/Pods-MSGraphCoreSDK/Pods-MSGraphCoreSDK.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E5069AD3211C1AD500432372 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5069ADB211C1AD500432372 /* MSGraphCoreSDK.framework in Frameworks */,
+				2E99334A867D96A4E8E39E58 /* libPods-MSGraphCoreSDKTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E5DC73D6211412BF0040BAB6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				170002BDB44A57A4C0412091 /* libPods-MSGraphCoreSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		99E3E01C6BB2B0915950A677 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				90F5C3BD0D04143165450346 /* libPods-MSGraphCoreSDK.a */,
+				1F659D4C4F533FE1EE486F69 /* libPods-MSGraphCoreSDKTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A72A4EF055E95C74B1ED3B4E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0CFE9F7642CC4E8078E79CA9 /* Pods-MSGraphCoreSDK.debug.xcconfig */,
+				F85C5ADB62B7F2F2D5BE52ED /* Pods-MSGraphCoreSDK.release.xcconfig */,
+				148791843A9973F8800BA033 /* Pods-MSGraphCoreSDKTests.debug.xcconfig */,
+				5D194EBB5CFE5F16EA3EC95B /* Pods-MSGraphCoreSDKTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E5069AC2211AACB600432372 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,11 +151,24 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		E5069AD7211C1AD500432372 /* MSGraphCoreSDKTests */ = {
+			isa = PBXGroup;
+			children = (
+				E5069AE1211C323D00432372 /* MSURLSessionManagerTests.m */,
+				E5069AD8211C1AD500432372 /* MSGraphCoreSDKTests.m */,
+				E5069ADA211C1AD500432372 /* Info.plist */,
+			);
+			path = MSGraphCoreSDKTests;
+			sourceTree = "<group>";
+		};
 		E5DC73D0211412BF0040BAB6 = {
 			isa = PBXGroup;
 			children = (
 				E5DC73DC211412BF0040BAB6 /* MSGraphCoreSDK */,
+				E5069AD7211C1AD500432372 /* MSGraphCoreSDKTests */,
 				E5DC73DB211412BF0040BAB6 /* Products */,
+				A72A4EF055E95C74B1ED3B4E /* Pods */,
+				99E3E01C6BB2B0915950A677 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				E5DC73DA211412BF0040BAB6 /* MSGraphCoreSDK.framework */,
+				E5069AD6211C1AD500432372 /* MSGraphCoreSDKTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -199,14 +268,37 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		E5069AD5211C1AD500432372 /* MSGraphCoreSDKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5069AE0211C1AD500432372 /* Build configuration list for PBXNativeTarget "MSGraphCoreSDKTests" */;
+			buildPhases = (
+				676DF1623CE99CB0E86E3C94 /* [CP] Check Pods Manifest.lock */,
+				E5069AD2211C1AD500432372 /* Sources */,
+				E5069AD3211C1AD500432372 /* Frameworks */,
+				E5069AD4211C1AD500432372 /* Resources */,
+				5DB4C93FE43E64A3CED44B38 /* [CP] Embed Pods Frameworks */,
+				336277AB12B5269DAAB52B0D /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5069ADD211C1AD500432372 /* PBXTargetDependency */,
+			);
+			name = MSGraphCoreSDKTests;
+			productName = MSGraphCoreSDKTests;
+			productReference = E5069AD6211C1AD500432372 /* MSGraphCoreSDKTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		E5DC73D9211412BF0040BAB6 /* MSGraphCoreSDK */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5DC73E2211412BF0040BAB6 /* Build configuration list for PBXNativeTarget "MSGraphCoreSDK" */;
 			buildPhases = (
+				72207CCF325828D21642B9F8 /* [CP] Check Pods Manifest.lock */,
 				E5DC73D5211412BF0040BAB6 /* Sources */,
 				E5DC73D6211412BF0040BAB6 /* Frameworks */,
 				E5DC73D7211412BF0040BAB6 /* Headers */,
 				E5DC73D8211412BF0040BAB6 /* Resources */,
+				B796F1592FFA569F3183705B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -226,6 +318,9 @@
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Vikas Dadheech";
 				TargetAttributes = {
+					E5069AD5211C1AD500432372 = {
+						CreatedOnToolsVersion = 9.3;
+					};
 					E5DC73D9211412BF0040BAB6 = {
 						CreatedOnToolsVersion = 9.3;
 					};
@@ -244,11 +339,19 @@
 			projectRoot = "";
 			targets = (
 				E5DC73D9211412BF0040BAB6 /* MSGraphCoreSDK */,
+				E5069AD5211C1AD500432372 /* MSGraphCoreSDKTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E5069AD4211C1AD500432372 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E5DC73D8211412BF0040BAB6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -258,7 +361,100 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		336277AB12B5269DAAB52B0D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MSGraphCoreSDKTests/Pods-MSGraphCoreSDKTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5DB4C93FE43E64A3CED44B38 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MSGraphCoreSDKTests/Pods-MSGraphCoreSDKTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		676DF1623CE99CB0E86E3C94 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MSGraphCoreSDKTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		72207CCF325828D21642B9F8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MSGraphCoreSDK-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B796F1592FFA569F3183705B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MSGraphCoreSDK/Pods-MSGraphCoreSDK-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		E5069AD2211C1AD500432372 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5069AE2211C323D00432372 /* MSURLSessionManagerTests.m in Sources */,
+				E5069AD9211C1AD500432372 /* MSGraphCoreSDKTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E5DC73D5211412BF0040BAB6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -275,7 +471,41 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		E5069ADD211C1AD500432372 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5DC73D9211412BF0040BAB6 /* MSGraphCoreSDK */;
+			targetProxy = E5069ADC211C1AD500432372 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		E5069ADE211C1AD500432372 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 148791843A9973F8800BA033 /* Pods-MSGraphCoreSDKTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MSGraphCoreSDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = startrek.MSGraphCoreSDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E5069ADF211C1AD500432372 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D194EBB5CFE5F16EA3EC95B /* Pods-MSGraphCoreSDKTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MSGraphCoreSDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = startrek.MSGraphCoreSDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		E5DC73E0211412BF0040BAB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -394,6 +624,7 @@
 		};
 		E5DC73E3211412BF0040BAB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CFE9F7642CC4E8078E79CA9 /* Pods-MSGraphCoreSDK.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -403,11 +634,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MSGraphCoreSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Microsoft.MSGraph.MSGraphSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -419,6 +646,7 @@
 		};
 		E5DC73E4211412BF0040BAB6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F85C5ADB62B7F2F2D5BE52ED /* Pods-MSGraphCoreSDK.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -428,11 +656,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MSGraphCoreSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Microsoft.MSGraph.MSGraphSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -445,6 +669,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E5069AE0211C1AD500432372 /* Build configuration list for PBXNativeTarget "MSGraphCoreSDKTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5069ADE211C1AD500432372 /* Debug */,
+				E5069ADF211C1AD500432372 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E5DC73D4211412BF0040BAB6 /* Build configuration list for PBXProject "MSGraphCoreSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
