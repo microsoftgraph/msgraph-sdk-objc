@@ -2,6 +2,34 @@
 
 #import "MSURLSessionManager.h"
 #import "MSURLSessionTaskDelegate.h"
+#import "MSURLSessionTask.h"
+#import "MSURLSessionDataTask.h"
+#import "MSURLSessionDownloadTask.h"
+#import "MSURLSessionUploadTask.h"
+
+@interface MSURLSessionTask()
+
+-(void)setInnerTask:(NSURLSessionTask *)innerTask;
+
+@end
+
+@interface MSURLSessionDownloadTask()
+
+-(NSProgress *)getProgress;
+
+@end
+
+@interface MSURLSessionUploadTask()
+
+@property NSURL *fileURL;
+
+@property NSData *data;
+
+@property BOOL isFileUploadTask;
+
+-(NSProgress *)getProgress;
+
+@end
 
 @interface MSURLSessionManager()
 
@@ -180,48 +208,43 @@ willPerformHTTPRedirection:(NSHTTPURLResponse *)redirectResponse
     completionHandler(newRequest);
 }
 
-- (void)execute:(MSTaskParameters *)taskParameters forRequestType:(MSGraphRequestType)requestType withCompletionHandler:(HTTPRequestCompletionHandler)completionHandler {
-    NSLog(@"entered middleware http");
-    switch (requestType) {
-        case MSGraphRequestTypeData:{
-            NSURLSessionTask *dataTask = [self dataTaskWithRequest:taskParameters.request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+-(void)execute:(MSURLSessionTask *)task withCompletionHandler:(HTTPRequestCompletionHandler)completionHandler{
+    if([task isKindOfClass:[MSURLSessionDataTask class]]){
+        NSURLSessionTask *dataTask = [self dataTaskWithRequest:task.request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            NSLog(@"exiting middleware http");
+            completionHandler(data,response,error);
+        }];
+        [task setInnerTask:dataTask];
+        [dataTask resume];
+    }else if([task isKindOfClass:[MSURLSessionDownloadTask class]]){
+        NSProgress *progress = [(MSURLSessionDownloadTask *)task getProgress];
+        NSURLSessionDownloadTask *downloadTask = [self downloadTaskWithRequest:task.request progress:&progress completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
+            NSLog(@"exiting middleware http");
+            completionHandler(location,response,error);
+        }];
+        [task setInnerTask:downloadTask];
+        [downloadTask resume];
+
+    }
+    else if([task isKindOfClass:[MSURLSessionUploadTask class]]){
+        NSProgress *progress = [(MSURLSessionUploadTask *)task getProgress];
+        NSURLSessionUploadTask *uploadTask;
+        if([(MSURLSessionUploadTask *)task isFileUploadTask]){
+            uploadTask = [self uploadTaskWithRequest:task.request fromFile:[(MSURLSessionUploadTask *)task fileURL] progress:&progress completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                 NSLog(@"exiting middleware http");
                 completionHandler(data,response,error);
             }];
-            [dataTask resume];
         }
-            break;
-        case MSGraphRequestTypeDownload:{
-            NSURLSessionTask *downloadTask = [self downloadTaskWithRequest:taskParameters.request progress:taskParameters.progress completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
+        else{
+            uploadTask = [self uploadTaskWithRequest:task.request fromData:[(MSURLSessionUploadTask *)task data] progress:&progress completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                 NSLog(@"exiting middleware http");
-                completionHandler(location,response,error);
+                completionHandler(data,response,error);
             }];
-            [downloadTask resume];
         }
-            break;case MSGraphRequestTypeUploadFromData:{
-                NSURLSessionTask *uploadTask = [self uploadTaskWithRequest:taskParameters.request fromData:taskParameters.fileData progress:taskParameters.progress completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                    NSLog(@"exiting middleware http");
-                    completionHandler(data,response,error);
-                }];
-                [uploadTask resume];
-            }
-            break;case MSGraphRequestTypeUploadFromFile:{
-                NSURLSessionTask *uploadTask = [self uploadTaskWithRequest:taskParameters.request fromFile:taskParameters.fileUrl progress:taskParameters.progress completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                    NSLog(@"exiting middleware http");
-                    completionHandler(data,response,error);
-                }];
-                [uploadTask resume];
-            }
-            break;
+        [task setInnerTask:uploadTask];
+        [uploadTask resume];
 
-        default:
-            break;
     }
-//   NSURLSessionTask *dataTask = [self dataTaskWithRequest:taskParameters.request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-//       NSLog(@"exiting middleware 2");
-//        completionHandler(data,response,error);
-//    }];
-//    [dataTask resume];
 }
 
 -(void)setNext:(id<MSGraphMiddleware>)nextMiddleware{

@@ -4,6 +4,13 @@
 //
 
 #import "MSAuthenticationMiddleware.h"
+#import "MSURLSessionTask.h"
+
+@interface MSURLSessionTask()
+
+-(void)setRequest:(NSMutableURLRequest *)request;
+
+@end
 
 @interface MSAuthenticationMiddleware()
 
@@ -13,18 +20,14 @@
 
 @implementation MSAuthenticationMiddleware
 
-- (void)execute:(MSTaskParameters *)taskParameters forRequestType:(MSGraphRequestType)requestType withCompletionHandler:(HTTPRequestCompletionHandler)completionHandler {
-    NSLog(@"entering auth middleware");
-    [self.authProvider appendAuthenticationHeaders:taskParameters.request completion:^(NSMutableURLRequest *request, NSError *error) {
-        if(self.nextMiddleware){
-        [self.nextMiddleware execute:taskParameters forRequestType:requestType withCompletionHandler:^(id data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+-(void)execute:(MSURLSessionTask *)task withCompletionHandler:(HTTPRequestCompletionHandler)completionHandler{
+    [self.authProvider appendAuthenticationHeaders:task.request completion:^(NSMutableURLRequest *request, NSError *error) {
+        [task setRequest:request];
+        [self.nextMiddleware execute:task withCompletionHandler:^(id data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             completionHandler(data,response,error);
-            NSLog(@"exiting auth middleware");
         }];
-        }else{
-            completionHandler(nil,nil,[NSError new]);
-        }
     }];
+
 }
 
 -(void)setNext:(id<MSGraphMiddleware>)nextMiddleware{

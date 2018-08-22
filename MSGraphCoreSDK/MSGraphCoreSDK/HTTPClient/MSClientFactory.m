@@ -11,6 +11,7 @@
 
 +(MSHTTPClient *)creatHTTPClientWithAuthenticationProvider:(id<MSAuthenticationProvider>)authenticationProvider{
 
+    //TODO: Put the middlware creation in a middleware facotry
     MSAuthenticationMiddleware *authenticationMiddleware = [MSAuthenticationMiddleware new];
     authenticationMiddleware.authProvider = authenticationProvider;
     MSURLSessionManager *sessionManager = [[MSURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];

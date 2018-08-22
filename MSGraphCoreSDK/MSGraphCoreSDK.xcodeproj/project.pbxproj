@@ -14,6 +14,14 @@
 		E5069AD9211C1AD500432372 /* MSGraphCoreSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5069AD8211C1AD500432372 /* MSGraphCoreSDKTests.m */; };
 		E5069ADB211C1AD500432372 /* MSGraphCoreSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DC73DA211412BF0040BAB6 /* MSGraphCoreSDK.framework */; };
 		E5069AE2211C323D00432372 /* MSURLSessionManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5069AE1211C323D00432372 /* MSURLSessionManagerTests.m */; };
+		E52AD978212D27DC005FED47 /* MSURLSessionDataTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD970212D27DB005FED47 /* MSURLSessionDataTask.m */; };
+		E52AD979212D27DC005FED47 /* MSURLSessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD971212D27DB005FED47 /* MSURLSessionTask.m */; };
+		E52AD97A212D27DC005FED47 /* MSURLSessionUploadTask.h in Headers */ = {isa = PBXBuildFile; fileRef = E52AD972212D27DB005FED47 /* MSURLSessionUploadTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E52AD97B212D27DC005FED47 /* MSURLSessionDownloadTask.h in Headers */ = {isa = PBXBuildFile; fileRef = E52AD973212D27DB005FED47 /* MSURLSessionDownloadTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E52AD97C212D27DC005FED47 /* MSURLSessionDataTask.h in Headers */ = {isa = PBXBuildFile; fileRef = E52AD974212D27DB005FED47 /* MSURLSessionDataTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E52AD97D212D27DC005FED47 /* MSURLSessionTask.h in Headers */ = {isa = PBXBuildFile; fileRef = E52AD975212D27DB005FED47 /* MSURLSessionTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E52AD97E212D27DC005FED47 /* MSURLSessionUploadTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD976212D27DB005FED47 /* MSURLSessionUploadTask.m */; };
+		E52AD97F212D27DC005FED47 /* MSURLSessionDownloadTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD977212D27DC005FED47 /* MSURLSessionDownloadTask.m */; };
 		E5DC73DF211412BF0040BAB6 /* MSGraphCoreSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73DD211412BF0040BAB6 /* MSGraphCoreSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5DC7403211418050040BAB6 /* MSAuthenticationMiddleware.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73EB211418040040BAB6 /* MSAuthenticationMiddleware.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5DC7405211418050040BAB6 /* MSURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DC73EE211418040040BAB6 /* MSURLSessionManager.m */; };
@@ -24,8 +32,6 @@
 		E5DC740C211418050040BAB6 /* MSAuthenticationProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73F6211418040040BAB6 /* MSAuthenticationProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5DC740E211418050040BAB6 /* MSHttpProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73F9211418040040BAB6 /* MSHttpProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5DC7410211418050040BAB6 /* MSGraphMiddleware.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73FB211418040040BAB6 /* MSGraphMiddleware.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E5DC7411211418050040BAB6 /* MSTaskParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DC73FD211418050040BAB6 /* MSTaskParameters.m */; };
-		E5DC7412211418050040BAB6 /* MSTaskParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73FE211418050040BAB6 /* MSTaskParameters.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5DC741A21142C430040BAB6 /* MSClientFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DC741621142C420040BAB6 /* MSClientFactory.m */; };
 		E5DC741B21142C430040BAB6 /* MSHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC741721142C420040BAB6 /* MSHTTPClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5DC741C21142C430040BAB6 /* MSClientFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC741821142C420040BAB6 /* MSClientFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -54,6 +60,14 @@
 		E5069AD8211C1AD500432372 /* MSGraphCoreSDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSGraphCoreSDKTests.m; sourceTree = "<group>"; };
 		E5069ADA211C1AD500432372 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5069AE1211C323D00432372 /* MSURLSessionManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionManagerTests.m; sourceTree = "<group>"; };
+		E52AD970212D27DB005FED47 /* MSURLSessionDataTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionDataTask.m; sourceTree = "<group>"; };
+		E52AD971212D27DB005FED47 /* MSURLSessionTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionTask.m; sourceTree = "<group>"; };
+		E52AD972212D27DB005FED47 /* MSURLSessionUploadTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSURLSessionUploadTask.h; sourceTree = "<group>"; };
+		E52AD973212D27DB005FED47 /* MSURLSessionDownloadTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSURLSessionDownloadTask.h; sourceTree = "<group>"; };
+		E52AD974212D27DB005FED47 /* MSURLSessionDataTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSURLSessionDataTask.h; sourceTree = "<group>"; };
+		E52AD975212D27DB005FED47 /* MSURLSessionTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSURLSessionTask.h; sourceTree = "<group>"; };
+		E52AD976212D27DB005FED47 /* MSURLSessionUploadTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionUploadTask.m; sourceTree = "<group>"; };
+		E52AD977212D27DC005FED47 /* MSURLSessionDownloadTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionDownloadTask.m; sourceTree = "<group>"; };
 		E5DC73DA211412BF0040BAB6 /* MSGraphCoreSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MSGraphCoreSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5DC73DD211412BF0040BAB6 /* MSGraphCoreSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSGraphCoreSDK.h; sourceTree = "<group>"; };
 		E5DC73DE211412BF0040BAB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,8 +80,6 @@
 		E5DC73F6211418040040BAB6 /* MSAuthenticationProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAuthenticationProvider.h; sourceTree = "<group>"; };
 		E5DC73F9211418040040BAB6 /* MSHttpProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSHttpProvider.h; sourceTree = "<group>"; };
 		E5DC73FB211418040040BAB6 /* MSGraphMiddleware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphMiddleware.h; sourceTree = "<group>"; };
-		E5DC73FD211418050040BAB6 /* MSTaskParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSTaskParameters.m; sourceTree = "<group>"; };
-		E5DC73FE211418050040BAB6 /* MSTaskParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSTaskParameters.h; sourceTree = "<group>"; };
 		E5DC741621142C420040BAB6 /* MSClientFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSClientFactory.m; sourceTree = "<group>"; };
 		E5DC741721142C420040BAB6 /* MSHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSHTTPClient.h; sourceTree = "<group>"; };
 		E5DC741821142C420040BAB6 /* MSClientFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSClientFactory.h; sourceTree = "<group>"; };
@@ -145,6 +157,7 @@
 		E5069AC5211AAE6900432372 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E52AD96F212D271C005FED47 /* Session Tasks */,
 				E5069AC6211AAEC900432372 /* MSConstants.h */,
 				E5069AC7211AAEC900432372 /* MSConstants.m */,
 			);
@@ -159,6 +172,21 @@
 				E5069ADA211C1AD500432372 /* Info.plist */,
 			);
 			path = MSGraphCoreSDKTests;
+			sourceTree = "<group>";
+		};
+		E52AD96F212D271C005FED47 /* Session Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				E52AD974212D27DB005FED47 /* MSURLSessionDataTask.h */,
+				E52AD970212D27DB005FED47 /* MSURLSessionDataTask.m */,
+				E52AD973212D27DB005FED47 /* MSURLSessionDownloadTask.h */,
+				E52AD977212D27DC005FED47 /* MSURLSessionDownloadTask.m */,
+				E52AD975212D27DB005FED47 /* MSURLSessionTask.h */,
+				E52AD971212D27DB005FED47 /* MSURLSessionTask.m */,
+				E52AD972212D27DB005FED47 /* MSURLSessionUploadTask.h */,
+				E52AD976212D27DB005FED47 /* MSURLSessionUploadTask.m */,
+			);
+			path = "Session Tasks";
 			sourceTree = "<group>";
 		};
 		E5DC73D0211412BF0040BAB6 = {
@@ -208,7 +236,6 @@
 		E5DC73EA211418040040BAB6 /* Middleware */ = {
 			isa = PBXGroup;
 			children = (
-				E5DC73FC211418050040BAB6 /* Common */,
 				E5DC73F8211418040040BAB6 /* Protocols */,
 				E5069AC3211AACCD00432372 /* Implementations */,
 			);
@@ -235,15 +262,6 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		E5DC73FC211418050040BAB6 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				E5DC73FE211418050040BAB6 /* MSTaskParameters.h */,
-				E5DC73FD211418050040BAB6 /* MSTaskParameters.m */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -259,7 +277,10 @@
 				E5DC7403211418050040BAB6 /* MSAuthenticationMiddleware.h in Headers */,
 				E5DC741B21142C430040BAB6 /* MSHTTPClient.h in Headers */,
 				E5069AC8211AAEC900432372 /* MSConstants.h in Headers */,
-				E5DC7412211418050040BAB6 /* MSTaskParameters.h in Headers */,
+				E52AD97B212D27DC005FED47 /* MSURLSessionDownloadTask.h in Headers */,
+				E52AD97D212D27DC005FED47 /* MSURLSessionTask.h in Headers */,
+				E52AD97A212D27DC005FED47 /* MSURLSessionUploadTask.h in Headers */,
+				E52AD97C212D27DC005FED47 /* MSURLSessionDataTask.h in Headers */,
 				E5DC7406211418050040BAB6 /* MSURLSessionTaskDelegate.h in Headers */,
 				E5DC73DF211412BF0040BAB6 /* MSGraphCoreSDK.h in Headers */,
 			);
@@ -461,9 +482,12 @@
 			files = (
 				E5DC741A21142C430040BAB6 /* MSClientFactory.m in Sources */,
 				E5069AC9211AAEC900432372 /* MSConstants.m in Sources */,
+				E52AD97F212D27DC005FED47 /* MSURLSessionDownloadTask.m in Sources */,
 				E5DC7405211418050040BAB6 /* MSURLSessionManager.m in Sources */,
-				E5DC7411211418050040BAB6 /* MSTaskParameters.m in Sources */,
+				E52AD979212D27DC005FED47 /* MSURLSessionTask.m in Sources */,
 				E5DC7408211418050040BAB6 /* MSURLSessionTaskDelegate.m in Sources */,
+				E52AD97E212D27DC005FED47 /* MSURLSessionUploadTask.m in Sources */,
+				E52AD978212D27DC005FED47 /* MSURLSessionDataTask.m in Sources */,
 				E5DC7409211418050040BAB6 /* MSAuthenticationMiddleware.m in Sources */,
 				E5DC741D21142C430040BAB6 /* MSHTTPClient.m in Sources */,
 			);
@@ -486,7 +510,11 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MSGraphCoreSDKTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = startrek.MSGraphCoreSDKTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -499,7 +527,11 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MSGraphCoreSDKTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = startrek.MSGraphCoreSDKTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -634,7 +666,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MSGraphCoreSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Microsoft.MSGraph.MSGraphSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -656,7 +692,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MSGraphCoreSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Microsoft.MSGraph.MSGraphSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";

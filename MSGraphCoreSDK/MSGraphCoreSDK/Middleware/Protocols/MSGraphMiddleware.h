@@ -5,25 +5,20 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "MSTaskParameters.h"
 
-typedef NS_ENUM(NSInteger, MSGraphRequestType){
+@class MSURLSessionTask;
 
-    MSGraphRequestTypeData = 0,
-    MSGraphRequestTypeDownload = 1,
-    MSGraphRequestTypeUploadFromData = 2,
-    MSGraphRequestTypeUploadFromFile = 3
-};
-
+/*
+ This protocol defined the required set of methods to be implemented by the Classes which will become the part of middleware chain.
+ */
 
 //Completion handler to be called when request finishes
 typedef void (^HTTPRequestCompletionHandler)(id data, NSURLResponse * _Nullable response, NSError * _Nullable error);
 
 @protocol MSGraphMiddleware <NSObject>
 
--(void)execute:(MSTaskParameters *)taskParameters forRequestType:(MSGraphRequestType)requestType withCompletionHandler:(HTTPRequestCompletionHandler)completionHandler;
+-(void)execute:(MSURLSessionTask *)task withCompletionHandler:(HTTPRequestCompletionHandler)completionHandler;
 
 -(void)setNext:(id<MSGraphMiddleware>)nextMiddleware;
-
 
 @end

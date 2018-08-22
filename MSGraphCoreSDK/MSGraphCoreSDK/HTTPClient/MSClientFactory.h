@@ -11,7 +11,7 @@
 
 
 /*
- Initializes and returns and instance of this class to handle the HTTP calls.
+ Initializes and returns an instance of MSHTTPClient class with a default chain of middleware to handle the HTTP calls.
 
  @param authenticationProvider Instance of the class which implements the methods of MSAuthenticationProvider
  @param baseUrl Base URL of all the network calls which will be made my this client.
@@ -19,6 +19,12 @@
 
 
 +(MSHTTPClient *)creatHTTPClientWithAuthenticationProvider:(id<MSAuthenticationProvider>)authenticationProvider;
+
+/*
+ Initializes and returns an instance of MSHTTPClient class with a custom chain of middleware to handle the HTTP calls.
+
+ @param middleware Instance of a class which will be the first node in the custom chain of middleware.
+ */
 
 +(MSHTTPClient *)createHTTPClientWithMiddleware:(id<MSGraphMiddleware>)middleware;
 
