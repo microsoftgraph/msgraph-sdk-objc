@@ -36,7 +36,8 @@
         tempMiddleware = self.nextMiddleware;
     }
     _nextMiddleware = nextMiddleware;
-    [nextMiddleware setNext:tempMiddleware];
+    if(tempMiddleware)
+        [nextMiddleware setNext:tempMiddleware];
 }
 
 @end

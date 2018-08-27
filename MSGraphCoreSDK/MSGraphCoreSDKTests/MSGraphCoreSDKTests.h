@@ -1,9 +1,6 @@
 //
-//  MSGraphCoreSDKTestss.m
-//  MSGraphCoreSDKTests
-//
-//  Created by Vikas Dadheech on 23/08/18.
-//  Copyright © 2018 Vikas Dadheech. All rights reserved.
+//  MSGraphCoreSDKTests.h
+// Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 //
 
 #import <XCTest/XCTest.h>
@@ -12,6 +9,8 @@
 
 @interface MSGraphCoreSDKTests : XCTestCase
 
+@property (nonatomic,retain) NSMutableURLRequest *requestForMock;
+@property (nonatomic,retain) NSURL *testBaseURL;
 @property (nonatomic,retain) id<MSAuthenticationProvider> mockAuthProvider;
 @property (nonatomic,retain) id<MSHttpProvider> mockHttpProvider;
 @property (nonatomic,retain) MSHTTPClient *mockClient;
