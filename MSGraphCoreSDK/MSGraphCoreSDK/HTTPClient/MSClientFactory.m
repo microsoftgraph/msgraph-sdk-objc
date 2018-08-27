@@ -9,8 +9,8 @@
 
 @implementation MSClientFactory
 
-+(MSHTTPClient *)creatHTTPClientWithAuthenticationProvider:(id<MSAuthenticationProvider>)authenticationProvider{
-
++(MSHTTPClient *)createHTTPClientWithAuthenticationProvider:(id<MSAuthenticationProvider>)authenticationProvider{
+    NSParameterAssert(authenticationProvider);
     //TODO: Put the middlware creation in a middleware facotry
     MSAuthenticationMiddleware *authenticationMiddleware = [MSAuthenticationMiddleware new];
     authenticationMiddleware.authProvider = authenticationProvider;
@@ -24,6 +24,7 @@
 
 
 +(MSHTTPClient *)createHTTPClientWithMiddleware:(id<MSGraphMiddleware>)middleware{
+    NSParameterAssert(middleware);
     MSHTTPClient *httpClient = [[MSHTTPClient alloc] init];
     [httpClient setMiddleware:middleware];
     return httpClient;

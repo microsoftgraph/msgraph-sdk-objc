@@ -18,7 +18,7 @@
  */
 
 
-+(MSHTTPClient *)creatHTTPClientWithAuthenticationProvider:(id<MSAuthenticationProvider>)authenticationProvider;
++(MSHTTPClient *)createHTTPClientWithAuthenticationProvider:(id<MSAuthenticationProvider>)authenticationProvider;
 
 /*
  Initializes and returns an instance of MSHTTPClient class with a custom chain of middleware to handle the HTTP calls.
