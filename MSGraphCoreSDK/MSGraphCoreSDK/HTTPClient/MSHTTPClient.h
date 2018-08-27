@@ -39,7 +39,7 @@ typedef void (^MSDataCompletionHandler)(NSData *data, NSURLResponse *response, N
  @return The MSURLSessionDataTask ready to be executed.
  */
 
-- (MSURLSessionDataTask *) dataTaskWithRequest:(NSMutableURLRequest *)request
+- (MSURLSessionDataTask *) dataTaskWithRequest:(nonnull NSMutableURLRequest *)request
                              completionHandler:(MSDataCompletionHandler)completionHandler;
 
 /**
@@ -49,7 +49,7 @@ typedef void (^MSDataCompletionHandler)(NSData *data, NSURLResponse *response, N
  @return The MSURLSessionDownloadTask ready to be executed.
  */
 
--(MSURLSessionDownloadTask *)downloadTaskWithRequest:(NSMutableURLRequest *)request completionHandler:(MSRawDownloadCompletionHandler)completionHandler;
+-(MSURLSessionDownloadTask *)downloadTaskWithRequest:(nonnull NSMutableURLRequest *)request completionHandler:(MSRawDownloadCompletionHandler)completionHandler;
 
 /**
  Creates an MSURLSessionUploadTask ready to be executed.
@@ -59,7 +59,7 @@ typedef void (^MSDataCompletionHandler)(NSData *data, NSURLResponse *response, N
  @return The MSURLSessionUploadTask ready to be executed.
  */
 
--(MSURLSessionUploadTask *)uploadTaskWithRequest:(NSMutableURLRequest *)request fromData:(nonnull NSData *)bodyData completionHandler:(MSRawUploadCompletionHandler)completionHandler;
+-(MSURLSessionUploadTask *)uploadTaskWithRequest:(nonnull NSMutableURLRequest *)request fromData:(nonnull NSData *)bodyData completionHandler:(MSRawUploadCompletionHandler)completionHandler;
 
 /**
  Creates an MSURLSessionUploadTask ready to be executed.
@@ -69,6 +69,6 @@ typedef void (^MSDataCompletionHandler)(NSData *data, NSURLResponse *response, N
  @return The MSURLSessionUploadTask ready to be executed.
  */
 
--(MSURLSessionUploadTask *)uploadTaskWithRequest:(NSMutableURLRequest *)request fromFile:(nonnull NSURL *)fileURL completionHandler:(MSRawUploadCompletionHandler)completionHandler;
+-(MSURLSessionUploadTask *)uploadTaskWithRequest:(nonnull NSMutableURLRequest *)request fromFile:(nonnull NSURL *)fileURL completionHandler:(MSRawUploadCompletionHandler)completionHandler;
 
 @end
