@@ -62,9 +62,6 @@
     _completionHandler(data,response,error);
 }
 
--(NSProgress *)getProgress{
-    return _progress;
-}
 
 
 @end

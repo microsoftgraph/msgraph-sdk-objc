@@ -13,11 +13,6 @@
 
 @end
 
-@interface MSURLSessionDownloadTask()
-
--(NSProgress *)getProgress;
-
-@end
 
 @interface MSURLSessionUploadTask()
 
@@ -26,8 +21,6 @@
 @property NSData *data;
 
 @property BOOL isFileUploadTask;
-
--(NSProgress *)getProgress;
 
 @end
 
@@ -217,7 +210,7 @@ willPerformHTTPRedirection:(NSHTTPURLResponse *)redirectResponse
         [task setInnerTask:dataTask];
         [dataTask resume];
     }else if([task isKindOfClass:[MSURLSessionDownloadTask class]]){
-        NSProgress *progress = [(MSURLSessionDownloadTask *)task getProgress];
+        NSProgress *progress = [(MSURLSessionDownloadTask *)task progress];
         NSURLSessionDownloadTask *downloadTask = [self downloadTaskWithRequest:task.request progress:&progress completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
             NSLog(@"exiting middleware http");
             completionHandler(location,response,error);
@@ -227,7 +220,7 @@ willPerformHTTPRedirection:(NSHTTPURLResponse *)redirectResponse
 
     }
     else if([task isKindOfClass:[MSURLSessionUploadTask class]]){
-        NSProgress *progress = [(MSURLSessionUploadTask *)task getProgress];
+        NSProgress *progress = [(MSURLSessionUploadTask *)task progress];
         NSURLSessionUploadTask *uploadTask;
         if([(MSURLSessionUploadTask *)task isFileUploadTask]){
             uploadTask = [self uploadTaskWithRequest:task.request fromFile:[(MSURLSessionUploadTask *)task fileURL] progress:&progress completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
