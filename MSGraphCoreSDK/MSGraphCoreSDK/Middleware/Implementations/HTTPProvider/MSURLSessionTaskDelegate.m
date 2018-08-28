@@ -75,8 +75,4 @@
     self.downloadPath = downloadLocation;
 }
 
--(NSData *)getData{
-    return self.mutableData;
-}
-
 @end
