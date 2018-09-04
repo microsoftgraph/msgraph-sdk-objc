@@ -14,6 +14,7 @@
 @property (strong, nonatomic) NSURLSessionConfiguration *urlSessionConfiguration;
 @property (strong, nonatomic) NSURLSession *urlSession;
 @property (strong, nonatomic) NSMutableDictionary *taskDelegates;
+@property (nonatomic, strong) id<MSGraphMiddleware> nextMiddleware;
 @end
 
 @interface MSURLSessionTaskDelegate()
@@ -126,14 +127,24 @@
         XCTAssertEqualObjects(location, returnLocation);
     };
 
-    NSURLSessionDownloadTask *downloadtask = [_httpProviderDelegate downloadTaskWithRequest:_request progress:nil completionHandler:downloadCompletion];
+    id<NSURLSessionDownloadDelegate> nsURLSessionDownloadDelegate = _sessionManager;
+
+    NSProgress *progress = [NSProgress new];
+    NSURLSessionDownloadTask *downloadtask = [_httpProviderDelegate downloadTaskWithRequest:_request progress:&progress completionHandler:downloadCompletion];
     XCTAssertNotNil(downloadtask);
     MSURLSessionTaskDelegate * msUrlsessionTaskDelegate = [_sessionManager.taskDelegates objectForKey:@(downloadtask.taskIdentifier)];
     XCTAssertNotNil(msUrlsessionTaskDelegate);
     XCTAssertEqualObjects(msUrlsessionTaskDelegate.completion, downloadCompletion);
+    [nsURLSessionDownloadDelegate URLSession:_sessionManager.urlSession downloadTask:downloadtask didWriteData:240 totalBytesWritten:240 totalBytesExpectedToWrite:720];
+
+    [nsURLSessionDownloadDelegate URLSession:_sessionManager.urlSession downloadTask:downloadtask didWriteData:240 totalBytesWritten:480 totalBytesExpectedToWrite:720];
+
+    [nsURLSessionDownloadDelegate URLSession:_sessionManager.urlSession downloadTask:downloadtask didWriteData:240 totalBytesWritten:720 totalBytesExpectedToWrite:720];
+
+    XCTAssertEqual(progress.fractionCompleted,1.0);
 
     [self mockMSURLSessionTaskDelegateDidCompleteWithError:msUrlsessionTaskDelegate task:downloadtask statusCode:MSExpectedResponseCodesOK bpath:YES];
-    id<NSURLSessionDownloadDelegate> nsURLSessionDownloadDelegate = _sessionManager;
+
     [nsURLSessionDownloadDelegate URLSession:_sessionManager.urlSession downloadTask:downloadtask didFinishDownloadingToURL:returnLocation];
 
     XCTAssertTrue(_bCompletionBlockInvoked,@"MSRawDownloadCompletionHandler was not invoked");
@@ -152,14 +163,25 @@
     NSDictionary *uploadDic = @{@"testkey":@"testvalue"};
     NSData *uploadData = [NSJSONSerialization dataWithJSONObject:uploadDic options:0 error:nil];
 
-    NSURLSessionUploadTask * uploadtask = [_httpProviderDelegate uploadTaskWithRequest:_request fromData:uploadData progress:nil completionHandler:uploadCompletion];
+    NSProgress *progress = [NSProgress new];
+
+    NSURLSessionUploadTask * uploadtask = [_httpProviderDelegate uploadTaskWithRequest:_request fromData:uploadData progress:&progress completionHandler:uploadCompletion];
     XCTAssertNotNil(uploadtask);
     MSURLSessionTaskDelegate * msUrlsessionTaskDelegate = [_sessionManager.taskDelegates objectForKey:@(uploadtask.taskIdentifier)];
     XCTAssertNotNil(msUrlsessionTaskDelegate);
     XCTAssertEqualObjects(msUrlsessionTaskDelegate.completion, uploadCompletion);
+    id<NSURLSessionTaskDelegate> nsURLSessionTaskDelegate = _sessionManager;
+
+    [nsURLSessionTaskDelegate URLSession:_sessionManager.urlSession task:uploadtask didSendBodyData:240 totalBytesSent:240 totalBytesExpectedToSend:720];
+
+    [nsURLSessionTaskDelegate URLSession:_sessionManager.urlSession task:uploadtask didSendBodyData:240 totalBytesSent:480 totalBytesExpectedToSend:720];
+
+    [nsURLSessionTaskDelegate URLSession:_sessionManager.urlSession task:uploadtask didSendBodyData:240 totalBytesSent:720 totalBytesExpectedToSend:720];
+
+    XCTAssertEqual(progress.fractionCompleted,1.0);
 
     [self mockMSURLSessionTaskDelegateDidCompleteWithError:msUrlsessionTaskDelegate task:uploadtask statusCode:MSExpectedResponseCodesOK bpath:NO];
-    id<NSURLSessionTaskDelegate> nsURLSessionTaskDelegate = _sessionManager;
+
     [nsURLSessionTaskDelegate URLSession:_sessionManager.urlSession task:uploadtask didCompleteWithError:nil];
     XCTAssertTrue(_bCompletionBlockInvoked,@"MSRawUploadCompletionHandler was not invoked");
 }
@@ -186,6 +208,16 @@
     XCTAssertTrue(_bCompletionBlockInvoked);
 }
 
+#pragma mark - Test set next
+
+- (void)testSetNext{
+    id<MSGraphMiddleware> tempMiddleware = OCMProtocolMock(@protocol(MSGraphMiddleware));
+    [_sessionManager setNext:tempMiddleware];
+    XCTAssertEqualObjects(tempMiddleware, _sessionManager.nextMiddleware);
+    id<MSGraphMiddleware> tempMiddleware1 = OCMProtocolMock(@protocol(MSGraphMiddleware));
+    [_sessionManager setNext:tempMiddleware1];
+    XCTAssertEqualObjects(_sessionManager.nextMiddleware, tempMiddleware1);
+}
 
 #pragma mark - Middleware execution
 -(void)testMSHTTPProviderForMiddlewareExecutionWithDataTask{
@@ -208,11 +240,14 @@
 
     id mockMSURLSessionManager = OCMPartialMock(_sessionManager);
 
-    OCMStub([mockMSURLSessionManager dataTaskWithRequest:[OCMArg any] completionHandler:[OCMArg any]]).andReturn(mockNSTask);
+    OCMStub([mockMSURLSessionManager dataTaskWithRequest:[OCMArg any] completionHandler:[OCMArg any]]).andReturn(mockNSTask).andDo(^(NSInvocation *invocation){
+        NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:MSGraphBaseURL] statusCode:MSExpectedResponseCodesOK HTTPVersion:@"foo" headerFields:nil];
+        MSDataCompletionHandler completionHandler;
+        [invocation getArgument:&completionHandler atIndex:3];
+        completionHandler([NSData new],response,nil);
+    });
     OCMStub([mockNSTask resume])
     .andDo(^(NSInvocation *invocation){
-        NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:MSGraphBaseURL] statusCode:MSExpectedResponseCodesOK HTTPVersion:@"foo" headerFields:nil];
-        requestCompletion([NSData new],response,nil);
     });
 
     [_sessionManager execute:dataTask withCompletionHandler:requestCompletion];
@@ -239,11 +274,15 @@
 
 
     id mockMSURLSessionManager = OCMPartialMock(_sessionManager);
-    OCMStub([mockMSURLSessionManager downloadTaskWithRequest:[OCMArg any] progress:[OCMArg anyObjectRef] completionHandler:[OCMArg any]]).andReturn(mockNSTask);
+    OCMStub([mockMSURLSessionManager downloadTaskWithRequest:[OCMArg any] progress:[OCMArg anyObjectRef] completionHandler:[OCMArg any]]).andReturn(mockNSTask).andDo(^(NSInvocation *invocation){
+        NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:MSGraphBaseURL] statusCode:MSExpectedResponseCodesOK HTTPVersion:@"foo" headerFields:nil];
+        MSDownloadCompletionHandler completionHandler;
+        [invocation getArgument:&completionHandler atIndex:4];
+        completionHandler([NSURL URLWithString:@"https://foo"],response,nil);
+    });
     OCMStub([mockNSTask resume])
     .andDo(^(NSInvocation *invocation){
-        NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:MSGraphBaseURL] statusCode:MSExpectedResponseCodesOK HTTPVersion:@"foo" headerFields:nil];
-        requestCompletion([NSURL URLWithString:@"https://foo"],response,nil);
+
     });
 
     [_sessionManager execute:downloadTask withCompletionHandler:requestCompletion];
@@ -271,11 +310,14 @@
 
     id mockMSURLSessionManager = OCMPartialMock(_sessionManager);
 
-    OCMStub([mockMSURLSessionManager uploadTaskWithRequest:[OCMArg any] fromData:[OCMArg any] progress:[OCMArg anyObjectRef] completionHandler:[OCMArg any]]).andReturn(mockNSTask);
+    OCMStub([mockMSURLSessionManager uploadTaskWithRequest:[OCMArg any] fromData:[OCMArg any] progress:[OCMArg anyObjectRef] completionHandler:[OCMArg any]]).andReturn(mockNSTask).andDo(^(NSInvocation *invocation){
+        NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:MSGraphBaseURL] statusCode:MSExpectedResponseCodesOK HTTPVersion:@"foo" headerFields:nil];
+        MSUploadCompletionHandler completionHandler;
+        [invocation getArgument:&completionHandler atIndex:5];
+        completionHandler([NSData new],response,nil);
+    });
     OCMStub([mockNSTask resume])
     .andDo(^(NSInvocation *invocation){
-        NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:MSGraphBaseURL] statusCode:MSExpectedResponseCodesOK HTTPVersion:@"foo" headerFields:nil];
-        requestCompletion([NSData new],response,nil);
     });
 
     [_sessionManager execute:dataTask withCompletionHandler:requestCompletion];
@@ -304,11 +346,14 @@
 
     id mockMSURLSessionManager = OCMPartialMock(_sessionManager);
 
-    OCMStub([mockMSURLSessionManager uploadTaskWithRequest:[OCMArg any] fromFile:[OCMArg any] progress:[OCMArg anyObjectRef] completionHandler:[OCMArg any]]).andReturn(mockNSTask);
+    OCMStub([mockMSURLSessionManager uploadTaskWithRequest:[OCMArg any] fromFile:[OCMArg any] progress:[OCMArg anyObjectRef] completionHandler:[OCMArg any]]).andReturn(mockNSTask).andDo(^(NSInvocation *invocation){
+        NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:MSGraphBaseURL] statusCode:MSExpectedResponseCodesOK HTTPVersion:@"foo" headerFields:nil];
+        MSUploadCompletionHandler completionHandler;
+        [invocation getArgument:&completionHandler atIndex:5];
+        completionHandler([NSData new],response,nil);
+    });
     OCMStub([mockNSTask resume])
     .andDo(^(NSInvocation *invocation){
-        NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:MSGraphBaseURL] statusCode:MSExpectedResponseCodesOK HTTPVersion:@"foo" headerFields:nil];
-        requestCompletion([NSData new],response,nil);
     });
 
     [_sessionManager execute:dataTask withCompletionHandler:requestCompletion];

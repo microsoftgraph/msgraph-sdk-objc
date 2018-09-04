@@ -131,7 +131,10 @@
     id<MSGraphMiddleware> middleware = OCMPartialMock(dataTask.client.middleware);
     OCMStub([middleware execute:[OCMArg any] withCompletionHandler:[OCMArg any]]).andDo(^(NSInvocation *invocation){
         NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:MSGraphBaseURL] statusCode:MSExpectedResponseCodesOK HTTPVersion:@"foo" headerFields:nil];
-        requestCompletion([NSData new],response,nil);
+
+        MSDataCompletionHandler completionHandler;
+        [invocation getArgument:&completionHandler atIndex:3];
+        completionHandler([NSData new],response,nil);
     });
 
     [dataTask execute];
