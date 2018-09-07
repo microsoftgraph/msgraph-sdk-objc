@@ -8,7 +8,7 @@
 
 @interface MSURLSessionTask()
 
--(void)setRequest:(NSMutableURLRequest *)request;
+- (void)setRequest:(NSMutableURLRequest *)request;
 
 @end
 
@@ -20,7 +20,7 @@
 
 @implementation MSAuthenticationMiddleware
 
--(void)execute:(MSURLSessionTask *)task withCompletionHandler:(HTTPRequestCompletionHandler)completionHandler{
+- (void)execute:(MSURLSessionTask *)task withCompletionHandler:(HTTPRequestCompletionHandler)completionHandler{
     [self.authProvider appendAuthenticationHeaders:task.request completion:^(NSMutableURLRequest *request, NSError *error) {
         [task setRequest:request];
         [self.nextMiddleware execute:task withCompletionHandler:^(id data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -30,7 +30,7 @@
 
 }
 
--(void)setNext:(id<MSGraphMiddleware>)nextMiddleware{
+- (void)setNext:(id<MSGraphMiddleware>)nextMiddleware{
     id<MSGraphMiddleware> tempMiddleware;
     if(self.nextMiddleware){
         tempMiddleware = self.nextMiddleware;

@@ -8,7 +8,7 @@
 
 @interface MSURLSessionTask()
 
--(void)taskCompletedWithData:(id)data response:(NSURLResponse *)response andError:(NSError *)error;
+- (void)taskCompletedWithData:(id)data response:(NSURLResponse *)response andError:(NSError *)error;
 
 @end
 
@@ -34,7 +34,7 @@
 }
 
 
--(void)testDataTaskCreationAndExecution{
+- (void)testDataTaskCreationAndExecution{
 
     MSDataCompletionHandler dataCompletion = ^(NSData *data, NSURLResponse *response, NSError *error){
 
@@ -62,7 +62,7 @@
     XCTAssertTrue(_bCompletionBlockInvoked);
 }
 
--(void)testDownloadTaskCreationAndExecution{
+- (void)testDownloadTaskCreationAndExecution{
 
     MSRawDownloadCompletionHandler downloadCompletion = ^(NSURL *fileUrl, NSURLResponse *response, NSError *error){
 
@@ -89,7 +89,7 @@
     XCTAssertTrue(_bCompletionBlockInvoked);
 }
 
--(void)testUploadTaskCreationFromDataAndExecution{
+- (void)testUploadTaskCreationFromDataAndExecution{
     MSRawUploadCompletionHandler uploadCompletion = ^(NSData *data, NSURLResponse *response, NSError *error){
 
         self->_bCompletionBlockInvoked = YES;
@@ -120,7 +120,7 @@
     XCTAssertTrue(_bCompletionBlockInvoked);
 }
 
--(void)testUploadTaskCreationFromFileAndExecution{
+- (void)testUploadTaskCreationFromFileAndExecution{
     MSRawUploadCompletionHandler uploadCompletion = ^(NSData *data, NSURLResponse *response, NSError *error){
 
         self->_bCompletionBlockInvoked = YES;

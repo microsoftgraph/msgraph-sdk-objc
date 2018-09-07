@@ -9,7 +9,7 @@
 
 @interface MSURLSessionTask()
 
--(void)taskCompletedWithData:(id)data response:(NSURLResponse *)response andError:(NSError *)error;
+- (void)taskCompletedWithData:(id)data response:(NSURLResponse *)response andError:(NSError *)error;
 
 @end
 
@@ -35,7 +35,7 @@
     XCTAssertNotNil(dataTask);
 }
 
--(void)testDataTaskCompletion{
+- (void)testDataTaskCompletion{
     MSDataCompletionHandler requestCompletion = ^(NSData *data, NSURLResponse * _Nullable response, NSError * _Nullable error){
 
         self->_bCompletionBlockInvoked = YES;

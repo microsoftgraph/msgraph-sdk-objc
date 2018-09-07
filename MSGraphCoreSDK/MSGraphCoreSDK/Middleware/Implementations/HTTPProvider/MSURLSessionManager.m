@@ -9,7 +9,7 @@
 
 @interface MSURLSessionTask()
 
--(void)setInnerTask:(NSURLSessionTask *)innerTask;
+- (void)setInnerTask:(NSURLSessionTask *)innerTask;
 
 @end
 
@@ -201,10 +201,9 @@ willPerformHTTPRedirection:(NSHTTPURLResponse *)redirectResponse
     completionHandler(newRequest);
 }
 
--(void)execute:(MSURLSessionTask *)task withCompletionHandler:(HTTPRequestCompletionHandler)completionHandler{
+- (void)execute:(MSURLSessionTask *)task withCompletionHandler:(HTTPRequestCompletionHandler)completionHandler{
     if([task isKindOfClass:[MSURLSessionDataTask class]]){
         NSURLSessionTask *dataTask = [self dataTaskWithRequest:task.request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-            NSLog(@"exiting middleware http");
             completionHandler(data,response,error);
         }];
         [task setInnerTask:dataTask];
@@ -212,7 +211,6 @@ willPerformHTTPRedirection:(NSHTTPURLResponse *)redirectResponse
     }else if([task isKindOfClass:[MSURLSessionDownloadTask class]]){
         NSProgress *progress = [(MSURLSessionDownloadTask *)task progress];
         NSURLSessionDownloadTask *downloadTask = [self downloadTaskWithRequest:task.request progress:&progress completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
-            NSLog(@"exiting middleware http");
             completionHandler(location,response,error);
         }];
         [task setInnerTask:downloadTask];
@@ -224,13 +222,11 @@ willPerformHTTPRedirection:(NSHTTPURLResponse *)redirectResponse
         NSURLSessionUploadTask *uploadTask;
         if([(MSURLSessionUploadTask *)task isFileUploadTask]){
             uploadTask = [self uploadTaskWithRequest:task.request fromFile:[(MSURLSessionUploadTask *)task fileURL] progress:&progress completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                NSLog(@"exiting middleware http");
                 completionHandler(data,response,error);
             }];
         }
         else{
             uploadTask = [self uploadTaskWithRequest:task.request fromData:[(MSURLSessionUploadTask *)task data] progress:&progress completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                NSLog(@"exiting middleware http");
                 completionHandler(data,response,error);
             }];
         }
@@ -240,7 +236,7 @@ willPerformHTTPRedirection:(NSHTTPURLResponse *)redirectResponse
     }
 }
 
--(void)setNext:(id<MSGraphMiddleware>)nextMiddleware{
+- (void)setNext:(id<MSGraphMiddleware>)nextMiddleware{
     id<MSGraphMiddleware> tempMiddleware;
     if(self.nextMiddleware){
         tempMiddleware = self.nextMiddleware;

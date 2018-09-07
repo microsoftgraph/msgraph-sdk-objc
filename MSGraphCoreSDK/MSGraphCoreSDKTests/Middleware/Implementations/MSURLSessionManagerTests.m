@@ -77,7 +77,7 @@
 }
 
 #pragma mark - dataTaskWithRequest success
--(void)testMSURLSessionManagerInitAndMSHttpProviderDelegateDataTaskWithRequestWithOk{
+- (void)testMSURLSessionManagerInitAndMSHttpProviderDelegateDataTaskWithRequestWithOk{
 
     //Creating a demo response dictionary and data
     NSDictionary *returnDic = @{@"testkey":@"testvalue"};
@@ -117,7 +117,7 @@
 }
 
 #pragma mark - downloadTaskWithRequest success
--(void)testMSHttpProviderDelegateDownloadTaskWithRequestWithOk{
+- (void)testMSHttpProviderDelegateDownloadTaskWithRequestWithOk{
     NSURL *returnLocation = [NSURL URLWithString:@"file://test/foo"];
     MSRawDownloadCompletionHandler downloadCompletion = ^(NSURL *location, NSURLResponse *response, NSError *error){
         self->_bCompletionBlockInvoked = YES;
@@ -151,7 +151,7 @@
 }
 
 #pragma mark - UploadTaskWithRequestFrom Data success
--(void)testMSHttpProviderDelegateUploadTaskFromDataWithRequest{
+- (void)testMSHttpProviderDelegateUploadTaskFromDataWithRequest{
     MSRawUploadCompletionHandler uploadCompletion = ^(NSData *data, NSURLResponse *response, NSError *error) {
         self->_bCompletionBlockInvoked = YES;
         XCTAssertNil(error);
@@ -186,7 +186,7 @@
     XCTAssertTrue(_bCompletionBlockInvoked,@"MSRawUploadCompletionHandler was not invoked");
 }
 #pragma mark - UploadTaskWithRequestFrom File success
--(void)testMSHttpProviderDelegateUploadTaskFromFileWithRequest{
+- (void)testMSHttpProviderDelegateUploadTaskFromFileWithRequest{
     MSRawUploadCompletionHandler uploadCompletion = ^(NSData *data, NSURLResponse *response, NSError *error) {
         self->_bCompletionBlockInvoked = YES;
         XCTAssertNil(error);
@@ -220,7 +220,7 @@
 }
 
 #pragma mark - Middleware execution
--(void)testMSHTTPProviderForMiddlewareExecutionWithDataTask{
+- (void)testMSHTTPProviderForMiddlewareExecutionWithDataTask{
 
     MSDataCompletionHandler dataCompletion = ^(NSData *data, NSURLResponse *response, NSError *error){
     };
@@ -255,7 +255,7 @@
      XCTAssertTrue(_bCompletionBlockInvoked);
 }
 
--(void)testMSHTTPProviderForMiddlewareExecutionWithDownloadTask{
+- (void)testMSHTTPProviderForMiddlewareExecutionWithDownloadTask{
 
     MSDownloadCompletionHandler downloadCompletion = ^(NSURL *fileUrl, NSURLResponse *response, NSError *error){
     };
@@ -290,7 +290,7 @@
     XCTAssertTrue(_bCompletionBlockInvoked);
 }
 
--(void)testMSHTTPProviderForMiddlewareExecutionWithUploadTaskFromData{
+- (void)testMSHTTPProviderForMiddlewareExecutionWithUploadTaskFromData{
 
     MSUploadCompletionHandler dataCompletion = ^(NSData *data, NSURLResponse *response, NSError *error){
     };
@@ -326,7 +326,7 @@
     XCTAssertTrue(_bCompletionBlockInvoked);
 }
 
--(void)testMSHTTPProviderForMiddlewareExecutionWithUploadTaskFromFile{
+- (void)testMSHTTPProviderForMiddlewareExecutionWithUploadTaskFromFile{
 
     MSUploadCompletionHandler dataCompletion = ^(NSData *data, NSURLResponse *response, NSError *error){
     };
@@ -363,7 +363,7 @@
 }
 
 #pragma mark - Mock HTTP URL Response
--(void)mockMSURLSessionTaskDelegateDidCompleteWithError:(MSURLSessionTaskDelegate *)msUrlsessionTaskDelegate task:(NSURLSessionTask *)task statusCode:(NSInteger)statusCode bpath:(BOOL)bpath{
+- (void)mockMSURLSessionTaskDelegateDidCompleteWithError:(MSURLSessionTaskDelegate *)msUrlsessionTaskDelegate task:(NSURLSessionTask *)task statusCode:(NSInteger)statusCode bpath:(BOOL)bpath{
     MSURLSessionTaskDelegate *mockMSURLSessionTaskDelegate = OCMPartialMock(msUrlsessionTaskDelegate);
 
     OCMStub([mockMSURLSessionTaskDelegate task:task didCompleteWithError:[OCMArg any]])

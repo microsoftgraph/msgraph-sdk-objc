@@ -24,7 +24,7 @@
     return self;
 }
 
--(void)taskCompletedWithData:(id)data response:(NSURLResponse *)response andError:(NSError *)error{
+- (void)taskCompletedWithData:(id)data response:(NSURLResponse *)response andError:(NSError *)error{
     _completionHandler(data,response,error);
 }
 

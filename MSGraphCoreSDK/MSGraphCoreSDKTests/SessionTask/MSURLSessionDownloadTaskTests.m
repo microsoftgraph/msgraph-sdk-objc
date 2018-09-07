@@ -11,8 +11,8 @@
 
 @interface MSURLSessionDownloadTask()
 
--(NSProgress *)createProgress;
--(void)taskCompletedWithData:(id)data response:(NSURLResponse *)response andError:(NSError *)error;
+- (NSProgress *)createProgress;
+- (void)taskCompletedWithData:(id)data response:(NSURLResponse *)response andError:(NSError *)error;
 
 @end
 
@@ -43,7 +43,7 @@
     XCTAssertNotNil(downloadTask);
 }
 
--(void)testCreateProgress{
+- (void)testCreateProgress{
     MSURLSessionDownloadTask *downloadTask = [[MSURLSessionDownloadTask alloc] initWithRequest:self.requestForMock client:self.mockClient completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
     }];
     NSProgress *progress = [downloadTask createProgress];
@@ -52,7 +52,7 @@
 
 }
 
--(void)testDownloadTaskCompletion{
+- (void)testDownloadTaskCompletion{
     MSDownloadCompletionHandler requestCompletion = ^(NSURL *fileURL, NSURLResponse * _Nullable response, NSError * _Nullable error){
         //TODO: Handle bool checking gracefully
         self->_bCompletionBlockInvoked = YES;

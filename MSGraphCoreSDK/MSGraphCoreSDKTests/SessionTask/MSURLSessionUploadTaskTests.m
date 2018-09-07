@@ -11,8 +11,8 @@
 
 @interface MSURLSessionUploadTask()
 
--(NSProgress *)createProgress;
--(void)taskCompletedWithData:(id)data response:(NSURLResponse *)response andError:(NSError *)error;
+- (NSProgress *)createProgress;
+- (void)taskCompletedWithData:(id)data response:(NSURLResponse *)response andError:(NSError *)error;
 
 @end
 
@@ -63,7 +63,7 @@
     XCTAssertNotNil(uploadTaskFromFile);
 }
 
--(void)testCreateProgress{
+- (void)testCreateProgress{
     MSURLSessionUploadTask *uploadTask = [[MSURLSessionUploadTask alloc] initWithRequest:self.requestForMock data:_demoData client:self.mockClient completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
     }  ];
     NSProgress *progress = [uploadTask createProgress];
@@ -72,7 +72,7 @@
 
 }
 
--(void)testUploadTaskCompletion{
+- (void)testUploadTaskCompletion{
     MSUploadCompletionHandler requestCompletion = ^(NSData *data, NSURLResponse * _Nullable response, NSError * _Nullable error){
 
         self->_bCompletionBlockInvoked = YES;

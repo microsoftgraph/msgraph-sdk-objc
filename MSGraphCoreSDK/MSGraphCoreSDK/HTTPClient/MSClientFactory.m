@@ -6,22 +6,19 @@
 #import "MSClientFactory.h"
 #import "MSAuthenticationMiddleware.h"
 #import "MSURLSessionManager.h"
+#import "MSMiddlewareFactory.h"
 
 @implementation MSClientFactory
 
 +(MSHTTPClient *)createHTTPClientWithAuthenticationProvider:(id<MSAuthenticationProvider>)authenticationProvider{
     NSParameterAssert(authenticationProvider);
-    //TODO: Put the middlware creation in a middleware facotry
-    MSAuthenticationMiddleware *authenticationMiddleware = [MSAuthenticationMiddleware new];
+    //Creating a default chain of middlewares starting from Authentication
+    MSAuthenticationMiddleware *authenticationMiddleware = (MSAuthenticationMiddleware *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeAuthentication];
     authenticationMiddleware.authProvider = authenticationProvider;
-    MSURLSessionManager *sessionManager = [[MSURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    MSURLSessionManager *sessionManager = (MSURLSessionManager *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeHTTP];
     [authenticationMiddleware setNext:sessionManager];
-    
     return [MSClientFactory createHTTPClientWithMiddleware:authenticationMiddleware];
-
 }
-
-
 
 +(MSHTTPClient *)createHTTPClientWithMiddleware:(id<MSGraphMiddleware>)middleware{
     NSParameterAssert(middleware);

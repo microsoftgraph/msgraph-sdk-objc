@@ -35,11 +35,11 @@
     }];
 }
 
--(void)setRequest:(NSMutableURLRequest *)request{
+- (void)setRequest:(NSMutableURLRequest *)request{
     _request = request;
 }
 
--(void)setInnerTask:(NSURLSessionTask *)innerTask{
+- (void)setInnerTask:(NSURLSessionTask *)innerTask{
     if(_isCancelled)
         [innerTask cancel];
     else
@@ -55,7 +55,7 @@
 
 }
 
--(void)taskCompletedWithData:(id)data response:(NSURLResponse *)response andError:(NSError *)error{
+- (void)taskCompletedWithData:(id)data response:(NSURLResponse *)response andError:(NSError *)error{
     NSAssert(NO, @"Not Implemented, must implement in sub class");
 }
 

@@ -10,8 +10,8 @@
 
 @interface MSURLSessionTask()
 
--(void)setRequest:(NSMutableURLRequest *)request;
--(void)setInnerTask:(NSURLSessionTask *)innerTask;
+- (void)setRequest:(NSMutableURLRequest *)request;
+- (void)setInnerTask:(NSURLSessionTask *)innerTask;
 
 @end
 
@@ -46,7 +46,7 @@
     XCTAssertEqual(msURLSessionTask.client, self.mockClient);
 }
 
--(void)testSetInnerTask{
+- (void)testSetInnerTask{
     MSURLSessionTask *msSessionTask = [[MSURLSessionTask alloc] initWithRequest:self.requestForMock client:self.mockClient];
 
     NSURLSessionTask *nsSessionTask = [self.mockHttpProvider dataTaskWithRequest:self.requestForMock completionHandler:nil];
@@ -57,7 +57,7 @@
     
 }
 
--(void)testSetInnerTaskForCancelledTask{
+- (void)testSetInnerTaskForCancelledTask{
     MSURLSessionTask *msSessionTask = [[MSURLSessionTask alloc] initWithRequest:self.requestForMock client:self.mockClient];
     [msSessionTask cancel];
 
@@ -82,7 +82,7 @@
     
 }
 
--(void)testTaskCancellation{
+- (void)testTaskCancellation{
     MSURLSessionTask *msSessionTask = [[MSURLSessionTask alloc] initWithRequest:self.requestForMock client:self.mockClient];
 
     XCTestExpectation *testExpectation = [[XCTestExpectation alloc] initWithDescription:@"Waiting for cancellation of request."];
@@ -107,7 +107,7 @@
 
 }
 
--(void)testSetRequest{
+- (void)testSetRequest{
     MSURLSessionTask *msSessionTask = [[MSURLSessionTask alloc] initWithRequest:self.requestForMock client:self.mockClient];
 
     NSMutableURLRequest *urlRequest = [msSessionTask request];
@@ -118,7 +118,7 @@
     XCTAssertEqual(urlRequest, msSessionTask.request);
 }
 
--(void)testExecute{
+- (void)testExecute{
     MSDataCompletionHandler requestCompletion = ^(NSData *data, NSURLResponse * _Nullable response, NSError * _Nullable error){
 
         self->_bCompletionBlockInvoked = YES;

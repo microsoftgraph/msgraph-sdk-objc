@@ -46,6 +46,9 @@
 		E5DC741B21142C430040BAB6 /* MSHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC741721142C420040BAB6 /* MSHTTPClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5DC741C21142C430040BAB6 /* MSClientFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC741821142C420040BAB6 /* MSClientFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5DC741D21142C430040BAB6 /* MSHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DC741921142C430040BAB6 /* MSHTTPClient.m */; };
+		E5ECE09721427A6400A289C2 /* MSMiddlewareFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = E5ECE09521427A6400A289C2 /* MSMiddlewareFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5ECE09821427A6400A289C2 /* MSMiddlewareFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE09621427A6400A289C2 /* MSMiddlewareFactory.m */; };
+		E5ECE09E2142992F00A289C2 /* MSMiddlewareFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE09D2142992F00A289C2 /* MSMiddlewareFactoryTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +107,9 @@
 		E5DC741721142C420040BAB6 /* MSHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSHTTPClient.h; sourceTree = "<group>"; };
 		E5DC741821142C420040BAB6 /* MSClientFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSClientFactory.h; sourceTree = "<group>"; };
 		E5DC741921142C430040BAB6 /* MSHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSHTTPClient.m; sourceTree = "<group>"; };
+		E5ECE09521427A6400A289C2 /* MSMiddlewareFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSMiddlewareFactory.h; sourceTree = "<group>"; };
+		E5ECE09621427A6400A289C2 /* MSMiddlewareFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSMiddlewareFactory.m; sourceTree = "<group>"; };
+		E5ECE09D2142992F00A289C2 /* MSMiddlewareFactoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSMiddlewareFactoryTests.m; sourceTree = "<group>"; };
 		F85C5ADB62B7F2F2D5BE52ED /* Pods-MSGraphCoreSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSGraphCoreSDK.release.xcconfig"; path = "Pods/Target Support Files/Pods-MSGraphCoreSDK/Pods-MSGraphCoreSDK.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -246,6 +252,7 @@
 			children = (
 				E573EE062133FFF200C5E884 /* MSHTTPClientTests.m */,
 				E573EE082134167400C5E884 /* MSClientFactoryTests.m */,
+				E5ECE09D2142992F00A289C2 /* MSMiddlewareFactoryTests.m */,
 			);
 			path = HTTPClient;
 			sourceTree = "<group>";
@@ -299,6 +306,8 @@
 				E5DC741621142C420040BAB6 /* MSClientFactory.m */,
 				E5DC741721142C420040BAB6 /* MSHTTPClient.h */,
 				E5DC741921142C430040BAB6 /* MSHTTPClient.m */,
+				E5ECE09521427A6400A289C2 /* MSMiddlewareFactory.h */,
+				E5ECE09621427A6400A289C2 /* MSMiddlewareFactory.m */,
 			);
 			path = HTTPClient;
 			sourceTree = "<group>";
@@ -352,6 +361,7 @@
 				E52AD97A212D27DC005FED47 /* MSURLSessionUploadTask.h in Headers */,
 				E52AD97C212D27DC005FED47 /* MSURLSessionDataTask.h in Headers */,
 				E5DC7406211418050040BAB6 /* MSURLSessionTaskDelegate.h in Headers */,
+				E5ECE09721427A6400A289C2 /* MSMiddlewareFactory.h in Headers */,
 				E5DC73DF211412BF0040BAB6 /* MSGraphCoreSDK.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -548,6 +558,7 @@
 				E52AD9F42133E171005FED47 /* MSURLSessionDownloadTaskTests.m in Sources */,
 				E573EE092134167400C5E884 /* MSClientFactoryTests.m in Sources */,
 				E573EE0B213427ED00C5E884 /* MSURLSessionTaskDelegateTests.m in Sources */,
+				E5ECE09E2142992F00A289C2 /* MSMiddlewareFactoryTests.m in Sources */,
 				E5069AE2211C323D00432372 /* MSURLSessionManagerTests.m in Sources */,
 				E52AD9F62133E740005FED47 /* MSURLSessionUploadTaskTests.m in Sources */,
 				E5069AD9211C1AD500432372 /* MSGraphCoreSDKTests.m in Sources */,
@@ -562,6 +573,7 @@
 			files = (
 				E5DC741A21142C430040BAB6 /* MSClientFactory.m in Sources */,
 				E5069AC9211AAEC900432372 /* MSConstants.m in Sources */,
+				E5ECE09821427A6400A289C2 /* MSMiddlewareFactory.m in Sources */,
 				E52AD97F212D27DC005FED47 /* MSURLSessionDownloadTask.m in Sources */,
 				E5DC7405211418050040BAB6 /* MSURLSessionManager.m in Sources */,
 				E52AD979212D27DC005FED47 /* MSURLSessionTask.m in Sources */,
