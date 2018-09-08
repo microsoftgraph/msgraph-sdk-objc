@@ -19,7 +19,7 @@
 @interface MSURLSessionUploadTaskTests : MSGraphCoreSDKTests
 @property NSData * demoData;
 @property NSURL *demoFileLocation;
-@property (nonatomic) __block BOOL bCompletionBlockInvoked;
+
 
 @end
 
@@ -75,7 +75,7 @@
 - (void)testUploadTaskCompletion{
     MSUploadCompletionHandler requestCompletion = ^(NSData *data, NSURLResponse * _Nullable response, NSError * _Nullable error){
 
-        self->_bCompletionBlockInvoked = YES;
+        [self completionBlockCodeInvoked];
         XCTAssertNil(error);
         XCTAssertNotNil(response);
         XCTAssertNotNil(data);
@@ -90,7 +90,7 @@
     });
 
     [uploadTask execute];
-    XCTAssertTrue(_bCompletionBlockInvoked);
+    [self checkCompletionBlockCodeInvoked];
 
 }
 

@@ -14,5 +14,9 @@
 @property (nonatomic,retain) id<MSAuthenticationProvider> mockAuthProvider;
 @property (nonatomic,retain) id<MSHttpProvider> mockHttpProvider;
 @property (nonatomic,retain) MSHTTPClient *mockClient;
+@property (nonatomic) __block BOOL bCompletionBlockInvoked;
+
+-(void)completionBlockCodeInvoked;
+-(void)checkCompletionBlockCodeInvoked;
 
 @end

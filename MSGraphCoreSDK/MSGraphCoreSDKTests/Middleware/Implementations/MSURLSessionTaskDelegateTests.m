@@ -22,7 +22,7 @@
 @interface MSURLSessionTaskDelegateTests : MSGraphCoreSDKTests
 
 @property MSURLSessionTaskDelegate *taskDelegate;
-@property (nonatomic) __block BOOL bCompletionBlockInvoked;
+
 
 @end
 
@@ -85,7 +85,7 @@
 
 - (void)testTaskDidCompleteWithError{
     MSURLSessionTaskCompletion taskCompletion = ^(id responseObject, NSURLResponse *response, NSError *error){
-        self->_bCompletionBlockInvoked = true;
+        [self completionBlockCodeInvoked];
         XCTAssertNotNil(responseObject);
         XCTAssertTrue([responseObject isKindOfClass:[NSData class]]);
         XCTAssertNil(response);
@@ -101,12 +101,12 @@
 
     [taskDelegate task:sessionTask didCompleteWithError:nil];
 
-    XCTAssertTrue(_bCompletionBlockInvoked);
+    [self checkCompletionBlockCodeInvoked];
 }
 
 - (void)testTaskDidCompleteWithErrorForFileDownload{
     MSURLSessionTaskCompletion taskCompletion = ^(id responseObject, NSURLResponse *response, NSError *error){
-        self->_bCompletionBlockInvoked = true;
+        [self completionBlockCodeInvoked];
         XCTAssertNotNil(responseObject);
         XCTAssertTrue([responseObject isKindOfClass:[NSURL class]]);
         XCTAssertNil(response);
@@ -122,7 +122,7 @@
 
     [taskDelegate task:sessionTask didCompleteWithError:nil];
 
-    XCTAssertTrue(_bCompletionBlockInvoked);
+    [self checkCompletionBlockCodeInvoked];
 }
 
 - (void)testTaskDidCompleteDownload{

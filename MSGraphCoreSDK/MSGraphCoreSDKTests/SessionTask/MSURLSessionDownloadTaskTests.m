@@ -17,7 +17,7 @@
 @end
 
 @interface MSURLSessionDownloadTaskTests : MSGraphCoreSDKTests
-@property (nonatomic) __block BOOL bCompletionBlockInvoked;
+
 @property (nonatomic,retain) NSURL *fileLocation;
 @end
 
@@ -54,8 +54,7 @@
 
 - (void)testDownloadTaskCompletion{
     MSDownloadCompletionHandler requestCompletion = ^(NSURL *fileURL, NSURLResponse * _Nullable response, NSError * _Nullable error){
-        //TODO: Handle bool checking gracefully
-        self->_bCompletionBlockInvoked = YES;
+        [self completionBlockCodeInvoked];
         XCTAssertNil(error);
         XCTAssertNotNil(response);
         XCTAssertNotNil(fileURL);
@@ -70,7 +69,7 @@
     });
 
     [downloadTask execute];
-    XCTAssertTrue(_bCompletionBlockInvoked);
+    [self checkCompletionBlockCodeInvoked];
 
 }
 @end

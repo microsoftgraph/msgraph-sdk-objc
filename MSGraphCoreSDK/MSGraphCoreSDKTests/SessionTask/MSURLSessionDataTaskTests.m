@@ -14,7 +14,7 @@
 @end
 
 @interface MSURLSessionDataTaskTests : MSGraphCoreSDKTests
-@property (nonatomic) __block BOOL bCompletionBlockInvoked;
+
 @end
 
 @implementation MSURLSessionDataTaskTests
@@ -38,7 +38,7 @@
 - (void)testDataTaskCompletion{
     MSDataCompletionHandler requestCompletion = ^(NSData *data, NSURLResponse * _Nullable response, NSError * _Nullable error){
 
-        self->_bCompletionBlockInvoked = YES;
+        [self completionBlockCodeInvoked];
         XCTAssertNil(error);
         XCTAssertNotNil(response);
         XCTAssertNotNil(data);
@@ -53,7 +53,7 @@
     });
 
     [dataTask execute];
-    XCTAssertTrue(_bCompletionBlockInvoked);
+    [self checkCompletionBlockCodeInvoked];
 
 }
 

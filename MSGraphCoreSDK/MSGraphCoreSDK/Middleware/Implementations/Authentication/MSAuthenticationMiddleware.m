@@ -22,12 +22,15 @@
 
 - (void)execute:(MSURLSessionTask *)task withCompletionHandler:(HTTPRequestCompletionHandler)completionHandler{
     [self.authProvider appendAuthenticationHeaders:task.request completion:^(NSMutableURLRequest *request, NSError *error) {
-        [task setRequest:request];
-        [self.nextMiddleware execute:task withCompletionHandler:^(id data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            completionHandler(data,response,error);
-        }];
+        if(!error){
+            [task setRequest:request];
+            [self.nextMiddleware execute:task withCompletionHandler:^(id data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                completionHandler(data,response,error);
+            }];
+        }else{
+            completionHandler(nil,nil,error);
+        }
     }];
-
 }
 
 - (void)setNext:(id<MSGraphMiddleware>)nextMiddleware{

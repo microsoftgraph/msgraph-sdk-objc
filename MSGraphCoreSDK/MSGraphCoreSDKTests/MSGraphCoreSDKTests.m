@@ -24,6 +24,13 @@
     [super tearDown];
 }
 
+-(void)completionBlockCodeInvoked{
+    _bCompletionBlockInvoked = YES;
+}
+-(void)checkCompletionBlockCodeInvoked{
+    XCTAssertTrue(_bCompletionBlockInvoked);
+}
+
 
 
 

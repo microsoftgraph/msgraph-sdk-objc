@@ -20,7 +20,7 @@
 @end
 
 @interface MSGraphWorkloadsTests : MSGraphCoreSDKTests
-@property (nonatomic) __block BOOL bCompletionBlockInvoked;
+
 @property (nonatomic, retain) NSData *responseData;
 @property (nonatomic)  NSHTTPURLResponse *OKresponse;
 @property (nonatomic)  id mockMiddleware;
@@ -62,7 +62,7 @@
 
     NSMutableURLRequest *requestForDriveItemSearch = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[MSGraphBaseURL stringByAppendingString:@"/me/drive/root/microsoft.graph.search(q='test')"]]];
     MSURLSessionDataTask *dataTask = [self.mockClient dataTaskWithRequest:requestForDriveItemSearch completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        self->_bCompletionBlockInvoked = true;
+        [self completionBlockCodeInvoked];
         NSDictionary *actualResponseDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
         XCTAssertEqual([(NSArray *)[actualResponseDictionary objectForKey:@"value"] count], [(NSArray *)[expectedResponseDict objectForKey:@"value"] count]);
         NSDictionary * driveItem1 = [(NSArray *)[actualResponseDictionary objectForKey:@"value"] objectAtIndex:0];
@@ -92,7 +92,7 @@
 
     [dataTask execute];
     [self waitForExpectations:@[testExpectation] timeout:5.0];
-    XCTAssertTrue(_bCompletionBlockInvoked);
+    [self checkCompletionBlockCodeInvoked];
 
 }
 
@@ -104,7 +104,7 @@
     XCTestExpectation *testExpectation = [[XCTestExpectation alloc] initWithDescription:@"Waiting for completion of 'resume' of download task"];
 
     MSURLSessionDownloadTask *downloadTask = [self.mockClient downloadTaskWithRequest:requestForUserPhotoDownload completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
-        self->_bCompletionBlockInvoked = TRUE;
+        [self completionBlockCodeInvoked];
         XCTAssertEqualObjects(downloadPath, [location absoluteString]);
         XCTAssertEqual(((NSHTTPURLResponse*)response).statusCode, MSExpectedResponseCodesOK);
         XCTAssertNil(error);
@@ -119,7 +119,7 @@
     });
     [downloadTask execute];
     [self waitForExpectations:@[testExpectation] timeout:5.0];
-    XCTAssertTrue(_bCompletionBlockInvoked);
+    [self checkCompletionBlockCodeInvoked];
 }
 
 - (void)testUserPhotoUploadFromFile{
@@ -130,7 +130,7 @@
     XCTestExpectation *testExpectation = [[XCTestExpectation alloc] initWithDescription:@"Waiting for completion of 'resume' of upload task"];
 
     MSURLSessionUploadTask *uploadTask = [self.mockClient uploadTaskWithRequest:requestForUserPhotoUpload fromFile:[NSURL URLWithString:filePath] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        self->_bCompletionBlockInvoked = TRUE;
+        [self completionBlockCodeInvoked];
         XCTAssertNil(data);
         XCTAssertEqual(((NSHTTPURLResponse*)response).statusCode, MSExpectedResponseCodesOK);
         XCTAssertNil(error);
@@ -145,7 +145,7 @@
     });
     [uploadTask execute];
     [self waitForExpectations:@[testExpectation] timeout:5.0];
-    XCTAssertTrue(_bCompletionBlockInvoked);
+    [self checkCompletionBlockCodeInvoked];
 }
 
 - (void)testUserPhotoUploadFromData{
@@ -156,7 +156,7 @@
     XCTestExpectation *testExpectation = [[XCTestExpectation alloc] initWithDescription:@"Waiting for completion of 'resume' of upload task"];
 
     MSURLSessionUploadTask *uploadTask = [self.mockClient uploadTaskWithRequest:requestForUserPhotoUpload fromData:fileData completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        self->_bCompletionBlockInvoked = TRUE;
+        [self completionBlockCodeInvoked];
         XCTAssertNil(data);
         XCTAssertEqual(((NSHTTPURLResponse*)response).statusCode, MSExpectedResponseCodesOK);
         XCTAssertNil(error);
@@ -171,7 +171,7 @@
     });
     [uploadTask execute];
     [self waitForExpectations:@[testExpectation] timeout:5.0];
-    XCTAssertTrue(_bCompletionBlockInvoked);
+    [self checkCompletionBlockCodeInvoked];
 }
 
 @end

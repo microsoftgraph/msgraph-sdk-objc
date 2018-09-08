@@ -16,7 +16,6 @@
 @interface MSHTTPClientTests : MSGraphCoreSDKTests
 @property NSData * demoData;
 @property NSURL *demoFileLocation;
-@property (nonatomic) __block BOOL bCompletionBlockInvoked;
 @end
 
 @implementation MSHTTPClientTests
@@ -38,7 +37,7 @@
 
     MSDataCompletionHandler dataCompletion = ^(NSData *data, NSURLResponse *response, NSError *error){
 
-        self->_bCompletionBlockInvoked = YES;
+        [self completionBlockCodeInvoked];
         XCTAssertNil(error);
         XCTAssertNotNil(response);
         XCTAssertEqual(((NSHTTPURLResponse *)response).statusCode, MSExpectedResponseCodesOK);
@@ -59,14 +58,14 @@
         [dataTask taskCompletedWithData:self->_demoData response:response andError:nil];
     });
     [dataTask execute];
-    XCTAssertTrue(_bCompletionBlockInvoked);
+    [self checkCompletionBlockCodeInvoked];
 }
 
 - (void)testDownloadTaskCreationAndExecution{
 
     MSRawDownloadCompletionHandler downloadCompletion = ^(NSURL *fileUrl, NSURLResponse *response, NSError *error){
 
-        self->_bCompletionBlockInvoked = YES;
+        [self completionBlockCodeInvoked];
         XCTAssertNil(error);
         XCTAssertNotNil(response);
         XCTAssertEqual(((NSHTTPURLResponse *)response).statusCode, MSExpectedResponseCodesOK);
@@ -86,13 +85,13 @@
         [downloadTask taskCompletedWithData:self->_demoFileLocation response:response andError:nil];
     });
     [downloadTask execute];
-    XCTAssertTrue(_bCompletionBlockInvoked);
+    [self checkCompletionBlockCodeInvoked];
 }
 
 - (void)testUploadTaskCreationFromDataAndExecution{
     MSRawUploadCompletionHandler uploadCompletion = ^(NSData *data, NSURLResponse *response, NSError *error){
 
-        self->_bCompletionBlockInvoked = YES;
+        [self completionBlockCodeInvoked];
         XCTAssertNil(error);
         XCTAssertNotNil(response);
         XCTAssertEqual(((NSHTTPURLResponse *)response).statusCode, MSExpectedResponseCodesOK);
@@ -117,13 +116,13 @@
         [uploadTaskFromData taskCompletedWithData:self->_demoData response:response andError:nil];
     });
     [uploadTaskFromData execute];
-    XCTAssertTrue(_bCompletionBlockInvoked);
+    [self checkCompletionBlockCodeInvoked];
 }
 
 - (void)testUploadTaskCreationFromFileAndExecution{
     MSRawUploadCompletionHandler uploadCompletion = ^(NSData *data, NSURLResponse *response, NSError *error){
 
-        self->_bCompletionBlockInvoked = YES;
+        [self completionBlockCodeInvoked];
         XCTAssertNil(error);
         XCTAssertNotNil(response);
         XCTAssertEqual(((NSHTTPURLResponse *)response).statusCode, MSExpectedResponseCodesOK);
@@ -148,6 +147,6 @@
         [uploadTaskFromFile taskCompletedWithData:self->_demoData response:response andError:nil];
     });
     [uploadTaskFromFile execute];
-    XCTAssertTrue(_bCompletionBlockInvoked);
+    [self checkCompletionBlockCodeInvoked];
 }
 @end

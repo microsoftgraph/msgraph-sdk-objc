@@ -16,7 +16,7 @@
 @end
 
 @interface MSURLSessionTaskTests : MSGraphCoreSDKTests
-@property (nonatomic) __block BOOL bCompletionBlockInvoked;
+
 @property (nonatomic,retain) MSURLSessionManager * sessionManager;
 @end
 
@@ -65,7 +65,7 @@
 
     MSDataCompletionHandler requestCompletion = ^(NSData *data, NSURLResponse * _Nullable response, NSError * _Nullable error){
 
-        self->_bCompletionBlockInvoked = YES;
+        [self completionBlockCodeInvoked];
         XCTAssertNotNil(error);
         XCTAssertNil(response);
         XCTAssertNil(data);
@@ -78,7 +78,7 @@
 
     [msSessionTask setInnerTask:nsSessionTask];
     [self waitForExpectations:@[testExpectation] timeout:5.0];
-    XCTAssertTrue(_bCompletionBlockInvoked);
+    [self checkCompletionBlockCodeInvoked];
     
 }
 
@@ -89,7 +89,7 @@
 
     MSDataCompletionHandler requestCompletion = ^(NSData *data, NSURLResponse * _Nullable response, NSError * _Nullable error){
 
-        self->_bCompletionBlockInvoked = YES;
+        [self completionBlockCodeInvoked];
         XCTAssertNotNil(error);
         XCTAssertNil(response);
         XCTAssertNil(data);
@@ -103,7 +103,7 @@
     [msSessionTask setInnerTask:nsSessionTask];
     [msSessionTask cancel];
     [self waitForExpectations:@[testExpectation] timeout:5.0];
-    XCTAssertTrue(_bCompletionBlockInvoked);
+    [self checkCompletionBlockCodeInvoked];
 
 }
 
@@ -121,7 +121,7 @@
 - (void)testExecute{
     MSDataCompletionHandler requestCompletion = ^(NSData *data, NSURLResponse * _Nullable response, NSError * _Nullable error){
 
-        self->_bCompletionBlockInvoked = YES;
+        [self completionBlockCodeInvoked];
         XCTAssertNil(error);
         XCTAssertNotNil(response);
         XCTAssertNotNil(data);
@@ -138,7 +138,7 @@
     });
 
     [dataTask execute];
-    XCTAssertTrue(_bCompletionBlockInvoked);
+    [self checkCompletionBlockCodeInvoked];
 
 }
 @end

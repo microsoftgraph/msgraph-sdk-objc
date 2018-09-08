@@ -31,7 +31,7 @@
 
 @property (nonatomic,retain) NSURL * requestURL;
 @property (nonatomic,retain) NSURLRequest *request;
-@property (nonatomic) __block BOOL bCompletionBlockInvoked;
+
 @end
 
 @implementation MSURLSessionManagerTests
@@ -113,14 +113,14 @@
     [self mockMSURLSessionTaskDelegateDidCompleteWithError:msUrlsessionTaskDelegate task:datatask statusCode:MSExpectedResponseCodesOK bpath:NO];
     //Mocking did complete
     [nsURLSessionDataDelegate URLSession:_sessionManager.urlSession task:datatask didCompleteWithError:nil];
-    XCTAssertTrue(_bCompletionBlockInvoked,@"MSDataCompletionHandler was not invoked");
+    [self checkCompletionBlockCodeInvoked];
 }
 
 #pragma mark - downloadTaskWithRequest success
 - (void)testMSHttpProviderDelegateDownloadTaskWithRequestWithOk{
     NSURL *returnLocation = [NSURL URLWithString:@"file://test/foo"];
     MSRawDownloadCompletionHandler downloadCompletion = ^(NSURL *location, NSURLResponse *response, NSError *error){
-        self->_bCompletionBlockInvoked = YES;
+        [self completionBlockCodeInvoked];
         XCTAssertNil(error);
         XCTAssertNotNil(response);
         XCTAssertEqual(((NSHTTPURLResponse *)response).statusCode, MSExpectedResponseCodesOK);
@@ -147,13 +147,14 @@
 
     [nsURLSessionDownloadDelegate URLSession:_sessionManager.urlSession downloadTask:downloadtask didFinishDownloadingToURL:returnLocation];
 
-    XCTAssertTrue(_bCompletionBlockInvoked,@"MSRawDownloadCompletionHandler was not invoked");
+    [self checkCompletionBlockCodeInvoked];
+
 }
 
 #pragma mark - UploadTaskWithRequestFrom Data success
 - (void)testMSHttpProviderDelegateUploadTaskFromDataWithRequest{
     MSRawUploadCompletionHandler uploadCompletion = ^(NSData *data, NSURLResponse *response, NSError *error) {
-        self->_bCompletionBlockInvoked = YES;
+        [self completionBlockCodeInvoked];
         XCTAssertNil(error);
         XCTAssertNotNil(response);
         XCTAssertEqual(((NSHTTPURLResponse *)response).statusCode, MSExpectedResponseCodesOK);
@@ -183,12 +184,12 @@
     [self mockMSURLSessionTaskDelegateDidCompleteWithError:msUrlsessionTaskDelegate task:uploadtask statusCode:MSExpectedResponseCodesOK bpath:NO];
 
     [nsURLSessionTaskDelegate URLSession:_sessionManager.urlSession task:uploadtask didCompleteWithError:nil];
-    XCTAssertTrue(_bCompletionBlockInvoked,@"MSRawUploadCompletionHandler was not invoked");
+    [self checkCompletionBlockCodeInvoked];
 }
 #pragma mark - UploadTaskWithRequestFrom File success
 - (void)testMSHttpProviderDelegateUploadTaskFromFileWithRequest{
     MSRawUploadCompletionHandler uploadCompletion = ^(NSData *data, NSURLResponse *response, NSError *error) {
-        self->_bCompletionBlockInvoked = YES;
+        [self completionBlockCodeInvoked];
         XCTAssertNil(error);
         XCTAssertNotNil(response);
         XCTAssertEqual(((NSHTTPURLResponse *)response).statusCode, MSExpectedResponseCodesOK);
@@ -205,7 +206,7 @@
     [self mockMSURLSessionTaskDelegateDidCompleteWithError:msUrlsessionTaskDelegate task:uploadtask statusCode:MSExpectedResponseCodesOK bpath:NO];
     id<NSURLSessionTaskDelegate> nsURLSessionTaskDelegate = _sessionManager;
     [nsURLSessionTaskDelegate URLSession:_sessionManager.urlSession task:uploadtask didCompleteWithError:nil];
-    XCTAssertTrue(_bCompletionBlockInvoked);
+    [self checkCompletionBlockCodeInvoked];
 }
 
 #pragma mark - Test set next
@@ -227,7 +228,7 @@
     MSURLSessionDataTask *dataTask = [[MSURLSessionDataTask alloc] initWithRequest:[_request mutableCopy] client:self.mockClient completion:dataCompletion];
 
     HTTPRequestCompletionHandler requestCompletion = ^(id data, NSURLResponse * _Nullable response, NSError * _Nullable error){
-        self->_bCompletionBlockInvoked = YES;
+        [self completionBlockCodeInvoked];
         XCTAssertNil(error);
         XCTAssertNotNil(response);
         XCTAssertEqual(((NSHTTPURLResponse *)response).statusCode, MSExpectedResponseCodesOK);
@@ -252,7 +253,7 @@
 
     [_sessionManager execute:dataTask withCompletionHandler:requestCompletion];
     [mockNSTask stopMocking];
-     XCTAssertTrue(_bCompletionBlockInvoked);
+     [self checkCompletionBlockCodeInvoked];
 }
 
 - (void)testMSHTTPProviderForMiddlewareExecutionWithDownloadTask{
@@ -262,7 +263,7 @@
     MSURLSessionDownloadTask *downloadTask = [[MSURLSessionDownloadTask alloc] initWithRequest:[_request mutableCopy] client:self.mockClient completionHandler:downloadCompletion];
 
     HTTPRequestCompletionHandler requestCompletion = ^(id data, NSURLResponse * _Nullable response, NSError * _Nullable error){
-        self->_bCompletionBlockInvoked = YES;
+        [self completionBlockCodeInvoked];
         XCTAssertNil(error);
         XCTAssertNotNil(response);
         XCTAssertEqual(((NSHTTPURLResponse *)response).statusCode, MSExpectedResponseCodesOK);
@@ -287,7 +288,7 @@
 
     [_sessionManager execute:downloadTask withCompletionHandler:requestCompletion];
     [mockNSTask stopMocking];
-    XCTAssertTrue(_bCompletionBlockInvoked);
+    [self checkCompletionBlockCodeInvoked];
 }
 
 - (void)testMSHTTPProviderForMiddlewareExecutionWithUploadTaskFromData{
@@ -297,7 +298,7 @@
     MSURLSessionUploadTask *dataTask = [[MSURLSessionUploadTask alloc] initWithRequest:[_request mutableCopy]  data:[NSData new] client:self.mockClient completionHandler:dataCompletion];
 
     HTTPRequestCompletionHandler requestCompletion = ^(id data, NSURLResponse * _Nullable response, NSError * _Nullable error){
-        self->_bCompletionBlockInvoked = YES;
+        [self completionBlockCodeInvoked];
         XCTAssertNil(error);
         XCTAssertNotNil(response);
         XCTAssertEqual(((NSHTTPURLResponse *)response).statusCode, MSExpectedResponseCodesOK);
@@ -323,7 +324,7 @@
     [_sessionManager execute:dataTask withCompletionHandler:requestCompletion];
     [mockNSTask stopMocking];
 
-    XCTAssertTrue(_bCompletionBlockInvoked);
+    [self checkCompletionBlockCodeInvoked];
 }
 
 - (void)testMSHTTPProviderForMiddlewareExecutionWithUploadTaskFromFile{
@@ -333,7 +334,7 @@
     MSURLSessionUploadTask *dataTask = [[MSURLSessionUploadTask alloc] initWithRequest:[_request mutableCopy]  fromFile:[NSURL URLWithString:MSGraphBaseURL] client:self.mockClient completionHandler:dataCompletion];
 
     HTTPRequestCompletionHandler requestCompletion = ^(id data, NSURLResponse * _Nullable response, NSError * _Nullable error){
-        self->_bCompletionBlockInvoked = YES;
+        [self completionBlockCodeInvoked];
         XCTAssertNil(error);
         XCTAssertNotNil(response);
         XCTAssertEqual(((NSHTTPURLResponse *)response).statusCode, MSExpectedResponseCodesOK);
@@ -359,7 +360,7 @@
     [_sessionManager execute:dataTask withCompletionHandler:requestCompletion];
     [mockNSTask stopMocking];
 
-    XCTAssertTrue(_bCompletionBlockInvoked);
+    [self checkCompletionBlockCodeInvoked];
 }
 
 #pragma mark - Mock HTTP URL Response
