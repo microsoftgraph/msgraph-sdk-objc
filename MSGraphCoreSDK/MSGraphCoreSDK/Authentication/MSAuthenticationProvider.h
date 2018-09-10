@@ -1,4 +1,5 @@
-// Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
+//
+// Copyright (c) Microsoft Corporation. All Rights Reserved. Licensed under the MIT License. See License in the project root for license information.
 //
 
 #import <Foundation/Foundation.h>
@@ -19,6 +20,5 @@ typedef void(^MSAuthenticationCompletion)(NSMutableURLRequest *request, NSError 
  error should be non nil if there was no error, and should contain any error(s) that occurred.
  */
 - (void) appendAuthenticationHeaders:(NSMutableURLRequest *)request completion:(MSAuthenticationCompletion)completionHandler;
-
 
 @end

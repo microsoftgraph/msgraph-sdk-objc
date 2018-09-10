@@ -1,4 +1,6 @@
-// Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
+//
+// Copyright (c) Microsoft Corporation. All Rights Reserved. Licensed under the MIT License. See License in the project root for license information.
+//
 
 #import "MSURLSessionTaskDelegate.h"
 
@@ -20,17 +22,22 @@
                         completion:(MSURLSessionTaskCompletion)completion
 {
     self = [super init];
-    if (self){
-        if (progress){
-            if (!*progress){
+    if (self)
+    {
+        if (progress)
+        {
+            if (!*progress)
+            {
                 _progress = [NSProgress progressWithTotalUnitCount:0];
                 *progress = _progress;
             }
-            else{
+            else
+            {
                 _progress = *progress;
             }
         }
-        else{
+        else
+        {
             _progress = nil;
         }
         _mutableData = nil;
@@ -45,7 +52,8 @@
     NSParameterAssert(sentBytes);
     NSParameterAssert(expectedByes);
     
-    if (self.progress){
+    if (self.progress)
+    {
         self.progress.totalUnitCount = expectedByes;
         self.progress.completedUnitCount = sentBytes;
     }
@@ -54,7 +62,8 @@
 
 - (void)didReceiveData:(NSData *)data
 {
-    if (!self.mutableData){
+    if (!self.mutableData)
+    {
         self.mutableData = [NSMutableData data];
     }
     [self.mutableData appendData:data];
@@ -62,10 +71,12 @@
 
 - (void)task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error
 {
-    if (self.downloadPath && self.completion){
+    if (self.downloadPath && self.completion)
+    {
         self.completion(self.downloadPath, task.response, error);
     }
-    else if (self.completion){
+    else if (self.completion)
+    {
         self.completion(self.mutableData, task.response, error);
     }
 }

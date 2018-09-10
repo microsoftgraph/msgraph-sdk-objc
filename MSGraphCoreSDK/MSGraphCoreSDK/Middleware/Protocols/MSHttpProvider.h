@@ -1,4 +1,6 @@
-// Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
+//
+// Copyright (c) Microsoft Corporation. All Rights Reserved. Licensed under the MIT License. See License in the project root for license information.
+//
 
 #import <Foundation/Foundation.h>
 #import "MSGraphMiddleware.h"
@@ -22,7 +24,6 @@ typedef void (^MSDataCompletionHandler)(NSData *data, NSURLResponse *response, N
  The `MSHttpProvider` protocol is meant to inject all network access from MSGraphClient and MSRequests.
  */
 @protocol MSHttpProvider <NSObject,MSGraphMiddleware>
-
 
 /**
  Creates an NSURLSessionDataTask ready to be resumed.

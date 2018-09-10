@@ -1,6 +1,5 @@
 //
-//  MSHTTPClient.h
-// Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
+// Copyright (c) Microsoft Corporation. All Rights Reserved. Licensed under the MIT License. See License in the project root for license information.
 //
 
 #import <Foundation/Foundation.h>
@@ -23,14 +22,12 @@ typedef void (^MSRawUploadCompletionHandler)(NSData *data, NSURLResponse *respon
  */
 typedef void (^MSDataCompletionHandler)(NSData *data, NSURLResponse *response, NSError *error);
 
-
 /*
  This class holds the entry point to middleware chain and exposes methods for making different session tasks.
  */
 @interface MSHTTPClient : NSObject
 
 @property (strong, nonatomic) id<MSGraphMiddleware> middleware;
-
 
 /**
  Creates an MSURLSessionDataTask ready to be executed.

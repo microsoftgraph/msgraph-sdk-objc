@@ -1,10 +1,7 @@
 //
-//  MSURLSessionDownloadTaskTests.m
-//  MSGraphSDK
+// Copyright (c) Microsoft Corporation. All Rights Reserved. Licensed under the MIT License. See License in the project root for license information.
 //
-//  Created by canviz on 5/31/16.
-//  Copyright © 2016 Microsoft. All rights reserved.
-//
+
 
 #import <XCTest/XCTest.h>
 #import "MSGraphCoreSDKTests.h"

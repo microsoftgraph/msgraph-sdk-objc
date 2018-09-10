@@ -1,6 +1,5 @@
 //
-//  MSClientFactory.h
-// Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
+// Copyright (c) Microsoft Corporation. All Rights Reserved. Licensed under the MIT License. See License in the project root for license information.
 //
 
 #import <Foundation/Foundation.h>
@@ -9,14 +8,12 @@
 
 @interface MSClientFactory : NSObject
 
-
 /*
  Initializes and returns an instance of MSHTTPClient class with a default chain of middleware to handle the HTTP calls.
 
  @param authenticationProvider Instance of the class which implements the methods of MSAuthenticationProvider
  @param baseUrl Base URL of all the network calls which will be made my this client.
  */
-
 
 +(MSHTTPClient *)createHTTPClientWithAuthenticationProvider:(id<MSAuthenticationProvider>)authenticationProvider;
 
@@ -27,6 +24,5 @@
  */
 
 +(MSHTTPClient *)createHTTPClientWithMiddleware:(id<MSGraphMiddleware>)middleware;
-
 
 @end

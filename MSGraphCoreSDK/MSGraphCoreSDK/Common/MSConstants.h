@@ -1,6 +1,5 @@
 //
-//  MSConstants.h
-// Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
+// Copyright (c) Microsoft Corporation. All Rights Reserved. Licensed under the MIT License. See License in the project root for license information.
 //
 
 #import <Foundation/Foundation.h>
@@ -8,7 +7,8 @@
 #ifndef MSConstants_h
 #define MSConstants_h
 
-typedef NS_ENUM(NSInteger, MSClientErrorCode){
+typedef NS_ENUM(NSInteger, MSClientErrorCode)
+{
     MSClientErrorCodeBadRequest                  = 400,
     MSClientErrorCodeUnauthorized                = 401,
     MSClientErrorCodeForbidden                   = 403,
@@ -30,13 +30,13 @@ typedef NS_ENUM(NSInteger, MSClientErrorCode){
     MSClientErrorCodeUnknownError                 = 999,
 };
 
-typedef NS_ENUM(NSInteger, MSExpectedResponseCodes){
+typedef NS_ENUM(NSInteger, MSExpectedResponseCodes)
+{
     MSExpectedResponseCodesOK = 200,
     MSExpectedResponseCodesCreated = 201,
     MSExpectedResponseCodesAccepted = 202,
     MSExpectedResponseCodesNotModified = 304,
 };
-
 
 extern NSString *const MSGraphBaseURL;
 

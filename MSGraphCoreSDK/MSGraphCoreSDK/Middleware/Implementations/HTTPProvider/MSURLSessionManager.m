@@ -1,4 +1,6 @@
-// Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
+//
+// Copyright (c) Microsoft Corporation. All Rights Reserved. Licensed under the MIT License. See License in the project root for license information.
+//
 
 #import "MSURLSessionManager.h"
 #import "MSURLSessionTaskDelegate.h"
@@ -24,6 +26,7 @@
 
 @end
 
+
 @interface MSURLSessionManager()
 
 @property (strong, nonatomic) NSURLSessionConfiguration *urlSessionConfiguration;
@@ -32,7 +35,7 @@
 
 @property (strong, nonatomic) NSMutableDictionary *taskDelegates;
 
-@property (nonatomic, strong) id<MSGraphMiddleware> nextMiddleware;
+@property (strong, nonatomic) id<MSGraphMiddleware> nextMiddleware;
 
 @end
 
@@ -41,7 +44,8 @@
 - (instancetype)initWithSessionConfiguration:(NSURLSessionConfiguration *)urlSessionConfiguration
 {
     self = [super init];
-    if (self){
+    if (self)
+    {
         _urlSessionConfiguration = urlSessionConfiguration;
         _urlSession = [NSURLSession sessionWithConfiguration:urlSessionConfiguration delegate:self delegateQueue:nil];
         _taskDelegates = [NSMutableDictionary dictionary];
@@ -52,7 +56,8 @@
 - (NSURLSessionDataTask *)dataTaskWithRequest:(NSURLRequest *)request completionHandler:(MSDataCompletionHandler)completionHandler;
 {
     NSURLSessionDataTask *dataTask = nil;
-    @synchronized(self.urlSession){
+    @synchronized(self.urlSession)
+    {
         dataTask = [self.urlSession dataTaskWithRequest:request];
     }
     
@@ -63,11 +68,12 @@
 - (NSURLSessionDownloadTask *) downloadTaskWithRequest:(NSURLRequest *)request progress:(NSProgress * __autoreleasing *)progress completionHandler:(MSRawDownloadCompletionHandler)completionHandler
 {
     NSURLSessionDownloadTask *downloadTask = nil;
-    @synchronized(self.urlSession){
+    @synchronized(self.urlSession)
+    {
         downloadTask = [self.urlSession downloadTaskWithRequest:request];
     }
+
     [self addDelegateForTask:downloadTask withProgress:progress completion:completionHandler];
-    
     return downloadTask;
 }
 
@@ -77,11 +83,12 @@
                                 completionHandler:(void (^)(NSData *, NSURLResponse *, NSError *))completionHandler
 {
     NSURLSessionUploadTask *uploadTask = nil;
-    @synchronized(self.urlSession){
+    @synchronized(self.urlSession)
+    {
         uploadTask = [self.urlSession uploadTaskWithRequest:request fromData:data];
     }
+
     [self addDelegateForTask:uploadTask withProgress:progress completion:completionHandler];
-    
     return uploadTask;
 }
 
@@ -91,12 +98,12 @@
                                 completionHandler:(MSRawUploadCompletionHandler)completionHandler
 {
     NSURLSessionUploadTask *uploadTask = nil;
-    @synchronized(self.urlSession){
+    @synchronized(self.urlSession)
+    {
         uploadTask = [self.urlSession uploadTaskWithRequest:request fromFile:fileURL];
     }
     
     [self addDelegateForTask:uploadTask withProgress:progress completion:completionHandler];
-    
     return uploadTask;
 }
 
@@ -107,7 +114,8 @@
     MSURLSessionTaskDelegate *delegate = [[MSURLSessionTaskDelegate alloc]
                                            initWithProgressRef:progress
                                            completion:completion];
-    @synchronized(self.taskDelegates){
+    @synchronized(self.taskDelegates)
+    {
         self.taskDelegates[@(task.taskIdentifier)] = delegate;
     }
 }
@@ -115,7 +123,8 @@
 - (MSURLSessionTaskDelegate*)getDelegateForTask:(NSURLSessionTask *)task
 {
     MSURLSessionTaskDelegate *delegate = nil;
-    @synchronized(self.taskDelegates){
+    @synchronized(self.taskDelegates)
+    {
         delegate = self.taskDelegates[@(task.taskIdentifier)];
     }
     return delegate;
@@ -123,7 +132,8 @@
 
 - (void)removeTaskDelegateForTask:(NSURLSessionTask *)task
 {
-    @synchronized(self.taskDelegates){
+    @synchronized(self.taskDelegates)
+    {
         [self.taskDelegates removeObjectForKey:@(task.taskIdentifier)];
     }
 }
@@ -132,7 +142,8 @@
 {
     MSURLSessionTaskDelegate *delegate = [self getDelegateForTask:task];
     
-    if (delegate){
+    if (delegate)
+    {
         [delegate task:task didCompleteWithError:error];
     }
     [self removeTaskDelegateForTask:task];
@@ -143,7 +154,8 @@
 {
     MSURLSessionTaskDelegate *delegate = [self getDelegateForTask:dataTask];
     
-    if (delegate){
+    if (delegate)
+    {
         [delegate didReceiveData:data];
     }
 }
@@ -155,7 +167,8 @@
 {
     MSURLSessionTaskDelegate *delegate = [self getDelegateForTask:task];
     
-    if (delegate){
+    if (delegate)
+    {
         [delegate updateProgressWithBytesSent:totalBytesSent expectedBytes:totalBytesExpectedToSend];
     }
 }
@@ -168,7 +181,8 @@
 {
     MSURLSessionTaskDelegate *delegate = [self getDelegateForTask:downloadTask];
     
-    if (delegate){
+    if (delegate)
+    {
         [delegate updateProgressWithBytesSent:totalBytesWritten expectedBytes:totalBytesExpectedToWrite];
     }
 }
@@ -177,7 +191,8 @@
 {
     MSURLSessionTaskDelegate *delegate = [self getDelegateForTask:downloadTask];
     
-    if (delegate) {
+    if (delegate)
+    {
         [delegate task:downloadTask didCompleteDownload:location];
         [delegate task:downloadTask didCompleteWithError:nil];
         // remove the task now so we don't call the completion handler when the completion delegate method gets called
@@ -192,58 +207,62 @@ willPerformHTTPRedirection:(NSHTTPURLResponse *)redirectResponse
  completionHandler:(void (^)(NSURLRequest *))completionHandler
 {
     NSMutableURLRequest *newRequest = nil;
-    if (request){
+    if (request)
+    {
         newRequest = [request mutableCopy];
-        [task.originalRequest.allHTTPHeaderFields enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *value, BOOL *stop){
+        [task.originalRequest.allHTTPHeaderFields enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *value, BOOL *stop) {
             [newRequest setValue:value forHTTPHeaderField:key];
         }];
     }
     completionHandler(newRequest);
 }
 
-- (void)execute:(MSURLSessionTask *)task withCompletionHandler:(HTTPRequestCompletionHandler)completionHandler{
-    if([task isKindOfClass:[MSURLSessionDataTask class]]){
-        NSURLSessionTask *dataTask = [self dataTaskWithRequest:task.request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-            completionHandler(data,response,error);
+- (void)execute:(MSURLSessionTask *)task withCompletionHandler:(HTTPRequestCompletionHandler)completionHandler
+{
+    NSURLSessionTask *sessionTask;
+    if([task isKindOfClass:[MSURLSessionDataTask class]])
+    {
+        sessionTask = [self dataTaskWithRequest:task.request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            completionHandler(data, response, error);
         }];
-        [task setInnerTask:dataTask];
-        [dataTask resume];
-    }else if([task isKindOfClass:[MSURLSessionDownloadTask class]]){
+    }else if([task isKindOfClass:[MSURLSessionDownloadTask class]])
+    {
         NSProgress *progress = [(MSURLSessionDownloadTask *)task progress];
-        NSURLSessionDownloadTask *downloadTask = [self downloadTaskWithRequest:task.request progress:&progress completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
-            completionHandler(location,response,error);
+        sessionTask = [self downloadTaskWithRequest:task.request progress:&progress completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
+            completionHandler(location, response, error);
         }];
-        [task setInnerTask:downloadTask];
-        [downloadTask resume];
-
     }
-    else if([task isKindOfClass:[MSURLSessionUploadTask class]]){
+    else if([task isKindOfClass:[MSURLSessionUploadTask class]])
+    {
         NSProgress *progress = [(MSURLSessionUploadTask *)task progress];
-        NSURLSessionUploadTask *uploadTask;
-        if([(MSURLSessionUploadTask *)task isFileUploadTask]){
-            uploadTask = [self uploadTaskWithRequest:task.request fromFile:[(MSURLSessionUploadTask *)task fileURL] progress:&progress completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                completionHandler(data,response,error);
+        if([(MSURLSessionUploadTask *)task isFileUploadTask])
+        {
+            sessionTask = [self uploadTaskWithRequest:task.request fromFile:[(MSURLSessionUploadTask *)task fileURL] progress:&progress completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                completionHandler(data, response, error);
             }];
         }
-        else{
-            uploadTask = [self uploadTaskWithRequest:task.request fromData:[(MSURLSessionUploadTask *)task data] progress:&progress completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                completionHandler(data,response,error);
+        else
+        {
+            sessionTask = [self uploadTaskWithRequest:task.request fromData:[(MSURLSessionUploadTask *)task data] progress:&progress completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                completionHandler(data, response, error);
             }];
         }
-        [task setInnerTask:uploadTask];
-        [uploadTask resume];
-
     }
+    [task setInnerTask:sessionTask];
+    [sessionTask resume];
 }
 
 - (void)setNext:(id<MSGraphMiddleware>)nextMiddleware{
     id<MSGraphMiddleware> tempMiddleware;
-    if(self.nextMiddleware){
+    if(self.nextMiddleware)
+    {
         tempMiddleware = self.nextMiddleware;
     }
     _nextMiddleware = nextMiddleware;
     if(tempMiddleware)
+    {
         [nextMiddleware setNext:tempMiddleware];
+    }
 }
 
 @end

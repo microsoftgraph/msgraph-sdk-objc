@@ -1,6 +1,5 @@
 //
-//  MSMiddlewareFactory.h
-// Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
+// Copyright (c) Microsoft Corporation. All Rights Reserved. Licensed under the MIT License. See License in the project root for license information.
 //
 
 #import <Foundation/Foundation.h>
@@ -11,7 +10,8 @@
 /*
  Defines the different types of middleware options
  */
-typedef NS_ENUM(NSInteger, MSMiddlewareType){
+typedef NS_ENUM(NSInteger, MSMiddlewareType)
+{
     MSMiddlewareTypeAuthentication ,
     MSMiddlewareTypeHTTP
 };

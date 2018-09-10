@@ -1,11 +1,13 @@
-// Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
+//
+// Copyright (c) Microsoft Corporation. All Rights Reserved. Licensed under the MIT License. See License in the project root for license information.
+//
 
 #import "MSURLSessionDownloadTask.h"
 #import "MSHTTPClient.h"
 
 @interface MSURLSessionDownloadTask()
 
-@property (strong) MSDownloadCompletionHandler completionHandler;
+@property MSDownloadCompletionHandler completionHandler;
 
 @end
 
@@ -16,7 +18,8 @@
              completionHandler:(MSDownloadCompletionHandler)completionHandler
 {
     self = [super initWithRequest:request client:client];
-    if (self){
+    if (self)
+    {
         [self createProgress];
         _completionHandler = completionHandler;
     }
@@ -30,8 +33,9 @@
     return progress;
 }
 
-- (void)taskCompletedWithData:(id)data response:(NSURLResponse *)response andError:(NSError *)error{
-    _completionHandler(data,response,error);
+- (void)taskCompletedWithData:(id)data response:(NSURLResponse *)response andError:(NSError *)error
+{
+    _completionHandler(data, response, error);
 }
 
 @end

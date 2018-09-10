@@ -1,4 +1,6 @@
-// Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
+//
+// Copyright (c) Microsoft Corporation. All Rights Reserved. Licensed under the MIT License. See License in the project root for license information.
+//
 
 #import "MSURLSessionUploadTask.h"
 
@@ -10,7 +12,7 @@
 
 @property BOOL isFileUploadTask;
 
-@property (strong) MSUploadCompletionHandler completionHandler;
+@property MSUploadCompletionHandler completionHandler;
 
 @end
 
@@ -24,7 +26,8 @@
     NSParameterAssert(fileURL);
     
     self = [super initWithRequest:request client:client];
-    if(self){
+    if(self)
+    {
         _fileURL = fileURL;
         _completionHandler = completionHandler;
         _isFileUploadTask = YES;
@@ -41,7 +44,8 @@
     NSParameterAssert(data);
     
     self = [super initWithRequest:request client:client];
-    if (self){
+    if (self)
+    {
         _data = data;
         _completionHandler = completionHandler;
         _isFileUploadTask = NO;
@@ -58,10 +62,9 @@
 }
 
 
-- (void)taskCompletedWithData:(id)data response:(NSURLResponse *)response andError:(NSError *)error{
-    _completionHandler(data,response,error);
+- (void)taskCompletedWithData:(id)data response:(NSURLResponse *)response andError:(NSError *)error
+{
+    _completionHandler(data, response, error);
 }
-
-
 
 @end

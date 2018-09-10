@@ -1,6 +1,5 @@
 //
-//  MSGraphMiddleware.h
-// Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
+// Copyright (c) Microsoft Corporation. All Rights Reserved. Licensed under the MIT License. See License in the project root for license information.
 //
 
 #import <Foundation/Foundation.h>
@@ -23,7 +22,6 @@ typedef void (^HTTPRequestCompletionHandler)(id data, NSURLResponse * _Nullable 
  @completionHandler The completion handler to be called one the control comes back.
  */
 - (void)execute:(MSURLSessionTask *)task withCompletionHandler:(HTTPRequestCompletionHandler)completionHandler;
-
 
 /*
  This method will be used to set the next one in middleware chain.

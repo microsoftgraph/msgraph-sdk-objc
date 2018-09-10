@@ -1,4 +1,6 @@
-// Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
+//
+// Copyright (c) Microsoft Corporation. All Rights Reserved. Licensed under the MIT License. See License in the project root for license information.
+//
 
 @class MSHTTPClient;
 
@@ -15,12 +17,10 @@ typedef MSRawUploadCompletionHandler MSUploadCompletionHandler;
  */
 typedef MSRawDownloadCompletionHandler MSDownloadCompletionHandler;
 
-
 //Completion handler to be called when request finishes
 typedef void (^HTTPRequestCompletionHandler)(id data, NSURLResponse * _Nullable response, NSError * _Nullable error);
 
 @interface MSURLSessionTask : NSObject
-
 
 @property (readonly) NSMutableURLRequest *request;
 
