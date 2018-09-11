@@ -49,6 +49,8 @@
 		E5ECE09721427A6400A289C2 /* MSMiddlewareFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = E5ECE09521427A6400A289C2 /* MSMiddlewareFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5ECE09821427A6400A289C2 /* MSMiddlewareFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE09621427A6400A289C2 /* MSMiddlewareFactory.m */; };
 		E5ECE09E2142992F00A289C2 /* MSMiddlewareFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE09D2142992F00A289C2 /* MSMiddlewareFactoryTests.m */; };
+		E5ECE0A42146657900A289C2 /* MSRedirectHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = E5ECE0A22146657800A289C2 /* MSRedirectHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5ECE0A52146657900A289C2 /* MSRedirectHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE0A32146657900A289C2 /* MSRedirectHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +112,8 @@
 		E5ECE09521427A6400A289C2 /* MSMiddlewareFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSMiddlewareFactory.h; sourceTree = "<group>"; };
 		E5ECE09621427A6400A289C2 /* MSMiddlewareFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSMiddlewareFactory.m; sourceTree = "<group>"; };
 		E5ECE09D2142992F00A289C2 /* MSMiddlewareFactoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSMiddlewareFactoryTests.m; sourceTree = "<group>"; };
+		E5ECE0A22146657800A289C2 /* MSRedirectHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRedirectHandler.h; sourceTree = "<group>"; };
+		E5ECE0A32146657900A289C2 /* MSRedirectHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRedirectHandler.m; sourceTree = "<group>"; };
 		F85C5ADB62B7F2F2D5BE52ED /* Pods-MSGraphCoreSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSGraphCoreSDK.release.xcconfig"; path = "Pods/Target Support Files/Pods-MSGraphCoreSDK/Pods-MSGraphCoreSDK.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,6 +169,7 @@
 		E5069AC3211AACCD00432372 /* Implementations */ = {
 			isa = PBXGroup;
 			children = (
+				E5ECE0A12146655000A289C2 /* RedirectHandler */,
 				E5069AC4211AACED00432372 /* Authentication */,
 				E5DC73ED211418040040BAB6 /* HTTPProvider */,
 			);
@@ -324,6 +329,7 @@
 		E5DC73ED211418040040BAB6 /* HTTPProvider */ = {
 			isa = PBXGroup;
 			children = (
+				E5DC73F9211418040040BAB6 /* MSHttpProvider.h */,
 				E5DC73F0211418040040BAB6 /* MSURLSessionManager.h */,
 				E5DC73EE211418040040BAB6 /* MSURLSessionManager.m */,
 				E5DC73EF211418040040BAB6 /* MSURLSessionTaskDelegate.h */,
@@ -336,9 +342,17 @@
 			isa = PBXGroup;
 			children = (
 				E5DC73FB211418040040BAB6 /* MSGraphMiddleware.h */,
-				E5DC73F9211418040040BAB6 /* MSHttpProvider.h */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E5ECE0A12146655000A289C2 /* RedirectHandler */ = {
+			isa = PBXGroup;
+			children = (
+				E5ECE0A22146657800A289C2 /* MSRedirectHandler.h */,
+				E5ECE0A32146657900A289C2 /* MSRedirectHandler.m */,
+			);
+			path = RedirectHandler;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,6 +376,7 @@
 				E52AD97C212D27DC005FED47 /* MSURLSessionDataTask.h in Headers */,
 				E5DC7406211418050040BAB6 /* MSURLSessionTaskDelegate.h in Headers */,
 				E5ECE09721427A6400A289C2 /* MSMiddlewareFactory.h in Headers */,
+				E5ECE0A42146657900A289C2 /* MSRedirectHandler.h in Headers */,
 				E5DC73DF211412BF0040BAB6 /* MSGraphCoreSDK.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -573,6 +588,7 @@
 			files = (
 				E5DC741A21142C430040BAB6 /* MSClientFactory.m in Sources */,
 				E5069AC9211AAEC900432372 /* MSConstants.m in Sources */,
+				E5ECE0A52146657900A289C2 /* MSRedirectHandler.m in Sources */,
 				E5ECE09821427A6400A289C2 /* MSMiddlewareFactory.m in Sources */,
 				E52AD97F212D27DC005FED47 /* MSURLSessionDownloadTask.m in Sources */,
 				E5DC7405211418050040BAB6 /* MSURLSessionManager.m in Sources */,

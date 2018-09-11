@@ -6,6 +6,7 @@
 #import "MSAuthenticationMiddleware.h"
 #import "MSURLSessionManager.h"
 #import "MSMiddlewareFactory.h"
+#import "MSRedirectHandler.h"
 
 @implementation MSClientFactory
 
@@ -14,12 +15,15 @@
     NSParameterAssert(authenticationProvider);
 
     //Creating a default chain of middlewares starting from Authentication
+
+    //Initializing different default middlewares
     MSAuthenticationMiddleware *authenticationMiddleware = (MSAuthenticationMiddleware *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeAuthentication];
     authenticationMiddleware.authProvider = authenticationProvider;
-    
+    MSRedirectHandler *redirectHandler = (MSRedirectHandler *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeRedirect];
     MSURLSessionManager *sessionManager = (MSURLSessionManager *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeHTTP];
-
-    [authenticationMiddleware setNext:sessionManager];
+    //Creating a default chain
+    [authenticationMiddleware setNext:redirectHandler];
+    [redirectHandler setNext:sessionManager];
 
     return [MSClientFactory createHTTPClientWithMiddleware:authenticationMiddleware];
 }

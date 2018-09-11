@@ -46,4 +46,10 @@ typedef void(^MSURLSessionTaskCompletion)(id responseObject, NSURLResponse *resp
  */
 - (void)task:(NSURLSessionTask *)task didCompleteDownload:(NSURL *)downloadLocation;
 
+/**
+ This method should be called when the task is redirected
+ @param task the task that is redirected
+ @param response the redirect response which contains the information about next request
+ */
+- (void)task:(NSURLSessionTask *)task didRedirectWithResponse:(NSURLResponse *)response;
 @end

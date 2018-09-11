@@ -206,17 +206,16 @@ willPerformHTTPRedirection:(NSHTTPURLResponse *)redirectResponse
         newRequest:(NSURLRequest *)request
  completionHandler:(void (^)(NSURLRequest *))completionHandler
 {
-    NSMutableURLRequest *newRequest = nil;
-    if (request)
-    {
-        newRequest = [request mutableCopy];
-        [task.originalRequest.allHTTPHeaderFields enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *value, BOOL *stop) {
-            [newRequest setValue:value forHTTPHeaderField:key];
-        }];
+    MSURLSessionTaskDelegate *delegate = [self getDelegateForTask:task];
+
+    if (delegate){
+        [delegate task:task didRedirectWithResponse:redirectResponse];
     }
-    completionHandler(newRequest);
+    [self removeTaskDelegateForTask:task];
 }
 
+
+#pragma mark - Middelware methods
 - (void)execute:(MSURLSessionTask *)task withCompletionHandler:(HTTPRequestCompletionHandler)completionHandler
 {
     NSURLSessionTask *sessionTask;

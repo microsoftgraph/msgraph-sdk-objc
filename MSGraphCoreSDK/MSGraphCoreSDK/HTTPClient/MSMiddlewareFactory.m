@@ -5,6 +5,7 @@
 #import "MSMiddlewareFactory.h"
 #import "MSURLSessionManager.h"
 #import "MSAuthenticationMiddleware.h"
+#import "MSRedirectHandler.h"
 
 @implementation MSMiddlewareFactory
 
@@ -17,9 +18,14 @@
              MSURLSessionManager *sessionManager = [[MSURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
             return sessionManager;
         }
+        case MSMiddlewareTypeRedirect:
+        {
+            MSRedirectHandler *redirectHandler = [[MSRedirectHandler alloc] init];
+            return redirectHandler;
+        }
         case MSMiddlewareTypeAuthentication:
         {
-            MSAuthenticationMiddleware *authenticationMiddleware = [MSAuthenticationMiddleware new];
+            MSAuthenticationMiddleware *authenticationMiddleware = [[MSAuthenticationMiddleware alloc] init];
             return authenticationMiddleware;
         }
         default:

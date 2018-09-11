@@ -27,7 +27,7 @@ typedef NS_ENUM(NSInteger, MSClientErrorCode)
     MSClientErrorCodeNotImplemented              = 501,
     MSClientErrorCodeServiceUnavailable          = 503,
     MSClientErrorCodeInsufficientStorage         = 507,
-    MSClientErrorCodeUnknownError                 = 999,
+    MSClientErrorCodeUnknownError                = 999,
 };
 
 typedef NS_ENUM(NSInteger, MSExpectedResponseCodes)
@@ -35,9 +35,18 @@ typedef NS_ENUM(NSInteger, MSExpectedResponseCodes)
     MSExpectedResponseCodesOK = 200,
     MSExpectedResponseCodesCreated = 201,
     MSExpectedResponseCodesAccepted = 202,
+    MSExpectedResponseCodesMovedPermanantly = 301,
+    MSExpectedResponseCodesFound = 302,
+    MSExpectedResponseCodesSeeOther = 303,
     MSExpectedResponseCodesNotModified = 304,
+    MSExpectedResponseCodesTemporaryRedirect = 307,
 };
 
 extern NSString *const MSGraphBaseURL;
 
+extern NSString *const MSErrorDomain;
+
+extern NSString *const MSErrorTooManyRedirectsFormatString;
+extern NSString *const MSErrorLocationHeaderNotFoundString;
+extern NSString *const MSErrorOperationUnsuccessfulString;
 #endif

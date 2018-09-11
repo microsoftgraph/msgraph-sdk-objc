@@ -27,6 +27,8 @@ FOUNDATION_EXPORT const unsigned char MSGraphSDKVersionString[];
 #import "MSGraphCoreSDK/MSConstants.h"
 #import "MSGraphCoreSDK/MSURLSessionTaskDelegate.h"
 #import "MSGraphCoreSDK/MSAuthenticationMiddleware.h"
+#import "MSGraphCoreSDK/MSRedirectHandler.h"
+
 #import "MSGraphCoreSDK/MSURLSessionTask.h"
 #import "MSGraphCoreSDK/MSURLSessionDataTask.h"
 #import "MSGraphCoreSDK/MSURLSessionDownloadTask.h"

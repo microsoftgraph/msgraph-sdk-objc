@@ -86,4 +86,12 @@
     self.downloadPath = downloadLocation;
 }
 
+- (void)task:(NSURLSessionTask *)task didRedirectWithResponse:(NSURLResponse *)response
+{
+    if(self.completion)
+    {
+        self.completion(nil, response, nil);
+    }
+}
+
 @end
