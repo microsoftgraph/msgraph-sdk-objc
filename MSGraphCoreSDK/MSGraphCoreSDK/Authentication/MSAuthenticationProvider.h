@@ -8,17 +8,16 @@
 typedef void(^MSAuthenticationCompletion)(NSMutableURLRequest *request, NSError *error);
 
 /**
- The `MSAuthenticationProvider` is a protocol that is used to inject authentication into the MSGraphClient.
- It should handle all initial authentication, refreshing, and appending authentication headers to http requests.
+ The `MSAuthenticationProvider` is a protocol that is used to inject authentication into the MSHTTPClient.
+ It should handle all initial authentication, refreshing, and returning the access token.
  */
 @protocol MSAuthenticationProvider <NSObject>
 
 /**
- Appends the proper authentication headers to the given request.
- @param request The request to append headers to.
- @param completionHandler The completion handler to be called when the auth headers have been appended.
- error should be non nil if there was no error, and should contain any error(s) that occurred.
+ Gets the access token. This method should be implmented by a class which should provide the capability of providing the access token.
+ @param completion The completion handler to be called when access token or an error can be returned.
  */
-- (void) appendAuthenticationHeaders:(NSMutableURLRequest *)request completion:(MSAuthenticationCompletion)completionHandler;
+
+- (void) getAccessTokenWithCompletion:(void (^)(NSString *accessToken, NSError *error))completion;
 
 @end

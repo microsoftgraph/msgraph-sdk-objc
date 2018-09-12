@@ -22,24 +22,32 @@
 
 @property (nonatomic, retain) NSData *responseData;
 @property (nonatomic)  NSHTTPURLResponse *OKresponse;
-@property (nonatomic)  id mockMiddleware;
+@property (nonatomic)  id mockHttpMiddleware;
+@property (nonatomic)  MSHTTPClient *httpClient;
 @end
 
 @implementation MSGraphWorkloadsTests
 
 - (void)setUp {
     [super setUp];
-    OCMStub([self.mockAuthProvider appendAuthenticationHeaders:[OCMArg any] completion:[OCMArg any]])
+    OCMStub([self.mockAuthProvider getAccessTokenWithCompletion:[OCMArg any]])
     .andDo(^(NSInvocation *invocation){
-        void (^completionHandler)(NSMutableURLRequest *request, NSError *error);
-        [invocation getArgument:&completionHandler atIndex:3];
-        completionHandler(self.requestForMock,nil);
+        void (^completionHandler)(NSString *accessToken, NSError *error);
+        [invocation getArgument:&completionHandler atIndex:2];
+        completionHandler(@"abcdefg",nil);
     });
      _OKresponse = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:MSGraphBaseURL] statusCode:MSExpectedResponseCodesOK HTTPVersion:@"foo" headerFields:nil];
-    MSAuthenticationMiddleware *authMiddleware = self.mockClient.middleware;
-    id middleware = authMiddleware.nextMiddleware;
 
-    _mockMiddleware = OCMPartialMock(middleware);
+    MSURLSessionManager *sessionManager = [[MSURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    MSRedirectHandler *redirectHandler = [[MSRedirectHandler alloc] init];
+    MSAuthenticationMiddleware *authMiddleware = [[MSAuthenticationMiddleware alloc] init];
+    authMiddleware.authProvider = self.mockAuthProvider;
+    [authMiddleware setNext:redirectHandler];
+    [redirectHandler setNext:sessionManager];
+
+    _httpClient = [MSClientFactory createHTTPClientWithMiddleware:authMiddleware];
+
+    _mockHttpMiddleware = OCMPartialMock(sessionManager);
 }
 
 - (void)tearDown {
@@ -60,7 +68,7 @@
     XCTestExpectation *testExpectation = [[XCTestExpectation alloc] initWithDescription:@"Waiting for completion of 'resume' of data task"];
 
     NSMutableURLRequest *requestForDriveItemSearch = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[MSGraphBaseURL stringByAppendingString:@"/me/drive/root/microsoft.graph.search(q='test')"]]];
-    MSURLSessionDataTask *dataTask = [self.mockClient dataTaskWithRequest:requestForDriveItemSearch completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    MSURLSessionDataTask *dataTask = [_httpClient dataTaskWithRequest:requestForDriveItemSearch completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         [self completionBlockCodeInvoked];
         NSDictionary *actualResponseDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
         XCTAssertEqual([(NSArray *)[actualResponseDictionary objectForKey:@"value"] count], [(NSArray *)[expectedResponseDict objectForKey:@"value"] count]);
@@ -82,10 +90,11 @@
     }];
 
     id mockNSTask = OCMClassMock([NSURLSessionDataTask class]);
-    OCMStub([_mockMiddleware dataTaskWithRequest:[OCMArg any] completionHandler:[OCMArg any]]).andReturn(mockNSTask);
+    OCMStub([_mockHttpMiddleware dataTaskWithRequest:[OCMArg any] completionHandler:[OCMArg any]]).andReturn(mockNSTask);
     
     OCMStub([mockNSTask resume])
     .andDo(^(NSInvocation *invocation){
+        XCTAssertEqualObjects(@"Bearer abcdefg", [dataTask.request.allHTTPHeaderFields objectForKey:@"Authorization"]);
         [dataTask taskCompletedWithData:self.responseData response:self->_OKresponse andError:nil];
     });
 
@@ -102,7 +111,7 @@
 
     XCTestExpectation *testExpectation = [[XCTestExpectation alloc] initWithDescription:@"Waiting for completion of 'resume' of download task"];
 
-    MSURLSessionDownloadTask *downloadTask = [self.mockClient downloadTaskWithRequest:requestForUserPhotoDownload completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
+    MSURLSessionDownloadTask *downloadTask = [_httpClient downloadTaskWithRequest:requestForUserPhotoDownload completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
         [self completionBlockCodeInvoked];
         XCTAssertEqualObjects(downloadPath, [location absoluteString]);
         XCTAssertEqual(((NSHTTPURLResponse*)response).statusCode, MSExpectedResponseCodesOK);
@@ -111,9 +120,10 @@
     }];
 
     id mockNSTask = OCMClassMock([NSURLSessionDownloadTask class]);
-    OCMStub([_mockMiddleware downloadTaskWithRequest:[OCMArg any] progress:[OCMArg anyObjectRef] completionHandler:[OCMArg any]]).andReturn(mockNSTask);
+    OCMStub([_mockHttpMiddleware downloadTaskWithRequest:[OCMArg any] progress:[OCMArg anyObjectRef] completionHandler:[OCMArg any]]).andReturn(mockNSTask);
 
     OCMStub([mockNSTask resume]).andDo(^(NSInvocation *invocation){
+        XCTAssertEqualObjects(@"Bearer abcdefg", [downloadTask.request.allHTTPHeaderFields objectForKey:@"Authorization"]);
         [downloadTask taskCompletedWithData:[NSURL URLWithString:downloadPath] response:self->_OKresponse andError:nil];
     });
     [downloadTask execute];
@@ -128,7 +138,7 @@
 
     XCTestExpectation *testExpectation = [[XCTestExpectation alloc] initWithDescription:@"Waiting for completion of 'resume' of upload task"];
 
-    MSURLSessionUploadTask *uploadTask = [self.mockClient uploadTaskWithRequest:requestForUserPhotoUpload fromFile:[NSURL URLWithString:filePath] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    MSURLSessionUploadTask *uploadTask = [_httpClient uploadTaskWithRequest:requestForUserPhotoUpload fromFile:[NSURL URLWithString:filePath] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         [self completionBlockCodeInvoked];
         XCTAssertNil(data);
         XCTAssertEqual(((NSHTTPURLResponse*)response).statusCode, MSExpectedResponseCodesOK);
@@ -137,9 +147,10 @@
     }];
 
     id mockNSTask = OCMClassMock([NSURLSessionUploadTask class]);
-    OCMStub([_mockMiddleware uploadTaskWithRequest:[OCMArg any] fromFile:[OCMArg any] progress:[OCMArg anyObjectRef] completionHandler:[OCMArg any]]).andReturn(mockNSTask);
+    OCMStub([_mockHttpMiddleware uploadTaskWithRequest:[OCMArg any] fromFile:[OCMArg any] progress:[OCMArg anyObjectRef] completionHandler:[OCMArg any]]).andReturn(mockNSTask);
 
     OCMStub([mockNSTask resume]).andDo(^(NSInvocation *invocation){
+        XCTAssertEqualObjects(@"Bearer abcdefg", [uploadTask.request.allHTTPHeaderFields objectForKey:@"Authorization"]);
         [uploadTask taskCompletedWithData:nil response:self->_OKresponse andError:nil];
     });
     [uploadTask execute];
@@ -154,7 +165,7 @@
     NSData *fileData = [NSData dataWithContentsOfFile:filePath];
     XCTestExpectation *testExpectation = [[XCTestExpectation alloc] initWithDescription:@"Waiting for completion of 'resume' of upload task"];
 
-    MSURLSessionUploadTask *uploadTask = [self.mockClient uploadTaskWithRequest:requestForUserPhotoUpload fromData:fileData completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    MSURLSessionUploadTask *uploadTask = [_httpClient uploadTaskWithRequest:requestForUserPhotoUpload fromData:fileData completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         [self completionBlockCodeInvoked];
         XCTAssertNil(data);
         XCTAssertEqual(((NSHTTPURLResponse*)response).statusCode, MSExpectedResponseCodesOK);
@@ -163,9 +174,10 @@
     }];
 
     id mockNSTask = OCMClassMock([NSURLSessionUploadTask class]);
-    OCMStub([_mockMiddleware uploadTaskWithRequest:[OCMArg any] fromData:[OCMArg any] progress:[OCMArg anyObjectRef] completionHandler:[OCMArg any]]).andReturn(mockNSTask);
+    OCMStub([_mockHttpMiddleware uploadTaskWithRequest:[OCMArg any] fromData:[OCMArg any] progress:[OCMArg anyObjectRef] completionHandler:[OCMArg any]]).andReturn(mockNSTask);
 
     OCMStub([mockNSTask resume]).andDo(^(NSInvocation *invocation){
+        XCTAssertEqualObjects(@"Bearer abcdefg", [uploadTask.request.allHTTPHeaderFields objectForKey:@"Authorization"]);
         [uploadTask taskCompletedWithData:nil response:self->_OKresponse andError:nil];
     });
     [uploadTask execute];

@@ -22,10 +22,12 @@
 
 - (void)execute:(MSURLSessionTask *)task withCompletionHandler:(HTTPRequestCompletionHandler)completionHandler
 {
-    [self.authProvider appendAuthenticationHeaders:task.request completion:^(NSMutableURLRequest *request, NSError *error) {
+    [self.authProvider getAccessTokenWithCompletion:^(NSString *accessToken, NSError *error) {
         if(!error)
         {
-            [task setRequest:request];
+            NSMutableURLRequest *urlRequest = [task request];
+            [urlRequest setValue:[NSString stringWithFormat:@"Bearer %@",accessToken] forHTTPHeaderField:@"Authorization"];
+            [task setRequest:urlRequest];
             [self.nextMiddleware execute:task withCompletionHandler:^(id data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                 completionHandler(data, response, error);
             }];
