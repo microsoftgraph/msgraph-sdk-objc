@@ -12,7 +12,7 @@
 
 @property BOOL isFileUploadTask;
 
-@property MSUploadCompletionHandler completionHandler;
+@property (nonatomic,copy) MSUploadCompletionHandler completionHandler;
 
 @end
 
@@ -64,7 +64,10 @@
 
 - (void)taskCompletedWithData:(id)data response:(NSURLResponse *)response andError:(NSError *)error
 {
-    _completionHandler(data, response, error);
+    if(_completionHandler)
+    {
+        _completionHandler(data, response, error);
+    }
 }
 
 @end

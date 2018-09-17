@@ -7,7 +7,7 @@
 
 @interface MSURLSessionDownloadTask()
 
-@property MSDownloadCompletionHandler completionHandler;
+@property (nonatomic, copy) MSDownloadCompletionHandler completionHandler;
 
 @end
 
@@ -35,7 +35,10 @@
 
 - (void)taskCompletedWithData:(id)data response:(NSURLResponse *)response andError:(NSError *)error
 {
-    _completionHandler(data, response, error);
+    if(_completionHandler)
+    {
+        _completionHandler(data, response, error);
+    }
 }
 
 @end

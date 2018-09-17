@@ -5,7 +5,7 @@
 #import <Foundation/Foundation.h>
 #import "MSGraphMiddleware.h"
 
-@class MSURLSessionDataTask,MSURLSessionDownloadTask,MSURLSessionUploadTask;
+@class MSURLSessionDataTask, MSURLSessionDownloadTask, MSURLSessionUploadTask;
 
 /**
  Completion handler to be called from MSHTTPClient on download completion.

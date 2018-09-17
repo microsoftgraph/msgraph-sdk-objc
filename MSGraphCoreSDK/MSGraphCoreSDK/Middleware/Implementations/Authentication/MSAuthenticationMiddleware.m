@@ -41,16 +41,11 @@
 
 - (void)setNext:(id<MSGraphMiddleware>)nextMiddleware
 {
-    id<MSGraphMiddleware> tempMiddleware;
-    if(self.nextMiddleware)
+    if(_nextMiddleware)
     {
-        tempMiddleware = self.nextMiddleware;
+        [nextMiddleware setNext:_nextMiddleware];
     }
     _nextMiddleware = nextMiddleware;
-    if(tempMiddleware)
-    {
-        [nextMiddleware setNext:tempMiddleware];
-    }
 }
 
 @end

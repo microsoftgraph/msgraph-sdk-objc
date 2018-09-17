@@ -32,14 +32,14 @@ typedef NS_ENUM(NSInteger, MSClientErrorCode)
 
 typedef NS_ENUM(NSInteger, MSExpectedResponseCodes)
 {
-    MSExpectedResponseCodesOK = 200,
-    MSExpectedResponseCodesCreated = 201,
-    MSExpectedResponseCodesAccepted = 202,
-    MSExpectedResponseCodesMovedPermanantly = 301,
-    MSExpectedResponseCodesFound = 302,
-    MSExpectedResponseCodesSeeOther = 303,
-    MSExpectedResponseCodesNotModified = 304,
-    MSExpectedResponseCodesTemporaryRedirect = 307,
+    MSExpectedResponseCodesOK                    = 200,
+    MSExpectedResponseCodesCreated               = 201,
+    MSExpectedResponseCodesAccepted              = 202,
+    MSExpectedResponseCodesMovedPermanantly      = 301,
+    MSExpectedResponseCodesFound                 = 302,
+    MSExpectedResponseCodesSeeOther              = 303,
+    MSExpectedResponseCodesNotModified           = 304,
+    MSExpectedResponseCodesTemporaryRedirect     = 307,
 };
 
 extern NSString *const MSGraphBaseURL;

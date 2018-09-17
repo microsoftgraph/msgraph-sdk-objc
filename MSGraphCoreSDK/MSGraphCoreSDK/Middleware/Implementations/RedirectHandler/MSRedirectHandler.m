@@ -38,17 +38,13 @@
     [self execute:task redirectsAttempted:0 withCompletionHandler:completionHandler];
 }
 
-- (void)setNext:(id<MSGraphMiddleware>)nextMiddleware {
-    id<MSGraphMiddleware> tempMiddleware;
-    if(self.nextMiddleware)
+- (void)setNext:(id<MSGraphMiddleware>)nextMiddleware
+{
+    if(_nextMiddleware)
     {
-        tempMiddleware = self.nextMiddleware;
+        [nextMiddleware setNext:_nextMiddleware];
     }
     _nextMiddleware = nextMiddleware;
-    if(tempMiddleware)
-    {
-        [nextMiddleware setNext:tempMiddleware];
-    }
 }
 
 #pragma mark - Redirect handler methods
@@ -68,7 +64,7 @@
                                                NSLocalizedDescriptionKey: MSErrorOperationUnsuccessfulString,
                                                NSLocalizedFailureReasonErrorKey: [NSString stringWithFormat:MSErrorTooManyRedirectsFormatString,localRedirectsAttempted]
                                                };
-                    completionHandler(nil ,nil , [NSError errorWithDomain:MSErrorDomain code:[(NSHTTPURLResponse *)response statusCode] userInfo:userInfo]);
+                    completionHandler(nil, nil, [NSError errorWithDomain:MSErrorDomain code:[(NSHTTPURLResponse *)response statusCode] userInfo:userInfo]);
                     return ;
                 }
                 NSMutableURLRequest *originalRequest = blockTask.request;
@@ -81,7 +77,7 @@
                                                NSLocalizedDescriptionKey: MSErrorOperationUnsuccessfulString,
                                                NSLocalizedFailureReasonErrorKey: MSErrorLocationHeaderNotFoundString
                                                };
-                    completionHandler(nil ,nil , [NSError errorWithDomain:MSErrorDomain code:[(NSHTTPURLResponse *)response statusCode] userInfo:userInfo]);
+                    completionHandler(nil, nil, [NSError errorWithDomain:MSErrorDomain code:[(NSHTTPURLResponse *)response statusCode] userInfo:userInfo]);
                     return ;
                 }
 

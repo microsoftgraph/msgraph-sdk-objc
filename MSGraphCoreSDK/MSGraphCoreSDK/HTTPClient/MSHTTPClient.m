@@ -12,33 +12,25 @@
 
 - (MSURLSessionDataTask *)dataTaskWithRequest:(NSMutableURLRequest *)request completionHandler:(MSDataCompletionHandler)completionHandler
 {
-    MSURLSessionDataTask *dataTask = [[MSURLSessionDataTask alloc] initWithRequest:request client:self completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        completionHandler(data, response, error);
-    }];
+    MSURLSessionDataTask *dataTask = [[MSURLSessionDataTask alloc] initWithRequest:request client:self completion:completionHandler];
     return dataTask;
 }
 
 - (MSURLSessionDownloadTask *)downloadTaskWithRequest:(NSMutableURLRequest *)request completionHandler:(MSRawDownloadCompletionHandler)completionHandler
 {
-    MSURLSessionDownloadTask *downloadTask = [[MSURLSessionDownloadTask alloc] initWithRequest:request client:self completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
-        completionHandler(location, response, error);
-    }];
+    MSURLSessionDownloadTask *downloadTask = [[MSURLSessionDownloadTask alloc] initWithRequest:request client:self completionHandler:completionHandler];
     return downloadTask;
 }
 
 - (MSURLSessionUploadTask *)uploadTaskWithRequest:(NSMutableURLRequest *)request fromData:(nonnull NSData *)bodyData completionHandler:(MSRawUploadCompletionHandler)completionHandler
 {
-    MSURLSessionUploadTask *uploadTask = [[MSURLSessionUploadTask alloc] initWithRequest:request data:bodyData client:self completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        completionHandler(data, response, error);
-    }];
+    MSURLSessionUploadTask *uploadTask = [[MSURLSessionUploadTask alloc] initWithRequest:request data:bodyData client:self completionHandler:completionHandler];
     return uploadTask;
 }
 
 - (MSURLSessionUploadTask *)uploadTaskWithRequest:(NSMutableURLRequest *)request fromFile:(nonnull NSURL *)fileURL completionHandler:(MSRawUploadCompletionHandler)completionHandler
 {
-    MSURLSessionUploadTask *uploadTask = [[MSURLSessionUploadTask alloc] initWithRequest:request fromFile:fileURL client:self completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        completionHandler(data, response, error);
-    }];
+    MSURLSessionUploadTask *uploadTask = [[MSURLSessionUploadTask alloc] initWithRequest:request fromFile:fileURL client:self completionHandler:completionHandler];
     return uploadTask;
 }
 

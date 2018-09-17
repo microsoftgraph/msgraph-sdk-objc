@@ -12,7 +12,7 @@
  */
 typedef NS_ENUM(NSInteger, MSMiddlewareType)
 {
-    MSMiddlewareTypeAuthentication ,
+    MSMiddlewareTypeAuthentication,
     MSMiddlewareTypeRedirect,
     MSMiddlewareTypeHTTP
 };

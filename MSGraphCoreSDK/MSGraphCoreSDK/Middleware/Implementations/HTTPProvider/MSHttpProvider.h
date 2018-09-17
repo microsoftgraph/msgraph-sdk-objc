@@ -21,9 +21,9 @@ typedef void (^MSRawUploadCompletionHandler)(NSData *data, NSURLResponse *respon
 typedef void (^MSDataCompletionHandler)(NSData *data, NSURLResponse *response, NSError *error);
 
 /**
- The `MSHttpProvider` protocol is meant to inject all network access from MSGraphClient and MSRequests.
+ The `MSHttpProvider` protocol is meant to inject all network access from MSHTTPClient.
  */
-@protocol MSHttpProvider <NSObject,MSGraphMiddleware>
+@protocol MSHttpProvider <NSObject, MSGraphMiddleware>
 
 /**
  Creates an NSURLSessionDataTask ready to be resumed.
