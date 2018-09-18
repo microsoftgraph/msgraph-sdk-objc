@@ -23,10 +23,10 @@
 }
 
 - (void)testCreateMiddlewareMethod {
-    id<MSGraphMiddleware>authMiddleware = [MSMiddlewareFactory createMiddleware:MSMiddlewareTypeAuthentication];
+    id<MSGraphMiddleware>authHandler = [MSMiddlewareFactory createMiddleware:MSMiddlewareTypeAuthentication];
     id<MSGraphMiddleware>httpMiddleware = [MSMiddlewareFactory createMiddleware:MSMiddlewareTypeHTTP];
     id<MSGraphMiddleware>randomMiddleware = [MSMiddlewareFactory createMiddleware:4];
-    XCTAssertTrue([authMiddleware isKindOfClass:[MSAuthenticationMiddleware class]]);
+    XCTAssertTrue([authHandler isKindOfClass:[MSAuthenticationHandler class]]);
     XCTAssertTrue([httpMiddleware isKindOfClass:[MSURLSessionManager class]]);
     XCTAssertNil(randomMiddleware);
 }

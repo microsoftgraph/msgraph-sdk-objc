@@ -2,7 +2,7 @@
 // Copyright (c) Microsoft Corporation. All Rights Reserved. Licensed under the MIT License. See License in the project root for license information.
 //
 
-#import "MSAuthenticationMiddleware.h"
+#import "MSAuthenticationHandler.h"
 #import "MSURLSessionTask.h"
 
 @interface MSURLSessionTask()
@@ -12,13 +12,13 @@
 @end
 
 
-@interface MSAuthenticationMiddleware()
+@interface MSAuthenticationHandler()
 
 @property (nonatomic, strong) id<MSGraphMiddleware> nextMiddleware;
 
 @end
 
-@implementation MSAuthenticationMiddleware
+@implementation MSAuthenticationHandler
 
 - (void)execute:(MSURLSessionTask *)task withCompletionHandler:(HTTPRequestCompletionHandler)completionHandler
 {

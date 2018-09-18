@@ -6,26 +6,26 @@
 #import <XCTest/XCTest.h>
 #import "MSGraphCoreSDKTests.h"
 
-@interface MSAuthenticationMiddleware()
+@interface MSAuthenticationHandler()
 @property (nonatomic, strong) id<MSGraphMiddleware> nextMiddleware;
 @end
 
 #define TestToken @"a1b2c3d4"
 
-@interface MSAuthenticationMiddlewareTests : MSGraphCoreSDKTests
+@interface MSAuthenticationHandlerTests : MSGraphCoreSDKTests
 
-@property (nonatomic, strong) MSAuthenticationMiddleware *authenticationMiddleware;
+@property (nonatomic, strong) MSAuthenticationHandler *authenticationHandler;
 @property (nonatomic, strong) MSURLSessionDataTask *mockDataTask;
 
 @end
 
-@implementation MSAuthenticationMiddlewareTests
+@implementation MSAuthenticationHandlerTests
 
 - (void)setUp {
     [super setUp];
-    _authenticationMiddleware = [[MSAuthenticationMiddleware alloc] init];
-    _authenticationMiddleware.authProvider = self.mockAuthProvider;
-    [_authenticationMiddleware setNextMiddleware:self.mockHttpProvider];
+    self.authenticationHandler = [[MSAuthenticationHandler alloc] init];
+    self.authenticationHandler.authProvider = self.mockAuthProvider;
+    [self.authenticationHandler setNextMiddleware:self.mockHttpProvider];
 
     _mockDataTask = [[MSURLSessionDataTask alloc] initWithRequest:self.requestForMock client:self.mockClient];
     // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -63,7 +63,7 @@
         NSHTTPURLResponse *OKResponse = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:MSGraphBaseURL] statusCode:MSExpectedResponseCodesOK HTTPVersion:@"foo" headerFields:nil];
         completionHandler([NSData new],OKResponse,nil);
     }));
-    [self.authenticationMiddleware execute:_mockDataTask withCompletionHandler:requestCompletion];
+    [self.authenticationHandler execute:_mockDataTask withCompletionHandler:requestCompletion];
     [self checkCompletionBlockCodeInvoked];
 }
 
@@ -84,18 +84,18 @@
         completionHandler(nil,[NSError errorWithDomain:@"TestDomain" code:0 userInfo:nil]);
     });
 
-    [self.authenticationMiddleware execute:_mockDataTask withCompletionHandler:requestCompletion];
+    [self.authenticationHandler execute:_mockDataTask withCompletionHandler:requestCompletion];
     [self checkCompletionBlockCodeInvoked];
 }
 
 
 - (void)testSetNext {
     id<MSGraphMiddleware> tempMiddleware = OCMProtocolMock(@protocol(MSGraphMiddleware));
-    [_authenticationMiddleware setNext:tempMiddleware];
-    XCTAssertEqualObjects(tempMiddleware, _authenticationMiddleware.nextMiddleware);
+    [self.authenticationHandler setNext:tempMiddleware];
+    XCTAssertEqualObjects(tempMiddleware, self.authenticationHandler.nextMiddleware);
     id<MSGraphMiddleware> tempMiddleware1 = OCMProtocolMock(@protocol(MSGraphMiddleware));
-    [_authenticationMiddleware setNext:tempMiddleware1];
-    XCTAssertEqualObjects(_authenticationMiddleware.nextMiddleware, tempMiddleware1);
+    [self.authenticationHandler setNext:tempMiddleware1];
+    XCTAssertEqualObjects(self.authenticationHandler.nextMiddleware, tempMiddleware1);
 }
 
 @end

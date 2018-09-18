@@ -6,7 +6,7 @@
 #import "MSAuthenticationProvider.h"
 #import "MSGraphMiddleware.h"
 
-@interface MSAuthenticationMiddleware : NSObject<MSGraphMiddleware>
+@interface MSAuthenticationHandler : NSObject<MSGraphMiddleware>
 
 @property (nonatomic, strong) id<MSAuthenticationProvider> authProvider;
 

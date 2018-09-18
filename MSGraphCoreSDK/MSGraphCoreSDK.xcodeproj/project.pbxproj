@@ -26,7 +26,7 @@
 		E52AD9F42133E171005FED47 /* MSURLSessionDownloadTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD9F32133E171005FED47 /* MSURLSessionDownloadTaskTests.m */; };
 		E52AD9F62133E740005FED47 /* MSURLSessionUploadTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD9F52133E73F005FED47 /* MSURLSessionUploadTaskTests.m */; };
 		E566782E2150BC4F00C6B7AE /* MSRedirectHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E566782D2150BC4F00C6B7AE /* MSRedirectHandlerTests.m */; };
-		E56678302150E1AF00C6B7AE /* MSAuthenticationMiddlewareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E566782F2150E1AF00C6B7AE /* MSAuthenticationMiddlewareTests.m */; };
+		E56678302150E1AF00C6B7AE /* MSAuthenticationHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E566782F2150E1AF00C6B7AE /* MSAuthenticationHandlerTests.m */; };
 		E573EE072133FFF200C5E884 /* MSHTTPClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E573EE062133FFF200C5E884 /* MSHTTPClientTests.m */; };
 		E573EE092134167400C5E884 /* MSClientFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E573EE082134167400C5E884 /* MSClientFactoryTests.m */; };
 		E573EE0B213427ED00C5E884 /* MSURLSessionTaskDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E573EE0A213427ED00C5E884 /* MSURLSessionTaskDelegateTests.m */; };
@@ -34,12 +34,12 @@
 		E573EE102136569F00C5E884 /* UserPhoto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E573EE0F2136569F00C5E884 /* UserPhoto.jpg */; };
 		E5B6DB9821497DAA00836E1D /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B6DB9621497D7C00836E1D /* libOCMock.a */; };
 		E5DC73DF211412BF0040BAB6 /* MSGraphCoreSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73DD211412BF0040BAB6 /* MSGraphCoreSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E5DC7403211418050040BAB6 /* MSAuthenticationMiddleware.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73EB211418040040BAB6 /* MSAuthenticationMiddleware.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5DC7403211418050040BAB6 /* MSAuthenticationHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73EB211418040040BAB6 /* MSAuthenticationHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5DC7405211418050040BAB6 /* MSURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DC73EE211418040040BAB6 /* MSURLSessionManager.m */; };
 		E5DC7406211418050040BAB6 /* MSURLSessionTaskDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73EF211418040040BAB6 /* MSURLSessionTaskDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5DC7407211418050040BAB6 /* MSURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73F0211418040040BAB6 /* MSURLSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5DC7408211418050040BAB6 /* MSURLSessionTaskDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DC73F1211418040040BAB6 /* MSURLSessionTaskDelegate.m */; };
-		E5DC7409211418050040BAB6 /* MSAuthenticationMiddleware.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DC73F2211418040040BAB6 /* MSAuthenticationMiddleware.m */; };
+		E5DC7409211418050040BAB6 /* MSAuthenticationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DC73F2211418040040BAB6 /* MSAuthenticationHandler.m */; };
 		E5DC740C211418050040BAB6 /* MSAuthenticationProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73F6211418040040BAB6 /* MSAuthenticationProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5DC740E211418050040BAB6 /* MSHttpProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73F9211418040040BAB6 /* MSHttpProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5DC7410211418050040BAB6 /* MSGraphMiddleware.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73FB211418040040BAB6 /* MSGraphMiddleware.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -85,7 +85,7 @@
 		E52AD9F32133E171005FED47 /* MSURLSessionDownloadTaskTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionDownloadTaskTests.m; sourceTree = "<group>"; };
 		E52AD9F52133E73F005FED47 /* MSURLSessionUploadTaskTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionUploadTaskTests.m; sourceTree = "<group>"; };
 		E566782D2150BC4F00C6B7AE /* MSRedirectHandlerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSRedirectHandlerTests.m; sourceTree = "<group>"; };
-		E566782F2150E1AF00C6B7AE /* MSAuthenticationMiddlewareTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSAuthenticationMiddlewareTests.m; sourceTree = "<group>"; };
+		E566782F2150E1AF00C6B7AE /* MSAuthenticationHandlerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSAuthenticationHandlerTests.m; sourceTree = "<group>"; };
 		E573EE062133FFF200C5E884 /* MSHTTPClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSHTTPClientTests.m; sourceTree = "<group>"; };
 		E573EE082134167400C5E884 /* MSClientFactoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSClientFactoryTests.m; sourceTree = "<group>"; };
 		E573EE0A213427ED00C5E884 /* MSURLSessionTaskDelegateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionTaskDelegateTests.m; sourceTree = "<group>"; };
@@ -105,12 +105,12 @@
 		E5DC73DA211412BF0040BAB6 /* MSGraphCoreSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MSGraphCoreSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5DC73DD211412BF0040BAB6 /* MSGraphCoreSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSGraphCoreSDK.h; sourceTree = "<group>"; };
 		E5DC73DE211412BF0040BAB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E5DC73EB211418040040BAB6 /* MSAuthenticationMiddleware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAuthenticationMiddleware.h; sourceTree = "<group>"; };
+		E5DC73EB211418040040BAB6 /* MSAuthenticationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAuthenticationHandler.h; sourceTree = "<group>"; };
 		E5DC73EE211418040040BAB6 /* MSURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionManager.m; sourceTree = "<group>"; };
 		E5DC73EF211418040040BAB6 /* MSURLSessionTaskDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSURLSessionTaskDelegate.h; sourceTree = "<group>"; };
 		E5DC73F0211418040040BAB6 /* MSURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSURLSessionManager.h; sourceTree = "<group>"; };
 		E5DC73F1211418040040BAB6 /* MSURLSessionTaskDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionTaskDelegate.m; sourceTree = "<group>"; };
-		E5DC73F2211418040040BAB6 /* MSAuthenticationMiddleware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAuthenticationMiddleware.m; sourceTree = "<group>"; };
+		E5DC73F2211418040040BAB6 /* MSAuthenticationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAuthenticationHandler.m; sourceTree = "<group>"; };
 		E5DC73F6211418040040BAB6 /* MSAuthenticationProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAuthenticationProvider.h; sourceTree = "<group>"; };
 		E5DC73F9211418040040BAB6 /* MSHttpProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSHttpProvider.h; sourceTree = "<group>"; };
 		E5DC73FB211418040040BAB6 /* MSGraphMiddleware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphMiddleware.h; sourceTree = "<group>"; };
@@ -166,8 +166,8 @@
 		E5069AC4211AACED00432372 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				E5DC73EB211418040040BAB6 /* MSAuthenticationMiddleware.h */,
-				E5DC73F2211418040040BAB6 /* MSAuthenticationMiddleware.m */,
+				E5DC73EB211418040040BAB6 /* MSAuthenticationHandler.h */,
+				E5DC73F2211418040040BAB6 /* MSAuthenticationHandler.m */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -256,7 +256,7 @@
 				E5069AE1211C323D00432372 /* MSURLSessionManagerTests.m */,
 				E573EE0A213427ED00C5E884 /* MSURLSessionTaskDelegateTests.m */,
 				E566782D2150BC4F00C6B7AE /* MSRedirectHandlerTests.m */,
-				E566782F2150E1AF00C6B7AE /* MSAuthenticationMiddlewareTests.m */,
+				E566782F2150E1AF00C6B7AE /* MSAuthenticationHandlerTests.m */,
 			);
 			path = Implementations;
 			sourceTree = "<group>";
@@ -389,7 +389,7 @@
 				E5DC740E211418050040BAB6 /* MSHttpProvider.h in Headers */,
 				E5DC740C211418050040BAB6 /* MSAuthenticationProvider.h in Headers */,
 				E5DC7410211418050040BAB6 /* MSGraphMiddleware.h in Headers */,
-				E5DC7403211418050040BAB6 /* MSAuthenticationMiddleware.h in Headers */,
+				E5DC7403211418050040BAB6 /* MSAuthenticationHandler.h in Headers */,
 				E5DC741B21142C430040BAB6 /* MSHTTPClient.h in Headers */,
 				E5069AC8211AAEC900432372 /* MSConstants.h in Headers */,
 				E52AD97B212D27DC005FED47 /* MSURLSessionDownloadTask.h in Headers */,
@@ -503,7 +503,7 @@
 				E573EE0D213525BA00C5E884 /* MSGraphWorkloadsTests.m in Sources */,
 				E573EE072133FFF200C5E884 /* MSHTTPClientTests.m in Sources */,
 				E52AD9E6212E8845005FED47 /* MSGraphCoreSDKTests.h in Sources */,
-				E56678302150E1AF00C6B7AE /* MSAuthenticationMiddlewareTests.m in Sources */,
+				E56678302150E1AF00C6B7AE /* MSAuthenticationHandlerTests.m in Sources */,
 				E52AD9F42133E171005FED47 /* MSURLSessionDownloadTaskTests.m in Sources */,
 				E573EE092134167400C5E884 /* MSClientFactoryTests.m in Sources */,
 				E566782E2150BC4F00C6B7AE /* MSRedirectHandlerTests.m in Sources */,
@@ -531,7 +531,7 @@
 				E5DC7408211418050040BAB6 /* MSURLSessionTaskDelegate.m in Sources */,
 				E52AD97E212D27DC005FED47 /* MSURLSessionUploadTask.m in Sources */,
 				E52AD978212D27DC005FED47 /* MSURLSessionDataTask.m in Sources */,
-				E5DC7409211418050040BAB6 /* MSAuthenticationMiddleware.m in Sources */,
+				E5DC7409211418050040BAB6 /* MSAuthenticationHandler.m in Sources */,
 				E5DC741D21142C430040BAB6 /* MSHTTPClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

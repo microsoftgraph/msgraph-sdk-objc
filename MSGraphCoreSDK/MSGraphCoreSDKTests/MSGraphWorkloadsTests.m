@@ -5,7 +5,7 @@
 #import <XCTest/XCTest.h>
 #import "MSGraphCoreSDKTests.h"
 
-@interface MSAuthenticationMiddleware()
+@interface MSAuthenticationHandler()
 
 @property (nonatomic, strong) id<MSGraphMiddleware> nextMiddleware;
 
@@ -40,12 +40,12 @@
 
     MSURLSessionManager *sessionManager = [[MSURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     MSRedirectHandler *redirectHandler = [[MSRedirectHandler alloc] init];
-    MSAuthenticationMiddleware *authMiddleware = [[MSAuthenticationMiddleware alloc] init];
-    authMiddleware.authProvider = self.mockAuthProvider;
-    [authMiddleware setNext:redirectHandler];
+    MSAuthenticationHandler *authHandler = [[MSAuthenticationHandler alloc] init];
+    authHandler.authProvider = self.mockAuthProvider;
+    [authHandler setNext:redirectHandler];
     [redirectHandler setNext:sessionManager];
 
-    _httpClient = [MSClientFactory createHTTPClientWithMiddleware:authMiddleware];
+    _httpClient = [MSClientFactory createHTTPClientWithMiddleware:authHandler];
 
     _mockHttpMiddleware = OCMPartialMock(sessionManager);
 }

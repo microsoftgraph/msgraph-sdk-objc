@@ -4,7 +4,7 @@
 
 #import "MSMiddlewareFactory.h"
 #import "MSURLSessionManager.h"
-#import "MSAuthenticationMiddleware.h"
+#import "MSAuthenticationHandler.h"
 #import "MSRedirectHandler.h"
 
 @implementation MSMiddlewareFactory
@@ -25,8 +25,8 @@
         }
         case MSMiddlewareTypeAuthentication:
         {
-            MSAuthenticationMiddleware *authenticationMiddleware = [[MSAuthenticationMiddleware alloc] init];
-            return authenticationMiddleware;
+            MSAuthenticationHandler *authenticationHandler = [[MSAuthenticationHandler alloc] init];
+            return authenticationHandler;
         }
         default:
             break;
