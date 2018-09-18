@@ -43,6 +43,8 @@ typedef NS_ENUM(NSInteger, MSExpectedResponseCodes)
 };
 
 extern NSString *const MSGraphBaseURL;
+extern NSString *const MSHeaderSdkVersion;
+extern NSString *const MSGraphSdkVersionHeaderPrefix;
 
 extern NSString *const MSErrorDomain;
 

@@ -4,6 +4,7 @@
 
 #import "MSURLSessionTask.h"
 #import "MSHTTPClient.h"
+#import "MSConstants.h"
 
 @interface MSURLSessionTask()
 
@@ -62,6 +63,13 @@
         _isCancelled = YES;
     }
 
+}
+
+- (void)setSDKVersionRequestHeader
+{
+    NSDictionary *info = [[NSBundle bundleForClass:[self class]] infoDictionary];
+    NSString *version = [info objectForKey:@"CFBundleShortVersionString"];
+    [_request setValue:[NSString stringWithFormat:@"%@%@", MSGraphSdkVersionHeaderPrefix, version] forHTTPHeaderField:MSHeaderSdkVersion];
 }
 
 - (void)taskCompletedWithData:(id)data response:(NSURLResponse *)response andError:(NSError *)error

@@ -5,6 +5,9 @@
 #import "MSConstants.h"
 
 NSString *const MSGraphBaseURL = @"https://graph.microsoft.com/v1.0";
+NSString *const MSHeaderSdkVersion = @"SdkVersion";
+NSString *const MSGraphSdkVersionHeaderPrefix = @"graph-ios-";
+
 NSString *const MSErrorDomain = @"com.microsoft.graph.errors";
 
 NSString *const MSErrorTooManyRedirectsFormatString = @"More than %d redirects encountered while sending the request.";

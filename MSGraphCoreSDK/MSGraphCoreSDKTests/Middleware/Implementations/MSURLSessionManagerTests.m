@@ -57,22 +57,17 @@
 }
 
 - (void)testMSURLSessionManagerInitWithNilconfig{
-    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-    MSURLSessionManager * initSessionManager = [[MSURLSessionManager alloc] initWithSessionConfiguration:nil];
-    XCTAssertNotNil(initSessionManager);
-    XCTAssertEqualObjects(initSessionManager.urlSession.configuration, config);
-    XCTAssertEqualObjects(initSessionManager.urlSession.delegate, initSessionManager);
+    MSURLSessionManager * sessionManager = [[MSURLSessionManager alloc] initWithSessionConfiguration:nil];
+    XCTAssertNotNil(sessionManager);
+    XCTAssertNotNil(sessionManager.urlSession.configuration);
+    XCTAssertEqualObjects(sessionManager.urlSession.delegate, sessionManager);
 }
 - (void)testMSURLSessionManagerInit{
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-    MSURLSessionManager * initSessionManager = [[MSURLSessionManager alloc] initWithSessionConfiguration:config];
-    XCTAssertNotNil(initSessionManager);
-    XCTAssertNotNil(initSessionManager.urlSessionConfiguration);
-    XCTAssertEqualObjects(initSessionManager.urlSessionConfiguration, config);
-
-    XCTAssertNotNil(initSessionManager.urlSessionConfiguration);
-    XCTAssertEqualObjects(initSessionManager.urlSession.configuration, config);
-    XCTAssertEqualObjects(initSessionManager.urlSession.delegate, initSessionManager);
+    MSURLSessionManager * sessionManager = [[MSURLSessionManager alloc] initWithSessionConfiguration:config];
+    XCTAssertNotNil(sessionManager);
+    XCTAssertNotNil(sessionManager.urlSessionConfiguration);
+    XCTAssertEqualObjects(sessionManager.urlSession.delegate, sessionManager);
 }
 
 #pragma mark - dataTaskWithRequest success

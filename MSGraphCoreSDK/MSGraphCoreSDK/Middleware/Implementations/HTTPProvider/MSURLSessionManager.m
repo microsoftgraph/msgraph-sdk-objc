@@ -12,6 +12,7 @@
 @interface MSURLSessionTask()
 
 - (void)setInnerTask:(NSURLSessionTask *)innerTask;
+- (void)setSDKVersionRequestHeader;
 
 @end
 
@@ -218,6 +219,7 @@ willPerformHTTPRedirection:(NSHTTPURLResponse *)redirectResponse
 #pragma mark - Middelware methods
 - (void)execute:(MSURLSessionTask *)task withCompletionHandler:(HTTPRequestCompletionHandler)completionHandler
 {
+    [task setSDKVersionRequestHeader];
     NSURLSessionTask *sessionTask;
     if([task isKindOfClass:[MSURLSessionDataTask class]])
     {

@@ -10,6 +10,7 @@
 
 - (void)setRequest:(NSMutableURLRequest *)request;
 - (void)setInnerTask:(NSURLSessionTask *)innerTask;
+- (void)setSDKVersionRequestHeader;
 
 @end
 
@@ -138,5 +139,14 @@
     [dataTask execute];
     [self checkCompletionBlockCodeInvoked];
 
+}
+
+- (void)testSetVersionAsRequestHeader{
+    MSURLSessionTask *sessionTask = [[MSURLSessionTask alloc] initWithRequest:self.requestForMock client:self.mockClient];
+    [sessionTask setSDKVersionRequestHeader];
+    NSDictionary *info = [[NSBundle bundleForClass:[MSURLSessionTask class]] infoDictionary];
+    NSString *version = [info objectForKey:@"CFBundleShortVersionString"];
+    NSString *headerVersionString = [NSString stringWithFormat:@"%@%@", MSGraphSdkVersionHeaderPrefix, version];
+    XCTAssertEqualObjects([sessionTask.request valueForHTTPHeaderField:MSHeaderSdkVersion],headerVersionString);
 }
 @end
