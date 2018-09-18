@@ -64,7 +64,7 @@
                                                NSLocalizedDescriptionKey: MSErrorOperationUnsuccessfulString,
                                                NSLocalizedFailureReasonErrorKey: [NSString stringWithFormat:MSErrorTooManyRedirectsFormatString,localRedirectsAttempted]
                                                };
-                    completionHandler(nil, nil, [NSError errorWithDomain:MSErrorDomain code:[(NSHTTPURLResponse *)response statusCode] userInfo:userInfo]);
+                    completionHandler(data, response, [NSError errorWithDomain:MSErrorDomain code:[(NSHTTPURLResponse *)response statusCode] userInfo:userInfo]);
                     return ;
                 }
                 NSMutableURLRequest *originalRequest = blockTask.request;
@@ -77,7 +77,7 @@
                                                NSLocalizedDescriptionKey: MSErrorOperationUnsuccessfulString,
                                                NSLocalizedFailureReasonErrorKey: MSErrorLocationHeaderNotFoundString
                                                };
-                    completionHandler(nil, nil, [NSError errorWithDomain:MSErrorDomain code:[(NSHTTPURLResponse *)response statusCode] userInfo:userInfo]);
+                    completionHandler(data, response, [NSError errorWithDomain:MSErrorDomain code:[(NSHTTPURLResponse *)response statusCode] userInfo:userInfo]);
                     return ;
                 }
 

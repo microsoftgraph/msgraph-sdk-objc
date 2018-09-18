@@ -25,6 +25,8 @@
 		E52AD9F22133C8F9005FED47 /* MSURLSessionDataTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD9F12133C8F9005FED47 /* MSURLSessionDataTaskTests.m */; };
 		E52AD9F42133E171005FED47 /* MSURLSessionDownloadTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD9F32133E171005FED47 /* MSURLSessionDownloadTaskTests.m */; };
 		E52AD9F62133E740005FED47 /* MSURLSessionUploadTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD9F52133E73F005FED47 /* MSURLSessionUploadTaskTests.m */; };
+		E566782E2150BC4F00C6B7AE /* MSRedirectHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E566782D2150BC4F00C6B7AE /* MSRedirectHandlerTests.m */; };
+		E56678302150E1AF00C6B7AE /* MSAuthenticationMiddlewareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E566782F2150E1AF00C6B7AE /* MSAuthenticationMiddlewareTests.m */; };
 		E573EE072133FFF200C5E884 /* MSHTTPClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E573EE062133FFF200C5E884 /* MSHTTPClientTests.m */; };
 		E573EE092134167400C5E884 /* MSClientFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E573EE082134167400C5E884 /* MSClientFactoryTests.m */; };
 		E573EE0B213427ED00C5E884 /* MSURLSessionTaskDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E573EE0A213427ED00C5E884 /* MSURLSessionTaskDelegateTests.m */; };
@@ -82,6 +84,8 @@
 		E52AD9F12133C8F9005FED47 /* MSURLSessionDataTaskTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionDataTaskTests.m; sourceTree = "<group>"; };
 		E52AD9F32133E171005FED47 /* MSURLSessionDownloadTaskTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionDownloadTaskTests.m; sourceTree = "<group>"; };
 		E52AD9F52133E73F005FED47 /* MSURLSessionUploadTaskTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionUploadTaskTests.m; sourceTree = "<group>"; };
+		E566782D2150BC4F00C6B7AE /* MSRedirectHandlerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSRedirectHandlerTests.m; sourceTree = "<group>"; };
+		E566782F2150E1AF00C6B7AE /* MSAuthenticationMiddlewareTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSAuthenticationMiddlewareTests.m; sourceTree = "<group>"; };
 		E573EE062133FFF200C5E884 /* MSHTTPClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSHTTPClientTests.m; sourceTree = "<group>"; };
 		E573EE082134167400C5E884 /* MSClientFactoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSClientFactoryTests.m; sourceTree = "<group>"; };
 		E573EE0A213427ED00C5E884 /* MSURLSessionTaskDelegateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionTaskDelegateTests.m; sourceTree = "<group>"; };
@@ -251,6 +255,8 @@
 			children = (
 				E5069AE1211C323D00432372 /* MSURLSessionManagerTests.m */,
 				E573EE0A213427ED00C5E884 /* MSURLSessionTaskDelegateTests.m */,
+				E566782D2150BC4F00C6B7AE /* MSRedirectHandlerTests.m */,
+				E566782F2150E1AF00C6B7AE /* MSAuthenticationMiddlewareTests.m */,
 			);
 			path = Implementations;
 			sourceTree = "<group>";
@@ -497,8 +503,10 @@
 				E573EE0D213525BA00C5E884 /* MSGraphWorkloadsTests.m in Sources */,
 				E573EE072133FFF200C5E884 /* MSHTTPClientTests.m in Sources */,
 				E52AD9E6212E8845005FED47 /* MSGraphCoreSDKTests.h in Sources */,
+				E56678302150E1AF00C6B7AE /* MSAuthenticationMiddlewareTests.m in Sources */,
 				E52AD9F42133E171005FED47 /* MSURLSessionDownloadTaskTests.m in Sources */,
 				E573EE092134167400C5E884 /* MSClientFactoryTests.m in Sources */,
+				E566782E2150BC4F00C6B7AE /* MSRedirectHandlerTests.m in Sources */,
 				E573EE0B213427ED00C5E884 /* MSURLSessionTaskDelegateTests.m in Sources */,
 				E5ECE09E2142992F00A289C2 /* MSMiddlewareFactoryTests.m in Sources */,
 				E5069AE2211C323D00432372 /* MSURLSessionManagerTests.m in Sources */,

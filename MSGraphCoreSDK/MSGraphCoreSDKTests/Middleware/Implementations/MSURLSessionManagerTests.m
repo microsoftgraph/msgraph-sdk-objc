@@ -208,6 +208,33 @@
     [self checkCompletionBlockCodeInvoked];
 }
 
+#pragma mark - Redirect
+- (void)testWillPerformRedirect {
+    MSDataCompletionHandler msdataCompletion =^(NSData *data, NSURLResponse *response, NSError *error) {
+        [self completionBlockCodeInvoked];
+        XCTAssertNil(error);
+        XCTAssertNotNil(response);
+        XCTAssertEqual(((NSHTTPURLResponse *)response).statusCode, MSExpectedResponseCodesSeeOther);
+        XCTAssertNil(data);
+    };
+
+    id<NSURLSessionDataDelegate> nsURLSessionDataDelegate = _sessionManager;
+    //Creating data task
+    NSURLSessionDataTask *datatask = [_httpProviderDelegate dataTaskWithRequest:_request completionHandler:msdataCompletion];
+    XCTAssertNotNil(datatask);
+
+    //Creating task delegate
+    MSURLSessionTaskDelegate * msUrlsessionTaskDelegate = [_sessionManager.taskDelegates objectForKey:@(datatask.taskIdentifier)];
+    XCTAssertNotNil(msUrlsessionTaskDelegate);
+    XCTAssertEqualObjects(msUrlsessionTaskDelegate.completion, msdataCompletion);
+
+    //Manual call to will perform redirect
+     NSHTTPURLResponse *redirectResponse = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:MSGraphBaseURL] statusCode:MSExpectedResponseCodesSeeOther HTTPVersion:@"foo" headerFields:nil];
+    [nsURLSessionDataDelegate URLSession:_sessionManager.urlSession task:datatask willPerformHTTPRedirection:redirectResponse newRequest:self.requestForMock completionHandler:nil];
+
+    [self checkCompletionBlockCodeInvoked];
+}
+
 #pragma mark - Test set next
 
 - (void)testSetNext{

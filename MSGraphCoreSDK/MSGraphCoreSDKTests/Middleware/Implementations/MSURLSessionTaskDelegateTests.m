@@ -96,6 +96,7 @@
 
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     NSURLSessionTask *sessionTask = [session dataTaskWithRequest:self.requestForMock];
+
     [taskDelegate didReceiveData:[NSJSONSerialization dataWithJSONObject:@{@"initKey":@"initData"} options:0 error:nil]];
 
     [taskDelegate task:sessionTask didCompleteWithError:nil];
@@ -117,6 +118,7 @@
 
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     NSURLSessionTask *sessionTask = [session dataTaskWithRequest:self.requestForMock];
+
     [taskDelegate task:sessionTask didCompleteDownload:[NSURL URLWithString:@"file://var/dld.tmp"]];
 
     [taskDelegate task:sessionTask didCompleteWithError:nil];
@@ -129,6 +131,27 @@
     NSURLSessionTask *sessionTask = [session dataTaskWithRequest:self.requestForMock];
     [self.taskDelegate task:sessionTask didCompleteDownload:[NSURL URLWithString:@"file://var/dld.tmp"]];
     XCTAssertTrue([self.taskDelegate.downloadPath.absoluteString isEqualToString:@"file://var/dld.tmp"]);
+}
+
+- (void)testTaskDidRedirect {
+    MSURLSessionTaskCompletion taskCompletion = ^(id responseObject, NSURLResponse *response, NSError *error){
+        [self completionBlockCodeInvoked];
+        XCTAssertNil(responseObject);
+        XCTAssertNotNil(response);
+        XCTAssertEqual(((NSHTTPURLResponse *)response).statusCode, MSExpectedResponseCodesSeeOther);
+        XCTAssertNil(error);
+
+    };
+
+    MSURLSessionTaskDelegate *taskDelegate = [[MSURLSessionTaskDelegate alloc] initWithProgressRef:nil completion:taskCompletion];
+
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    NSURLSessionTask *sessionTask = [session dataTaskWithRequest:self.requestForMock];
+
+    NSHTTPURLResponse *redirectResponse = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:MSGraphBaseURL] statusCode:MSExpectedResponseCodesSeeOther HTTPVersion:@"foo" headerFields:nil];
+    [taskDelegate task:sessionTask didRedirectWithResponse:redirectResponse];
+
+    [self checkCompletionBlockCodeInvoked];
 }
 
 @end

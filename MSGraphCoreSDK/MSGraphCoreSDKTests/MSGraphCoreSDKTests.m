@@ -13,6 +13,7 @@
     self.testBaseURL = [NSURL URLWithString:@"https://foo.com/bar/baz"];
     self.requestForMock = [[NSMutableURLRequest alloc] initWithURL:self.testBaseURL];
     self.mockAuthProvider = OCMProtocolMock(@protocol(MSAuthenticationProvider));
+    self.mockHttpProvider = OCMProtocolMock(@protocol(MSHttpProvider));
     self.mockClient = OCMPartialMock([MSClientFactory createHTTPClientWithAuthenticationProvider:self.mockAuthProvider]);
 }
 
