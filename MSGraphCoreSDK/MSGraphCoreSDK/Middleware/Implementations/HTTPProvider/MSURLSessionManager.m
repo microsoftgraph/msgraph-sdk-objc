@@ -57,10 +57,7 @@
 - (NSURLSessionDataTask *)dataTaskWithRequest:(NSURLRequest *)request completionHandler:(MSDataCompletionHandler)completionHandler;
 {
     NSURLSessionDataTask *dataTask = nil;
-    @synchronized(self.urlSession)
-    {
-        dataTask = [self.urlSession dataTaskWithRequest:request];
-    }
+    dataTask = [self.urlSession dataTaskWithRequest:request];
     
     [self addDelegateForTask:dataTask withProgress:nil completion:completionHandler];
     return dataTask;
@@ -69,10 +66,7 @@
 - (NSURLSessionDownloadTask *) downloadTaskWithRequest:(NSURLRequest *)request progress:(NSProgress * __autoreleasing *)progress completionHandler:(MSRawDownloadCompletionHandler)completionHandler
 {
     NSURLSessionDownloadTask *downloadTask = nil;
-    @synchronized(self.urlSession)
-    {
-        downloadTask = [self.urlSession downloadTaskWithRequest:request];
-    }
+    downloadTask = [self.urlSession downloadTaskWithRequest:request];
 
     [self addDelegateForTask:downloadTask withProgress:progress completion:completionHandler];
     return downloadTask;
@@ -84,10 +78,7 @@
                                 completionHandler:(void (^)(NSData *, NSURLResponse *, NSError *))completionHandler
 {
     NSURLSessionUploadTask *uploadTask = nil;
-    @synchronized(self.urlSession)
-    {
-        uploadTask = [self.urlSession uploadTaskWithRequest:request fromData:data];
-    }
+    uploadTask = [self.urlSession uploadTaskWithRequest:request fromData:data];
 
     [self addDelegateForTask:uploadTask withProgress:progress completion:completionHandler];
     return uploadTask;
@@ -99,10 +90,7 @@
                                 completionHandler:(MSRawUploadCompletionHandler)completionHandler
 {
     NSURLSessionUploadTask *uploadTask = nil;
-    @synchronized(self.urlSession)
-    {
-        uploadTask = [self.urlSession uploadTaskWithRequest:request fromFile:fileURL];
-    }
+    uploadTask = [self.urlSession uploadTaskWithRequest:request fromFile:fileURL];
     
     [self addDelegateForTask:uploadTask withProgress:progress completion:completionHandler];
     return uploadTask;
