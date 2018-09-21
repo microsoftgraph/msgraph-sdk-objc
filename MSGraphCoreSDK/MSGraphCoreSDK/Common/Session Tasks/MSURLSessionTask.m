@@ -24,7 +24,7 @@
     if (self)
     {
         _client = client;
-        _request = request;
+        _request = [request mutableCopy];
     }
     return self;
 }

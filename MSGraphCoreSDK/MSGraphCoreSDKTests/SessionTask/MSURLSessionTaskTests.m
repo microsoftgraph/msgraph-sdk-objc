@@ -40,9 +40,17 @@
     XCTAssertThrows([[MSURLSessionTask alloc] initWithRequest:nil client:self.mockClient]);
 }
 
-- (void)testInitMSURLSessionTaskState{
+- (void)testInitWithNonMutableRequest {
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:self.testBaseURL];
+    MSURLSessionTask *sessionTask = [[MSURLSessionTask alloc] initWithRequest:urlRequest client:self.mockClient];
+    XCTAssertTrue([sessionTask.request isKindOfClass:[NSMutableURLRequest class]]);
+    XCTAssertNotEqual(urlRequest, sessionTask.request);
+}
+
+- (void)testInitMSURLSessionTask{
     MSURLSessionTask *msURLSessionTask= [[MSURLSessionTask alloc] initWithRequest:self.requestForMock client:self.mockClient];
     XCTAssertEqual(msURLSessionTask.client, self.mockClient);
+    XCTAssertNotEqual(msURLSessionTask.request, self.requestForMock);
 }
 
 - (void)testSetInnerTask{
