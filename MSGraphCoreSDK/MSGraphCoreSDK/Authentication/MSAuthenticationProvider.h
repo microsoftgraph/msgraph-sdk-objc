@@ -14,7 +14,7 @@ typedef void(^MSAuthenticationCompletion)(NSMutableURLRequest *request, NSError 
 @protocol MSAuthenticationProvider <NSObject>
 
 /**
- Gets the access token. This method should be implmented by a class which should provide the capability of providing the access token.
+ Gets the access token. This method should be implemented by a class which should provide the capability of providing the access token.
  @param completion The completion handler to be called when access token or an error can be returned.
  */
 

@@ -243,11 +243,7 @@ willPerformHTTPRedirection:(NSHTTPURLResponse *)redirectResponse
 
 - (void)setNext:(id<MSGraphMiddleware>)nextMiddleware
 {
-    if(_nextMiddleware)
-    {
-        [nextMiddleware setNext:_nextMiddleware];
-    }
-    _nextMiddleware = nextMiddleware;
+    NSAssert(NO, @"This class is last node of middleware chain. So can not set any next middleware after this.");
 }
 
 @end

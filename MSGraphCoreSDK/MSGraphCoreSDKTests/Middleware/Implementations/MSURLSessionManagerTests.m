@@ -234,11 +234,7 @@
 
 - (void)testSetNext{
     id<MSGraphMiddleware> tempMiddleware = OCMProtocolMock(@protocol(MSGraphMiddleware));
-    [_sessionManager setNext:tempMiddleware];
-    XCTAssertEqualObjects(tempMiddleware, _sessionManager.nextMiddleware);
-    id<MSGraphMiddleware> tempMiddleware1 = OCMProtocolMock(@protocol(MSGraphMiddleware));
-    [_sessionManager setNext:tempMiddleware1];
-    XCTAssertEqualObjects(_sessionManager.nextMiddleware, tempMiddleware1);
+    XCTAssertThrows([_sessionManager setNext:tempMiddleware]);
 }
 
 #pragma mark - Middleware execution
