@@ -30,7 +30,7 @@ We use [Carthage](https://github.com/Carthage/Carthage) for package management d
 
 ```
 
-github "microsoftgraph/msgraph-sdk-objc" "master"
+github "microsoftgraph/msgraph-sdk-objc" "tags/<latest_release_tag>"
 
 ```
 
