@@ -7,6 +7,7 @@
 #import "MSURLSessionManager.h"
 #import "MSMiddlewareFactory.h"
 #import "MSRedirectHandler.h"
+#import "MSRetryHandler.h"
 
 @implementation MSClientFactory
 
@@ -20,10 +21,12 @@
     MSAuthenticationHandler *authenticationHandler = (MSAuthenticationHandler *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeAuthentication];
     authenticationHandler.authProvider = authenticationProvider;
     MSRedirectHandler *redirectHandler = (MSRedirectHandler *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeRedirect];
+    MSRetryHandler *retryHandler = (MSRetryHandler *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeRetry];
     MSURLSessionManager *sessionManager = (MSURLSessionManager *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeHTTP];
     //Creating a default chain
     [authenticationHandler setNext:redirectHandler];
-    [redirectHandler setNext:sessionManager];
+    [redirectHandler setNext:retryHandler];
+    [retryHandler setNext:sessionManager];
 
     return [MSClientFactory createHTTPClientWithMiddleware:authenticationHandler];
 }

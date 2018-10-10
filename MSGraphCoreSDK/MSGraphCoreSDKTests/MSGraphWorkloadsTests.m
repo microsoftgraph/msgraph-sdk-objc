@@ -40,10 +40,12 @@
 
     MSURLSessionManager *sessionManager = [[MSURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     MSRedirectHandler *redirectHandler = [[MSRedirectHandler alloc] init];
+    MSRetryHandler *retryHandler = [[MSRetryHandler alloc] init];
     MSAuthenticationHandler *authHandler = [[MSAuthenticationHandler alloc] init];
     authHandler.authProvider = self.mockAuthProvider;
     [authHandler setNext:redirectHandler];
-    [redirectHandler setNext:sessionManager];
+    [redirectHandler setNext:retryHandler];
+    [retryHandler setNext:sessionManager];
 
     _httpClient = [MSClientFactory createHTTPClientWithMiddleware:authHandler];
 
