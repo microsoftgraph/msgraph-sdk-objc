@@ -12,6 +12,18 @@
 		E5069AD9211C1AD500432372 /* MSGraphCoreSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5069AD8211C1AD500432372 /* MSGraphCoreSDKTests.m */; };
 		E5069ADB211C1AD500432372 /* MSGraphCoreSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DC73DA211412BF0040BAB6 /* MSGraphCoreSDK.framework */; };
 		E5069AE2211C323D00432372 /* MSURLSessionManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5069AE1211C323D00432372 /* MSURLSessionManagerTests.m */; };
+		E5204FEE216F1D9900E64160 /* MSBatchRequestContent.h in Headers */ = {isa = PBXBuildFile; fileRef = E5204FE8216F1D9800E64160 /* MSBatchRequestContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5204FEF216F1D9900E64160 /* MSBatchRequestStep.h in Headers */ = {isa = PBXBuildFile; fileRef = E5204FE9216F1D9800E64160 /* MSBatchRequestStep.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5204FF0216F1D9900E64160 /* MSBatchResponseContent.m in Sources */ = {isa = PBXBuildFile; fileRef = E5204FEA216F1D9800E64160 /* MSBatchResponseContent.m */; };
+		E5204FF1216F1D9900E64160 /* MSBatchRequestContent.m in Sources */ = {isa = PBXBuildFile; fileRef = E5204FEB216F1D9800E64160 /* MSBatchRequestContent.m */; };
+		E5204FF2216F1D9900E64160 /* MSBatchResponseContent.h in Headers */ = {isa = PBXBuildFile; fileRef = E5204FEC216F1D9900E64160 /* MSBatchResponseContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5204FF3216F1D9900E64160 /* MSBatchRequestStep.m in Sources */ = {isa = PBXBuildFile; fileRef = E5204FED216F1D9900E64160 /* MSBatchRequestStep.m */; };
+		E5204FF7216F371400E64160 /* MSErrorCodes.m in Sources */ = {isa = PBXBuildFile; fileRef = E5204FF5216F371400E64160 /* MSErrorCodes.m */; };
+		E5204FF8216F371400E64160 /* MSErrorCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = E5204FF6216F371400E64160 /* MSErrorCodes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5204FFF2173A7C200E64160 /* MSBatchRequestStepTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5204FFE2173A7C200E64160 /* MSBatchRequestStepTests.m */; };
+		E52050012173AEA900E64160 /* MSBatchRequestContentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E52050002173AEA900E64160 /* MSBatchRequestContentTests.m */; };
+		E52050042174C1DB00E64160 /* MSBatchResponseContentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E52050032174C1DB00E64160 /* MSBatchResponseContentTests.m */; };
+		E52050062175B10800E64160 /* BatchResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = E52050052175B10800E64160 /* BatchResponse.json */; };
 		E52AD978212D27DC005FED47 /* MSURLSessionDataTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD970212D27DB005FED47 /* MSURLSessionDataTask.m */; };
 		E52AD979212D27DC005FED47 /* MSURLSessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD971212D27DB005FED47 /* MSURLSessionTask.m */; };
 		E52AD97A212D27DC005FED47 /* MSURLSessionUploadTask.h in Headers */ = {isa = PBXBuildFile; fileRef = E52AD972212D27DB005FED47 /* MSURLSessionUploadTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -71,6 +83,18 @@
 		E5069AD8211C1AD500432372 /* MSGraphCoreSDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSGraphCoreSDKTests.m; sourceTree = "<group>"; };
 		E5069ADA211C1AD500432372 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5069AE1211C323D00432372 /* MSURLSessionManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionManagerTests.m; sourceTree = "<group>"; };
+		E5204FE8216F1D9800E64160 /* MSBatchRequestContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSBatchRequestContent.h; sourceTree = "<group>"; };
+		E5204FE9216F1D9800E64160 /* MSBatchRequestStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSBatchRequestStep.h; sourceTree = "<group>"; };
+		E5204FEA216F1D9800E64160 /* MSBatchResponseContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSBatchResponseContent.m; sourceTree = "<group>"; };
+		E5204FEB216F1D9800E64160 /* MSBatchRequestContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSBatchRequestContent.m; sourceTree = "<group>"; };
+		E5204FEC216F1D9900E64160 /* MSBatchResponseContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSBatchResponseContent.h; sourceTree = "<group>"; };
+		E5204FED216F1D9900E64160 /* MSBatchRequestStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSBatchRequestStep.m; sourceTree = "<group>"; };
+		E5204FF5216F371400E64160 /* MSErrorCodes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSErrorCodes.m; sourceTree = "<group>"; };
+		E5204FF6216F371400E64160 /* MSErrorCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSErrorCodes.h; sourceTree = "<group>"; };
+		E5204FFE2173A7C200E64160 /* MSBatchRequestStepTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSBatchRequestStepTests.m; sourceTree = "<group>"; };
+		E52050002173AEA900E64160 /* MSBatchRequestContentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSBatchRequestContentTests.m; sourceTree = "<group>"; };
+		E52050032174C1DB00E64160 /* MSBatchResponseContentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSBatchResponseContentTests.m; sourceTree = "<group>"; };
+		E52050052175B10800E64160 /* BatchResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BatchResponse.json; sourceTree = "<group>"; };
 		E52AD970212D27DB005FED47 /* MSURLSessionDataTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionDataTask.m; sourceTree = "<group>"; };
 		E52AD971212D27DB005FED47 /* MSURLSessionTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionTask.m; sourceTree = "<group>"; };
 		E52AD972212D27DB005FED47 /* MSURLSessionUploadTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSURLSessionUploadTask.h; sourceTree = "<group>"; };
@@ -178,6 +202,8 @@
 				E52AD96F212D271C005FED47 /* Session Tasks */,
 				E5069AC6211AAEC900432372 /* MSConstants.h */,
 				E5069AC7211AAEC900432372 /* MSConstants.m */,
+				E5204FF6216F371400E64160 /* MSErrorCodes.h */,
+				E5204FF5216F371400E64160 /* MSErrorCodes.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -185,6 +211,7 @@
 		E5069AD7211C1AD500432372 /* MSGraphCoreSDKTests */ = {
 			isa = PBXGroup;
 			children = (
+				E5204FFC2173A79100E64160 /* GraphContent */,
 				E5B6DB6921497A3300836E1D /* Frameworks */,
 				E573EE1121367A4000C5E884 /* HTTPClient */,
 				E573EE0E2136568700C5E884 /* Resources */,
@@ -196,6 +223,45 @@
 				E5069ADA211C1AD500432372 /* Info.plist */,
 			);
 			path = MSGraphCoreSDKTests;
+			sourceTree = "<group>";
+		};
+		E5204FE6216F1D4200E64160 /* GraphContent */ = {
+			isa = PBXGroup;
+			children = (
+				E5204FE7216F1D7300E64160 /* BatchContent */,
+			);
+			path = GraphContent;
+			sourceTree = "<group>";
+		};
+		E5204FE7216F1D7300E64160 /* BatchContent */ = {
+			isa = PBXGroup;
+			children = (
+				E5204FE9216F1D9800E64160 /* MSBatchRequestStep.h */,
+				E5204FED216F1D9900E64160 /* MSBatchRequestStep.m */,
+				E5204FE8216F1D9800E64160 /* MSBatchRequestContent.h */,
+				E5204FEB216F1D9800E64160 /* MSBatchRequestContent.m */,
+				E5204FEC216F1D9900E64160 /* MSBatchResponseContent.h */,
+				E5204FEA216F1D9800E64160 /* MSBatchResponseContent.m */,
+			);
+			path = BatchContent;
+			sourceTree = "<group>";
+		};
+		E5204FFC2173A79100E64160 /* GraphContent */ = {
+			isa = PBXGroup;
+			children = (
+				E5204FFD2173A79E00E64160 /* BatchContent */,
+			);
+			path = GraphContent;
+			sourceTree = "<group>";
+		};
+		E5204FFD2173A79E00E64160 /* BatchContent */ = {
+			isa = PBXGroup;
+			children = (
+				E5204FFE2173A7C200E64160 /* MSBatchRequestStepTests.m */,
+				E52050002173AEA900E64160 /* MSBatchRequestContentTests.m */,
+				E52050032174C1DB00E64160 /* MSBatchResponseContentTests.m */,
+			);
+			path = BatchContent;
 			sourceTree = "<group>";
 		};
 		E52AD96F212D271C005FED47 /* Session Tasks */ = {
@@ -235,6 +301,7 @@
 		E573EE0E2136568700C5E884 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E52050052175B10800E64160 /* BatchResponse.json */,
 				E573EE0F2136569F00C5E884 /* UserPhoto.jpg */,
 			);
 			path = Resources;
@@ -319,6 +386,7 @@
 				E5DC73DD211412BF0040BAB6 /* MSGraphCoreSDK.h */,
 				E5069AC2211AACB600432372 /* Authentication */,
 				E5069AC5211AAE6900432372 /* Common */,
+				E5204FE6216F1D4200E64160 /* GraphContent */,
 				E5DC73E5211418040040BAB6 /* HTTPClient */,
 				E5DC73EA211418040040BAB6 /* Middleware */,
 				E5DC73DE211412BF0040BAB6 /* Info.plist */,
@@ -398,6 +466,10 @@
 				E52AD97C212D27DC005FED47 /* MSURLSessionDataTask.h in Headers */,
 				E5DC7406211418050040BAB6 /* MSURLSessionTaskDelegate.h in Headers */,
 				E5ECE09721427A6400A289C2 /* MSMiddlewareFactory.h in Headers */,
+				E5204FEE216F1D9900E64160 /* MSBatchRequestContent.h in Headers */,
+				E5204FF2216F1D9900E64160 /* MSBatchResponseContent.h in Headers */,
+				E5204FF8216F371400E64160 /* MSErrorCodes.h in Headers */,
+				E5204FEF216F1D9900E64160 /* MSBatchRequestStep.h in Headers */,
 				E5ECE0A42146657900A289C2 /* MSRedirectHandler.h in Headers */,
 				E5DC73DF211412BF0040BAB6 /* MSGraphCoreSDK.h in Headers */,
 			);
@@ -485,6 +557,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E573EE102136569F00C5E884 /* UserPhoto.jpg in Resources */,
+				E52050062175B10800E64160 /* BatchResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,7 +575,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E52050012173AEA900E64160 /* MSBatchRequestContentTests.m in Sources */,
 				E573EE0D213525BA00C5E884 /* MSGraphWorkloadsTests.m in Sources */,
+				E5204FFF2173A7C200E64160 /* MSBatchRequestStepTests.m in Sources */,
+				E52050042174C1DB00E64160 /* MSBatchResponseContentTests.m in Sources */,
 				E573EE072133FFF200C5E884 /* MSHTTPClientTests.m in Sources */,
 				E52AD9E6212E8845005FED47 /* MSGraphCoreSDKTests.h in Sources */,
 				E56678302150E1AF00C6B7AE /* MSAuthenticationHandlerTests.m in Sources */,
@@ -523,13 +599,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5204FF1216F1D9900E64160 /* MSBatchRequestContent.m in Sources */,
+				E5204FF7216F371400E64160 /* MSErrorCodes.m in Sources */,
 				E5DC741A21142C430040BAB6 /* MSClientFactory.m in Sources */,
 				E5069AC9211AAEC900432372 /* MSConstants.m in Sources */,
 				E5ECE0A52146657900A289C2 /* MSRedirectHandler.m in Sources */,
 				E5ECE09821427A6400A289C2 /* MSMiddlewareFactory.m in Sources */,
 				E52AD97F212D27DC005FED47 /* MSURLSessionDownloadTask.m in Sources */,
+				E5204FF3216F1D9900E64160 /* MSBatchRequestStep.m in Sources */,
 				E5DC7405211418050040BAB6 /* MSURLSessionManager.m in Sources */,
 				E52AD979212D27DC005FED47 /* MSURLSessionTask.m in Sources */,
+				E5204FF0216F1D9900E64160 /* MSBatchResponseContent.m in Sources */,
 				E5DC7408211418050040BAB6 /* MSURLSessionTaskDelegate.m in Sources */,
 				E52AD97E212D27DC005FED47 /* MSURLSessionUploadTask.m in Sources */,
 				E52AD978212D27DC005FED47 /* MSURLSessionDataTask.m in Sources */,

@@ -34,6 +34,11 @@ FOUNDATION_EXPORT const unsigned char MSGraphSDKVersionString[];
 #import "MSGraphCoreSDK/MSURLSessionDownloadTask.h"
 #import "MSGraphCoreSDK/MSURLSessionUploadTask.h"
 
+#import "MSGraphCoreSDK/MSErrorCodes.h"
+#import "MSGraphCoreSDK/MSBatchRequestStep.h"
+#import "MSGraphCoreSDK/MSBatchRequestContent.h"
+#import "MSGraphCoreSDK/MSBatchResponseContent.h"
+
 #endif
 
 
