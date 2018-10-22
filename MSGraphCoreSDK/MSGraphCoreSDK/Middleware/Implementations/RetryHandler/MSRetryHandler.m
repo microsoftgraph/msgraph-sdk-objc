@@ -11,6 +11,8 @@ NSString * const RETRY_ATTEMPT = @"Retry-Attempt";
 NSString * const TRANSFER_ENCODING = @"Transfer-Encoding";
 
 #define DELAY_SECONDS 10;
+#define DEFAULT_MAX_RETRIES 10;
+#define DEFAULT_RETRY_POWER 1;
 
 @interface MSURLSessionTask()
 
@@ -35,8 +37,8 @@ NSString * const TRANSFER_ENCODING = @"Transfer-Encoding";
     self = [super init];
     if(self)
     {
-        maxRetries = 10;
-        retryPower = 1;
+        maxRetries = DEFAULT_MAX_RETRIES;
+        retryPower = DEFAULT_RETRY_POWER;
     }
     return self;
 }
