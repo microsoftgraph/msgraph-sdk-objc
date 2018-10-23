@@ -51,4 +51,14 @@ extern NSString *const MSErrorDomain;
 extern NSString *const MSErrorTooManyRedirectsFormatString;
 extern NSString *const MSErrorLocationHeaderNotFoundString;
 extern NSString *const MSErrorOperationUnsuccessfulString;
+
+extern NSString *const MSErrorTooManyRetries;
+extern NSString *const MSErrorTooManyRetriesFormatString;
+
+extern NSString *const HTTPMethodGet;
+extern NSString *const HTTPMethodPut;
+extern NSString *const HTTPMethodPatch;
+extern NSString *const HTTPMethodPost;
+extern NSString *const HTTPMethodDelete;
+
 #endif

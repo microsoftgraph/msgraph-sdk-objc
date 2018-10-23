@@ -6,6 +6,7 @@
 #import "MSURLSessionManager.h"
 #import "MSAuthenticationHandler.h"
 #import "MSRedirectHandler.h"
+#import "MSRetryHandler.h"
 
 @implementation MSMiddlewareFactory
 
@@ -27,6 +28,11 @@
         {
             MSAuthenticationHandler *authenticationHandler = [[MSAuthenticationHandler alloc] init];
             return authenticationHandler;
+        }
+        case MSMiddlewareTypeRetry:
+        {
+            MSRetryHandler *retryHandler = [[MSRetryHandler alloc] init];
+            return retryHandler;
         }
         default:
             break;

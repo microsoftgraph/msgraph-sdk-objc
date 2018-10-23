@@ -24,6 +24,9 @@
 		E52050012173AEA900E64160 /* MSBatchRequestContentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E52050002173AEA900E64160 /* MSBatchRequestContentTests.m */; };
 		E52050042174C1DB00E64160 /* MSBatchResponseContentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E52050032174C1DB00E64160 /* MSBatchResponseContentTests.m */; };
 		E52050062175B10800E64160 /* BatchResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = E52050052175B10800E64160 /* BatchResponse.json */; };
+		E51E616C216DE4D300F1B3C0 /* MSRetryHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = E51E616A216DE4D300F1B3C0 /* MSRetryHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E51E616D216DE4D300F1B3C0 /* MSRetryHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E51E616B216DE4D300F1B3C0 /* MSRetryHandler.m */; };
+		E51E616F216E073F00F1B3C0 /* MSRetryHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E51E616E216E073F00F1B3C0 /* MSRetryHandlerTests.m */; };
 		E52AD978212D27DC005FED47 /* MSURLSessionDataTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD970212D27DB005FED47 /* MSURLSessionDataTask.m */; };
 		E52AD979212D27DC005FED47 /* MSURLSessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD971212D27DB005FED47 /* MSURLSessionTask.m */; };
 		E52AD97A212D27DC005FED47 /* MSURLSessionUploadTask.h in Headers */ = {isa = PBXBuildFile; fileRef = E52AD972212D27DB005FED47 /* MSURLSessionUploadTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -95,6 +98,9 @@
 		E52050002173AEA900E64160 /* MSBatchRequestContentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSBatchRequestContentTests.m; sourceTree = "<group>"; };
 		E52050032174C1DB00E64160 /* MSBatchResponseContentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSBatchResponseContentTests.m; sourceTree = "<group>"; };
 		E52050052175B10800E64160 /* BatchResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BatchResponse.json; sourceTree = "<group>"; };
+		E51E616A216DE4D300F1B3C0 /* MSRetryHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRetryHandler.h; sourceTree = "<group>"; };
+		E51E616B216DE4D300F1B3C0 /* MSRetryHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRetryHandler.m; sourceTree = "<group>"; };
+		E51E616E216E073F00F1B3C0 /* MSRetryHandlerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSRetryHandlerTests.m; sourceTree = "<group>"; };
 		E52AD970212D27DB005FED47 /* MSURLSessionDataTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionDataTask.m; sourceTree = "<group>"; };
 		E52AD971212D27DB005FED47 /* MSURLSessionTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionTask.m; sourceTree = "<group>"; };
 		E52AD972212D27DB005FED47 /* MSURLSessionUploadTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSURLSessionUploadTask.h; sourceTree = "<group>"; };
@@ -180,6 +186,7 @@
 		E5069AC3211AACCD00432372 /* Implementations */ = {
 			isa = PBXGroup;
 			children = (
+				E5190C7F216DE371001699B5 /* RetryHandler */,
 				E5ECE0A12146655000A289C2 /* RedirectHandler */,
 				E5069AC4211AACED00432372 /* Authentication */,
 				E5DC73ED211418040040BAB6 /* HTTPProvider */,
@@ -262,6 +269,15 @@
 				E52050032174C1DB00E64160 /* MSBatchResponseContentTests.m */,
 			);
 			path = BatchContent;
+            sourceTree = "<group>";
+        };
+		E5190C7F216DE371001699B5 /* RetryHandler */ = {
+			isa = PBXGroup;
+			children = (
+				E51E616A216DE4D300F1B3C0 /* MSRetryHandler.h */,
+				E51E616B216DE4D300F1B3C0 /* MSRetryHandler.m */,
+			);
+			path = RetryHandler;
 			sourceTree = "<group>";
 		};
 		E52AD96F212D271C005FED47 /* Session Tasks */ = {
@@ -324,6 +340,7 @@
 				E573EE0A213427ED00C5E884 /* MSURLSessionTaskDelegateTests.m */,
 				E566782D2150BC4F00C6B7AE /* MSRedirectHandlerTests.m */,
 				E566782F2150E1AF00C6B7AE /* MSAuthenticationHandlerTests.m */,
+				E51E616E216E073F00F1B3C0 /* MSRetryHandlerTests.m */,
 			);
 			path = Implementations;
 			sourceTree = "<group>";
@@ -471,6 +488,7 @@
 				E5204FF8216F371400E64160 /* MSErrorCodes.h in Headers */,
 				E5204FEF216F1D9900E64160 /* MSBatchRequestStep.h in Headers */,
 				E5ECE0A42146657900A289C2 /* MSRedirectHandler.h in Headers */,
+				E51E616C216DE4D300F1B3C0 /* MSRetryHandler.h in Headers */,
 				E5DC73DF211412BF0040BAB6 /* MSGraphCoreSDK.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -579,6 +597,7 @@
 				E573EE0D213525BA00C5E884 /* MSGraphWorkloadsTests.m in Sources */,
 				E5204FFF2173A7C200E64160 /* MSBatchRequestStepTests.m in Sources */,
 				E52050042174C1DB00E64160 /* MSBatchResponseContentTests.m in Sources */,
+				E51E616F216E073F00F1B3C0 /* MSRetryHandlerTests.m in Sources */,
 				E573EE072133FFF200C5E884 /* MSHTTPClientTests.m in Sources */,
 				E52AD9E6212E8845005FED47 /* MSGraphCoreSDKTests.h in Sources */,
 				E56678302150E1AF00C6B7AE /* MSAuthenticationHandlerTests.m in Sources */,
@@ -610,6 +629,7 @@
 				E5DC7405211418050040BAB6 /* MSURLSessionManager.m in Sources */,
 				E52AD979212D27DC005FED47 /* MSURLSessionTask.m in Sources */,
 				E5204FF0216F1D9900E64160 /* MSBatchResponseContent.m in Sources */,
+				E51E616D216DE4D300F1B3C0 /* MSRetryHandler.m in Sources */,
 				E5DC7408211418050040BAB6 /* MSURLSessionTaskDelegate.m in Sources */,
 				E52AD97E212D27DC005FED47 /* MSURLSessionUploadTask.m in Sources */,
 				E52AD978212D27DC005FED47 /* MSURLSessionDataTask.m in Sources */,
