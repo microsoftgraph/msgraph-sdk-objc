@@ -26,29 +26,34 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
 }
 
-- (void)testInit {
+- (void)testInitWithNilRequestStepArray {
     NSError *error;
-    MSBatchRequestContent *requestContent = [[MSBatchRequestContent alloc] initWithRequests:nil error:&error];
+    [[MSBatchRequestContent alloc] initWithRequests:nil error:&error];
     XCTAssertNil(error);
+}
 
+- (void)testInitWithRequestStepArray {
     MSBatchRequestStep *mockBatchStep = [[MSBatchRequestStep alloc] initWithId:@"1" request:self.requestForMock andDependsOn:nil];
-
-    requestContent  = [[MSBatchRequestContent alloc] initWithRequests:@[mockBatchStep] error:&error];
+    NSError *error;
+    MSBatchRequestContent *requestContent  = [[MSBatchRequestContent alloc] initWithRequests:@[mockBatchStep] error:&error];
     XCTAssertNil(error);
+}
 
+- (void)testInitWithMoreRequestStepsThanLimit {
     NSMutableArray *batchStepArray = [NSMutableArray new];
+    //Testing whether intitalizing the MSBatchRequestContent with more than max limit [currently 20], produces a client side error.
     for(int i=0;i<21;i++) {
         MSBatchRequestStep *batchStep = [[MSBatchRequestStep alloc] initWithId:[NSString stringWithFormat:@"%d",i] request:self.requestForMock andDependsOn:nil];
         [batchStepArray addObject:batchStep];
     }
-
-    requestContent  = [[MSBatchRequestContent alloc] initWithRequests:batchStepArray error:&error];
+    NSError *error;
+    MSBatchRequestContent *requestContent  = [[MSBatchRequestContent alloc] initWithRequests:batchStepArray error:&error];
     XCTAssertNotNil(error);
     XCTAssertEqual(error.code, MSErrorCodeMaximumLimitReached);
 
 }
 
-- (void)testAddBatchRequestStep {
+- (MSBatchRequestContent *)createBatchRequestContentWithCoupleOfSteps {
     NSError *error;
     MSBatchRequestContent *requestContent = [[MSBatchRequestContent alloc] initWithRequests:nil error:&error];
     XCTAssertNil(error);
@@ -63,6 +68,11 @@
     [requestContent addBatchRequestStep:driveBatchStep error:&error];
     XCTAssertNil(error);
 
+    return requestContent;
+}
+
+- (void)testAddBatchRequestStepSuccessful {
+    MSBatchRequestContent *requestContent = [self createBatchRequestContentWithCoupleOfSteps];
     NSMutableDictionary *batchRequestContent = [requestContent getBatchRequestContent];
     XCTAssertNotNil([batchRequestContent objectForKey:@"requests"]);
 
@@ -70,27 +80,39 @@
     NSArray *batchContentArray = [batchRequestContent objectForKey:@"requests"];
     XCTAssertNotNil(batchContentArray);
     XCTAssertEqual(batchContentArray.count, 2);
+}
 
+- (void)testAddBatchRequestWithDuplicateRequest {
+    MSBatchRequestContent *requestContent = [self createBatchRequestContentWithCoupleOfSteps];
+    NSMutableURLRequest *driveRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"/me/drive"]];
+    MSBatchRequestStep *driveBatchStep = [[MSBatchRequestStep alloc] initWithId:@"2" request:driveRequest andDependsOn:@[@"1"]];
     //Test for duplicate request id
+    NSError *error;
     [requestContent addBatchRequestStep:driveBatchStep error:&error];
     XCTAssertNotNil(error);
     XCTAssertEqual(error.code, MSErrorCodeNonUniqueRequestId);
-    error = nil;
+}
 
+- (void)testAddBatchReuqestWithEmptyRequestId {
+    MSBatchRequestContent *requestContent = [self createBatchRequestContentWithCoupleOfSteps];
     //Test for empty request id
     MSBatchRequestStep *empty = [[MSBatchRequestStep alloc] initWithId:@"" request:self.requestForMock andDependsOn:nil];
+    NSError *error;
     [requestContent addBatchRequestStep:empty error:&error];
     XCTAssertNotNil(error);
     XCTAssertEqual(error.code, MSErrorCodeEmptyRequestId);
-    error = nil;
+}
 
-    //Add more request steps to reach the limit
-    for(int i=3;i<=20;i++) {
+- (void)testAddBatchRequestWithMoreStepsThanLimit {
+    NSError *error;
+    MSBatchRequestContent *requestContent = [[MSBatchRequestContent alloc] initWithRequests:nil error:&error];
+    XCTAssertNil(error);
+    //Add request steps to reach the limit
+    for(int i=1;i<=20;i++) {
         MSBatchRequestStep *batchStep = [[MSBatchRequestStep alloc] initWithId:[NSString stringWithFormat:@"%d",i] request:self.requestForMock andDependsOn:nil];
         [requestContent addBatchRequestStep:batchStep error:&error];
         XCTAssertNil(error);
     }
-
     //Add one more to tip over the threshold value
     MSBatchRequestStep *batchStep = [[MSBatchRequestStep alloc] initWithId:@"21" request:self.requestForMock andDependsOn:nil];
     [requestContent addBatchRequestStep:batchStep error:&error];
