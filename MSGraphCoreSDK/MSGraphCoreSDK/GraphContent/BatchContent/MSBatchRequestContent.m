@@ -23,9 +23,10 @@
     self = [super init];
     if(self)
     {
+        //Batch requests are currently limited to 20 individual requests by Graph server.
         maxNumberOfRequests = 20;
         //Check whether number of request steps in array are more than the limit
-        if(batchRequestStepsArray.count>maxNumberOfRequests)
+        if(batchRequestStepsArray.count > maxNumberOfRequests)
         {
             NSDictionary *userInfo = @{
                                        NSLocalizedDescriptionKey: MSErrorStringMaximumBatchStepLimitReachedDescription,
@@ -92,10 +93,10 @@
 - (void)removeBatchRequesStepWithId:(NSString *)requestId error:(NSError *__autoreleasing *)error
 {
     BOOL didFindStep = NO;
-    for (long i = _batchRequestStepsArray.count-1 ; i >= 0 ; i--)
+    for (long i = _batchRequestStepsArray.count-1; i >= 0; i--)
     {
         MSBatchRequestStep *requestStep = _batchRequestStepsArray[i];
-        for (long j = requestStep.arrayOfDependsOnIds.count-1 ; j >= 0 ; j--)
+        for (long j = requestStep.arrayOfDependsOnIds.count-1; j >= 0; j--)
         {
             NSString *dependsOnId = requestStep.arrayOfDependsOnIds[j];
             if([dependsOnId isEqualToString:requestId])
