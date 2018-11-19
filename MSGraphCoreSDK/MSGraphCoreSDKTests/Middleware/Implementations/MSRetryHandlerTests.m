@@ -111,6 +111,54 @@ NSString *const retryAfterValue = @"10";
     [self checkCompletionBlockCodeInvoked];
 }
 
+- (void)testExecuteWithRetryResopnse503AndSuccessfullRetry {
+    XCTestExpectation *retryWaitExpectation = [[XCTestExpectation alloc] initWithDescription:@"Waiting for retry attempt execution"];
+
+    HTTPRequestCompletionHandler requestCompletion = ^(id data, NSURLResponse * _Nullable response, NSError * _Nullable error){
+        [self completionBlockCodeInvoked];
+        XCTAssertNil(error);
+        XCTAssertNotNil(response);
+        XCTAssertEqual(((NSHTTPURLResponse *)response).statusCode, MSExpectedResponseCodesOK);
+        XCTAssertNotNil(data);
+        [retryWaitExpectation fulfill];
+    };
+
+   __block NSHTTPURLResponse *retryResponseWith503 = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:MSGraphBaseURL] statusCode:MSClientErrorCodeServiceUnavailable HTTPVersion:@"foo" headerFields:nil];
+    OCMStub([self.mockHttpProvider execute:[OCMArg any] withCompletionHandler:[OCMArg any]]).andDo(^(NSInvocation *invocation){
+        HTTPRequestCompletionHandler completionHandler;
+        [invocation getArgument:&completionHandler atIndex:3];
+        completionHandler([NSData new], retryResponseWith503, nil);
+        retryResponseWith503 = self->_OKResponse;
+    });
+    [self.retryHandler execute:_mockDataTask withCompletionHandler:requestCompletion];
+    [self waitForExpectations:@[retryWaitExpectation] timeout:12.0];
+    [self checkCompletionBlockCodeInvoked];
+}
+
+- (void)testExecuteWithRetryResopnse504AndSuccessfullRetry {
+    XCTestExpectation *retryWaitExpectation = [[XCTestExpectation alloc] initWithDescription:@"Waiting for retry attempt execution"];
+
+    HTTPRequestCompletionHandler requestCompletion = ^(id data, NSURLResponse * _Nullable response, NSError * _Nullable error){
+        [self completionBlockCodeInvoked];
+        XCTAssertNil(error);
+        XCTAssertNotNil(response);
+        XCTAssertEqual(((NSHTTPURLResponse *)response).statusCode, MSExpectedResponseCodesOK);
+        XCTAssertNotNil(data);
+        [retryWaitExpectation fulfill];
+    };
+
+    __block NSHTTPURLResponse *retryResponseWith504 = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:MSGraphBaseURL] statusCode:MSClientErrorCodeGatewayTimeout HTTPVersion:@"foo" headerFields:nil];
+    OCMStub([self.mockHttpProvider execute:[OCMArg any] withCompletionHandler:[OCMArg any]]).andDo(^(NSInvocation *invocation){
+        HTTPRequestCompletionHandler completionHandler;
+        [invocation getArgument:&completionHandler atIndex:3];
+        completionHandler([NSData new], retryResponseWith504, nil);
+        retryResponseWith504 = self->_OKResponse;
+    });
+    [self.retryHandler execute:_mockDataTask withCompletionHandler:requestCompletion];
+    [self waitForExpectations:@[retryWaitExpectation] timeout:12.0];
+    [self checkCompletionBlockCodeInvoked];
+}
+
 - (void)testExecuteWithNormalResponse {
     HTTPRequestCompletionHandler requestCompletion = ^(id data, NSURLResponse * _Nullable response, NSError * _Nullable error){
         [self completionBlockCodeInvoked];

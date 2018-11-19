@@ -12,7 +12,6 @@ NSString * const TRANSFER_ENCODING = @"Transfer-Encoding";
 
 #define DELAY_SECONDS 10;
 #define DEFAULT_MAX_RETRIES 10;
-#define DEFAULT_RETRY_POWER 1;
 
 @interface MSURLSessionTask()
 
@@ -29,7 +28,6 @@ NSString * const TRANSFER_ENCODING = @"Transfer-Encoding";
 @implementation MSRetryHandler
 {
     NSInteger maxRetries;
-    double retryPower;
 }
 
 - (instancetype)init
@@ -38,7 +36,6 @@ NSString * const TRANSFER_ENCODING = @"Transfer-Encoding";
     if(self)
     {
         maxRetries = DEFAULT_MAX_RETRIES;
-        retryPower = DEFAULT_RETRY_POWER;
     }
     return self;
 }
@@ -111,7 +108,8 @@ NSString * const TRANSFER_ENCODING = @"Transfer-Encoding";
 - (BOOL)isRetry:(NSInteger)statusCode
 {
     if (statusCode == MSClientErrorCodeTooManyRequests ||
-        statusCode == MSClientErrorCodeInternalServerError)
+        statusCode == MSClientErrorCodeServiceUnavailable ||
+        statusCode == MSClientErrorCodeGatewayTimeout)
     {
         return true;
     }
@@ -144,8 +142,7 @@ NSString * const TRANSFER_ENCODING = @"Transfer-Encoding";
     }
     else
     {
-        retryPower = pow(2, retryCount);
-        delay = retryPower*DELAY_SECONDS;
+        delay = pow(2, retryCount)*DELAY_SECONDS;
     }
     return delay;
 }

@@ -26,6 +26,7 @@ typedef NS_ENUM(NSInteger, MSClientErrorCode)
     MSClientErrorCodeInternalServerError         = 500,
     MSClientErrorCodeNotImplemented              = 501,
     MSClientErrorCodeServiceUnavailable          = 503,
+    MSClientErrorCodeGatewayTimeout              = 504,
     MSClientErrorCodeInsufficientStorage         = 507,
     MSClientErrorCodeUnknownError                = 999,
 };
