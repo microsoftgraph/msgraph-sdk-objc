@@ -154,4 +154,8 @@ completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 
 
 
-And that's it. You have now successfully made call to graph server asking information about the user
+And that's it. You have now successfully made call to graph server asking information about the user.
+
+## Usage Resources
+
+* [Batching](/docs/content/Batching.md)
