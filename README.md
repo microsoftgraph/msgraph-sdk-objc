@@ -158,4 +158,4 @@ And that's it. You have now successfully made call to graph server asking inform
 
 ## Usage Resources
 
-* [Batching](/docs/content/Batching.md)
+* [Batching](/Docs/Content/Batching.md)
