@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "9.0"
   #s.osx.deployment_target = "10.7"
 
-  s.source       = { :git => "https://github.com/microsoftgraph/msgraph-sdk-objc.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/microsoftgraph/msgraph-sdk-objc.git", :branch => "vidadhee/ModelsIntegration" }
 
 
 
@@ -26,10 +26,20 @@ Pod::Spec.new do |s|
   s.exclude_files = "MSGraphCoreSDK/MSGraphCoreSDKTests/*"
   s.public_header_files = "MSGraphCoreSDK/MSGraphCoreSDK/MSGraphCoreSDK.h"
 
-  #s.subspec "Models" do |models|
-   # models.source_files = "MSGraphCoreSDK/MSGraphCoreSDK/Models/*.{h,m}"
-    #models.public_header_files = "MSGraphCoreSDK/MSGraphCoreSDK/Models/*.h"
-#  end
+#s.subspec "Core" do |core|
+ #   core.source_files = "MSGraphCoreSDK/MSGraphCoreSDK/**/*.{h,m}"
+ #   core.public_header_files = "MSGraphCoreSDK/MSGraphCoreSDK/*/*.h"
+  #  core.exclude_files = "MSGraphCoreSDK/MSGraphCoreSDKTests/*"
+ # end
+
+#s.default_subspec = "Core"
+
+  s.subspec "Models" do |models|
+    models.source_files = "MSGraphCoreSDK/MSGraphCoreSDK/Models/*.{h,m}"
+    models.public_header_files = "MSGraphCoreSDK/MSGraphCoreSDK/Models/*.h"
+  end
+
+
 
   s.subspec "Authentication" do |authentication|
     authentication.source_files = "MSGraphCoreSDK/MSGraphCoreSDK/Authentication/*.{h,m}"
@@ -39,8 +49,9 @@ Pod::Spec.new do |s|
  
 
  s.subspec "Common" do |common|
-    common.source_files = "MSGraphCoreSDK/MSGraphCoreSDK/Common/**/*.{h,m}, MSGraphCoreSDK/MSGraphCoreSDK/Middleware/**/*.{h,m}"
-    common.public_header_files = "MSGraphCoreSDK/MSGraphCoreSDK/Common/**/*.h, MSGraphCoreSDK/MSGraphCoreSDK/Middleware/**/*.h"
+    common.dependency 'MSGraphCoreSDK/Authentication'
+    common.source_files = "MSGraphCoreSDK/MSGraphCoreSDK/{Common,Middleware,GraphContent,HTTPClient}/**/*.{h,m}"
+    common.public_header_files = "MSGraphCoreSDK/MSGraphCoreSDK/{Common,Middleware,GraphContent,HTTPClient}/**/*.h"
   end
 
  #s.subspec "Middleware" do |middleware|
@@ -48,15 +59,15 @@ Pod::Spec.new do |s|
    # middleware.public_header_files = "MSGraphCoreSDK/MSGraphCoreSDK/Middleware/**/*.h"
   #end
 
-s.subspec "GraphContent" do |graphContent|
-    graphContent.source_files = "MSGraphCoreSDK/MSGraphCoreSDK/GraphContent/**/*.{h,m}"
-    graphContent.public_header_files = "MSGraphCoreSDK/MSGraphCoreSDK/GraphContent/**/*.h"
-  end
+#s.subspec "GraphContent" do |graphContent|
+  #  graphContent.source_files = "MSGraphCoreSDK/MSGraphCoreSDK/GraphContent/**/*.{h,m}"
+   # graphContent.public_header_files = "MSGraphCoreSDK/MSGraphCoreSDK/GraphContent/**/*.h"
+  #end
 
-s.subspec "HTTPClient" do |httpClient|
-    httpClient.source_files = "MSGraphCoreSDK/MSGraphCoreSDK/HTTPClient/**/*.{h,m}"
-    httpClient.public_header_files = "MSGraphCoreSDK/MSGraphCoreSDK/HTTPClient/**/*.h"
-  end
+#s.subspec "HTTPClient" do |httpClient|
+  #  httpClient.source_files = "MSGraphCoreSDK/MSGraphCoreSDK/HTTPClient/**/*.{h,m}"
+  #  httpClient.public_header_files = "MSGraphCoreSDK/MSGraphCoreSDK/HTTPClient/**/*.h"
+ # end
 
 
 
