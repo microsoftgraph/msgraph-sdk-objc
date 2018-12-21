@@ -12,6 +12,9 @@
 		E5069AD9211C1AD500432372 /* MSGraphCoreSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5069AD8211C1AD500432372 /* MSGraphCoreSDKTests.m */; };
 		E5069ADB211C1AD500432372 /* MSGraphCoreSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DC73DA211412BF0040BAB6 /* MSGraphCoreSDK.framework */; };
 		E5069AE2211C323D00432372 /* MSURLSessionManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5069AE1211C323D00432372 /* MSURLSessionManagerTests.m */; };
+		E51E616C216DE4D300F1B3C0 /* MSRetryHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = E51E616A216DE4D300F1B3C0 /* MSRetryHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E51E616D216DE4D300F1B3C0 /* MSRetryHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E51E616B216DE4D300F1B3C0 /* MSRetryHandler.m */; };
+		E51E616F216E073F00F1B3C0 /* MSRetryHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E51E616E216E073F00F1B3C0 /* MSRetryHandlerTests.m */; };
 		E5204FEE216F1D9900E64160 /* MSBatchRequestContent.h in Headers */ = {isa = PBXBuildFile; fileRef = E5204FE8216F1D9800E64160 /* MSBatchRequestContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5204FEF216F1D9900E64160 /* MSBatchRequestStep.h in Headers */ = {isa = PBXBuildFile; fileRef = E5204FE9216F1D9800E64160 /* MSBatchRequestStep.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5204FF0216F1D9900E64160 /* MSBatchResponseContent.m in Sources */ = {isa = PBXBuildFile; fileRef = E5204FEA216F1D9800E64160 /* MSBatchResponseContent.m */; };
@@ -24,9 +27,6 @@
 		E52050012173AEA900E64160 /* MSBatchRequestContentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E52050002173AEA900E64160 /* MSBatchRequestContentTests.m */; };
 		E52050042174C1DB00E64160 /* MSBatchResponseContentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E52050032174C1DB00E64160 /* MSBatchResponseContentTests.m */; };
 		E52050062175B10800E64160 /* BatchResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = E52050052175B10800E64160 /* BatchResponse.json */; };
-		E51E616C216DE4D300F1B3C0 /* MSRetryHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = E51E616A216DE4D300F1B3C0 /* MSRetryHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E51E616D216DE4D300F1B3C0 /* MSRetryHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E51E616B216DE4D300F1B3C0 /* MSRetryHandler.m */; };
-		E51E616F216E073F00F1B3C0 /* MSRetryHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E51E616E216E073F00F1B3C0 /* MSRetryHandlerTests.m */; };
 		E52AD978212D27DC005FED47 /* MSURLSessionDataTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD970212D27DB005FED47 /* MSURLSessionDataTask.m */; };
 		E52AD979212D27DC005FED47 /* MSURLSessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD971212D27DB005FED47 /* MSURLSessionTask.m */; };
 		E52AD97A212D27DC005FED47 /* MSURLSessionUploadTask.h in Headers */ = {isa = PBXBuildFile; fileRef = E52AD972212D27DB005FED47 /* MSURLSessionUploadTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -47,6 +47,16 @@
 		E573EE0B213427ED00C5E884 /* MSURLSessionTaskDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E573EE0A213427ED00C5E884 /* MSURLSessionTaskDelegateTests.m */; };
 		E573EE0D213525BA00C5E884 /* MSGraphWorkloadsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E573EE0C213525BA00C5E884 /* MSGraphWorkloadsTests.m */; };
 		E573EE102136569F00C5E884 /* UserPhoto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E573EE0F2136569F00C5E884 /* UserPhoto.jpg */; };
+		E579E4E421CB5A2400869070 /* MSCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = E579E4DC21CB5A2400869070 /* MSCollection.m */; };
+		E579E4E521CB5A2400869070 /* MSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E579E4DD21CB5A2400869070 /* MSObject.m */; };
+		E579E4E621CB5A2400869070 /* MSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = E579E4DE21CB5A2400869070 /* MSDate.m */; };
+		E579E4E721CB5A2400869070 /* MSObject.h in Headers */ = {isa = PBXBuildFile; fileRef = E579E4DF21CB5A2400869070 /* MSObject.h */; };
+		E579E4E821CB5A2400869070 /* MSTimeOfDay.h in Headers */ = {isa = PBXBuildFile; fileRef = E579E4E021CB5A2400869070 /* MSTimeOfDay.h */; };
+		E579E4E921CB5A2400869070 /* MSDate.h in Headers */ = {isa = PBXBuildFile; fileRef = E579E4E121CB5A2400869070 /* MSDate.h */; };
+		E579E4EA21CB5A2400869070 /* MSTimeOfDay.m in Sources */ = {isa = PBXBuildFile; fileRef = E579E4E221CB5A2400869070 /* MSTimeOfDay.m */; };
+		E579E4EB21CB5A2400869070 /* MSCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = E579E4E321CB5A2400869070 /* MSCollection.h */; };
+		E579E4EE21CB5A3D00869070 /* NSDate+MSSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = E579E4EC21CB5A3D00869070 /* NSDate+MSSerialization.h */; };
+		E579E4EF21CB5A3D00869070 /* NSDate+MSSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = E579E4ED21CB5A3D00869070 /* NSDate+MSSerialization.m */; };
 		E5B6DB9821497DAA00836E1D /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B6DB9621497D7C00836E1D /* libOCMock.a */; };
 		E5DC73DF211412BF0040BAB6 /* MSGraphCoreSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73DD211412BF0040BAB6 /* MSGraphCoreSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5DC7403211418050040BAB6 /* MSAuthenticationHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73EB211418040040BAB6 /* MSAuthenticationHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -86,6 +96,9 @@
 		E5069AD8211C1AD500432372 /* MSGraphCoreSDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSGraphCoreSDKTests.m; sourceTree = "<group>"; };
 		E5069ADA211C1AD500432372 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5069AE1211C323D00432372 /* MSURLSessionManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionManagerTests.m; sourceTree = "<group>"; };
+		E51E616A216DE4D300F1B3C0 /* MSRetryHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRetryHandler.h; sourceTree = "<group>"; };
+		E51E616B216DE4D300F1B3C0 /* MSRetryHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRetryHandler.m; sourceTree = "<group>"; };
+		E51E616E216E073F00F1B3C0 /* MSRetryHandlerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSRetryHandlerTests.m; sourceTree = "<group>"; };
 		E5204FE8216F1D9800E64160 /* MSBatchRequestContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSBatchRequestContent.h; sourceTree = "<group>"; };
 		E5204FE9216F1D9800E64160 /* MSBatchRequestStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSBatchRequestStep.h; sourceTree = "<group>"; };
 		E5204FEA216F1D9800E64160 /* MSBatchResponseContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSBatchResponseContent.m; sourceTree = "<group>"; };
@@ -98,9 +111,6 @@
 		E52050002173AEA900E64160 /* MSBatchRequestContentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSBatchRequestContentTests.m; sourceTree = "<group>"; };
 		E52050032174C1DB00E64160 /* MSBatchResponseContentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSBatchResponseContentTests.m; sourceTree = "<group>"; };
 		E52050052175B10800E64160 /* BatchResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BatchResponse.json; sourceTree = "<group>"; };
-		E51E616A216DE4D300F1B3C0 /* MSRetryHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRetryHandler.h; sourceTree = "<group>"; };
-		E51E616B216DE4D300F1B3C0 /* MSRetryHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRetryHandler.m; sourceTree = "<group>"; };
-		E51E616E216E073F00F1B3C0 /* MSRetryHandlerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSRetryHandlerTests.m; sourceTree = "<group>"; };
 		E52AD970212D27DB005FED47 /* MSURLSessionDataTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionDataTask.m; sourceTree = "<group>"; };
 		E52AD971212D27DB005FED47 /* MSURLSessionTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionTask.m; sourceTree = "<group>"; };
 		E52AD972212D27DB005FED47 /* MSURLSessionUploadTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSURLSessionUploadTask.h; sourceTree = "<group>"; };
@@ -121,6 +131,16 @@
 		E573EE0A213427ED00C5E884 /* MSURLSessionTaskDelegateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionTaskDelegateTests.m; sourceTree = "<group>"; };
 		E573EE0C213525BA00C5E884 /* MSGraphWorkloadsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSGraphWorkloadsTests.m; sourceTree = "<group>"; };
 		E573EE0F2136569F00C5E884 /* UserPhoto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = UserPhoto.jpg; sourceTree = "<group>"; };
+		E579E4DC21CB5A2400869070 /* MSCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCollection.m; sourceTree = "<group>"; };
+		E579E4DD21CB5A2400869070 /* MSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSObject.m; sourceTree = "<group>"; };
+		E579E4DE21CB5A2400869070 /* MSDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDate.m; sourceTree = "<group>"; };
+		E579E4DF21CB5A2400869070 /* MSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSObject.h; sourceTree = "<group>"; };
+		E579E4E021CB5A2400869070 /* MSTimeOfDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSTimeOfDay.h; sourceTree = "<group>"; };
+		E579E4E121CB5A2400869070 /* MSDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDate.h; sourceTree = "<group>"; };
+		E579E4E221CB5A2400869070 /* MSTimeOfDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSTimeOfDay.m; sourceTree = "<group>"; };
+		E579E4E321CB5A2400869070 /* MSCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCollection.h; sourceTree = "<group>"; };
+		E579E4EC21CB5A3D00869070 /* NSDate+MSSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MSSerialization.h"; sourceTree = "<group>"; };
+		E579E4ED21CB5A3D00869070 /* NSDate+MSSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MSSerialization.m"; sourceTree = "<group>"; };
 		E5B6DB8C21497CAC00836E1D /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
 		E5B6DB8D21497CAC00836E1D /* OCMMacroState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMMacroState.h; sourceTree = "<group>"; };
 		E5B6DB8E21497CAC00836E1D /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
@@ -206,7 +226,6 @@
 		E5069AC5211AAE6900432372 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				E52AD96F212D271C005FED47 /* Session Tasks */,
 				E5069AC6211AAEC900432372 /* MSConstants.h */,
 				E5069AC7211AAEC900432372 /* MSConstants.m */,
 				E5204FF6216F371400E64160 /* MSErrorCodes.h */,
@@ -230,6 +249,15 @@
 				E5069ADA211C1AD500432372 /* Info.plist */,
 			);
 			path = MSGraphCoreSDKTests;
+			sourceTree = "<group>";
+		};
+		E5190C7F216DE371001699B5 /* RetryHandler */ = {
+			isa = PBXGroup;
+			children = (
+				E51E616A216DE4D300F1B3C0 /* MSRetryHandler.h */,
+				E51E616B216DE4D300F1B3C0 /* MSRetryHandler.m */,
+			);
+			path = RetryHandler;
 			sourceTree = "<group>";
 		};
 		E5204FE6216F1D4200E64160 /* GraphContent */ = {
@@ -269,15 +297,6 @@
 				E52050032174C1DB00E64160 /* MSBatchResponseContentTests.m */,
 			);
 			path = BatchContent;
-            sourceTree = "<group>";
-        };
-		E5190C7F216DE371001699B5 /* RetryHandler */ = {
-			isa = PBXGroup;
-			children = (
-				E51E616A216DE4D300F1B3C0 /* MSRetryHandler.h */,
-				E51E616B216DE4D300F1B3C0 /* MSRetryHandler.m */,
-			);
-			path = RetryHandler;
 			sourceTree = "<group>";
 		};
 		E52AD96F212D271C005FED47 /* Session Tasks */ = {
@@ -345,6 +364,23 @@
 			path = Implementations;
 			sourceTree = "<group>";
 		};
+		E579E4DB21CB59E900869070 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E579E4EC21CB5A3D00869070 /* NSDate+MSSerialization.h */,
+				E579E4ED21CB5A3D00869070 /* NSDate+MSSerialization.m */,
+				E579E4E321CB5A2400869070 /* MSCollection.h */,
+				E579E4DC21CB5A2400869070 /* MSCollection.m */,
+				E579E4E121CB5A2400869070 /* MSDate.h */,
+				E579E4DE21CB5A2400869070 /* MSDate.m */,
+				E579E4DF21CB5A2400869070 /* MSObject.h */,
+				E579E4DD21CB5A2400869070 /* MSObject.m */,
+				E579E4E021CB5A2400869070 /* MSTimeOfDay.h */,
+				E579E4E221CB5A2400869070 /* MSTimeOfDay.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E5B6DB6921497A3300836E1D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -400,6 +436,7 @@
 		E5DC73DC211412BF0040BAB6 /* MSGraphCoreSDK */ = {
 			isa = PBXGroup;
 			children = (
+				E579E4DB21CB59E900869070 /* Models */,
 				E5DC73DD211412BF0040BAB6 /* MSGraphCoreSDK.h */,
 				E5069AC2211AACB600432372 /* Authentication */,
 				E5069AC5211AAE6900432372 /* Common */,
@@ -436,6 +473,7 @@
 		E5DC73ED211418040040BAB6 /* HTTPProvider */ = {
 			isa = PBXGroup;
 			children = (
+				E52AD96F212D271C005FED47 /* Session Tasks */,
 				E5DC73F9211418040040BAB6 /* MSHttpProvider.h */,
 				E5DC73F0211418040040BAB6 /* MSURLSessionManager.h */,
 				E5DC73EE211418040040BAB6 /* MSURLSessionManager.m */,
@@ -470,10 +508,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5DC7407211418050040BAB6 /* MSURLSessionManager.h in Headers */,
+				E579E4E821CB5A2400869070 /* MSTimeOfDay.h in Headers */,
 				E5DC741C21142C430040BAB6 /* MSClientFactory.h in Headers */,
 				E5DC740E211418050040BAB6 /* MSHttpProvider.h in Headers */,
+				E579E4E921CB5A2400869070 /* MSDate.h in Headers */,
+				E579E4EB21CB5A2400869070 /* MSCollection.h in Headers */,
 				E5DC740C211418050040BAB6 /* MSAuthenticationProvider.h in Headers */,
 				E5DC7410211418050040BAB6 /* MSGraphMiddleware.h in Headers */,
+				E579E4E721CB5A2400869070 /* MSObject.h in Headers */,
 				E5DC7403211418050040BAB6 /* MSAuthenticationHandler.h in Headers */,
 				E5DC741B21142C430040BAB6 /* MSHTTPClient.h in Headers */,
 				E5069AC8211AAEC900432372 /* MSConstants.h in Headers */,
@@ -485,6 +527,7 @@
 				E5ECE09721427A6400A289C2 /* MSMiddlewareFactory.h in Headers */,
 				E5204FEE216F1D9900E64160 /* MSBatchRequestContent.h in Headers */,
 				E5204FF2216F1D9900E64160 /* MSBatchResponseContent.h in Headers */,
+				E579E4EE21CB5A3D00869070 /* NSDate+MSSerialization.h in Headers */,
 				E5204FF8216F371400E64160 /* MSErrorCodes.h in Headers */,
 				E5204FEF216F1D9900E64160 /* MSBatchRequestStep.h in Headers */,
 				E5ECE0A42146657900A289C2 /* MSRedirectHandler.h in Headers */,
@@ -619,11 +662,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5204FF1216F1D9900E64160 /* MSBatchRequestContent.m in Sources */,
+				E579E4E421CB5A2400869070 /* MSCollection.m in Sources */,
 				E5204FF7216F371400E64160 /* MSErrorCodes.m in Sources */,
 				E5DC741A21142C430040BAB6 /* MSClientFactory.m in Sources */,
 				E5069AC9211AAEC900432372 /* MSConstants.m in Sources */,
+				E579E4E621CB5A2400869070 /* MSDate.m in Sources */,
 				E5ECE0A52146657900A289C2 /* MSRedirectHandler.m in Sources */,
+				E579E4EF21CB5A3D00869070 /* NSDate+MSSerialization.m in Sources */,
 				E5ECE09821427A6400A289C2 /* MSMiddlewareFactory.m in Sources */,
+				E579E4EA21CB5A2400869070 /* MSTimeOfDay.m in Sources */,
 				E52AD97F212D27DC005FED47 /* MSURLSessionDownloadTask.m in Sources */,
 				E5204FF3216F1D9900E64160 /* MSBatchRequestStep.m in Sources */,
 				E5DC7405211418050040BAB6 /* MSURLSessionManager.m in Sources */,
@@ -635,6 +682,7 @@
 				E52AD978212D27DC005FED47 /* MSURLSessionDataTask.m in Sources */,
 				E5DC7409211418050040BAB6 /* MSAuthenticationHandler.m in Sources */,
 				E5DC741D21142C430040BAB6 /* MSHTTPClient.m in Sources */,
+				E579E4E521CB5A2400869070 /* MSObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
