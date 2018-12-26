@@ -6,7 +6,7 @@
 #import "MSGraphRecipientScopeType.h"
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphMailTips : MSObject
 

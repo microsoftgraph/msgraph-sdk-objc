@@ -5,7 +5,7 @@
 @class MSGraphAppListItem; 
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphIosNetworkUsageRule : MSObject
 

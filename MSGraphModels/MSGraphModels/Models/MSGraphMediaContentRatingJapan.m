@@ -2,7 +2,7 @@
 
 
 
-#import "NSDate+MSSerialization.h"
+#import <MSGraphCoreSDK/NSDate+MSSerialization.h>
 
 #import "MSGraphModels.h"
 

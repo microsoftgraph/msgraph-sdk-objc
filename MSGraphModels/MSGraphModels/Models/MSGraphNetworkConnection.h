@@ -7,7 +7,7 @@
 #import "MSGraphConnectionStatus.h"
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphNetworkConnection : MSObject
 

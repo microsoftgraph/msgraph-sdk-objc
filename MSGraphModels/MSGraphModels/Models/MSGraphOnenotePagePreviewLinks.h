@@ -5,7 +5,7 @@
 @class MSGraphExternalLink; 
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphOnenotePagePreviewLinks : MSObject
 

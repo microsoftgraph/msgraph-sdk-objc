@@ -6,7 +6,7 @@
 #import "MSGraphFreeBusyStatus.h"
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphAttendeeAvailability : MSObject
 

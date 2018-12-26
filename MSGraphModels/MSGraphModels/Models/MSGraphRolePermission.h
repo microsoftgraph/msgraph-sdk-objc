@@ -5,7 +5,7 @@
 @class MSGraphResourceAction; 
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphRolePermission : MSObject
 

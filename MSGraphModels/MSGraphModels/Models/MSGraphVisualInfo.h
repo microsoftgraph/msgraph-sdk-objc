@@ -5,7 +5,7 @@
 @class MSGraphImageInfo, NSDictionary; 
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphVisualInfo : MSObject
 

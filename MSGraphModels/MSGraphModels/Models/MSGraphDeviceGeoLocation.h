@@ -5,7 +5,7 @@
 #import <UIKit/UiKit.h>
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphDeviceGeoLocation : MSObject
 

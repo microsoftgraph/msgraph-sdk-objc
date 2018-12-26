@@ -14,8 +14,8 @@ FOUNDATION_EXPORT double MSGraphModelsVersionNumber;
 //! Project version string for MSGraphModels.
 FOUNDATION_EXPORT const unsigned char MSGraphModelsVersionString[];
 
-#import "MSDate.h"
-#import "MSTimeOfDay.h"
+#import <MSGraphCoreSDK/MSDate.h>
+#import <MSGraphCoreSDK/MSTimeOfDay.h>
 #import "MSGraphDayOfWeek.h"
 #import "MSGraphAutomaticRepliesStatus.h"
 #import "MSGraphExternalAudienceScope.h"

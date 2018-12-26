@@ -5,7 +5,7 @@
 @class MSGraphFolderView; 
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphFolder : MSObject
 

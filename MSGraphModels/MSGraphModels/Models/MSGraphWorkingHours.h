@@ -6,7 +6,7 @@
 #import "MSGraphDayOfWeek.h"
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphWorkingHours : MSObject
 

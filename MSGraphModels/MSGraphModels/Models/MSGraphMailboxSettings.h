@@ -5,7 +5,7 @@
 @class MSGraphAutomaticRepliesSetting, MSGraphLocaleInfo, MSGraphWorkingHours; 
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphMailboxSettings : MSObject
 

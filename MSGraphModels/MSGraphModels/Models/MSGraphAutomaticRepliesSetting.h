@@ -7,7 +7,7 @@
 #import "MSGraphExternalAudienceScope.h"
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphAutomaticRepliesSetting : MSObject
 

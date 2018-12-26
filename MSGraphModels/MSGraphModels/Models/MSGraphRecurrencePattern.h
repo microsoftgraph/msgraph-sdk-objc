@@ -7,7 +7,7 @@
 #import "MSGraphWeekIndex.h"
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphRecurrencePattern : MSObject
 

@@ -5,7 +5,7 @@
 @class MSGraphRecurrencePattern, MSGraphRecurrenceRange; 
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphPatternedRecurrence : MSObject
 

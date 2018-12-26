@@ -1,6 +1,6 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 /**
  An `MSCollection` object is a collection of Graph objects.

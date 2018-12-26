@@ -4,7 +4,7 @@
 
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphUsageDetails : MSObject
 

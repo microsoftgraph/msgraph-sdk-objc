@@ -6,7 +6,7 @@
 #import "MSGraphRatingFranceTelevisionType.h"
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphMediaContentRatingFrance : MSObject
 

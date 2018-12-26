@@ -5,7 +5,7 @@
 @class MSGraphRecipient; 
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphInvitedUserMessageInfo : MSObject
 

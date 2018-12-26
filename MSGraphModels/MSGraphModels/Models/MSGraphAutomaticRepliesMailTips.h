@@ -5,7 +5,7 @@
 @class MSGraphLocaleInfo, MSGraphDateTimeTimeZone; 
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphAutomaticRepliesMailTips : MSObject
 

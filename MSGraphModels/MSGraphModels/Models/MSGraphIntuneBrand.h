@@ -5,7 +5,7 @@
 @class MSGraphRgbColor, MSGraphMimeContent; 
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphIntuneBrand : MSObject
 

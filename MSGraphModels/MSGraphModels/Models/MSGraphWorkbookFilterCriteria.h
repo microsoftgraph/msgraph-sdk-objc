@@ -5,7 +5,7 @@
 @class MSGraphWorkbookIcon, NSDictionary; 
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphWorkbookFilterCriteria : MSObject
 

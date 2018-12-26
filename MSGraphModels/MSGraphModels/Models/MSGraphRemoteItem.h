@@ -5,7 +5,7 @@
 @class MSGraphIdentitySet, MSGraphFile, MSGraphFileSystemInfo, MSGraphFolder, MSGraphPackage, MSGraphItemReference, MSGraphShared, MSGraphSharepointIds, MSGraphSpecialFolder; 
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphRemoteItem : MSObject
 

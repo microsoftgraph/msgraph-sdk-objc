@@ -5,7 +5,7 @@
 #import "MSGraphEducationContactRelationship.h"
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphEducationRelatedContact : MSObject
 

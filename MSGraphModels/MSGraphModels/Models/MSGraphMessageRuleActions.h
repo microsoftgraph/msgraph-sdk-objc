@@ -6,7 +6,7 @@
 #import "MSGraphImportance.h"
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphMessageRuleActions : MSObject
 

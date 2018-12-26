@@ -5,7 +5,7 @@
 @class MSGraphIosHomeScreenApp; 
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphIosHomeScreenFolderPage : MSObject
 

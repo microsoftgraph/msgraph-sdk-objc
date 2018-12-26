@@ -6,7 +6,7 @@
 #import "MSGraphProcessIntegrityLevel.h"
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphProcess : MSObject
 

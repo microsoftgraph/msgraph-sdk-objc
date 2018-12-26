@@ -6,7 +6,7 @@
 #import "MSGraphEducationGender.h"
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphEducationStudent : MSObject
 

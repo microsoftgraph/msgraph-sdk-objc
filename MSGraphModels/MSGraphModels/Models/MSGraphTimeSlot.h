@@ -5,7 +5,7 @@
 @class MSGraphDateTimeTimeZone; 
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphTimeSlot : MSObject
 

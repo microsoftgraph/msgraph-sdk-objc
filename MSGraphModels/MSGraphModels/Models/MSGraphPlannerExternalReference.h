@@ -5,7 +5,7 @@
 @class MSGraphIdentitySet; 
 
 
-#import "MSObject.h"
+#import <MSGraphCoreSDK/MSObject.h>
 
 @interface MSGraphPlannerExternalReference : MSObject
 
