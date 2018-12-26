@@ -1,0 +1,16 @@
+PODS:
+  - MSGraphCoreSDK/Models (0.1.1)
+
+DEPENDENCIES:
+  - MSGraphCoreSDK/Models (from `/Users/vikasdadheech/msgraph-sdk-objc/MSGraphCoreSDK.podspec`)
+
+EXTERNAL SOURCES:
+  MSGraphCoreSDK:
+    :path: /Users/vikasdadheech/msgraph-sdk-objc/MSGraphCoreSDK.podspec
+
+SPEC CHECKSUMS:
+  MSGraphCoreSDK: 2b7f24df5ad21c6126d6ba1b65255849359fe9c3
+
+PODFILE CHECKSUM: d6006fe1d3f7e06f7c16ba5d5579aa52de17dde7
+
+COCOAPODS: 1.4.0
