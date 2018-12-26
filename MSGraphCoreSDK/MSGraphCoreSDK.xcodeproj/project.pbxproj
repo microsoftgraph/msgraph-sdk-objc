@@ -34,14 +34,14 @@
 		E52AD9F62133E740005FED47 /* MSURLSessionUploadTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD9F52133E73F005FED47 /* MSURLSessionUploadTaskTests.m */; };
 		E566782E2150BC4F00C6B7AE /* MSRedirectHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E566782D2150BC4F00C6B7AE /* MSRedirectHandlerTests.m */; };
 		E56678302150E1AF00C6B7AE /* MSAuthenticationHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E566782F2150E1AF00C6B7AE /* MSAuthenticationHandlerTests.m */; };
-		E56FDB9321D36A98001DFE68 /* MSURLSessionDownloadTask.h in Headers */ = {isa = PBXBuildFile; fileRef = E56FDB8B21D36A98001DFE68 /* MSURLSessionDownloadTask.h */; };
+		E56FDB9321D36A98001DFE68 /* MSURLSessionDownloadTask.h in Headers */ = {isa = PBXBuildFile; fileRef = E56FDB8B21D36A98001DFE68 /* MSURLSessionDownloadTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E56FDB9421D36A98001DFE68 /* MSURLSessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E56FDB8C21D36A98001DFE68 /* MSURLSessionTask.m */; };
-		E56FDB9521D36A98001DFE68 /* MSURLSessionUploadTask.h in Headers */ = {isa = PBXBuildFile; fileRef = E56FDB8D21D36A98001DFE68 /* MSURLSessionUploadTask.h */; };
+		E56FDB9521D36A98001DFE68 /* MSURLSessionUploadTask.h in Headers */ = {isa = PBXBuildFile; fileRef = E56FDB8D21D36A98001DFE68 /* MSURLSessionUploadTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E56FDB9621D36A98001DFE68 /* MSURLSessionDataTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E56FDB8E21D36A98001DFE68 /* MSURLSessionDataTask.m */; };
-		E56FDB9721D36A98001DFE68 /* MSURLSessionTask.h in Headers */ = {isa = PBXBuildFile; fileRef = E56FDB8F21D36A98001DFE68 /* MSURLSessionTask.h */; };
+		E56FDB9721D36A98001DFE68 /* MSURLSessionTask.h in Headers */ = {isa = PBXBuildFile; fileRef = E56FDB8F21D36A98001DFE68 /* MSURLSessionTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E56FDB9821D36A98001DFE68 /* MSURLSessionDownloadTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E56FDB9021D36A98001DFE68 /* MSURLSessionDownloadTask.m */; };
 		E56FDB9921D36A98001DFE68 /* MSURLSessionUploadTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E56FDB9121D36A98001DFE68 /* MSURLSessionUploadTask.m */; };
-		E56FDB9A21D36A98001DFE68 /* MSURLSessionDataTask.h in Headers */ = {isa = PBXBuildFile; fileRef = E56FDB9221D36A98001DFE68 /* MSURLSessionDataTask.h */; };
+		E56FDB9A21D36A98001DFE68 /* MSURLSessionDataTask.h in Headers */ = {isa = PBXBuildFile; fileRef = E56FDB9221D36A98001DFE68 /* MSURLSessionDataTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E573EE072133FFF200C5E884 /* MSHTTPClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E573EE062133FFF200C5E884 /* MSHTTPClientTests.m */; };
 		E573EE092134167400C5E884 /* MSClientFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E573EE082134167400C5E884 /* MSClientFactoryTests.m */; };
 		E573EE0B213427ED00C5E884 /* MSURLSessionTaskDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E573EE0A213427ED00C5E884 /* MSURLSessionTaskDelegateTests.m */; };
@@ -50,12 +50,12 @@
 		E579E4E421CB5A2400869070 /* MSCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = E579E4DC21CB5A2400869070 /* MSCollection.m */; };
 		E579E4E521CB5A2400869070 /* MSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E579E4DD21CB5A2400869070 /* MSObject.m */; };
 		E579E4E621CB5A2400869070 /* MSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = E579E4DE21CB5A2400869070 /* MSDate.m */; };
-		E579E4E721CB5A2400869070 /* MSObject.h in Headers */ = {isa = PBXBuildFile; fileRef = E579E4DF21CB5A2400869070 /* MSObject.h */; };
-		E579E4E821CB5A2400869070 /* MSTimeOfDay.h in Headers */ = {isa = PBXBuildFile; fileRef = E579E4E021CB5A2400869070 /* MSTimeOfDay.h */; };
-		E579E4E921CB5A2400869070 /* MSDate.h in Headers */ = {isa = PBXBuildFile; fileRef = E579E4E121CB5A2400869070 /* MSDate.h */; };
+		E579E4E721CB5A2400869070 /* MSObject.h in Headers */ = {isa = PBXBuildFile; fileRef = E579E4DF21CB5A2400869070 /* MSObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E579E4E821CB5A2400869070 /* MSTimeOfDay.h in Headers */ = {isa = PBXBuildFile; fileRef = E579E4E021CB5A2400869070 /* MSTimeOfDay.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E579E4E921CB5A2400869070 /* MSDate.h in Headers */ = {isa = PBXBuildFile; fileRef = E579E4E121CB5A2400869070 /* MSDate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E579E4EA21CB5A2400869070 /* MSTimeOfDay.m in Sources */ = {isa = PBXBuildFile; fileRef = E579E4E221CB5A2400869070 /* MSTimeOfDay.m */; };
-		E579E4EB21CB5A2400869070 /* MSCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = E579E4E321CB5A2400869070 /* MSCollection.h */; };
-		E579E4EE21CB5A3D00869070 /* NSDate+MSSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = E579E4EC21CB5A3D00869070 /* NSDate+MSSerialization.h */; };
+		E579E4EB21CB5A2400869070 /* MSCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = E579E4E321CB5A2400869070 /* MSCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E579E4EE21CB5A3D00869070 /* NSDate+MSSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = E579E4EC21CB5A3D00869070 /* NSDate+MSSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E579E4EF21CB5A3D00869070 /* NSDate+MSSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = E579E4ED21CB5A3D00869070 /* NSDate+MSSerialization.m */; };
 		E5B6DB9821497DAA00836E1D /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B6DB9621497D7C00836E1D /* libOCMock.a */; };
 		E5DC73DF211412BF0040BAB6 /* MSGraphCoreSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73DD211412BF0040BAB6 /* MSGraphCoreSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -508,31 +508,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5DC7407211418050040BAB6 /* MSURLSessionManager.h in Headers */,
-				E579E4E821CB5A2400869070 /* MSTimeOfDay.h in Headers */,
 				E5DC741C21142C430040BAB6 /* MSClientFactory.h in Headers */,
 				E5DC740E211418050040BAB6 /* MSHttpProvider.h in Headers */,
+				E5DC740C211418050040BAB6 /* MSAuthenticationProvider.h in Headers */,
+				E5DC7410211418050040BAB6 /* MSGraphMiddleware.h in Headers */,
+				E5DC7403211418050040BAB6 /* MSAuthenticationHandler.h in Headers */,
+				E5DC741B21142C430040BAB6 /* MSHTTPClient.h in Headers */,
+				E5069AC8211AAEC900432372 /* MSConstants.h in Headers */,
+				E5DC7406211418050040BAB6 /* MSURLSessionTaskDelegate.h in Headers */,
+				E5ECE09721427A6400A289C2 /* MSMiddlewareFactory.h in Headers */,
+				E579E4E821CB5A2400869070 /* MSTimeOfDay.h in Headers */,
 				E579E4E921CB5A2400869070 /* MSDate.h in Headers */,
 				E56FDB9321D36A98001DFE68 /* MSURLSessionDownloadTask.h in Headers */,
 				E579E4EB21CB5A2400869070 /* MSCollection.h in Headers */,
-				E5DC740C211418050040BAB6 /* MSAuthenticationProvider.h in Headers */,
-				E5DC7410211418050040BAB6 /* MSGraphMiddleware.h in Headers */,
 				E579E4E721CB5A2400869070 /* MSObject.h in Headers */,
-				E5DC7403211418050040BAB6 /* MSAuthenticationHandler.h in Headers */,
-				E5DC741B21142C430040BAB6 /* MSHTTPClient.h in Headers */,
 				E56FDB9A21D36A98001DFE68 /* MSURLSessionDataTask.h in Headers */,
-				E5069AC8211AAEC900432372 /* MSConstants.h in Headers */,
 				E56FDB9521D36A98001DFE68 /* MSURLSessionUploadTask.h in Headers */,
-				E5DC7406211418050040BAB6 /* MSURLSessionTaskDelegate.h in Headers */,
-				E5ECE09721427A6400A289C2 /* MSMiddlewareFactory.h in Headers */,
+				E579E4EE21CB5A3D00869070 /* NSDate+MSSerialization.h in Headers */,
+				E56FDB9721D36A98001DFE68 /* MSURLSessionTask.h in Headers */,
 				E5204FEE216F1D9900E64160 /* MSBatchRequestContent.h in Headers */,
 				E5204FF2216F1D9900E64160 /* MSBatchResponseContent.h in Headers */,
-				E579E4EE21CB5A3D00869070 /* NSDate+MSSerialization.h in Headers */,
 				E5204FF8216F371400E64160 /* MSErrorCodes.h in Headers */,
 				E5204FEF216F1D9900E64160 /* MSBatchRequestStep.h in Headers */,
 				E5ECE0A42146657900A289C2 /* MSRedirectHandler.h in Headers */,
 				E51E616C216DE4D300F1B3C0 /* MSRetryHandler.h in Headers */,
 				E5DC73DF211412BF0040BAB6 /* MSGraphCoreSDK.h in Headers */,
-				E56FDB9721D36A98001DFE68 /* MSURLSessionTask.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
