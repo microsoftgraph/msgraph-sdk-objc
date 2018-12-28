@@ -25,7 +25,7 @@
     if(self)
     {
         self.value = [[self getDictionary] objectForKey:@"value"];
-        self.nextLink = [NSURL URLWithString:[[self dictionaryFromItem] objectForKey:@"@odata.nextLink"]];
+        self.nextLink = [NSURL URLWithString:[[self getDictionary] objectForKey:@"@odata.nextLink"]];
         self.additionalData = [self getDictionary];
     }
     return self;
