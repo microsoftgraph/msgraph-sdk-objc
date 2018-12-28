@@ -10,7 +10,8 @@
               additionalData:(NSDictionary *)additionalData
 {
     self = [super init];
-    if (self){
+    if (self)
+    {
         _value = array;
         _nextLink = [NSURL URLWithString:nextLink];
         _additionalData = additionalData;
@@ -18,12 +19,14 @@
     return self;
 }
 
-- (instancetype)initWithData:(NSData *)data
+- (instancetype)initWithData:(NSData *)data error:(NSError *__autoreleasing *)error
 {
-    self = [super initWithData:data];
-    if(self){
-        self.value = [[self dictionaryFromItem] objectForKey:@"value"];
-        self.nextLink = [[self dictionaryFromItem] objectForKey:@"@odata.nextLink"];
+    self = [super initWithData:data error:error];
+    if(self)
+    {
+        self.value = [[self getDictionary] objectForKey:@"value"];
+        self.nextLink = [NSURL URLWithString:[[self dictionaryFromItem] objectForKey:@"@odata.nextLink"]];
+        self.additionalData = [self getDictionary];
     }
     return self;
 }
@@ -33,19 +36,11 @@
     self = [super initWithDictionary:dictionary];
     if(self)
     {
-        self.value = [dictionary objectForKey:@"values"];
-        self.nextLink = [dictionary objectForKey:@"@odata.nextLink"];
+        self.value = [[self getDictionary] objectForKey:@"values"];
+        self.nextLink = [NSURL URLWithString:[[self getDictionary] objectForKey:@"@odata.nextLink"]];
+        self.additionalData = [self getDictionary];
     }
     return self;
 }
-
-//- (NSArray *) arrayFromItem
-//{
-//    NSMutableArray *retArray = [NSMutableArray arrayWithCapacity:[self.value count]];
-//    [self.value enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
-//        retArray[idx] = [MSObject getNSJsonSerializationCompatibleValue:obj];
-//    }];
-//    return retArray;
-//}
 
 @end

@@ -14,23 +14,29 @@ static NSString *dateFormat = @"yyyy-MM-dd";
 
 #pragma mark - Initializers
 
-+ (instancetype) date {
++ (instancetype) date
+{
     return [[MSDate alloc] initWithNSDate:[NSDate date]];
 }
 
-+ (instancetype) dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day {
++ (instancetype) dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
+{
     return [[MSDate alloc] initWithYear:year month:month day:day];
 }
 
-- (id) initWithNSDate:(NSDate*)date {
-    if (self = [super init]) {
+- (id) initWithNSDate:(NSDate*)date
+{
+    if (self = [super init])
+    {
         self.date = date;
     }
     return self;
 }
 
-- (id) initWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day {
-    if (self = [super init]) {
+- (id) initWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
+{
+    if (self = [super init])
+    {
         NSDateComponents *components = [[NSDateComponents alloc] init];
         components.year = year;
         components.month = month;
@@ -44,17 +50,20 @@ static NSString *dateFormat = @"yyyy-MM-dd";
 
 #pragma mark - Properties
 
-- (NSInteger) year {
+- (NSInteger) year
+{
     NSDateComponents *components = [[MSDate gregorianCalendar] components:NSCalendarUnitYear fromDate:self.date];
     return components.year;
 }
 
-- (NSInteger) month {
+- (NSInteger) month
+{
     NSDateComponents *components = [[MSDate gregorianCalendar] components:NSCalendarUnitMonth fromDate:self.date];
     return components.month;
 }
 
-- (NSInteger) day {
+- (NSInteger) day
+{
     NSDateComponents *components = [[MSDate gregorianCalendar] components:NSCalendarUnitDay fromDate:self.date];
     return components.day;
 }
@@ -74,7 +83,8 @@ static NSString *dateFormat = @"yyyy-MM-dd";
 + (instancetype)ms_dateFromString:(NSString *)dateString
 {
     NSDate *date = nil;
-    if (dateString){
+    if (dateString)
+    {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:dateFormat];
         NSLocale *posix = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
@@ -86,7 +96,8 @@ static NSString *dateFormat = @"yyyy-MM-dd";
 
 #pragma mark - Helpers
 
-+ (NSCalendar*) gregorianCalendar {
++ (NSCalendar*) gregorianCalendar
+{
     static NSCalendar *calendar;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

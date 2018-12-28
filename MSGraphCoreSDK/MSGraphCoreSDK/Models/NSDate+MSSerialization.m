@@ -19,14 +19,16 @@ static NSString *dateFormatWithoutMillis = @"yyyy-MM-dd'T'HH:mm:ssZ";
 + (instancetype)ms_dateFromString:(NSString *)dateString
 {
     NSDate *date = nil;
-    if (dateString){
+    if (dateString)
+    {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:dateFormatWithMillis];
         NSLocale *posix = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
         [dateFormatter setLocale:posix];
         date = [dateFormatter dateFromString:dateString];
         // If we couldn't parse the date, it may have no milliseconds on the string.
-        if (!date){
+        if (!date)
+        {
             [dateFormatter setDateFormat:dateFormatWithoutMillis];
             date = [dateFormatter dateFromString:dateString];
         }
