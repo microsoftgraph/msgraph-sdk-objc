@@ -2,7 +2,7 @@
 
 #import "MSTimeOfDay.h"
 
-static NSString *dateFormat = @"HH:mm:SS";
+static NSString *dateFormat = @"HH:mm:ss";
 
 @interface MSTimeOfDay ()
 
@@ -14,9 +14,9 @@ static NSString *dateFormat = @"HH:mm:SS";
 
 #pragma mark - Initializers
 
-+ (instancetype) timeWithSeconds:(NSInteger)hour minute:(NSInteger)minute second:(NSInteger)second
++ (instancetype) timeWithHour:(NSInteger)hour minute:(NSInteger)minute second:(NSInteger)second
 {
-    return [[MSTimeOfDay alloc] initWithSeconds:hour minute:minute second:second];
+    return [[MSTimeOfDay alloc] initWithHour:hour minute:minute second:second];
 }
 
 - (id) initWithNSDate:(NSDate*)date
@@ -28,7 +28,7 @@ static NSString *dateFormat = @"HH:mm:SS";
     return self;
 }
 
-- (id) initWithSeconds:(NSInteger)hour minute:(NSInteger)minute second:(NSInteger)second
+- (id) initWithHour:(NSInteger)hour minute:(NSInteger)minute second:(NSInteger)second
 {
     if (self = [super init])
     {
@@ -46,19 +46,19 @@ static NSString *dateFormat = @"HH:mm:SS";
 
 - (NSInteger) hour
 {
-    NSDateComponents *components = [[MSTimeOfDay gregorianCalendar] components:NSCalendarUnitYear fromDate:self.date];
+    NSDateComponents *components = [[MSTimeOfDay gregorianCalendar] components:NSCalendarUnitHour fromDate:self.date];
     return components.hour;
 }
 
 - (NSInteger) minute
 {
-    NSDateComponents *components = [[MSTimeOfDay gregorianCalendar] components:NSCalendarUnitMonth fromDate:self.date];
+    NSDateComponents *components = [[MSTimeOfDay gregorianCalendar] components:NSCalendarUnitMinute fromDate:self.date];
     return components.minute;
 }
 
 - (NSInteger) second
 {
-    NSDateComponents *components = [[MSTimeOfDay gregorianCalendar] components:NSCalendarUnitDay fromDate:self.date];
+    NSDateComponents *components = [[MSTimeOfDay gregorianCalendar] components:NSCalendarUnitSecond fromDate:self.date];
     return components.second;
 }
 

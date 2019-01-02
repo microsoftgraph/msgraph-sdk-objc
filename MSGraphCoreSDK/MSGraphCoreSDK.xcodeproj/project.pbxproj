@@ -32,6 +32,11 @@
 		E52AD9F22133C8F9005FED47 /* MSURLSessionDataTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD9F12133C8F9005FED47 /* MSURLSessionDataTaskTests.m */; };
 		E52AD9F42133E171005FED47 /* MSURLSessionDownloadTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD9F32133E171005FED47 /* MSURLSessionDownloadTaskTests.m */; };
 		E52AD9F62133E740005FED47 /* MSURLSessionUploadTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD9F52133E73F005FED47 /* MSURLSessionUploadTaskTests.m */; };
+		E547CE2321DC8551008D0925 /* MSDateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E547CE2021DC8551008D0925 /* MSDateTests.m */; };
+		E547CE2421DC8551008D0925 /* MSCollectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E547CE2121DC8551008D0925 /* MSCollectionTests.m */; };
+		E547CE2521DC8551008D0925 /* MSObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E547CE2221DC8551008D0925 /* MSObjectTests.m */; };
+		E547CE2721DC9CF6008D0925 /* MSTimeOfDayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E547CE2621DC9CF6008D0925 /* MSTimeOfDayTests.m */; };
+		E55DFCBE21DCD21C00DE305D /* NSDate+MSSerializationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E55DFCBD21DCD21C00DE305D /* NSDate+MSSerializationTests.m */; };
 		E566782E2150BC4F00C6B7AE /* MSRedirectHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E566782D2150BC4F00C6B7AE /* MSRedirectHandlerTests.m */; };
 		E56678302150E1AF00C6B7AE /* MSAuthenticationHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E566782F2150E1AF00C6B7AE /* MSAuthenticationHandlerTests.m */; };
 		E56FDB9321D36A98001DFE68 /* MSURLSessionDownloadTask.h in Headers */ = {isa = PBXBuildFile; fileRef = E56FDB8B21D36A98001DFE68 /* MSURLSessionDownloadTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -116,6 +121,11 @@
 		E52AD9F12133C8F9005FED47 /* MSURLSessionDataTaskTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionDataTaskTests.m; sourceTree = "<group>"; };
 		E52AD9F32133E171005FED47 /* MSURLSessionDownloadTaskTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionDownloadTaskTests.m; sourceTree = "<group>"; };
 		E52AD9F52133E73F005FED47 /* MSURLSessionUploadTaskTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionUploadTaskTests.m; sourceTree = "<group>"; };
+		E547CE2021DC8551008D0925 /* MSDateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDateTests.m; sourceTree = "<group>"; };
+		E547CE2121DC8551008D0925 /* MSCollectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCollectionTests.m; sourceTree = "<group>"; };
+		E547CE2221DC8551008D0925 /* MSObjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSObjectTests.m; sourceTree = "<group>"; };
+		E547CE2621DC9CF6008D0925 /* MSTimeOfDayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSTimeOfDayTests.m; sourceTree = "<group>"; };
+		E55DFCBD21DCD21C00DE305D /* NSDate+MSSerializationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MSSerializationTests.m"; sourceTree = "<group>"; };
 		E566782D2150BC4F00C6B7AE /* MSRedirectHandlerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSRedirectHandlerTests.m; sourceTree = "<group>"; };
 		E566782F2150E1AF00C6B7AE /* MSAuthenticationHandlerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSAuthenticationHandlerTests.m; sourceTree = "<group>"; };
 		E56FDB8B21D36A98001DFE68 /* MSURLSessionDownloadTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSURLSessionDownloadTask.h; sourceTree = "<group>"; };
@@ -238,6 +248,7 @@
 		E5069AD7211C1AD500432372 /* MSGraphCoreSDKTests */ = {
 			isa = PBXGroup;
 			children = (
+				E547CE1F21D61561008D0925 /* Models */,
 				E5204FFC2173A79100E64160 /* GraphContent */,
 				E5B6DB6921497A3300836E1D /* Frameworks */,
 				E573EE1121367A4000C5E884 /* HTTPClient */,
@@ -317,6 +328,18 @@
 				E573EE1221367A7800C5E884 /* Implementations */,
 			);
 			path = Middleware;
+			sourceTree = "<group>";
+		};
+		E547CE1F21D61561008D0925 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E547CE2121DC8551008D0925 /* MSCollectionTests.m */,
+				E547CE2021DC8551008D0925 /* MSDateTests.m */,
+				E547CE2221DC8551008D0925 /* MSObjectTests.m */,
+				E547CE2621DC9CF6008D0925 /* MSTimeOfDayTests.m */,
+				E55DFCBD21DCD21C00DE305D /* NSDate+MSSerializationTests.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E56FDB8A21D36A98001DFE68 /* Session Tasks */ = {
@@ -648,11 +671,16 @@
 				E573EE092134167400C5E884 /* MSClientFactoryTests.m in Sources */,
 				E566782E2150BC4F00C6B7AE /* MSRedirectHandlerTests.m in Sources */,
 				E573EE0B213427ED00C5E884 /* MSURLSessionTaskDelegateTests.m in Sources */,
+				E547CE2321DC8551008D0925 /* MSDateTests.m in Sources */,
 				E5ECE09E2142992F00A289C2 /* MSMiddlewareFactoryTests.m in Sources */,
 				E5069AE2211C323D00432372 /* MSURLSessionManagerTests.m in Sources */,
 				E52AD9F62133E740005FED47 /* MSURLSessionUploadTaskTests.m in Sources */,
+				E547CE2721DC9CF6008D0925 /* MSTimeOfDayTests.m in Sources */,
 				E5069AD9211C1AD500432372 /* MSGraphCoreSDKTests.m in Sources */,
+				E547CE2421DC8551008D0925 /* MSCollectionTests.m in Sources */,
 				E52AD9F02133C766005FED47 /* MSURLSessionTaskTests.m in Sources */,
+				E547CE2521DC8551008D0925 /* MSObjectTests.m in Sources */,
+				E55DFCBE21DCD21C00DE305D /* NSDate+MSSerializationTests.m in Sources */,
 				E52AD9F22133C8F9005FED47 /* MSURLSessionDataTaskTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

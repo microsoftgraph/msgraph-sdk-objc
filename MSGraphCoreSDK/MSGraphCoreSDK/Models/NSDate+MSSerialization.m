@@ -5,7 +5,7 @@
 @implementation NSDate (Serialization)
 
 static NSString *dateFormatWithMillis = @"yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ";
-static NSString *dateFormatWithoutMillis = @"yyyy-MM-dd'T'HH:mm:ssZ";
+static NSString *dateFormatWithoutMillis = @"yyyy-MM-dd'T'HH:mm:ssZZZZZ";
 
 - (NSString *)ms_toString
 {

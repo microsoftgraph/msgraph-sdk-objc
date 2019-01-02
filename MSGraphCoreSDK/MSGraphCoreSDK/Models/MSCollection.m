@@ -36,7 +36,7 @@
     self = [super initWithDictionary:dictionary];
     if(self)
     {
-        self.value = [[self getDictionary] objectForKey:@"values"];
+        self.value = [[self getDictionary] objectForKey:@"value"];
         self.nextLink = [NSURL URLWithString:[[self getDictionary] objectForKey:@"@odata.nextLink"]];
         self.additionalData = [self getDictionary];
     }

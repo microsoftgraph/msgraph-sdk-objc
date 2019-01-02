@@ -7,7 +7,7 @@
 /*
  Creates an MSObject with the given data.
  @param data The NSData instance from the response.
- @error If there are any errors during the conversion of data then it will be assigned to this.
+ @param error If an error occurs, the error parameter will be set and the return value will be nil.
  @warning This method will return nil if the data is nil.
  */
 -(instancetype)initWithData:(NSData *)data error:(NSError **)error;;
@@ -27,7 +27,7 @@ This method returns the underlying dictionary which is used to construct the mod
 
 /*
  This method converts the internal dictionary to serialized data.
- @param error If there are any errors during the conversion of internal dictionary then it will be assigned to this.
+ @param error If an error occurs, the error parameter will be set and the return value will be nil.
  @return NSData representation of the internal dictionary,
  */
 - (NSData *)getSerializedDataWithError:(NSError **)error;;
