@@ -264,7 +264,7 @@
         [invocation getArgument:&completionHandler atIndex:3];
         completionHandler([NSData new],response,nil);
     });
-    OCMStub([mockNSTask resume])
+    OCMStub([(NSURLSessionTask *)mockNSTask resume])
     .andDo(^(NSInvocation *invocation){
     });
 
@@ -298,7 +298,7 @@
         [invocation getArgument:&completionHandler atIndex:4];
         completionHandler([NSURL URLWithString:@"https://foo"],response,nil);
     });
-    OCMStub([mockNSTask resume])
+    OCMStub([(NSURLSessionTask *)mockNSTask resume])
     .andDo(^(NSInvocation *invocation){
 
     });
@@ -334,7 +334,7 @@
         [invocation getArgument:&completionHandler atIndex:5];
         completionHandler([NSData new],response,nil);
     });
-    OCMStub([mockNSTask resume])
+    OCMStub([(NSURLSessionTask *)mockNSTask resume])
     .andDo(^(NSInvocation *invocation){
     });
 
@@ -370,7 +370,7 @@
         [invocation getArgument:&completionHandler atIndex:5];
         completionHandler([NSData new],response,nil);
     });
-    OCMStub([mockNSTask resume])
+    OCMStub([(NSURLSessionTask *)mockNSTask resume])
     .andDo(^(NSInvocation *invocation){
     });
 

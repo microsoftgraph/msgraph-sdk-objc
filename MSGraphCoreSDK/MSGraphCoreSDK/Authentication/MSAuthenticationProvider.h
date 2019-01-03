@@ -3,7 +3,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
+//#import <UIKit/UIKit.h>
 
 typedef void(^MSAuthenticationCompletion)(NSMutableURLRequest *request, NSError *error);
 

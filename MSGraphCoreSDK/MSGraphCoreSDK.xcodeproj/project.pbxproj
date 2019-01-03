@@ -126,6 +126,7 @@
 		E547CE2221DC8551008D0925 /* MSObjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSObjectTests.m; sourceTree = "<group>"; };
 		E547CE2621DC9CF6008D0925 /* MSTimeOfDayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSTimeOfDayTests.m; sourceTree = "<group>"; };
 		E55DFCBD21DCD21C00DE305D /* NSDate+MSSerializationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MSSerializationTests.m"; sourceTree = "<group>"; };
+		E55DFCF921DDD87D00DE305D /* MSGraphCoreSDK copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MSGraphCoreSDK copy-Info.plist"; path = "/Users/vikasdadheech/msgraph-sdk-objc/MSGraphCoreSDK/MSGraphCoreSDK copy-Info.plist"; sourceTree = "<absolute>"; };
 		E566782D2150BC4F00C6B7AE /* MSRedirectHandlerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSRedirectHandlerTests.m; sourceTree = "<group>"; };
 		E566782F2150E1AF00C6B7AE /* MSAuthenticationHandlerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSAuthenticationHandlerTests.m; sourceTree = "<group>"; };
 		E56FDB8B21D36A98001DFE68 /* MSURLSessionDownloadTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSURLSessionDownloadTask.h; sourceTree = "<group>"; };
@@ -445,6 +446,7 @@
 				E5069AD7211C1AD500432372 /* MSGraphCoreSDKTests */,
 				E5DC73DB211412BF0040BAB6 /* Products */,
 				E5B6DB8821497C2700836E1D /* Frameworks */,
+				E55DFCF921DDD87D00DE305D /* MSGraphCoreSDK copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -729,10 +731,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/MSGraphCoreSDKTests/Frameworks";
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)",
+					"$(inherited)",
+					"$(PROJECT_DIR)/MSGraphCoreSDKTests/Frameworks",
+				);
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/MSGraphCoreSDKTests/Frameworks/";
 				INFOPLIST_FILE = MSGraphCoreSDKTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks @executable_path/../Frameworks @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MSGraphCoreSDKTests/Frameworks/OCMock",
@@ -749,10 +756,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/MSGraphCoreSDKTests/Frameworks";
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)",
+					"$(inherited)",
+					"$(PROJECT_DIR)/MSGraphCoreSDKTests/Frameworks",
+				);
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/MSGraphCoreSDKTests/Frameworks/";
 				INFOPLIST_FILE = MSGraphCoreSDKTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks @executable_path/../Frameworks @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MSGraphCoreSDKTests/Frameworks/OCMock",
@@ -821,6 +833,8 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx\n";
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -875,7 +889,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx\n";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -898,8 +914,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Microsoft.MSGraph.MSGraphSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Debug;
 		};
@@ -920,8 +937,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Microsoft.MSGraph.MSGraphSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Release;
 		};
