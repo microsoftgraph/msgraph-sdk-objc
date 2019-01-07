@@ -9,10 +9,10 @@
 
 @interface MSGraphOutlookGeoCoordinates : MSObject
 
-@property (nonatomic, setter=setAltitude:, getter=altitude) CGFloat altitude;
-@property (nonatomic, setter=setLatitude:, getter=latitude) CGFloat latitude;
-@property (nonatomic, setter=setLongitude:, getter=longitude) CGFloat longitude;
-@property (nonatomic, setter=setAccuracy:, getter=accuracy) CGFloat accuracy;
-@property (nonatomic, setter=setAltitudeAccuracy:, getter=altitudeAccuracy) CGFloat altitudeAccuracy;
+@property (nonatomic, setter=setAltitude:, getter=altitude) double altitude;
+@property (nonatomic, setter=setLatitude:, getter=latitude) double latitude;
+@property (nonatomic, setter=setLongitude:, getter=longitude) double longitude;
+@property (nonatomic, setter=setAccuracy:, getter=accuracy) double accuracy;
+@property (nonatomic, setter=setAltitudeAccuracy:, getter=altitudeAccuracy) double altitudeAccuracy;
 
 @end

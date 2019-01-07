@@ -14,45 +14,45 @@
 
 @interface MSGraphGeoCoordinates()
 {
-    CGFloat _altitude;
-    CGFloat _latitude;
-    CGFloat _longitude;
+    double _altitude;
+    double _latitude;
+    double _longitude;
 }
 @end
 
 @implementation MSGraphGeoCoordinates
 
-- (CGFloat) altitude
+- (double) altitude
 {
     _altitude = [self.dictionary[@"altitude"] floatValue];
     return _altitude;
 }
 
-- (void) setAltitude: (CGFloat) val
+- (void) setAltitude: (double) val
 {
     _altitude = val;
     self.dictionary[@"altitude"] = @(val);
 }
 
-- (CGFloat) latitude
+- (double) latitude
 {
     _latitude = [self.dictionary[@"latitude"] floatValue];
     return _latitude;
 }
 
-- (void) setLatitude: (CGFloat) val
+- (void) setLatitude: (double) val
 {
     _latitude = val;
     self.dictionary[@"latitude"] = @(val);
 }
 
-- (CGFloat) longitude
+- (double) longitude
 {
     _longitude = [self.dictionary[@"longitude"] floatValue];
     return _longitude;
 }
 
-- (void) setLongitude: (CGFloat) val
+- (void) setLongitude: (double) val
 {
     _longitude = val;
     self.dictionary[@"longitude"] = @(val);

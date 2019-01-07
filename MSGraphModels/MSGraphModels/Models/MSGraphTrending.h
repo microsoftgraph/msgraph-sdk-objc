@@ -9,7 +9,7 @@
 
 @interface MSGraphTrending : MSGraphEntity
 
-  @property (nonatomic, setter=setWeight:, getter=weight) CGFloat weight;
+  @property (nonatomic, setter=setWeight:, getter=weight) double weight;
     @property (nullable, nonatomic, setter=setResourceVisualization:, getter=resourceVisualization) MSGraphResourceVisualization* resourceVisualization;
     @property (nullable, nonatomic, setter=setResourceReference:, getter=resourceReference) MSGraphResourceReference* resourceReference;
     @property (nullable, nonatomic, setter=setLastModifiedDateTime:, getter=lastModifiedDateTime) NSDate* lastModifiedDateTime;

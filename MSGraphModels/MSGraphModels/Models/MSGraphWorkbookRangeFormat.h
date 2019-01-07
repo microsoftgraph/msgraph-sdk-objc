@@ -9,9 +9,9 @@
 
 @interface MSGraphWorkbookRangeFormat : MSGraphEntity
 
-  @property (nonatomic, setter=setColumnWidth:, getter=columnWidth) CGFloat columnWidth;
+  @property (nonatomic, setter=setColumnWidth:, getter=columnWidth) double columnWidth;
     @property (nullable, nonatomic, setter=setHorizontalAlignment:, getter=horizontalAlignment) NSString* horizontalAlignment;
-    @property (nonatomic, setter=setRowHeight:, getter=rowHeight) CGFloat rowHeight;
+    @property (nonatomic, setter=setRowHeight:, getter=rowHeight) double rowHeight;
     @property (nullable, nonatomic, setter=setVerticalAlignment:, getter=verticalAlignment) NSString* verticalAlignment;
     @property (nonatomic, setter=setWrapText:, getter=wrapText) BOOL wrapText;
     @property (nullable, nonatomic, setter=setBorders:, getter=borders) NSArray* borders;

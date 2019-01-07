@@ -15,7 +15,7 @@
 @interface MSGraphMeetingTimeSuggestion()
 {
     MSGraphTimeSlot* _meetingTimeSlot;
-    CGFloat _confidence;
+    double _confidence;
     MSGraphFreeBusyStatus* _organizerAvailability;
     NSArray* _attendeeAvailability;
     NSArray* _locations;
@@ -39,13 +39,13 @@
     self.dictionary[@"meetingTimeSlot"] = val;
 }
 
-- (CGFloat) confidence
+- (double) confidence
 {
     _confidence = [self.dictionary[@"confidence"] floatValue];
     return _confidence;
 }
 
-- (void) setConfidence: (CGFloat) val
+- (void) setConfidence: (double) val
 {
     _confidence = val;
     self.dictionary[@"confidence"] = @(val);

@@ -18,7 +18,7 @@
     NSString* _color;
     BOOL _italic;
     NSString* _name;
-    CGFloat _size;
+    double _size;
     NSString* _underline;
 }
 @end
@@ -84,13 +84,13 @@
     self.dictionary[@"name"] = val;
 }
 
-- (CGFloat) size
+- (double) size
 {
     _size = [self.dictionary[@"size"] floatValue];
     return _size;
 }
 
-- (void) setSize: (CGFloat) val
+- (void) setSize: (double) val
 {
     _size = val;
     self.dictionary[@"size"] = @(val);

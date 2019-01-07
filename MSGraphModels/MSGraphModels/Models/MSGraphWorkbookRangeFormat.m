@@ -14,9 +14,9 @@
 
 @interface MSGraphWorkbookRangeFormat()
 {
-    CGFloat _columnWidth;
+    double _columnWidth;
     NSString* _horizontalAlignment;
-    CGFloat _rowHeight;
+    double _rowHeight;
     NSString* _verticalAlignment;
     BOOL _wrapText;
     NSArray* _borders;
@@ -35,13 +35,13 @@
     }
     return self;
 }
-- (CGFloat) columnWidth
+- (double) columnWidth
 {
     _columnWidth = [self.dictionary[@"columnWidth"] floatValue];
     return _columnWidth;
 }
 
-- (void) setColumnWidth: (CGFloat) val
+- (void) setColumnWidth: (double) val
 {
     _columnWidth = val;
     self.dictionary[@"columnWidth"] = @(val);
@@ -61,13 +61,13 @@
     self.dictionary[@"horizontalAlignment"] = val;
 }
 
-- (CGFloat) rowHeight
+- (double) rowHeight
 {
     _rowHeight = [self.dictionary[@"rowHeight"] floatValue];
     return _rowHeight;
 }
 
-- (void) setRowHeight: (CGFloat) val
+- (void) setRowHeight: (double) val
 {
     _rowHeight = val;
     self.dictionary[@"rowHeight"] = @(val);

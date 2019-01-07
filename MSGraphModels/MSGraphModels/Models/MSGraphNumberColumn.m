@@ -16,8 +16,8 @@
 {
     NSString* _decimalPlaces;
     NSString* _displayAs;
-    CGFloat _maximum;
-    CGFloat _minimum;
+    double _maximum;
+    double _minimum;
 }
 @end
 
@@ -51,25 +51,25 @@
     self.dictionary[@"displayAs"] = val;
 }
 
-- (CGFloat) maximum
+- (double) maximum
 {
     _maximum = [self.dictionary[@"maximum"] floatValue];
     return _maximum;
 }
 
-- (void) setMaximum: (CGFloat) val
+- (void) setMaximum: (double) val
 {
     _maximum = val;
     self.dictionary[@"maximum"] = @(val);
 }
 
-- (CGFloat) minimum
+- (double) minimum
 {
     _minimum = [self.dictionary[@"minimum"] floatValue];
     return _minimum;
 }
 
-- (void) setMinimum: (CGFloat) val
+- (void) setMinimum: (double) val
 {
     _minimum = val;
     self.dictionary[@"minimum"] = @(val);

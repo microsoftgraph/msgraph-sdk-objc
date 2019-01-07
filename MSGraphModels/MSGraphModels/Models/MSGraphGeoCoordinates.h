@@ -9,8 +9,8 @@
 
 @interface MSGraphGeoCoordinates : MSObject
 
-@property (nonatomic, setter=setAltitude:, getter=altitude) CGFloat altitude;
-@property (nonatomic, setter=setLatitude:, getter=latitude) CGFloat latitude;
-@property (nonatomic, setter=setLongitude:, getter=longitude) CGFloat longitude;
+@property (nonatomic, setter=setAltitude:, getter=altitude) double altitude;
+@property (nonatomic, setter=setLatitude:, getter=latitude) double latitude;
+@property (nonatomic, setter=setLongitude:, getter=longitude) double longitude;
 
 @end

@@ -21,7 +21,7 @@
     int32_t _bitrate;
     int64_t _duration;
     NSString* _fourCC;
-    CGFloat _frameRate;
+    double _frameRate;
     int32_t _height;
     int32_t _width;
 }
@@ -117,13 +117,13 @@
     self.dictionary[@"fourCC"] = val;
 }
 
-- (CGFloat) frameRate
+- (double) frameRate
 {
     _frameRate = [self.dictionary[@"frameRate"] floatValue];
     return _frameRate;
 }
 
-- (void) setFrameRate: (CGFloat) val
+- (void) setFrameRate: (double) val
 {
     _frameRate = val;
     self.dictionary[@"frameRate"] = @(val);

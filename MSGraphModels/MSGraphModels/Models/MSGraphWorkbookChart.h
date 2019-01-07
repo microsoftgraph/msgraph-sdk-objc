@@ -9,11 +9,11 @@
 
 @interface MSGraphWorkbookChart : MSGraphEntity
 
-  @property (nonatomic, setter=setHeight:, getter=height) CGFloat height;
-    @property (nonatomic, setter=setLeft:, getter=left) CGFloat left;
+  @property (nonatomic, setter=setHeight:, getter=height) double height;
+    @property (nonatomic, setter=setLeft:, getter=left) double left;
     @property (nullable, nonatomic, setter=setName:, getter=name) NSString* name;
-    @property (nonatomic, setter=setTop:, getter=top) CGFloat top;
-    @property (nonatomic, setter=setWidth:, getter=width) CGFloat width;
+    @property (nonatomic, setter=setTop:, getter=top) double top;
+    @property (nonatomic, setter=setWidth:, getter=width) double width;
     @property (nullable, nonatomic, setter=setAxes:, getter=axes) MSGraphWorkbookChartAxes* axes;
     @property (nullable, nonatomic, setter=setDataLabels:, getter=dataLabels) MSGraphWorkbookChartDataLabels* dataLabels;
     @property (nullable, nonatomic, setter=setFormat:, getter=format) MSGraphWorkbookChartAreaFormat* format;

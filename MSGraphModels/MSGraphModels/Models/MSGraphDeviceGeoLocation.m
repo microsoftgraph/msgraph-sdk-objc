@@ -15,13 +15,13 @@
 @interface MSGraphDeviceGeoLocation()
 {
     NSDate* _lastCollectedDateTime;
-    CGFloat _longitude;
-    CGFloat _latitude;
-    CGFloat _altitude;
-    CGFloat _horizontalAccuracy;
-    CGFloat _verticalAccuracy;
-    CGFloat _heading;
-    CGFloat _speed;
+    double _longitude;
+    double _latitude;
+    double _altitude;
+    double _horizontalAccuracy;
+    double _verticalAccuracy;
+    double _heading;
+    double _speed;
 }
 @end
 
@@ -41,85 +41,85 @@
     self.dictionary[@"lastCollectedDateTime"] = val;
 }
 
-- (CGFloat) longitude
+- (double) longitude
 {
     _longitude = [self.dictionary[@"longitude"] floatValue];
     return _longitude;
 }
 
-- (void) setLongitude: (CGFloat) val
+- (void) setLongitude: (double) val
 {
     _longitude = val;
     self.dictionary[@"longitude"] = @(val);
 }
 
-- (CGFloat) latitude
+- (double) latitude
 {
     _latitude = [self.dictionary[@"latitude"] floatValue];
     return _latitude;
 }
 
-- (void) setLatitude: (CGFloat) val
+- (void) setLatitude: (double) val
 {
     _latitude = val;
     self.dictionary[@"latitude"] = @(val);
 }
 
-- (CGFloat) altitude
+- (double) altitude
 {
     _altitude = [self.dictionary[@"altitude"] floatValue];
     return _altitude;
 }
 
-- (void) setAltitude: (CGFloat) val
+- (void) setAltitude: (double) val
 {
     _altitude = val;
     self.dictionary[@"altitude"] = @(val);
 }
 
-- (CGFloat) horizontalAccuracy
+- (double) horizontalAccuracy
 {
     _horizontalAccuracy = [self.dictionary[@"horizontalAccuracy"] floatValue];
     return _horizontalAccuracy;
 }
 
-- (void) setHorizontalAccuracy: (CGFloat) val
+- (void) setHorizontalAccuracy: (double) val
 {
     _horizontalAccuracy = val;
     self.dictionary[@"horizontalAccuracy"] = @(val);
 }
 
-- (CGFloat) verticalAccuracy
+- (double) verticalAccuracy
 {
     _verticalAccuracy = [self.dictionary[@"verticalAccuracy"] floatValue];
     return _verticalAccuracy;
 }
 
-- (void) setVerticalAccuracy: (CGFloat) val
+- (void) setVerticalAccuracy: (double) val
 {
     _verticalAccuracy = val;
     self.dictionary[@"verticalAccuracy"] = @(val);
 }
 
-- (CGFloat) heading
+- (double) heading
 {
     _heading = [self.dictionary[@"heading"] floatValue];
     return _heading;
 }
 
-- (void) setHeading: (CGFloat) val
+- (void) setHeading: (double) val
 {
     _heading = val;
     self.dictionary[@"heading"] = @(val);
 }
 
-- (CGFloat) speed
+- (double) speed
 {
     _speed = [self.dictionary[@"speed"] floatValue];
     return _speed;
 }
 
-- (void) setSpeed: (CGFloat) val
+- (void) setSpeed: (double) val
 {
     _speed = val;
     self.dictionary[@"speed"] = @(val);

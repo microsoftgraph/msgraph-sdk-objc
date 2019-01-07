@@ -14,11 +14,11 @@
 
 @interface MSGraphWorkbookChart()
 {
-    CGFloat _height;
-    CGFloat _left;
+    double _height;
+    double _left;
     NSString* _name;
-    CGFloat _top;
-    CGFloat _width;
+    double _top;
+    double _width;
     MSGraphWorkbookChartAxes* _axes;
     MSGraphWorkbookChartDataLabels* _dataLabels;
     MSGraphWorkbookChartAreaFormat* _format;
@@ -38,25 +38,25 @@
     }
     return self;
 }
-- (CGFloat) height
+- (double) height
 {
     _height = [self.dictionary[@"height"] floatValue];
     return _height;
 }
 
-- (void) setHeight: (CGFloat) val
+- (void) setHeight: (double) val
 {
     _height = val;
     self.dictionary[@"height"] = @(val);
 }
 
-- (CGFloat) left
+- (double) left
 {
     _left = [self.dictionary[@"left"] floatValue];
     return _left;
 }
 
-- (void) setLeft: (CGFloat) val
+- (void) setLeft: (double) val
 {
     _left = val;
     self.dictionary[@"left"] = @(val);
@@ -76,25 +76,25 @@
     self.dictionary[@"name"] = val;
 }
 
-- (CGFloat) top
+- (double) top
 {
     _top = [self.dictionary[@"top"] floatValue];
     return _top;
 }
 
-- (void) setTop: (CGFloat) val
+- (void) setTop: (double) val
 {
     _top = val;
     self.dictionary[@"top"] = @(val);
 }
 
-- (CGFloat) width
+- (double) width
 {
     _width = [self.dictionary[@"width"] floatValue];
     return _width;
 }
 
-- (void) setWidth: (CGFloat) val
+- (void) setWidth: (double) val
 {
     _width = val;
     self.dictionary[@"width"] = @(val);

@@ -10,12 +10,12 @@
 @interface MSGraphDeviceGeoLocation : MSObject
 
 @property (nonnull, nonatomic, setter=setLastCollectedDateTime:, getter=lastCollectedDateTime) NSDate* lastCollectedDateTime;
-@property (nonatomic, setter=setLongitude:, getter=longitude) CGFloat longitude;
-@property (nonatomic, setter=setLatitude:, getter=latitude) CGFloat latitude;
-@property (nonatomic, setter=setAltitude:, getter=altitude) CGFloat altitude;
-@property (nonatomic, setter=setHorizontalAccuracy:, getter=horizontalAccuracy) CGFloat horizontalAccuracy;
-@property (nonatomic, setter=setVerticalAccuracy:, getter=verticalAccuracy) CGFloat verticalAccuracy;
-@property (nonatomic, setter=setHeading:, getter=heading) CGFloat heading;
-@property (nonatomic, setter=setSpeed:, getter=speed) CGFloat speed;
+@property (nonatomic, setter=setLongitude:, getter=longitude) double longitude;
+@property (nonatomic, setter=setLatitude:, getter=latitude) double latitude;
+@property (nonatomic, setter=setAltitude:, getter=altitude) double altitude;
+@property (nonatomic, setter=setHorizontalAccuracy:, getter=horizontalAccuracy) double horizontalAccuracy;
+@property (nonatomic, setter=setVerticalAccuracy:, getter=verticalAccuracy) double verticalAccuracy;
+@property (nonatomic, setter=setHeading:, getter=heading) double heading;
+@property (nonatomic, setter=setSpeed:, getter=speed) double speed;
 
 @end

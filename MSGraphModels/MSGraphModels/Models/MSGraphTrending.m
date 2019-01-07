@@ -14,7 +14,7 @@
 
 @interface MSGraphTrending()
 {
-    CGFloat _weight;
+    double _weight;
     MSGraphResourceVisualization* _resourceVisualization;
     MSGraphResourceReference* _resourceReference;
     NSDate* _lastModifiedDateTime;
@@ -31,13 +31,13 @@
     }
     return self;
 }
-- (CGFloat) weight
+- (double) weight
 {
     _weight = [self.dictionary[@"weight"] floatValue];
     return _weight;
 }
 
-- (void) setWeight: (CGFloat) val
+- (void) setWeight: (double) val
 {
     _weight = val;
     self.dictionary[@"weight"] = @(val);

@@ -9,6 +9,6 @@
 
 @interface MSGraphOmaSettingFloatingPoint : MSGraphOmaSetting
 
-@property (nonatomic, setter=setValue:, getter=value) CGFloat value;
+@property (nonatomic, setter=setValue:, getter=value) double value;
 
 @end

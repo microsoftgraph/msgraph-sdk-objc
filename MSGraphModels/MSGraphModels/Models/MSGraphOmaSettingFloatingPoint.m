@@ -14,19 +14,19 @@
 
 @interface MSGraphOmaSettingFloatingPoint()
 {
-    CGFloat _value;
+    double _value;
 }
 @end
 
 @implementation MSGraphOmaSettingFloatingPoint
 
-- (CGFloat) value
+- (double) value
 {
     _value = [self.dictionary[@"value"] floatValue];
     return _value;
 }
 
-- (void) setValue: (CGFloat) val
+- (void) setValue: (double) val
 {
     _value = val;
     self.dictionary[@"value"] = @(val);

@@ -16,10 +16,10 @@
 {
     NSString* _cameraMake;
     NSString* _cameraModel;
-    CGFloat _exposureDenominator;
-    CGFloat _exposureNumerator;
-    CGFloat _fNumber;
-    CGFloat _focalLength;
+    double _exposureDenominator;
+    double _exposureNumerator;
+    double _fNumber;
+    double _focalLength;
     int32_t _iso;
     NSDate* _takenDateTime;
 }
@@ -55,49 +55,49 @@
     self.dictionary[@"cameraModel"] = val;
 }
 
-- (CGFloat) exposureDenominator
+- (double) exposureDenominator
 {
     _exposureDenominator = [self.dictionary[@"exposureDenominator"] floatValue];
     return _exposureDenominator;
 }
 
-- (void) setExposureDenominator: (CGFloat) val
+- (void) setExposureDenominator: (double) val
 {
     _exposureDenominator = val;
     self.dictionary[@"exposureDenominator"] = @(val);
 }
 
-- (CGFloat) exposureNumerator
+- (double) exposureNumerator
 {
     _exposureNumerator = [self.dictionary[@"exposureNumerator"] floatValue];
     return _exposureNumerator;
 }
 
-- (void) setExposureNumerator: (CGFloat) val
+- (void) setExposureNumerator: (double) val
 {
     _exposureNumerator = val;
     self.dictionary[@"exposureNumerator"] = @(val);
 }
 
-- (CGFloat) fNumber
+- (double) fNumber
 {
     _fNumber = [self.dictionary[@"fNumber"] floatValue];
     return _fNumber;
 }
 
-- (void) setFNumber: (CGFloat) val
+- (void) setFNumber: (double) val
 {
     _fNumber = val;
     self.dictionary[@"fNumber"] = @(val);
 }
 
-- (CGFloat) focalLength
+- (double) focalLength
 {
     _focalLength = [self.dictionary[@"focalLength"] floatValue];
     return _focalLength;
 }
 
-- (void) setFocalLength: (CGFloat) val
+- (void) setFocalLength: (double) val
 {
     _focalLength = val;
     self.dictionary[@"focalLength"] = @(val);

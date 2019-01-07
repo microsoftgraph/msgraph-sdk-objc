@@ -16,7 +16,7 @@
 @property (nonatomic, setter=setBitrate:, getter=bitrate) int32_t bitrate;
 @property (nonatomic, setter=setDuration:, getter=duration) int64_t duration;
 @property (nullable, nonatomic, setter=setFourCC:, getter=fourCC) NSString* fourCC;
-@property (nonatomic, setter=setFrameRate:, getter=frameRate) CGFloat frameRate;
+@property (nonatomic, setter=setFrameRate:, getter=frameRate) double frameRate;
 @property (nonatomic, setter=setHeight:, getter=height) int32_t height;
 @property (nonatomic, setter=setWidth:, getter=width) int32_t width;
 
