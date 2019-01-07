@@ -16,9 +16,9 @@ Pod::Spec.new do |s|
 
 
   s.ios.deployment_target = "9.0"
-  #s.osx.deployment_target = "10.7"
+  s.osx.deployment_target = "10.10"
 
-  s.source       = { :git => "https://github.com/microsoftgraph/msgraph-sdk-objc.git", :branch => "vidadhee/ModelsIntegration" }
+  s.source       = { :git => "https://github.com/microsoftgraph/msgraph-sdk-objc.git", :branch => "vidadhee/MacSupport" }
 
 
 

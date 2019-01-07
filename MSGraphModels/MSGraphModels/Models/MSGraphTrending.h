@@ -2,7 +2,7 @@
 
 
 @class MSGraphResourceVisualization, MSGraphResourceReference, MSGraphEntity; 
-#import <UIKit/UiKit.h>
+
 
 
 #import "MSGraphEntity.h"

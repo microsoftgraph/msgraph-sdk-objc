@@ -1,12 +1,7 @@
-//
-//  MSGraphModels.h
-//  MSGraphModels
-//
-//  Created by Vikas Dadheech on 17/12/18.
-//  Copyright © 2018 Microsoft. All rights reserved.
-//
+// Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
-#import <UIKit/UIKit.h>
+
+
 
 //! Project version number for MSGraphModels.
 FOUNDATION_EXPORT double MSGraphModelsVersionNumber;

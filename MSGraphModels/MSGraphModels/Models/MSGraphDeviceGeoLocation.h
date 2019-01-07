@@ -2,7 +2,7 @@
 
 
 
-#import <UIKit/UiKit.h>
+
 
 
 #import <MSGraphCoreSDK/MSObject.h>
