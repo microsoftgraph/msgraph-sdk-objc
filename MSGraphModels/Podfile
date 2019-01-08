@@ -1,3 +1,0 @@
-target 'MSGraphModels' do
-  pod 'MSGraphCoreSDK/Models', :path => '/Users/vikasdadheech/msgraph-sdk-objc/MSGraphCoreSDK.podspec'
-end

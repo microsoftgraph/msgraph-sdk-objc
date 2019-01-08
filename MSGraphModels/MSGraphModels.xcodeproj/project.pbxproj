@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E417D4EF0EBEC1B544968E93 /* libPods-MSGraphModels.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AA6D2AF21E579E18121BE96 /* libPods-MSGraphModels.a */; };
 		E56FD5FD21CD04B5001DFE68 /* MSGraphDetectedApp.h in Headers */ = {isa = PBXBuildFile; fileRef = E56FD07021CD03EA001DFE68 /* MSGraphDetectedApp.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E56FD5FE21CD04B5001DFE68 /* MSGraphHostSecurityState.h in Headers */ = {isa = PBXBuildFile; fileRef = E56FD07121CD03EB001DFE68 /* MSGraphHostSecurityState.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E56FD5FF21CD04B5001DFE68 /* MSGraphWindowsInformationProtectionDataRecoveryCertificate.h in Headers */ = {isa = PBXBuildFile; fileRef = E56FD07221CD03EC001DFE68 /* MSGraphWindowsInformationProtectionDataRecoveryCertificate.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1444,9 +1443,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		012EC01FF1A98837844F57BA /* Pods-MSGraphModels.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSGraphModels.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MSGraphModels/Pods-MSGraphModels.debug.xcconfig"; sourceTree = "<group>"; };
-		0AB6D457E522EF925DD3449A /* Pods-MSGraphModels.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSGraphModels.release.xcconfig"; path = "Pods/Target Support Files/Pods-MSGraphModels/Pods-MSGraphModels.release.xcconfig"; sourceTree = "<group>"; };
-		8AA6D2AF21E579E18121BE96 /* libPods-MSGraphModels.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MSGraphModels.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E56FD07021CD03EA001DFE68 /* MSGraphDetectedApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphDetectedApp.h; sourceTree = "<group>"; };
 		E56FD07121CD03EB001DFE68 /* MSGraphHostSecurityState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphHostSecurityState.h; sourceTree = "<group>"; };
 		E56FD07221CD03EC001DFE68 /* MSGraphWindowsInformationProtectionDataRecoveryCertificate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphWindowsInformationProtectionDataRecoveryCertificate.h; sourceTree = "<group>"; };
@@ -2880,7 +2876,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E417D4EF0EBEC1B544968E93 /* libPods-MSGraphModels.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2895,23 +2890,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C5C773F57EBAF620CE9B91C4 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				012EC01FF1A98837844F57BA /* Pods-MSGraphModels.debug.xcconfig */,
-				0AB6D457E522EF925DD3449A /* Pods-MSGraphModels.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		E59A8BD621C7811B00E15B9D = {
 			isa = PBXGroup;
 			children = (
 				E59A8BE221C7811B00E15B9D /* MSGraphModels */,
 				E59A8BED21C7811B00E15B9D /* MSGraphModelsTests */,
 				E59A8BE121C7811B00E15B9D /* Products */,
-				C5C773F57EBAF620CE9B91C4 /* Pods */,
-				E5DC805242374476174D1F36 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -4370,14 +4354,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		E5DC805242374476174D1F36 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				8AA6D2AF21E579E18121BE96 /* libPods-MSGraphModels.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -5106,12 +5082,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E59A8BF421C7811B00E15B9D /* Build configuration list for PBXNativeTarget "MSGraphModels" */;
 			buildPhases = (
-				F1443F8660D4D96E1E65C01C /* [CP] Check Pods Manifest.lock */,
 				E59A8BDB21C7811B00E15B9D /* Headers */,
 				E59A8BDC21C7811B00E15B9D /* Sources */,
 				E59A8BDD21C7811B00E15B9D /* Frameworks */,
 				E59A8BDE21C7811B00E15B9D /* Resources */,
-				7E4455EA8A212B4EB3971455 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -5191,42 +5165,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		7E4455EA8A212B4EB3971455 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MSGraphModels/Pods-MSGraphModels-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F1443F8660D4D96E1E65C01C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MSGraphModels-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E59A8BDC21C7811B00E15B9D /* Sources */ = {
@@ -6091,7 +6029,6 @@
 		};
 		E59A8BF521C7811B00E15B9D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 012EC01FF1A98837844F57BA /* Pods-MSGraphModels.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -6101,11 +6038,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MSGraphModels/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Microsoft.MSGraph.MSGraphModels;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -6117,7 +6050,6 @@
 		};
 		E59A8BF621C7811B00E15B9D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0AB6D457E522EF925DD3449A /* Pods-MSGraphModels.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -6127,11 +6059,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MSGraphModels/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Microsoft.MSGraph.MSGraphModels;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -6146,11 +6074,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MSGraphModelsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Microsoft.MSGraph.MSGraphModelsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -6162,11 +6086,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MSGraphModelsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Microsoft.MSGraph.MSGraphModelsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
