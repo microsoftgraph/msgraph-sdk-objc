@@ -1428,6 +1428,7 @@
 		E56FDB8721CD04B7001DFE68 /* MSGraphResponseType.h in Headers */ = {isa = PBXBuildFile; fileRef = E56FD5FA21CD04B4001DFE68 /* MSGraphResponseType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E56FDB8821CD04B7001DFE68 /* MSGraphSchemaExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = E56FD5FB21CD04B4001DFE68 /* MSGraphSchemaExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E56FDB8921CD04B7001DFE68 /* MSGraphVerifiedDomain.h in Headers */ = {isa = PBXBuildFile; fileRef = E56FD5FC21CD04B5001DFE68 /* MSGraphVerifiedDomain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E570B76821E74D3F00C781E8 /* MSGraphCoreSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E570B76721E74D3F00C781E8 /* MSGraphCoreSDK.framework */; };
 		E59A8BEA21C7811B00E15B9D /* MSGraphModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59A8BE021C7811B00E15B9D /* MSGraphModels.framework */; };
 		E59A8BEF21C7811B00E15B9D /* MSGraphModelsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E59A8BEE21C7811B00E15B9D /* MSGraphModelsTests.m */; };
 /* End PBXBuildFile section */
@@ -2864,6 +2865,7 @@
 		E56FD5FA21CD04B4001DFE68 /* MSGraphResponseType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphResponseType.h; sourceTree = "<group>"; };
 		E56FD5FB21CD04B4001DFE68 /* MSGraphSchemaExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphSchemaExtension.h; sourceTree = "<group>"; };
 		E56FD5FC21CD04B5001DFE68 /* MSGraphVerifiedDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphVerifiedDomain.h; sourceTree = "<group>"; };
+		E570B76721E74D3F00C781E8 /* MSGraphCoreSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MSGraphCoreSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E59A8BE021C7811B00E15B9D /* MSGraphModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MSGraphModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E59A8BE421C7811B00E15B9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E59A8BE921C7811B00E15B9D /* MSGraphModelsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MSGraphModelsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2876,6 +2878,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E570B76821E74D3F00C781E8 /* MSGraphCoreSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2890,12 +2893,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E570B76621E74D3F00C781E8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E570B76721E74D3F00C781E8 /* MSGraphCoreSDK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E59A8BD621C7811B00E15B9D = {
 			isa = PBXGroup;
 			children = (
 				E59A8BE221C7811B00E15B9D /* MSGraphModels */,
 				E59A8BED21C7811B00E15B9D /* MSGraphModelsTests */,
 				E59A8BE121C7811B00E15B9D /* Products */,
+				E570B76621E74D3F00C781E8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
