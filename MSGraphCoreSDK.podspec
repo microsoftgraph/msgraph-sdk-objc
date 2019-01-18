@@ -23,11 +23,6 @@ Pod::Spec.new do |s|
   s.exclude_files = "MSGraphCoreSDK/MSGraphCoreSDKTests/*"
   s.public_header_files = "MSGraphCoreSDK/MSGraphCoreSDK/MSGraphCoreSDK.h"
 
-  s.subspec "Models" do |models|
-    models.source_files = "MSGraphCoreSDK/MSGraphCoreSDK/Models/*.{h,m}"
-    models.public_header_files = "MSGraphCoreSDK/MSGraphCoreSDK/Models/*.h"
-  end
-
   s.subspec "Authentication" do |authentication|
     authentication.source_files = "MSGraphCoreSDK/MSGraphCoreSDK/Authentication/*.{h,m}"
     authentication.public_header_files = "MSGraphCoreSDK/MSGraphCoreSDK/Authentication/*.h"

@@ -40,11 +40,6 @@ FOUNDATION_EXPORT const unsigned char MSGraphSDKVersionString[];
 #import "MSGraphCoreSDK/MSBatchRequestContent.h"
 #import "MSGraphCoreSDK/MSBatchResponseContent.h"
 
-#import "MSGraphCoreSDK/NSDate+MSSerialization.h"
-#import "MSGraphCoreSDK/MSCollection.h"
-#import "MSGraphCoreSDK/MSDate.h"
-#import "MSGraphCoreSDK/MSObject.h"
-#import "MSGraphCoreSDK/MSTimeOfDay.h"
 
 #endif
 

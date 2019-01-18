@@ -32,11 +32,6 @@
 		E52AD9F22133C8F9005FED47 /* MSURLSessionDataTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD9F12133C8F9005FED47 /* MSURLSessionDataTaskTests.m */; };
 		E52AD9F42133E171005FED47 /* MSURLSessionDownloadTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD9F32133E171005FED47 /* MSURLSessionDownloadTaskTests.m */; };
 		E52AD9F62133E740005FED47 /* MSURLSessionUploadTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD9F52133E73F005FED47 /* MSURLSessionUploadTaskTests.m */; };
-		E547CE2321DC8551008D0925 /* MSDateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E547CE2021DC8551008D0925 /* MSDateTests.m */; };
-		E547CE2421DC8551008D0925 /* MSCollectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E547CE2121DC8551008D0925 /* MSCollectionTests.m */; };
-		E547CE2521DC8551008D0925 /* MSObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E547CE2221DC8551008D0925 /* MSObjectTests.m */; };
-		E547CE2721DC9CF6008D0925 /* MSTimeOfDayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E547CE2621DC9CF6008D0925 /* MSTimeOfDayTests.m */; };
-		E55DFCBE21DCD21C00DE305D /* NSDate+MSSerializationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E55DFCBD21DCD21C00DE305D /* NSDate+MSSerializationTests.m */; };
 		E566782E2150BC4F00C6B7AE /* MSRedirectHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E566782D2150BC4F00C6B7AE /* MSRedirectHandlerTests.m */; };
 		E56678302150E1AF00C6B7AE /* MSAuthenticationHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E566782F2150E1AF00C6B7AE /* MSAuthenticationHandlerTests.m */; };
 		E56FDB9321D36A98001DFE68 /* MSURLSessionDownloadTask.h in Headers */ = {isa = PBXBuildFile; fileRef = E56FDB8B21D36A98001DFE68 /* MSURLSessionDownloadTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -52,16 +47,6 @@
 		E573EE0B213427ED00C5E884 /* MSURLSessionTaskDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E573EE0A213427ED00C5E884 /* MSURLSessionTaskDelegateTests.m */; };
 		E573EE0D213525BA00C5E884 /* MSGraphWorkloadsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E573EE0C213525BA00C5E884 /* MSGraphWorkloadsTests.m */; };
 		E573EE102136569F00C5E884 /* UserPhoto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E573EE0F2136569F00C5E884 /* UserPhoto.jpg */; };
-		E579E4E421CB5A2400869070 /* MSCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = E579E4DC21CB5A2400869070 /* MSCollection.m */; };
-		E579E4E521CB5A2400869070 /* MSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E579E4DD21CB5A2400869070 /* MSObject.m */; };
-		E579E4E621CB5A2400869070 /* MSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = E579E4DE21CB5A2400869070 /* MSDate.m */; };
-		E579E4E721CB5A2400869070 /* MSObject.h in Headers */ = {isa = PBXBuildFile; fileRef = E579E4DF21CB5A2400869070 /* MSObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E579E4E821CB5A2400869070 /* MSTimeOfDay.h in Headers */ = {isa = PBXBuildFile; fileRef = E579E4E021CB5A2400869070 /* MSTimeOfDay.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E579E4E921CB5A2400869070 /* MSDate.h in Headers */ = {isa = PBXBuildFile; fileRef = E579E4E121CB5A2400869070 /* MSDate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E579E4EA21CB5A2400869070 /* MSTimeOfDay.m in Sources */ = {isa = PBXBuildFile; fileRef = E579E4E221CB5A2400869070 /* MSTimeOfDay.m */; };
-		E579E4EB21CB5A2400869070 /* MSCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = E579E4E321CB5A2400869070 /* MSCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E579E4EE21CB5A3D00869070 /* NSDate+MSSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = E579E4EC21CB5A3D00869070 /* NSDate+MSSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E579E4EF21CB5A3D00869070 /* NSDate+MSSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = E579E4ED21CB5A3D00869070 /* NSDate+MSSerialization.m */; };
 		E5B6DB9821497DAA00836E1D /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B6DB9621497D7C00836E1D /* libOCMock.a */; };
 		E5DC73DF211412BF0040BAB6 /* MSGraphCoreSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73DD211412BF0040BAB6 /* MSGraphCoreSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5DC7403211418050040BAB6 /* MSAuthenticationHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73EB211418040040BAB6 /* MSAuthenticationHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -121,11 +106,6 @@
 		E52AD9F12133C8F9005FED47 /* MSURLSessionDataTaskTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionDataTaskTests.m; sourceTree = "<group>"; };
 		E52AD9F32133E171005FED47 /* MSURLSessionDownloadTaskTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionDownloadTaskTests.m; sourceTree = "<group>"; };
 		E52AD9F52133E73F005FED47 /* MSURLSessionUploadTaskTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionUploadTaskTests.m; sourceTree = "<group>"; };
-		E547CE2021DC8551008D0925 /* MSDateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDateTests.m; sourceTree = "<group>"; };
-		E547CE2121DC8551008D0925 /* MSCollectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCollectionTests.m; sourceTree = "<group>"; };
-		E547CE2221DC8551008D0925 /* MSObjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSObjectTests.m; sourceTree = "<group>"; };
-		E547CE2621DC9CF6008D0925 /* MSTimeOfDayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSTimeOfDayTests.m; sourceTree = "<group>"; };
-		E55DFCBD21DCD21C00DE305D /* NSDate+MSSerializationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MSSerializationTests.m"; sourceTree = "<group>"; };
 		E55DFCF921DDD87D00DE305D /* MSGraphCoreSDK copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MSGraphCoreSDK copy-Info.plist"; path = "/Users/vikasdadheech/msgraph-sdk-objc/MSGraphCoreSDK/MSGraphCoreSDK copy-Info.plist"; sourceTree = "<absolute>"; };
 		E566782D2150BC4F00C6B7AE /* MSRedirectHandlerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSRedirectHandlerTests.m; sourceTree = "<group>"; };
 		E566782F2150E1AF00C6B7AE /* MSAuthenticationHandlerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSAuthenticationHandlerTests.m; sourceTree = "<group>"; };
@@ -142,16 +122,6 @@
 		E573EE0A213427ED00C5E884 /* MSURLSessionTaskDelegateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionTaskDelegateTests.m; sourceTree = "<group>"; };
 		E573EE0C213525BA00C5E884 /* MSGraphWorkloadsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSGraphWorkloadsTests.m; sourceTree = "<group>"; };
 		E573EE0F2136569F00C5E884 /* UserPhoto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = UserPhoto.jpg; sourceTree = "<group>"; };
-		E579E4DC21CB5A2400869070 /* MSCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCollection.m; sourceTree = "<group>"; };
-		E579E4DD21CB5A2400869070 /* MSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSObject.m; sourceTree = "<group>"; };
-		E579E4DE21CB5A2400869070 /* MSDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDate.m; sourceTree = "<group>"; };
-		E579E4DF21CB5A2400869070 /* MSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSObject.h; sourceTree = "<group>"; };
-		E579E4E021CB5A2400869070 /* MSTimeOfDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSTimeOfDay.h; sourceTree = "<group>"; };
-		E579E4E121CB5A2400869070 /* MSDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDate.h; sourceTree = "<group>"; };
-		E579E4E221CB5A2400869070 /* MSTimeOfDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSTimeOfDay.m; sourceTree = "<group>"; };
-		E579E4E321CB5A2400869070 /* MSCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCollection.h; sourceTree = "<group>"; };
-		E579E4EC21CB5A3D00869070 /* NSDate+MSSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MSSerialization.h"; sourceTree = "<group>"; };
-		E579E4ED21CB5A3D00869070 /* NSDate+MSSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MSSerialization.m"; sourceTree = "<group>"; };
 		E5B6DB8C21497CAC00836E1D /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
 		E5B6DB8D21497CAC00836E1D /* OCMMacroState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMMacroState.h; sourceTree = "<group>"; };
 		E5B6DB8E21497CAC00836E1D /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
@@ -249,7 +219,6 @@
 		E5069AD7211C1AD500432372 /* MSGraphCoreSDKTests */ = {
 			isa = PBXGroup;
 			children = (
-				E547CE1F21D61561008D0925 /* Models */,
 				E5204FFC2173A79100E64160 /* GraphContent */,
 				E5B6DB6921497A3300836E1D /* Frameworks */,
 				E573EE1121367A4000C5E884 /* HTTPClient */,
@@ -331,18 +300,6 @@
 			path = Middleware;
 			sourceTree = "<group>";
 		};
-		E547CE1F21D61561008D0925 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				E547CE2121DC8551008D0925 /* MSCollectionTests.m */,
-				E547CE2021DC8551008D0925 /* MSDateTests.m */,
-				E547CE2221DC8551008D0925 /* MSObjectTests.m */,
-				E547CE2621DC9CF6008D0925 /* MSTimeOfDayTests.m */,
-				E55DFCBD21DCD21C00DE305D /* NSDate+MSSerializationTests.m */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		E56FDB8A21D36A98001DFE68 /* Session Tasks */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,23 +344,6 @@
 				E51E616E216E073F00F1B3C0 /* MSRetryHandlerTests.m */,
 			);
 			path = Implementations;
-			sourceTree = "<group>";
-		};
-		E579E4DB21CB59E900869070 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				E579E4EC21CB5A3D00869070 /* NSDate+MSSerialization.h */,
-				E579E4ED21CB5A3D00869070 /* NSDate+MSSerialization.m */,
-				E579E4E321CB5A2400869070 /* MSCollection.h */,
-				E579E4DC21CB5A2400869070 /* MSCollection.m */,
-				E579E4E121CB5A2400869070 /* MSDate.h */,
-				E579E4DE21CB5A2400869070 /* MSDate.m */,
-				E579E4DF21CB5A2400869070 /* MSObject.h */,
-				E579E4DD21CB5A2400869070 /* MSObject.m */,
-				E579E4E021CB5A2400869070 /* MSTimeOfDay.h */,
-				E579E4E221CB5A2400869070 /* MSTimeOfDay.m */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		E5B6DB6921497A3300836E1D /* Frameworks */ = {
@@ -462,7 +402,6 @@
 		E5DC73DC211412BF0040BAB6 /* MSGraphCoreSDK */ = {
 			isa = PBXGroup;
 			children = (
-				E579E4DB21CB59E900869070 /* Models */,
 				E5DC73DD211412BF0040BAB6 /* MSGraphCoreSDK.h */,
 				E5069AC2211AACB600432372 /* Authentication */,
 				E5069AC5211AAE6900432372 /* Common */,
@@ -542,14 +481,9 @@
 				E5069AC8211AAEC900432372 /* MSConstants.h in Headers */,
 				E5DC7406211418050040BAB6 /* MSURLSessionTaskDelegate.h in Headers */,
 				E5ECE09721427A6400A289C2 /* MSMiddlewareFactory.h in Headers */,
-				E579E4E821CB5A2400869070 /* MSTimeOfDay.h in Headers */,
-				E579E4E921CB5A2400869070 /* MSDate.h in Headers */,
 				E56FDB9321D36A98001DFE68 /* MSURLSessionDownloadTask.h in Headers */,
-				E579E4EB21CB5A2400869070 /* MSCollection.h in Headers */,
-				E579E4E721CB5A2400869070 /* MSObject.h in Headers */,
 				E56FDB9A21D36A98001DFE68 /* MSURLSessionDataTask.h in Headers */,
 				E56FDB9521D36A98001DFE68 /* MSURLSessionUploadTask.h in Headers */,
-				E579E4EE21CB5A3D00869070 /* NSDate+MSSerialization.h in Headers */,
 				E56FDB9721D36A98001DFE68 /* MSURLSessionTask.h in Headers */,
 				E5204FEE216F1D9900E64160 /* MSBatchRequestContent.h in Headers */,
 				E5204FF2216F1D9900E64160 /* MSBatchResponseContent.h in Headers */,
@@ -673,16 +607,11 @@
 				E573EE092134167400C5E884 /* MSClientFactoryTests.m in Sources */,
 				E566782E2150BC4F00C6B7AE /* MSRedirectHandlerTests.m in Sources */,
 				E573EE0B213427ED00C5E884 /* MSURLSessionTaskDelegateTests.m in Sources */,
-				E547CE2321DC8551008D0925 /* MSDateTests.m in Sources */,
 				E5ECE09E2142992F00A289C2 /* MSMiddlewareFactoryTests.m in Sources */,
 				E5069AE2211C323D00432372 /* MSURLSessionManagerTests.m in Sources */,
 				E52AD9F62133E740005FED47 /* MSURLSessionUploadTaskTests.m in Sources */,
-				E547CE2721DC9CF6008D0925 /* MSTimeOfDayTests.m in Sources */,
 				E5069AD9211C1AD500432372 /* MSGraphCoreSDKTests.m in Sources */,
-				E547CE2421DC8551008D0925 /* MSCollectionTests.m in Sources */,
 				E52AD9F02133C766005FED47 /* MSURLSessionTaskTests.m in Sources */,
-				E547CE2521DC8551008D0925 /* MSObjectTests.m in Sources */,
-				E55DFCBE21DCD21C00DE305D /* NSDate+MSSerializationTests.m in Sources */,
 				E52AD9F22133C8F9005FED47 /* MSURLSessionDataTaskTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -692,18 +621,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5204FF1216F1D9900E64160 /* MSBatchRequestContent.m in Sources */,
-				E579E4E421CB5A2400869070 /* MSCollection.m in Sources */,
 				E56FDB9421D36A98001DFE68 /* MSURLSessionTask.m in Sources */,
 				E5204FF7216F371400E64160 /* MSErrorCodes.m in Sources */,
 				E5DC741A21142C430040BAB6 /* MSClientFactory.m in Sources */,
 				E5069AC9211AAEC900432372 /* MSConstants.m in Sources */,
-				E579E4E621CB5A2400869070 /* MSDate.m in Sources */,
 				E56FDB9821D36A98001DFE68 /* MSURLSessionDownloadTask.m in Sources */,
 				E56FDB9921D36A98001DFE68 /* MSURLSessionUploadTask.m in Sources */,
 				E5ECE0A52146657900A289C2 /* MSRedirectHandler.m in Sources */,
-				E579E4EF21CB5A3D00869070 /* NSDate+MSSerialization.m in Sources */,
 				E5ECE09821427A6400A289C2 /* MSMiddlewareFactory.m in Sources */,
-				E579E4EA21CB5A2400869070 /* MSTimeOfDay.m in Sources */,
 				E5204FF3216F1D9900E64160 /* MSBatchRequestStep.m in Sources */,
 				E56FDB9621D36A98001DFE68 /* MSURLSessionDataTask.m in Sources */,
 				E5DC7405211418050040BAB6 /* MSURLSessionManager.m in Sources */,
@@ -712,7 +637,6 @@
 				E5DC7408211418050040BAB6 /* MSURLSessionTaskDelegate.m in Sources */,
 				E5DC7409211418050040BAB6 /* MSAuthenticationHandler.m in Sources */,
 				E5DC741D21142C430040BAB6 /* MSHTTPClient.m in Sources */,
-				E579E4E521CB5A2400869070 /* MSObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
