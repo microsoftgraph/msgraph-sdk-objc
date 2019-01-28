@@ -94,7 +94,7 @@
     id mockNSTask = OCMClassMock([NSURLSessionDataTask class]);
     OCMStub([_mockHttpMiddleware dataTaskWithRequest:[OCMArg any] completionHandler:[OCMArg any]]).andReturn(mockNSTask);
     
-    OCMStub([mockNSTask resume])
+    OCMStub([(NSURLSessionTask *)mockNSTask resume])
     .andDo(^(NSInvocation *invocation){
         XCTAssertEqualObjects(@"Bearer abcdefg", [dataTask.request.allHTTPHeaderFields objectForKey:@"Authorization"]);
         [dataTask taskCompletedWithData:self.responseData response:self->_OKresponse andError:nil];
@@ -124,7 +124,7 @@
     id mockNSTask = OCMClassMock([NSURLSessionDownloadTask class]);
     OCMStub([_mockHttpMiddleware downloadTaskWithRequest:[OCMArg any] progress:[OCMArg anyObjectRef] completionHandler:[OCMArg any]]).andReturn(mockNSTask);
 
-    OCMStub([mockNSTask resume]).andDo(^(NSInvocation *invocation){
+    OCMStub([(NSURLSessionTask *)mockNSTask resume]).andDo(^(NSInvocation *invocation){
         XCTAssertEqualObjects(@"Bearer abcdefg", [downloadTask.request.allHTTPHeaderFields objectForKey:@"Authorization"]);
         [downloadTask taskCompletedWithData:[NSURL URLWithString:downloadPath] response:self->_OKresponse andError:nil];
     });
@@ -151,7 +151,7 @@
     id mockNSTask = OCMClassMock([NSURLSessionUploadTask class]);
     OCMStub([_mockHttpMiddleware uploadTaskWithRequest:[OCMArg any] fromFile:[OCMArg any] progress:[OCMArg anyObjectRef] completionHandler:[OCMArg any]]).andReturn(mockNSTask);
 
-    OCMStub([mockNSTask resume]).andDo(^(NSInvocation *invocation){
+    OCMStub([(NSURLSessionTask *)mockNSTask resume]).andDo(^(NSInvocation *invocation){
         XCTAssertEqualObjects(@"Bearer abcdefg", [uploadTask.request.allHTTPHeaderFields objectForKey:@"Authorization"]);
         [uploadTask taskCompletedWithData:nil response:self->_OKresponse andError:nil];
     });
@@ -178,7 +178,7 @@
     id mockNSTask = OCMClassMock([NSURLSessionUploadTask class]);
     OCMStub([_mockHttpMiddleware uploadTaskWithRequest:[OCMArg any] fromData:[OCMArg any] progress:[OCMArg anyObjectRef] completionHandler:[OCMArg any]]).andReturn(mockNSTask);
 
-    OCMStub([mockNSTask resume]).andDo(^(NSInvocation *invocation){
+    OCMStub([(NSURLSessionTask *)mockNSTask resume]).andDo(^(NSInvocation *invocation){
         XCTAssertEqualObjects(@"Bearer abcdefg", [uploadTask.request.allHTTPHeaderFields objectForKey:@"Authorization"]);
         [uploadTask taskCompletedWithData:nil response:self->_OKresponse andError:nil];
     });

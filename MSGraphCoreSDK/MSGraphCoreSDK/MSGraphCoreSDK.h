@@ -40,6 +40,7 @@ FOUNDATION_EXPORT const unsigned char MSGraphSDKVersionString[];
 #import "MSGraphCoreSDK/MSBatchRequestContent.h"
 #import "MSGraphCoreSDK/MSBatchResponseContent.h"
 
+
 #endif
 
 
