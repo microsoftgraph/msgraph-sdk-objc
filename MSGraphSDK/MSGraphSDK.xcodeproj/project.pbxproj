@@ -1,0 +1,905 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E5069AC8211AAEC900432372 /* MSConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = E5069AC6211AAEC900432372 /* MSConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5069AC9211AAEC900432372 /* MSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = E5069AC7211AAEC900432372 /* MSConstants.m */; };
+		E5069AD9211C1AD500432372 /* MSGraphSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5069AD8211C1AD500432372 /* MSGraphSDKTests.m */; };
+		E5069ADB211C1AD500432372 /* MSGraphSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DC73DA211412BF0040BAB6 /* MSGraphSDK.framework */; };
+		E5069AE2211C323D00432372 /* MSURLSessionManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5069AE1211C323D00432372 /* MSURLSessionManagerTests.m */; };
+		E51E616C216DE4D300F1B3C0 /* MSRetryHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = E51E616A216DE4D300F1B3C0 /* MSRetryHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E51E616D216DE4D300F1B3C0 /* MSRetryHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E51E616B216DE4D300F1B3C0 /* MSRetryHandler.m */; };
+		E51E616F216E073F00F1B3C0 /* MSRetryHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E51E616E216E073F00F1B3C0 /* MSRetryHandlerTests.m */; };
+		E5204FEE216F1D9900E64160 /* MSBatchRequestContent.h in Headers */ = {isa = PBXBuildFile; fileRef = E5204FE8216F1D9800E64160 /* MSBatchRequestContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5204FEF216F1D9900E64160 /* MSBatchRequestStep.h in Headers */ = {isa = PBXBuildFile; fileRef = E5204FE9216F1D9800E64160 /* MSBatchRequestStep.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5204FF0216F1D9900E64160 /* MSBatchResponseContent.m in Sources */ = {isa = PBXBuildFile; fileRef = E5204FEA216F1D9800E64160 /* MSBatchResponseContent.m */; };
+		E5204FF1216F1D9900E64160 /* MSBatchRequestContent.m in Sources */ = {isa = PBXBuildFile; fileRef = E5204FEB216F1D9800E64160 /* MSBatchRequestContent.m */; };
+		E5204FF2216F1D9900E64160 /* MSBatchResponseContent.h in Headers */ = {isa = PBXBuildFile; fileRef = E5204FEC216F1D9900E64160 /* MSBatchResponseContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5204FF3216F1D9900E64160 /* MSBatchRequestStep.m in Sources */ = {isa = PBXBuildFile; fileRef = E5204FED216F1D9900E64160 /* MSBatchRequestStep.m */; };
+		E5204FF7216F371400E64160 /* MSErrorCodes.m in Sources */ = {isa = PBXBuildFile; fileRef = E5204FF5216F371400E64160 /* MSErrorCodes.m */; };
+		E5204FF8216F371400E64160 /* MSErrorCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = E5204FF6216F371400E64160 /* MSErrorCodes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5204FFF2173A7C200E64160 /* MSBatchRequestStepTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5204FFE2173A7C200E64160 /* MSBatchRequestStepTests.m */; };
+		E52050012173AEA900E64160 /* MSBatchRequestContentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E52050002173AEA900E64160 /* MSBatchRequestContentTests.m */; };
+		E52050042174C1DB00E64160 /* MSBatchResponseContentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E52050032174C1DB00E64160 /* MSBatchResponseContentTests.m */; };
+		E52050062175B10800E64160 /* BatchResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = E52050052175B10800E64160 /* BatchResponse.json */; };
+		E52AD9E6212E8845005FED47 /* MSGraphSDKTests.h in Sources */ = {isa = PBXBuildFile; fileRef = E52AD9E5212E8845005FED47 /* MSGraphSDKTests.h */; };
+		E52AD9F02133C766005FED47 /* MSURLSessionTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD9EF2133C766005FED47 /* MSURLSessionTaskTests.m */; };
+		E52AD9F22133C8F9005FED47 /* MSURLSessionDataTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD9F12133C8F9005FED47 /* MSURLSessionDataTaskTests.m */; };
+		E52AD9F42133E171005FED47 /* MSURLSessionDownloadTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD9F32133E171005FED47 /* MSURLSessionDownloadTaskTests.m */; };
+		E52AD9F62133E740005FED47 /* MSURLSessionUploadTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E52AD9F52133E73F005FED47 /* MSURLSessionUploadTaskTests.m */; };
+		E566782E2150BC4F00C6B7AE /* MSRedirectHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E566782D2150BC4F00C6B7AE /* MSRedirectHandlerTests.m */; };
+		E56678302150E1AF00C6B7AE /* MSAuthenticationHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E566782F2150E1AF00C6B7AE /* MSAuthenticationHandlerTests.m */; };
+		E56FDB9321D36A98001DFE68 /* MSURLSessionDownloadTask.h in Headers */ = {isa = PBXBuildFile; fileRef = E56FDB8B21D36A98001DFE68 /* MSURLSessionDownloadTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E56FDB9421D36A98001DFE68 /* MSURLSessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E56FDB8C21D36A98001DFE68 /* MSURLSessionTask.m */; };
+		E56FDB9521D36A98001DFE68 /* MSURLSessionUploadTask.h in Headers */ = {isa = PBXBuildFile; fileRef = E56FDB8D21D36A98001DFE68 /* MSURLSessionUploadTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E56FDB9621D36A98001DFE68 /* MSURLSessionDataTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E56FDB8E21D36A98001DFE68 /* MSURLSessionDataTask.m */; };
+		E56FDB9721D36A98001DFE68 /* MSURLSessionTask.h in Headers */ = {isa = PBXBuildFile; fileRef = E56FDB8F21D36A98001DFE68 /* MSURLSessionTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E56FDB9821D36A98001DFE68 /* MSURLSessionDownloadTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E56FDB9021D36A98001DFE68 /* MSURLSessionDownloadTask.m */; };
+		E56FDB9921D36A98001DFE68 /* MSURLSessionUploadTask.m in Sources */ = {isa = PBXBuildFile; fileRef = E56FDB9121D36A98001DFE68 /* MSURLSessionUploadTask.m */; };
+		E56FDB9A21D36A98001DFE68 /* MSURLSessionDataTask.h in Headers */ = {isa = PBXBuildFile; fileRef = E56FDB9221D36A98001DFE68 /* MSURLSessionDataTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E573EE072133FFF200C5E884 /* MSHTTPClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E573EE062133FFF200C5E884 /* MSHTTPClientTests.m */; };
+		E573EE092134167400C5E884 /* MSClientFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E573EE082134167400C5E884 /* MSClientFactoryTests.m */; };
+		E573EE0B213427ED00C5E884 /* MSURLSessionTaskDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E573EE0A213427ED00C5E884 /* MSURLSessionTaskDelegateTests.m */; };
+		E573EE0D213525BA00C5E884 /* MSGraphWorkloadsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E573EE0C213525BA00C5E884 /* MSGraphWorkloadsTests.m */; };
+		E573EE102136569F00C5E884 /* UserPhoto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E573EE0F2136569F00C5E884 /* UserPhoto.jpg */; };
+		E5B6DB9821497DAA00836E1D /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B6DB9621497D7C00836E1D /* libOCMock.a */; };
+		E5DC73DF211412BF0040BAB6 /* MSGraphSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73DD211412BF0040BAB6 /* MSGraphSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5DC7403211418050040BAB6 /* MSAuthenticationHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73EB211418040040BAB6 /* MSAuthenticationHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5DC7405211418050040BAB6 /* MSURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DC73EE211418040040BAB6 /* MSURLSessionManager.m */; };
+		E5DC7406211418050040BAB6 /* MSURLSessionTaskDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73EF211418040040BAB6 /* MSURLSessionTaskDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5DC7407211418050040BAB6 /* MSURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73F0211418040040BAB6 /* MSURLSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5DC7408211418050040BAB6 /* MSURLSessionTaskDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DC73F1211418040040BAB6 /* MSURLSessionTaskDelegate.m */; };
+		E5DC7409211418050040BAB6 /* MSAuthenticationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DC73F2211418040040BAB6 /* MSAuthenticationHandler.m */; };
+		E5DC740C211418050040BAB6 /* MSAuthenticationProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73F6211418040040BAB6 /* MSAuthenticationProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5DC740E211418050040BAB6 /* MSHttpProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73F9211418040040BAB6 /* MSHttpProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5DC7410211418050040BAB6 /* MSGraphMiddleware.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73FB211418040040BAB6 /* MSGraphMiddleware.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5DC741A21142C430040BAB6 /* MSClientFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DC741621142C420040BAB6 /* MSClientFactory.m */; };
+		E5DC741B21142C430040BAB6 /* MSHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC741721142C420040BAB6 /* MSHTTPClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5DC741C21142C430040BAB6 /* MSClientFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC741821142C420040BAB6 /* MSClientFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5DC741D21142C430040BAB6 /* MSHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DC741921142C430040BAB6 /* MSHTTPClient.m */; };
+		E5ECE09721427A6400A289C2 /* MSMiddlewareFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = E5ECE09521427A6400A289C2 /* MSMiddlewareFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5ECE09821427A6400A289C2 /* MSMiddlewareFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE09621427A6400A289C2 /* MSMiddlewareFactory.m */; };
+		E5ECE09E2142992F00A289C2 /* MSMiddlewareFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE09D2142992F00A289C2 /* MSMiddlewareFactoryTests.m */; };
+		E5ECE0A42146657900A289C2 /* MSRedirectHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = E5ECE0A22146657800A289C2 /* MSRedirectHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5ECE0A52146657900A289C2 /* MSRedirectHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ECE0A32146657900A289C2 /* MSRedirectHandler.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E5069ADC211C1AD500432372 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5DC73D1211412BF0040BAB6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5DC73D9211412BF0040BAB6;
+			remoteInfo = MSGraphSDK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E5069AC6211AAEC900432372 /* MSConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSConstants.h; sourceTree = "<group>"; };
+		E5069AC7211AAEC900432372 /* MSConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSConstants.m; sourceTree = "<group>"; };
+		E5069AD6211C1AD500432372 /* MSGraphSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MSGraphSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5069AD8211C1AD500432372 /* MSGraphSDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSGraphSDKTests.m; sourceTree = "<group>"; };
+		E5069ADA211C1AD500432372 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5069AE1211C323D00432372 /* MSURLSessionManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionManagerTests.m; sourceTree = "<group>"; };
+		E51E616A216DE4D300F1B3C0 /* MSRetryHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRetryHandler.h; sourceTree = "<group>"; };
+		E51E616B216DE4D300F1B3C0 /* MSRetryHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRetryHandler.m; sourceTree = "<group>"; };
+		E51E616E216E073F00F1B3C0 /* MSRetryHandlerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSRetryHandlerTests.m; sourceTree = "<group>"; };
+		E5204FE8216F1D9800E64160 /* MSBatchRequestContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSBatchRequestContent.h; sourceTree = "<group>"; };
+		E5204FE9216F1D9800E64160 /* MSBatchRequestStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSBatchRequestStep.h; sourceTree = "<group>"; };
+		E5204FEA216F1D9800E64160 /* MSBatchResponseContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSBatchResponseContent.m; sourceTree = "<group>"; };
+		E5204FEB216F1D9800E64160 /* MSBatchRequestContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSBatchRequestContent.m; sourceTree = "<group>"; };
+		E5204FEC216F1D9900E64160 /* MSBatchResponseContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSBatchResponseContent.h; sourceTree = "<group>"; };
+		E5204FED216F1D9900E64160 /* MSBatchRequestStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSBatchRequestStep.m; sourceTree = "<group>"; };
+		E5204FF5216F371400E64160 /* MSErrorCodes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSErrorCodes.m; sourceTree = "<group>"; };
+		E5204FF6216F371400E64160 /* MSErrorCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSErrorCodes.h; sourceTree = "<group>"; };
+		E5204FFE2173A7C200E64160 /* MSBatchRequestStepTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSBatchRequestStepTests.m; sourceTree = "<group>"; };
+		E52050002173AEA900E64160 /* MSBatchRequestContentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSBatchRequestContentTests.m; sourceTree = "<group>"; };
+		E52050032174C1DB00E64160 /* MSBatchResponseContentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSBatchResponseContentTests.m; sourceTree = "<group>"; };
+		E52050052175B10800E64160 /* BatchResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BatchResponse.json; sourceTree = "<group>"; };
+		E52AD9E5212E8845005FED47 /* MSGraphSDKTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSGraphSDKTests.h; sourceTree = "<group>"; };
+		E52AD9EF2133C766005FED47 /* MSURLSessionTaskTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionTaskTests.m; sourceTree = "<group>"; };
+		E52AD9F12133C8F9005FED47 /* MSURLSessionDataTaskTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionDataTaskTests.m; sourceTree = "<group>"; };
+		E52AD9F32133E171005FED47 /* MSURLSessionDownloadTaskTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionDownloadTaskTests.m; sourceTree = "<group>"; };
+		E52AD9F52133E73F005FED47 /* MSURLSessionUploadTaskTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionUploadTaskTests.m; sourceTree = "<group>"; };
+		E55DFCF921DDD87D00DE305D /* MSGraphSDK copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MSGraphSDK copy-Info.plist"; path = "/Users/vikasdadheech/msgraph-sdk-objc/MSGraphSDK/MSGraphSDK copy-Info.plist"; sourceTree = "<absolute>"; };
+		E566782D2150BC4F00C6B7AE /* MSRedirectHandlerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSRedirectHandlerTests.m; sourceTree = "<group>"; };
+		E566782F2150E1AF00C6B7AE /* MSAuthenticationHandlerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSAuthenticationHandlerTests.m; sourceTree = "<group>"; };
+		E56FDB8B21D36A98001DFE68 /* MSURLSessionDownloadTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSURLSessionDownloadTask.h; sourceTree = "<group>"; };
+		E56FDB8C21D36A98001DFE68 /* MSURLSessionTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionTask.m; sourceTree = "<group>"; };
+		E56FDB8D21D36A98001DFE68 /* MSURLSessionUploadTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSURLSessionUploadTask.h; sourceTree = "<group>"; };
+		E56FDB8E21D36A98001DFE68 /* MSURLSessionDataTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionDataTask.m; sourceTree = "<group>"; };
+		E56FDB8F21D36A98001DFE68 /* MSURLSessionTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSURLSessionTask.h; sourceTree = "<group>"; };
+		E56FDB9021D36A98001DFE68 /* MSURLSessionDownloadTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionDownloadTask.m; sourceTree = "<group>"; };
+		E56FDB9121D36A98001DFE68 /* MSURLSessionUploadTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionUploadTask.m; sourceTree = "<group>"; };
+		E56FDB9221D36A98001DFE68 /* MSURLSessionDataTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSURLSessionDataTask.h; sourceTree = "<group>"; };
+		E573EE062133FFF200C5E884 /* MSHTTPClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSHTTPClientTests.m; sourceTree = "<group>"; };
+		E573EE082134167400C5E884 /* MSClientFactoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSClientFactoryTests.m; sourceTree = "<group>"; };
+		E573EE0A213427ED00C5E884 /* MSURLSessionTaskDelegateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionTaskDelegateTests.m; sourceTree = "<group>"; };
+		E573EE0C213525BA00C5E884 /* MSGraphWorkloadsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSGraphWorkloadsTests.m; sourceTree = "<group>"; };
+		E573EE0F2136569F00C5E884 /* UserPhoto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = UserPhoto.jpg; sourceTree = "<group>"; };
+		E5B6DB8C21497CAC00836E1D /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
+		E5B6DB8D21497CAC00836E1D /* OCMMacroState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMMacroState.h; sourceTree = "<group>"; };
+		E5B6DB8E21497CAC00836E1D /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
+		E5B6DB8F21497CAC00836E1D /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
+		E5B6DB9021497CAC00836E1D /* OCMFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMFunctions.h; sourceTree = "<group>"; };
+		E5B6DB9121497CAC00836E1D /* OCMStubRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMStubRecorder.h; sourceTree = "<group>"; };
+		E5B6DB9221497CAC00836E1D /* OCMRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMRecorder.h; sourceTree = "<group>"; };
+		E5B6DB9321497CAC00836E1D /* OCMLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMLocation.h; sourceTree = "<group>"; };
+		E5B6DB9421497CAC00836E1D /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
+		E5B6DB9521497CAC00836E1D /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
+		E5B6DB9621497D7C00836E1D /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
+		E5DC73DA211412BF0040BAB6 /* MSGraphSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MSGraphSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5DC73DD211412BF0040BAB6 /* MSGraphSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSGraphSDK.h; sourceTree = "<group>"; };
+		E5DC73DE211412BF0040BAB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5DC73EB211418040040BAB6 /* MSAuthenticationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAuthenticationHandler.h; sourceTree = "<group>"; };
+		E5DC73EE211418040040BAB6 /* MSURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionManager.m; sourceTree = "<group>"; };
+		E5DC73EF211418040040BAB6 /* MSURLSessionTaskDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSURLSessionTaskDelegate.h; sourceTree = "<group>"; };
+		E5DC73F0211418040040BAB6 /* MSURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSURLSessionManager.h; sourceTree = "<group>"; };
+		E5DC73F1211418040040BAB6 /* MSURLSessionTaskDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionTaskDelegate.m; sourceTree = "<group>"; };
+		E5DC73F2211418040040BAB6 /* MSAuthenticationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAuthenticationHandler.m; sourceTree = "<group>"; };
+		E5DC73F6211418040040BAB6 /* MSAuthenticationProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAuthenticationProvider.h; sourceTree = "<group>"; };
+		E5DC73F9211418040040BAB6 /* MSHttpProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSHttpProvider.h; sourceTree = "<group>"; };
+		E5DC73FB211418040040BAB6 /* MSGraphMiddleware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphMiddleware.h; sourceTree = "<group>"; };
+		E5DC741621142C420040BAB6 /* MSClientFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSClientFactory.m; sourceTree = "<group>"; };
+		E5DC741721142C420040BAB6 /* MSHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSHTTPClient.h; sourceTree = "<group>"; };
+		E5DC741821142C420040BAB6 /* MSClientFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSClientFactory.h; sourceTree = "<group>"; };
+		E5DC741921142C430040BAB6 /* MSHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSHTTPClient.m; sourceTree = "<group>"; };
+		E5ECE09521427A6400A289C2 /* MSMiddlewareFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSMiddlewareFactory.h; sourceTree = "<group>"; };
+		E5ECE09621427A6400A289C2 /* MSMiddlewareFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSMiddlewareFactory.m; sourceTree = "<group>"; };
+		E5ECE09D2142992F00A289C2 /* MSMiddlewareFactoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSMiddlewareFactoryTests.m; sourceTree = "<group>"; };
+		E5ECE0A22146657800A289C2 /* MSRedirectHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRedirectHandler.h; sourceTree = "<group>"; };
+		E5ECE0A32146657900A289C2 /* MSRedirectHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRedirectHandler.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E5069AD3211C1AD500432372 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5B6DB9821497DAA00836E1D /* libOCMock.a in Frameworks */,
+				E5069ADB211C1AD500432372 /* MSGraphSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5DC73D6211412BF0040BAB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E5069AC2211AACB600432372 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				E5DC73F6211418040040BAB6 /* MSAuthenticationProvider.h */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		E5069AC3211AACCD00432372 /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				E5190C7F216DE371001699B5 /* RetryHandler */,
+				E5ECE0A12146655000A289C2 /* RedirectHandler */,
+				E5069AC4211AACED00432372 /* Authentication */,
+				E5DC73ED211418040040BAB6 /* HTTPProvider */,
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
+		E5069AC4211AACED00432372 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				E5DC73EB211418040040BAB6 /* MSAuthenticationHandler.h */,
+				E5DC73F2211418040040BAB6 /* MSAuthenticationHandler.m */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		E5069AC5211AAE6900432372 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E56FDB8A21D36A98001DFE68 /* Session Tasks */,
+				E5069AC6211AAEC900432372 /* MSConstants.h */,
+				E5069AC7211AAEC900432372 /* MSConstants.m */,
+				E5204FF6216F371400E64160 /* MSErrorCodes.h */,
+				E5204FF5216F371400E64160 /* MSErrorCodes.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		E5069AD7211C1AD500432372 /* MSGraphSDKTests */ = {
+			isa = PBXGroup;
+			children = (
+				E5204FFC2173A79100E64160 /* GraphContent */,
+				E5B6DB6921497A3300836E1D /* Frameworks */,
+				E573EE1121367A4000C5E884 /* HTTPClient */,
+				E573EE0E2136568700C5E884 /* Resources */,
+				E52AD9F82133F16D005FED47 /* Middleware */,
+				E52AD9F72133F14F005FED47 /* SessionTask */,
+				E52AD9E5212E8845005FED47 /* MSGraphSDKTests.h */,
+				E5069AD8211C1AD500432372 /* MSGraphSDKTests.m */,
+				E573EE0C213525BA00C5E884 /* MSGraphWorkloadsTests.m */,
+				E5069ADA211C1AD500432372 /* Info.plist */,
+			);
+			path = MSGraphSDKTests;
+			sourceTree = "<group>";
+		};
+		E5190C7F216DE371001699B5 /* RetryHandler */ = {
+			isa = PBXGroup;
+			children = (
+				E51E616A216DE4D300F1B3C0 /* MSRetryHandler.h */,
+				E51E616B216DE4D300F1B3C0 /* MSRetryHandler.m */,
+			);
+			path = RetryHandler;
+			sourceTree = "<group>";
+		};
+		E5204FE6216F1D4200E64160 /* GraphContent */ = {
+			isa = PBXGroup;
+			children = (
+				E5204FE7216F1D7300E64160 /* BatchContent */,
+			);
+			path = GraphContent;
+			sourceTree = "<group>";
+		};
+		E5204FE7216F1D7300E64160 /* BatchContent */ = {
+			isa = PBXGroup;
+			children = (
+				E5204FE9216F1D9800E64160 /* MSBatchRequestStep.h */,
+				E5204FED216F1D9900E64160 /* MSBatchRequestStep.m */,
+				E5204FE8216F1D9800E64160 /* MSBatchRequestContent.h */,
+				E5204FEB216F1D9800E64160 /* MSBatchRequestContent.m */,
+				E5204FEC216F1D9900E64160 /* MSBatchResponseContent.h */,
+				E5204FEA216F1D9800E64160 /* MSBatchResponseContent.m */,
+			);
+			path = BatchContent;
+			sourceTree = "<group>";
+		};
+		E5204FFC2173A79100E64160 /* GraphContent */ = {
+			isa = PBXGroup;
+			children = (
+				E5204FFD2173A79E00E64160 /* BatchContent */,
+			);
+			path = GraphContent;
+			sourceTree = "<group>";
+		};
+		E5204FFD2173A79E00E64160 /* BatchContent */ = {
+			isa = PBXGroup;
+			children = (
+				E5204FFE2173A7C200E64160 /* MSBatchRequestStepTests.m */,
+				E52050002173AEA900E64160 /* MSBatchRequestContentTests.m */,
+				E52050032174C1DB00E64160 /* MSBatchResponseContentTests.m */,
+			);
+			path = BatchContent;
+			sourceTree = "<group>";
+		};
+		E52AD9F72133F14F005FED47 /* SessionTask */ = {
+			isa = PBXGroup;
+			children = (
+				E52AD9F52133E73F005FED47 /* MSURLSessionUploadTaskTests.m */,
+				E52AD9F32133E171005FED47 /* MSURLSessionDownloadTaskTests.m */,
+				E52AD9F12133C8F9005FED47 /* MSURLSessionDataTaskTests.m */,
+				E52AD9EF2133C766005FED47 /* MSURLSessionTaskTests.m */,
+			);
+			path = SessionTask;
+			sourceTree = "<group>";
+		};
+		E52AD9F82133F16D005FED47 /* Middleware */ = {
+			isa = PBXGroup;
+			children = (
+				E573EE1221367A7800C5E884 /* Implementations */,
+			);
+			path = Middleware;
+			sourceTree = "<group>";
+		};
+		E56FDB8A21D36A98001DFE68 /* Session Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				E56FDB8B21D36A98001DFE68 /* MSURLSessionDownloadTask.h */,
+				E56FDB8C21D36A98001DFE68 /* MSURLSessionTask.m */,
+				E56FDB8D21D36A98001DFE68 /* MSURLSessionUploadTask.h */,
+				E56FDB8E21D36A98001DFE68 /* MSURLSessionDataTask.m */,
+				E56FDB8F21D36A98001DFE68 /* MSURLSessionTask.h */,
+				E56FDB9021D36A98001DFE68 /* MSURLSessionDownloadTask.m */,
+				E56FDB9121D36A98001DFE68 /* MSURLSessionUploadTask.m */,
+				E56FDB9221D36A98001DFE68 /* MSURLSessionDataTask.h */,
+			);
+			path = "Session Tasks";
+			sourceTree = "<group>";
+		};
+		E573EE0E2136568700C5E884 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E52050052175B10800E64160 /* BatchResponse.json */,
+				E573EE0F2136569F00C5E884 /* UserPhoto.jpg */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E573EE1121367A4000C5E884 /* HTTPClient */ = {
+			isa = PBXGroup;
+			children = (
+				E573EE062133FFF200C5E884 /* MSHTTPClientTests.m */,
+				E573EE082134167400C5E884 /* MSClientFactoryTests.m */,
+				E5ECE09D2142992F00A289C2 /* MSMiddlewareFactoryTests.m */,
+			);
+			path = HTTPClient;
+			sourceTree = "<group>";
+		};
+		E573EE1221367A7800C5E884 /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				E5069AE1211C323D00432372 /* MSURLSessionManagerTests.m */,
+				E573EE0A213427ED00C5E884 /* MSURLSessionTaskDelegateTests.m */,
+				E566782D2150BC4F00C6B7AE /* MSRedirectHandlerTests.m */,
+				E566782F2150E1AF00C6B7AE /* MSAuthenticationHandlerTests.m */,
+				E51E616E216E073F00F1B3C0 /* MSRetryHandlerTests.m */,
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
+		E5B6DB6921497A3300836E1D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E5B6DB9621497D7C00836E1D /* libOCMock.a */,
+				E5B6DB8B21497CAC00836E1D /* OCMock */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		E5B6DB8821497C2700836E1D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E5B6DB8B21497CAC00836E1D /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				E5B6DB8C21497CAC00836E1D /* OCMockObject.h */,
+				E5B6DB8D21497CAC00836E1D /* OCMMacroState.h */,
+				E5B6DB8E21497CAC00836E1D /* OCMock.h */,
+				E5B6DB8F21497CAC00836E1D /* NSNotificationCenter+OCMAdditions.h */,
+				E5B6DB9021497CAC00836E1D /* OCMFunctions.h */,
+				E5B6DB9121497CAC00836E1D /* OCMStubRecorder.h */,
+				E5B6DB9221497CAC00836E1D /* OCMRecorder.h */,
+				E5B6DB9321497CAC00836E1D /* OCMLocation.h */,
+				E5B6DB9421497CAC00836E1D /* OCMConstraint.h */,
+				E5B6DB9521497CAC00836E1D /* OCMArg.h */,
+			);
+			path = OCMock;
+			sourceTree = "<group>";
+		};
+		E5DC73D0211412BF0040BAB6 = {
+			isa = PBXGroup;
+			children = (
+				E5DC73DC211412BF0040BAB6 /* MSGraphSDK */,
+				E5069AD7211C1AD500432372 /* MSGraphSDKTests */,
+				E5DC73DB211412BF0040BAB6 /* Products */,
+				E5B6DB8821497C2700836E1D /* Frameworks */,
+				E55DFCF921DDD87D00DE305D /* MSGraphSDK copy-Info.plist */,
+			);
+			sourceTree = "<group>";
+		};
+		E5DC73DB211412BF0040BAB6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E5DC73DA211412BF0040BAB6 /* MSGraphSDK.framework */,
+				E5069AD6211C1AD500432372 /* MSGraphSDKTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E5DC73DC211412BF0040BAB6 /* MSGraphSDK */ = {
+			isa = PBXGroup;
+			children = (
+				E5DC73DD211412BF0040BAB6 /* MSGraphSDK.h */,
+				E5069AC2211AACB600432372 /* Authentication */,
+				E5069AC5211AAE6900432372 /* Common */,
+				E5204FE6216F1D4200E64160 /* GraphContent */,
+				E5DC73E5211418040040BAB6 /* HTTPClient */,
+				E5DC73EA211418040040BAB6 /* Middleware */,
+				E5DC73DE211412BF0040BAB6 /* Info.plist */,
+			);
+			path = MSGraphSDK;
+			sourceTree = "<group>";
+		};
+		E5DC73E5211418040040BAB6 /* HTTPClient */ = {
+			isa = PBXGroup;
+			children = (
+				E5DC741821142C420040BAB6 /* MSClientFactory.h */,
+				E5DC741621142C420040BAB6 /* MSClientFactory.m */,
+				E5DC741721142C420040BAB6 /* MSHTTPClient.h */,
+				E5DC741921142C430040BAB6 /* MSHTTPClient.m */,
+				E5ECE09521427A6400A289C2 /* MSMiddlewareFactory.h */,
+				E5ECE09621427A6400A289C2 /* MSMiddlewareFactory.m */,
+			);
+			path = HTTPClient;
+			sourceTree = "<group>";
+		};
+		E5DC73EA211418040040BAB6 /* Middleware */ = {
+			isa = PBXGroup;
+			children = (
+				E5DC73F8211418040040BAB6 /* Protocols */,
+				E5069AC3211AACCD00432372 /* Implementations */,
+			);
+			path = Middleware;
+			sourceTree = "<group>";
+		};
+		E5DC73ED211418040040BAB6 /* HTTPProvider */ = {
+			isa = PBXGroup;
+			children = (
+				E5DC73F9211418040040BAB6 /* MSHttpProvider.h */,
+				E5DC73F0211418040040BAB6 /* MSURLSessionManager.h */,
+				E5DC73EE211418040040BAB6 /* MSURLSessionManager.m */,
+				E5DC73EF211418040040BAB6 /* MSURLSessionTaskDelegate.h */,
+				E5DC73F1211418040040BAB6 /* MSURLSessionTaskDelegate.m */,
+			);
+			path = HTTPProvider;
+			sourceTree = "<group>";
+		};
+		E5DC73F8211418040040BAB6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				E5DC73FB211418040040BAB6 /* MSGraphMiddleware.h */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E5ECE0A12146655000A289C2 /* RedirectHandler */ = {
+			isa = PBXGroup;
+			children = (
+				E5ECE0A22146657800A289C2 /* MSRedirectHandler.h */,
+				E5ECE0A32146657900A289C2 /* MSRedirectHandler.m */,
+			);
+			path = RedirectHandler;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		E5DC73D7211412BF0040BAB6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5DC7407211418050040BAB6 /* MSURLSessionManager.h in Headers */,
+				E5DC741C21142C430040BAB6 /* MSClientFactory.h in Headers */,
+				E5DC740E211418050040BAB6 /* MSHttpProvider.h in Headers */,
+				E5DC740C211418050040BAB6 /* MSAuthenticationProvider.h in Headers */,
+				E5DC7410211418050040BAB6 /* MSGraphMiddleware.h in Headers */,
+				E5DC7403211418050040BAB6 /* MSAuthenticationHandler.h in Headers */,
+				E5DC741B21142C430040BAB6 /* MSHTTPClient.h in Headers */,
+				E5069AC8211AAEC900432372 /* MSConstants.h in Headers */,
+				E5DC7406211418050040BAB6 /* MSURLSessionTaskDelegate.h in Headers */,
+				E5ECE09721427A6400A289C2 /* MSMiddlewareFactory.h in Headers */,
+				E56FDB9321D36A98001DFE68 /* MSURLSessionDownloadTask.h in Headers */,
+				E56FDB9A21D36A98001DFE68 /* MSURLSessionDataTask.h in Headers */,
+				E56FDB9521D36A98001DFE68 /* MSURLSessionUploadTask.h in Headers */,
+				E56FDB9721D36A98001DFE68 /* MSURLSessionTask.h in Headers */,
+				E5204FEE216F1D9900E64160 /* MSBatchRequestContent.h in Headers */,
+				E5204FF2216F1D9900E64160 /* MSBatchResponseContent.h in Headers */,
+				E5204FF8216F371400E64160 /* MSErrorCodes.h in Headers */,
+				E5204FEF216F1D9900E64160 /* MSBatchRequestStep.h in Headers */,
+				E5ECE0A42146657900A289C2 /* MSRedirectHandler.h in Headers */,
+				E51E616C216DE4D300F1B3C0 /* MSRetryHandler.h in Headers */,
+				E5DC73DF211412BF0040BAB6 /* MSGraphSDK.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		E5069AD5211C1AD500432372 /* MSGraphSDKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5069AE0211C1AD500432372 /* Build configuration list for PBXNativeTarget "MSGraphSDKTests" */;
+			buildPhases = (
+				E5069AD2211C1AD500432372 /* Sources */,
+				E5069AD3211C1AD500432372 /* Frameworks */,
+				E5069AD4211C1AD500432372 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5069ADD211C1AD500432372 /* PBXTargetDependency */,
+			);
+			name = MSGraphSDKTests;
+			productName = MSGraphSDKTests;
+			productReference = E5069AD6211C1AD500432372 /* MSGraphSDKTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E5DC73D9211412BF0040BAB6 /* MSGraphSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5DC73E2211412BF0040BAB6 /* Build configuration list for PBXNativeTarget "MSGraphSDK" */;
+			buildPhases = (
+				E5DC73D5211412BF0040BAB6 /* Sources */,
+				E5DC73D6211412BF0040BAB6 /* Frameworks */,
+				E5DC73D7211412BF0040BAB6 /* Headers */,
+				E5DC73D8211412BF0040BAB6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MSGraphSDK;
+			productName = MSGraphSDK;
+			productReference = E5DC73DA211412BF0040BAB6 /* MSGraphSDK.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E5DC73D1211412BF0040BAB6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Vikas Dadheech";
+				TargetAttributes = {
+					E5069AD5211C1AD500432372 = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+					};
+					E5DC73D9211412BF0040BAB6 = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = E5DC73D4211412BF0040BAB6 /* Build configuration list for PBXProject "MSGraphSDK" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E5DC73D0211412BF0040BAB6;
+			productRefGroup = E5DC73DB211412BF0040BAB6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E5DC73D9211412BF0040BAB6 /* MSGraphSDK */,
+				E5069AD5211C1AD500432372 /* MSGraphSDKTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E5069AD4211C1AD500432372 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E573EE102136569F00C5E884 /* UserPhoto.jpg in Resources */,
+				E52050062175B10800E64160 /* BatchResponse.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5DC73D8211412BF0040BAB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E5069AD2211C1AD500432372 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E52050012173AEA900E64160 /* MSBatchRequestContentTests.m in Sources */,
+				E573EE0D213525BA00C5E884 /* MSGraphWorkloadsTests.m in Sources */,
+				E5204FFF2173A7C200E64160 /* MSBatchRequestStepTests.m in Sources */,
+				E52050042174C1DB00E64160 /* MSBatchResponseContentTests.m in Sources */,
+				E51E616F216E073F00F1B3C0 /* MSRetryHandlerTests.m in Sources */,
+				E573EE072133FFF200C5E884 /* MSHTTPClientTests.m in Sources */,
+				E52AD9E6212E8845005FED47 /* MSGraphSDKTests.h in Sources */,
+				E56678302150E1AF00C6B7AE /* MSAuthenticationHandlerTests.m in Sources */,
+				E52AD9F42133E171005FED47 /* MSURLSessionDownloadTaskTests.m in Sources */,
+				E573EE092134167400C5E884 /* MSClientFactoryTests.m in Sources */,
+				E566782E2150BC4F00C6B7AE /* MSRedirectHandlerTests.m in Sources */,
+				E573EE0B213427ED00C5E884 /* MSURLSessionTaskDelegateTests.m in Sources */,
+				E5ECE09E2142992F00A289C2 /* MSMiddlewareFactoryTests.m in Sources */,
+				E5069AE2211C323D00432372 /* MSURLSessionManagerTests.m in Sources */,
+				E52AD9F62133E740005FED47 /* MSURLSessionUploadTaskTests.m in Sources */,
+				E5069AD9211C1AD500432372 /* MSGraphSDKTests.m in Sources */,
+				E52AD9F02133C766005FED47 /* MSURLSessionTaskTests.m in Sources */,
+				E52AD9F22133C8F9005FED47 /* MSURLSessionDataTaskTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5DC73D5211412BF0040BAB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5204FF1216F1D9900E64160 /* MSBatchRequestContent.m in Sources */,
+				E56FDB9421D36A98001DFE68 /* MSURLSessionTask.m in Sources */,
+				E5204FF7216F371400E64160 /* MSErrorCodes.m in Sources */,
+				E5DC741A21142C430040BAB6 /* MSClientFactory.m in Sources */,
+				E5069AC9211AAEC900432372 /* MSConstants.m in Sources */,
+				E56FDB9821D36A98001DFE68 /* MSURLSessionDownloadTask.m in Sources */,
+				E56FDB9921D36A98001DFE68 /* MSURLSessionUploadTask.m in Sources */,
+				E5ECE0A52146657900A289C2 /* MSRedirectHandler.m in Sources */,
+				E5ECE09821427A6400A289C2 /* MSMiddlewareFactory.m in Sources */,
+				E5204FF3216F1D9900E64160 /* MSBatchRequestStep.m in Sources */,
+				E56FDB9621D36A98001DFE68 /* MSURLSessionDataTask.m in Sources */,
+				E5DC7405211418050040BAB6 /* MSURLSessionManager.m in Sources */,
+				E5204FF0216F1D9900E64160 /* MSBatchResponseContent.m in Sources */,
+				E51E616D216DE4D300F1B3C0 /* MSRetryHandler.m in Sources */,
+				E5DC7408211418050040BAB6 /* MSURLSessionTaskDelegate.m in Sources */,
+				E5DC7409211418050040BAB6 /* MSAuthenticationHandler.m in Sources */,
+				E5DC741D21142C430040BAB6 /* MSHTTPClient.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E5069ADD211C1AD500432372 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5DC73D9211412BF0040BAB6 /* MSGraphSDK */;
+			targetProxy = E5069ADC211C1AD500432372 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E5069ADE211C1AD500432372 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)",
+					"$(inherited)",
+					"$(PROJECT_DIR)/MSGraphSDKTests/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/MSGraphSDKTests/Frameworks/";
+				INFOPLIST_FILE = MSGraphSDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks @executable_path/../Frameworks @loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MSGraphSDKTests/Frameworks/OCMock",
+					"$(PROJECT_DIR)/MSGraphSDKTests/Frameworks",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = startrek.MSGraphSDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E5069ADF211C1AD500432372 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)",
+					"$(inherited)",
+					"$(PROJECT_DIR)/MSGraphSDKTests/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/MSGraphSDKTests/Frameworks/";
+				INFOPLIST_FILE = MSGraphSDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks @executable_path/../Frameworks @loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MSGraphSDKTests/Frameworks/OCMock",
+					"$(PROJECT_DIR)/MSGraphSDKTests/Frameworks",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = startrek.MSGraphSDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E5DC73E0211412BF0040BAB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx\n";
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E5DC73E1211412BF0040BAB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx\n";
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E5DC73E3211412BF0040BAB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = MSGraphSDK/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Microsoft.MSGraph.MSGraphSDK;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
+			};
+			name = Debug;
+		};
+		E5DC73E4211412BF0040BAB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = MSGraphSDK/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Microsoft.MSGraph.MSGraphSDK;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E5069AE0211C1AD500432372 /* Build configuration list for PBXNativeTarget "MSGraphSDKTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5069ADE211C1AD500432372 /* Debug */,
+				E5069ADF211C1AD500432372 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5DC73D4211412BF0040BAB6 /* Build configuration list for PBXProject "MSGraphSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5DC73E0211412BF0040BAB6 /* Debug */,
+				E5DC73E1211412BF0040BAB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5DC73E2211412BF0040BAB6 /* Build configuration list for PBXNativeTarget "MSGraphSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5DC73E3211412BF0040BAB6 /* Debug */,
+				E5DC73E4211412BF0040BAB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E5DC73D1211412BF0040BAB6 /* Project object */;
+}
