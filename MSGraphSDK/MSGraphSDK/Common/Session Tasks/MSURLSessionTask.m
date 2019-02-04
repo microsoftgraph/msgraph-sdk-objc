@@ -69,7 +69,13 @@
 {
     NSDictionary *info = [[NSBundle bundleForClass:[self class]] infoDictionary];
     NSString *version = [info objectForKey:@"CFBundleShortVersionString"];
-    [_request setValue:[NSString stringWithFormat:@"%@%@", MSGraphSdkVersionHeaderPrefix, version] forHTTPHeaderField:MSHeaderSdkVersion];
+    if (TARGET_OS_OSX)
+    {
+        [_request setValue:[NSString stringWithFormat:@"%@%@", MSGraphMacSdkVersionHeaderPrefix, version] forHTTPHeaderField:MSHeaderSdkVersion];
+    }else
+    {
+        [_request setValue:[NSString stringWithFormat:@"%@%@", MSGraphiOSSdkVersionHeaderPrefix, version] forHTTPHeaderField:MSHeaderSdkVersion];
+    }
 }
 
 - (void)taskCompletedWithData:(id)data response:(NSURLResponse *)response andError:(NSError *)error

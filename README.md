@@ -6,7 +6,7 @@ This client library is a release candidate and is still in preview status - plea
 
 
 
-Note that for the preview, only iOS is supported. macOS support will be provided later.
+This library supports both iOS and MacOS platforms.
 
 
 

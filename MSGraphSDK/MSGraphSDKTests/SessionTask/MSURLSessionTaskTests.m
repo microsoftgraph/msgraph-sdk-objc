@@ -154,7 +154,12 @@
     [sessionTask setSDKVersionRequestHeader];
     NSDictionary *info = [[NSBundle bundleForClass:[MSURLSessionTask class]] infoDictionary];
     NSString *version = [info objectForKey:@"CFBundleShortVersionString"];
-    NSString *headerVersionString = [NSString stringWithFormat:@"%@%@", MSGraphSdkVersionHeaderPrefix, version];
+    NSString *headerVersionString ;
+    if (TARGET_OS_OSX){
+        headerVersionString = [NSString stringWithFormat:@"%@%@", MSGraphMacSdkVersionHeaderPrefix, version];
+    }else{
+        headerVersionString = [NSString stringWithFormat:@"%@%@", MSGraphiOSSdkVersionHeaderPrefix, version];
+    }
     XCTAssertEqualObjects([sessionTask.request valueForHTTPHeaderField:MSHeaderSdkVersion],headerVersionString);
 }
 @end
