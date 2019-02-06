@@ -6,7 +6,9 @@
 
 NSString *const MSGraphBaseURL = @"https://graph.microsoft.com/v1.0";
 NSString *const MSHeaderSdkVersion = @"SdkVersion";
-NSString *const MSGraphSdkVersionHeaderPrefix = @"graph-ios-";
+NSString *const MSGraphiOSSdkVersionHeaderPrefix = @"graph-objc-ios-";
+NSString *const MSGraphMacSdkVersionHeaderPrefix = @"graph-objc-mac-";
+
 
 NSString *const MSErrorDomain = @"com.microsoft.graph.errors";
 
