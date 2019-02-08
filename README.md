@@ -115,7 +115,7 @@ Assuming you have gone thorugh the above steps, you will now have :
 
 
 
-1. A .xcworkspace file integrated with MSGraphClientSDK pod or MSGraphClientSDK.framework integrated in your project or 
+1. A .xcworkspace file integrated with MSGraphClientSDK pod or MSGraphClientSDK.framework integrated in your project. 
 
 
 
