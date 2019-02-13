@@ -6,25 +6,32 @@ This client library is a release candidate and is still in preview status - plea
 
 
 
-Note that for the preview, only iOS is supported. macOS support will be provided later.
+This library supports both iOS and MacOS platforms.
 
 
 
 ## Installation
 
 
+### Using CocoaPods
+
+You can use [CocoaPods](https://cocoapods.org/) to remain up to date with our latest version. Include the following line in your podfile:
+  ``` 
+   pod 'MSGraphClientSDK'
+  ```
+
 
 ### Using Carthage
 
 
 
-We use [Carthage](https://github.com/Carthage/Carthage) for package management during the preview period. This package manager integrates very nicely with XCode while maintaining our ability to make changes to the library.
+You can also chose to use [Carthage](https://github.com/Carthage/Carthage) for package management.
 
 
 
 1. Install Carthage on your Mac using a download from their website or if using Homebrew `brew install carthage`.
 
-2. You must create a `Cartfile` that lists the MSGraphCoreSDK library for this project on Github.
+2. You must create a `Cartfile` that lists the MSGraphClientSDK library for this project on Github.
 
 
 
@@ -36,9 +43,9 @@ github "microsoftgraph/msgraph-sdk-objc" "tags/<latest_release_tag>"
 
 
 
-3. Run `carthage update`. This will fetch dependencies into a `Carthage/Checkouts` folder, then build the MSGraphCoreSDK library.
+3. Run `carthage update`. This will fetch dependencies into a `Carthage/Checkouts` folder, then build the MSGraphClientSDK library.
 
-4. On your application target's “General” settings tab, in the “Linked Frameworks and Libraries” section, drag and drop the `MSGraphCoreSDK.framework` from the `Carthage/Build` folder on disk.
+4. On your application target's “General” settings tab, in the “Linked Frameworks and Libraries” section, drag and drop the `MSGraphClientSDK.framework` from the `Carthage/Build` folder on disk.
 
 5. On your application target's “Build Phases” settings tab, click the “+” icon and choose “New Run Script Phase”. Create a Run Script in which you specify your shell (ex: `/bin/sh`), add the following contents to the script area below the shell:
 
@@ -58,7 +65,7 @@ and add the paths to the frameworks you want to use under “Input Files”, e.g
 
 ```
 
-$(SRCROOT)/Carthage/Build/iOS/MSGraphCoreSDK.framework
+$(SRCROOT)/Carthage/Build/iOS/MSGraphClientSDK.framework
 
 ```
 
@@ -108,7 +115,7 @@ Assuming you have gone thorugh the above steps, you will now have :
 
 
 
-1. MSGraphCoreSDK.framework integrated in your project
+1. A .xcworkspace file integrated with MSGraphClientSDK pod or MSGraphClientSDK.framework integrated in your project. 
 
 
 
@@ -158,4 +165,4 @@ And that's it. You have now successfully made call to graph server asking inform
 
 ## Usage Resources
 
-* [Batching](/docs/content/Batching.md)
+* [Batching](/Docs/Content/Batching.md)
