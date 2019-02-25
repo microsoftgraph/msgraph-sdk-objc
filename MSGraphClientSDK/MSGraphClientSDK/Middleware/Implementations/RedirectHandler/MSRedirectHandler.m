@@ -5,6 +5,7 @@
 #import "MSRedirectHandler.h"
 #import "MSURLSessionTask.h"
 #import "MSConstants.h"
+#import "MSRedirectHandlerOptions.h"
 
 @interface MSURLSessionTask()
 
@@ -14,20 +15,29 @@
 
 
 @interface MSRedirectHandler()
+
 @property (nonatomic, strong) id<MSGraphMiddleware> nextMiddleware;
+@property (nonatomic, strong) MSRedirectHandlerOptions *redirectHandlerOptions;
 @end
 
 @implementation MSRedirectHandler
-{
-    NSInteger maximumRedirectAllowed;
-}
 
 - (instancetype)init
 {
     self = [super init];
     if(self)
     {
-        maximumRedirectAllowed = 5;
+        _redirectHandlerOptions = [[MSRedirectHandlerOptions alloc] init];
+    }
+    return self;
+}
+
+- (instancetype)initWithOptions:(MSRedirectHandlerOptions *)redirectHandlerOptions
+{
+    self = [super init];
+    if(self)
+    {
+        _redirectHandlerOptions = redirectHandlerOptions;
     }
     return self;
 }
@@ -51,14 +61,26 @@
 - (void)execute:(MSURLSessionTask *)task redirectsAttempted:(NSInteger)redirectsAttempted withCompletionHandler:(HTTPRequestCompletionHandler)completionHandler
 {
     __block NSInteger localRedirectsAttempted = redirectsAttempted;
-     NSInteger localMaxRedirectsAllowed = maximumRedirectAllowed;
     __block MSURLSessionTask *blockTask = task;
+    __block MSRedirectHandlerOptions *localRedirectHandlerOptions = [task getMiddlewareOptionWithType:MSMiddlewareOptionsTypeRedirect];
+
+    if(!localRedirectHandlerOptions)
+    {
+        localRedirectHandlerOptions = _redirectHandlerOptions;
+    }
     [self.nextMiddleware execute:blockTask withCompletionHandler:^(id data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if(response && [response isKindOfClass:[NSHTTPURLResponse class]])
         {
             if([self isRedirect:[(NSHTTPURLResponse *)response statusCode]])
             {
-                if(localRedirectsAttempted==localMaxRedirectsAllowed)
+                //Return the response if maxRedirects allowed are 0 i.e. consumer does not want to redirect
+                if(localRedirectHandlerOptions.maxRedirects==0)
+                {
+                    completionHandler(data, response, error);
+                    return ;
+                }
+
+                if(localRedirectsAttempted==localRedirectHandlerOptions.maxRedirects)
                 {
                     NSDictionary *userInfo = @{
                                                NSLocalizedDescriptionKey: MSErrorOperationUnsuccessfulString,
@@ -98,7 +120,18 @@
                 }
                 [blockTask setRequest:newRequest];
                 localRedirectsAttempted++;
-                [self execute:blockTask redirectsAttempted:localRedirectsAttempted withCompletionHandler:completionHandler];
+                BOOL shouldRedirect = YES;
+                if(localRedirectHandlerOptions.redirectHandlerDelegate && [localRedirectHandlerOptions.redirectHandlerDelegate respondsToSelector:@selector(task:shouldRedirectForResponse:)])
+                {
+                    shouldRedirect = [localRedirectHandlerOptions.redirectHandlerDelegate task:blockTask shouldRedirectForResponse:response];
+                }
+                if(shouldRedirect)
+                {
+                    [self execute:blockTask redirectsAttempted:localRedirectsAttempted withCompletionHandler:completionHandler];
+                }else
+                {
+                    completionHandler(data, response, error);
+                }
             }
             else
             {

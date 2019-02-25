@@ -5,13 +5,11 @@
 #import "MSRetryHandler.h"
 #import "MSURLSessionTask.h"
 #import "MSConstants.h"
+#import "MSRetryHandlerOptions.h"
 
 NSString * const RETRY_AFTER = @"Retry-After";
 NSString * const RETRY_ATTEMPT = @"Retry-Attempt";
 NSString * const TRANSFER_ENCODING = @"Transfer-Encoding";
-
-#define DELAY_SECONDS 10;
-#define DEFAULT_MAX_RETRIES 10;
 
 @interface MSURLSessionTask()
 
@@ -22,20 +20,28 @@ NSString * const TRANSFER_ENCODING = @"Transfer-Encoding";
 @interface MSRetryHandler()
 
 @property (nonatomic, strong) id<MSGraphMiddleware> nextMiddleware;
+@property (nonatomic, strong) MSRetryHandlerOptions *retryHandlerOptions;
 
 @end
 
 @implementation MSRetryHandler
-{
-    NSInteger maxRetries;
-}
 
 - (instancetype)init
 {
     self = [super init];
     if(self)
     {
-        maxRetries = DEFAULT_MAX_RETRIES;
+        _retryHandlerOptions = [[MSRetryHandlerOptions alloc] init];
+    }
+    return self;
+}
+
+- (instancetype)initWithOptions:(MSRetryHandlerOptions *)retryHandlerOptions
+{
+    self = [super init];
+    if(self)
+    {
+        _retryHandlerOptions = retryHandlerOptions;
     }
     return self;
 }
@@ -60,15 +66,27 @@ NSString * const TRANSFER_ENCODING = @"Transfer-Encoding";
 - (void)execute:(MSURLSessionTask *)task retriesAttempted:(NSInteger)retriesAttempted withCompletionHandler:(HTTPRequestCompletionHandler)completionHandler
 {
     __block NSInteger localRetriesAttempted = retriesAttempted;
-    NSInteger localMaxRetriesAllowed = maxRetries;
     __block MSURLSessionTask *blockTask = task;
+    __block MSRetryHandlerOptions *localRetryHandlerOptions = [task getMiddlewareOptionWithType:MSMiddlewareOptionsTypeRetry];
+
+    if(!localRetryHandlerOptions)
+    {
+        localRetryHandlerOptions = _retryHandlerOptions;
+    }
+
     [self.nextMiddleware execute:blockTask withCompletionHandler:^(id data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if(response && [response isKindOfClass:[NSHTTPURLResponse class]])
         {
             if([self isRetry:[(NSHTTPURLResponse *)response statusCode]] && [self isBuffered:blockTask.request forResponse:(NSHTTPURLResponse *)response])
             {
+                //Return the response if maxRetries allowed are 0 i.e. consumer does not want to retry
+                if(localRetryHandlerOptions.maxRetries==0)
+                {
+                    completionHandler(data, response, error);
+                    return ;
+                }
                 //Return an error if maximum retry attempt limit is reached
-                if(localRetriesAttempted==localMaxRetriesAllowed)
+                if(localRetriesAttempted==localRetryHandlerOptions.maxRetries)
                 {
                     NSDictionary *userInfo = @{
                                                NSLocalizedDescriptionKey: MSErrorTooManyRetries,
@@ -79,19 +97,28 @@ NSString * const TRANSFER_ENCODING = @"Transfer-Encoding";
                 }
 
                 //Get the delay before next retry attempt
-                double delay = [self retryDelay:(NSHTTPURLResponse *)response andRetryCount:localRetriesAttempted];
+                double delay = [self retryDelay:(NSHTTPURLResponse *)response andRetryCount:localRetriesAttempted forOptionsDelay:localRetryHandlerOptions.delay];
 
                 localRetriesAttempted++;
 
                 //Set Retry-Attempt header on request to track how many requests were made via retry handler
                 [blockTask setRequest:[self updateRetryAttemptHeader:blockTask.request withRetryAttemptCount:localRetriesAttempted]];
 
+                BOOL shouldRetry = YES;
+                if(localRetryHandlerOptions.retryHandlerDelegate && [localRetryHandlerOptions.retryHandlerDelegate respondsToSelector:@selector(task:shouldRetryAfter:retryAttempt:forResponse:)]){
+                    shouldRetry = [localRetryHandlerOptions.retryHandlerDelegate task:blockTask shouldRetryAfter:delay retryAttempt:localRetriesAttempted forResponse:response];
+                }
+                if(shouldRetry){
                 //Dispatch the execution of next retry on Global queue after the delay
                 dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delay * NSEC_PER_SEC);
                 dispatch_after(popTime, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
                     //code to be executed on the global queue after delay
                     [self execute:blockTask retriesAttempted:localRetriesAttempted withCompletionHandler:completionHandler];
                 });
+                }
+                else{
+                    completionHandler(data,response,error);
+                }
             }
             else
             {
@@ -131,7 +158,7 @@ NSString * const TRANSFER_ENCODING = @"Transfer-Encoding";
     return true;
 }
 
-- (double)retryDelay:(NSHTTPURLResponse *)response andRetryCount:(NSInteger)retryCount
+- (double)retryDelay:(NSHTTPURLResponse *)response andRetryCount:(NSInteger)retryCount forOptionsDelay:(NSInteger)optionsDelay
 {
     double delay = 0;
 
@@ -142,7 +169,8 @@ NSString * const TRANSFER_ENCODING = @"Transfer-Encoding";
     }
     else
     {
-        delay = pow(2, retryCount)*DELAY_SECONDS;
+        delay = retryCount==0 ? optionsDelay : pow(2, retryCount)+optionsDelay;
+        delay = delay>180 ? 180 : delay;
     }
     return delay;
 }

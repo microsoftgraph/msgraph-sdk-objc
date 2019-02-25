@@ -162,4 +162,46 @@
     }
     XCTAssertEqualObjects([sessionTask.request valueForHTTPHeaderField:MSHeaderSdkVersion],headerVersionString);
 }
+
+- (void)testSetMiddlewareOptionsArray {
+    MSURLSessionTask *sessionTask = [[MSURLSessionTask alloc] initWithRequest:self.requestForMock client:self.mockClient];
+
+    MSRedirectHandlerOptions *redirectOptions = [[MSRedirectHandlerOptions alloc] initWithMaxRedirects:0 andError:nil];
+
+    NSMutableArray<MSMiddlewareOptions> *array = [NSMutableArray<MSMiddlewareOptions> new];
+
+    [array addObject:redirectOptions];
+    [sessionTask setMiddlewareOptionsArray:array];
+
+    XCTAssertNotNil(sessionTask.middlewareOptionsArray);
+    XCTAssertEqual([(MSRedirectHandlerOptions *)[sessionTask.middlewareOptionsArray objectAtIndex:0] maxRedirects], 0);
+}
+
+- (void)testGetMiddlewareOptions {
+    MSURLSessionTask *sessionTask = [[MSURLSessionTask alloc] initWithRequest:self.requestForMock client:self.mockClient];
+
+    MSRedirectHandlerOptions *redirectOptions = [[MSRedirectHandlerOptions alloc] initWithMaxRedirects:0 andError:nil];
+
+    NSMutableArray<MSMiddlewareOptions> *array = [NSMutableArray<MSMiddlewareOptions> new];
+
+    [array addObject:redirectOptions];
+    [sessionTask setMiddlewareOptionsArray:array];
+
+    MSRedirectHandlerOptions *retrievedRedirectOptions = [sessionTask getMiddlewareOptionWithType:MSMiddlewareOptionsTypeRedirect];
+    XCTAssertEqual(retrievedRedirectOptions.maxRedirects, redirectOptions.maxRedirects);
+}
+
+- (void)testGetMiddlewareOptionsFail {
+    MSURLSessionTask *sessionTask = [[MSURLSessionTask alloc] initWithRequest:self.requestForMock client:self.mockClient];
+
+    MSRedirectHandlerOptions *redirectOptions = [[MSRedirectHandlerOptions alloc] initWithMaxRedirects:0 andError:nil];
+
+    NSMutableArray<MSMiddlewareOptions> *array = [NSMutableArray<MSMiddlewareOptions> new];
+
+    [array addObject:redirectOptions];
+    [sessionTask setMiddlewareOptionsArray:array];
+
+    MSRetryHandlerOptions *retrievedRetryOptions = [sessionTask getMiddlewareOptionWithType:MSMiddlewareOptionsTypeRetry];
+    XCTAssertNil(retrievedRetryOptions);
+}
 @end
