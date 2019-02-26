@@ -28,12 +28,7 @@ NSString * const TRANSFER_ENCODING = @"Transfer-Encoding";
 
 - (instancetype)init
 {
-    self = [super init];
-    if(self)
-    {
-        _retryHandlerOptions = [[MSRetryHandlerOptions alloc] init];
-    }
-    return self;
+    return [self initWithOptions:[[MSRetryHandlerOptions alloc] init]];
 }
 
 - (instancetype)initWithOptions:(MSRetryHandlerOptions *)retryHandlerOptions

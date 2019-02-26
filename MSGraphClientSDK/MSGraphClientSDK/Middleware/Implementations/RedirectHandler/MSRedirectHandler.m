@@ -24,12 +24,7 @@
 
 - (instancetype)init
 {
-    self = [super init];
-    if(self)
-    {
-        _redirectHandlerOptions = [[MSRedirectHandlerOptions alloc] init];
-    }
-    return self;
+    return [self initWithOptions:[[MSRedirectHandlerOptions alloc] init]];
 }
 
 - (instancetype)initWithOptions:(MSRedirectHandlerOptions *)redirectHandlerOptions
