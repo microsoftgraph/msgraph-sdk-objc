@@ -12,18 +12,12 @@
 
 - (instancetype)init
 {
-    self = [super init];
-    if(self)
-    {
-        _maxRedirects = 5;
-        middlewareOptionsType = MSMiddlewareOptionsTypeRedirect;
-    }
-    return self;
+    return [self initWithMaxRedirects:5 andError:nil];
 }
 
 - (instancetype)initWithMaxRedirects:(NSInteger)maxRedirects andError:(NSError *__autoreleasing *)error
 {
-    self = [self init];
+    self = [super init];
     if(self)
     {
         if(maxRedirects>UPPER_LIMIT_FOR_REDIRECTS)
@@ -36,6 +30,7 @@
             return nil;
         }
         _maxRedirects = maxRedirects;
+        middlewareOptionsType = MSMiddlewareOptionsTypeRedirect;
     }
     return self;
 }

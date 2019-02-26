@@ -14,19 +14,12 @@
 
 - (instancetype)init
 {
-    self = [super init];
-    if(self)
-    {
-        _delay = 3;
-        _maxRetries = 3;
-        middlewareOptionsType = MSMiddlewareOptionsTypeRetry;
-    }
-    return self;
+    return [self initWithDelay:3 maxRetries:3 andError:nil];
 }
 
 - (instancetype)initWithDelay:(NSInteger)delay maxRetries:(NSInteger)maxRetries andError:(NSError *__autoreleasing *)error
 {
-    self = [self init];
+    self = [super init];
     if(self)
     {
         if(delay>UPPER_LIMIT_FOR_DELAY)
@@ -50,6 +43,7 @@
         }
         _delay = delay;
         _maxRetries = maxRetries;
+        middlewareOptionsType = MSMiddlewareOptionsTypeRetry;
     }
     return self;
 }
