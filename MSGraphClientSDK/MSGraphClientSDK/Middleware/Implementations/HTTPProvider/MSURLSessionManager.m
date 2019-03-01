@@ -42,6 +42,13 @@
 
 @implementation MSURLSessionManager
 
+- (instancetype)init
+{
+    NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    sessionConfiguration.timeoutIntervalForRequest = 100;
+    return [self initWithSessionConfiguration:sessionConfiguration];
+}
+
 - (instancetype)initWithSessionConfiguration:(NSURLSessionConfiguration *)urlSessionConfiguration
 {
     self = [super init];

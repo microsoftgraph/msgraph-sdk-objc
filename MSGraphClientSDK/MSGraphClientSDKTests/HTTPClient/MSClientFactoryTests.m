@@ -21,14 +21,25 @@
     [super tearDown];
 }
 
-- (void)testCreationOfHTTPClient{
+- (void)testCreationOfHTTPClientWithNilValue {
     XCTAssertThrows([MSClientFactory createHTTPClientWithAuthenticationProvider:nil]);
     XCTAssertThrows([MSClientFactory createHTTPClientWithMiddleware:nil]);
+    XCTAssertThrows([MSClientFactory createHTTPClientWithAuthenticationProvider:self.mockAuthProvider andSessionConfiguration:nil]);
+}
 
+- (void)testCreationOfHTTPClientWithAuthProvider {
     MSHTTPClient *defaulClient = [MSClientFactory createHTTPClientWithAuthenticationProvider:self.mockAuthProvider];
     XCTAssertNotNil(defaulClient);
+}
 
+- (void)testCreationOfHTTPClientWithMiddleware {
     MSHTTPClient *customClient = [MSClientFactory createHTTPClientWithMiddleware:OCMProtocolMock(@protocol(MSGraphMiddleware))];
     XCTAssertNotNil(customClient);
 }
+
+- (void)testCreationOfHTTPClientWithAuthProviderAndSessionConfiguration {
+    MSHTTPClient *defaulClient = [MSClientFactory createHTTPClientWithAuthenticationProvider:self.mockAuthProvider andSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    XCTAssertNotNil(defaulClient);
+}
+
 @end

@@ -4,7 +4,11 @@
 
 #import "MSConstants.h"
 
-NSString *const MSGraphBaseURL = @"https://graph.microsoft.com/v1.0";
+NSString *const MSGraphBaseURL              = @"https://graph.microsoft.com/v1.0";
+NSString *const MSGraphChinaBaseURL         = @"https://microsoftgraph.chinacloudapi.cn/v1.0";
+NSString *const MSGraphUSBaseURL            = @"https://graph.microsoft.us/v1.0";
+NSString *const MSGraphGermanyBaseURL       = @"https://graph.microsoft.de/v1.0";
+
 NSString *const MSHeaderSdkVersion = @"SdkVersion";
 NSString *const MSGraphiOSSdkVersionHeaderPrefix = @"graph-objc-ios-";
 NSString *const MSGraphMacSdkVersionHeaderPrefix = @"graph-objc-mac-";
