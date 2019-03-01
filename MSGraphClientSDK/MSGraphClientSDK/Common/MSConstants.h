@@ -9,6 +9,7 @@
 
 typedef NS_ENUM(NSInteger, MSClientErrorCode)
 {
+    MSCLientErrorCodeSDKUpperLimitReached        = -1,
     MSClientErrorCodeBadRequest                  = 400,
     MSClientErrorCodeUnauthorized                = 401,
     MSClientErrorCodeForbidden                   = 403,
@@ -43,7 +44,19 @@ typedef NS_ENUM(NSInteger, MSExpectedResponseCodes)
     MSExpectedResponseCodesTemporaryRedirect     = 307,
 };
 
+typedef NS_ENUM(NSInteger, MSMiddlewareOptionsType)
+{
+    MSMiddlewareOptionsTypeNone,
+    MSMiddlewareOptionsTypeAuth,
+    MSMiddlewareOptionsTypeRedirect,
+    MSMiddlewareOptionsTypeRetry
+};
+
 extern NSString *const MSGraphBaseURL;
+extern NSString *const MSGraphChinaBaseURL;
+extern NSString *const MSGraphUSBaseURL;
+extern NSString *const MSGraphGermanyBaseURL;
+
 extern NSString *const MSHeaderSdkVersion;
 extern NSString *const MSGraphiOSSdkVersionHeaderPrefix;
 extern NSString *const MSGraphMacSdkVersionHeaderPrefix;
@@ -53,9 +66,12 @@ extern NSString *const MSErrorDomain;
 extern NSString *const MSErrorTooManyRedirectsFormatString;
 extern NSString *const MSErrorLocationHeaderNotFoundString;
 extern NSString *const MSErrorOperationUnsuccessfulString;
+extern NSString *const MSErrorMaxRedirectsLimitExceededString;
 
 extern NSString *const MSErrorTooManyRetries;
 extern NSString *const MSErrorTooManyRetriesFormatString;
+extern NSString *const MSErrorDelayLimitExceededString;
+extern NSString *const MSErrorMaxRetriesLimitExceededString;
 
 extern NSString *const HTTPMethodGet;
 extern NSString *const HTTPMethodPut;

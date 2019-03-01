@@ -12,7 +12,8 @@ NSString *const retryAfterValue = @"10";
 - (BOOL)isBuffered:(NSURLRequest *)request forResponse:(NSHTTPURLResponse *)response;
 @end
 
-@interface MSRetryHandlerTests : MSGraphClientSDKTests
+@interface MSRetryHandlerTests : MSGraphClientSDKTests<MSRetryHandlerDelegate>
+
 
 @property (nonatomic, strong) MSRetryHandler *retryHandler;
 @property (nonatomic, strong) NSHTTPURLResponse *OKResponse;
@@ -85,7 +86,7 @@ NSString *const retryAfterValue = @"10";
     [self checkCompletionBlockCodeInvoked];
 }
 
-- (void)testExecuteWithRedirectResopnseAndMaxRetries {
+- (void)testExecuteWithRetryResopnseAndMaxRetries {
     XCTestExpectation *retryWaitExpectation = [[XCTestExpectation alloc] initWithDescription:@"Waiting for retry attempt execution"];
 
     NSMutableDictionary *responseHeaderDictionary = [[NSMutableDictionary alloc] init];
@@ -193,5 +194,71 @@ NSString *const retryAfterValue = @"10";
     [self.retryHandler setNext:tempMiddleware1];
     XCTAssertEqualObjects(self.retryHandler.nextMiddleware, tempMiddleware1);
 }
+
+- (void)testRetryHandlerWithDisableOptions {
+    XCTestExpectation *retryWaitExpectation = [[XCTestExpectation alloc] initWithDescription:@"Waiting for retry attempt execution"];
+
+    NSMutableDictionary *responseHeaderDictionary = [[NSMutableDictionary alloc] init];
+    NSHTTPURLResponse *retryResponseWithLowRetryTime = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:MSGraphBaseURL] statusCode:MSClientErrorCodeGatewayTimeout HTTPVersion:@"foo" headerFields:responseHeaderDictionary];
+    HTTPRequestCompletionHandler requestCompletion = ^(id data, NSURLResponse * _Nullable response, NSError * _Nullable error){
+        [self completionBlockCodeInvoked];
+        XCTAssertNil(error);
+        XCTAssertNotNil(response);
+        XCTAssertEqual(((NSHTTPURLResponse *)response).statusCode, MSClientErrorCodeGatewayTimeout);
+        XCTAssertNotNil(data);
+        [retryWaitExpectation fulfill];
+    };
+
+    OCMStub([self.mockHttpProvider execute:[OCMArg any] withCompletionHandler:[OCMArg any]]).andDo(^(NSInvocation *invocation){
+        HTTPRequestCompletionHandler completionHandler;
+        [invocation getArgument:&completionHandler atIndex:3];
+        completionHandler([NSData new], retryResponseWithLowRetryTime, nil);
+    });
+
+    NSError *error;
+    MSRetryHandlerOptions *retryOptions = [[MSRetryHandlerOptions alloc] initWithDelay:3 maxRetries:0 andError:&error];
+    XCTAssertNil(error);
+
+    MSRetryHandler *retryHandler = [[MSRetryHandler alloc] initWithOptions:retryOptions];
+    [retryHandler setNextMiddleware:self.mockHttpProvider];
+    [retryHandler execute:_mockDataTask withCompletionHandler:requestCompletion];
+    [self waitForExpectations:@[retryWaitExpectation] timeout:21.0];
+    [self checkCompletionBlockCodeInvoked];
+}
+
+#pragma mark - Test Options Delegate
+- (void)testRetryDelegate {
+    XCTestExpectation *retryWaitExpectation = [[XCTestExpectation alloc] initWithDescription:@"Waiting for retry attempt execution"];
+
+    NSMutableDictionary *responseHeaderDictionary = [[NSMutableDictionary alloc] init];
+    //    [responseHeaderDictionary setObject:@"2" forKey:@"Retry-After"];
+    NSHTTPURLResponse *retryResponseWithLowRetryTime = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:MSGraphBaseURL] statusCode:MSClientErrorCodeGatewayTimeout HTTPVersion:@"foo" headerFields:responseHeaderDictionary];
+    HTTPRequestCompletionHandler requestCompletion = ^(id data, NSURLResponse * _Nullable response, NSError * _Nullable error){
+        [self completionBlockCodeInvoked];
+        XCTAssertNil(error);
+        XCTAssertNotNil(response);
+        XCTAssertEqual(((NSHTTPURLResponse *)response).statusCode, MSClientErrorCodeGatewayTimeout);
+        XCTAssertNotNil(data);
+        [retryWaitExpectation fulfill];
+    };
+
+    OCMStub([self.mockHttpProvider execute:[OCMArg any] withCompletionHandler:[OCMArg any]]).andDo(^(NSInvocation *invocation){
+        HTTPRequestCompletionHandler completionHandler;
+        [invocation getArgument:&completionHandler atIndex:3];
+        completionHandler([NSData new], retryResponseWithLowRetryTime, nil);
+    });
+    MSRetryHandlerOptions *retryOptions = [[MSRetryHandlerOptions alloc] init];
+    [retryOptions setRetryHandlerDelegate:self];
+    MSRetryHandler *retryHandler = [[MSRetryHandler alloc] initWithOptions:retryOptions];
+    [retryHandler setNextMiddleware:self.mockHttpProvider];
+    [retryHandler execute:_mockDataTask withCompletionHandler:requestCompletion];
+    [self waitForExpectations:@[retryWaitExpectation] timeout:21.0];
+    [self checkCompletionBlockCodeInvoked];
+}
+
+- (BOOL)task:(MSURLSessionTask *)task shouldRetryAfter:(NSInteger)retryAfter retryAttempt:(NSInteger)retryAttempt forResponse:(NSURLResponse *)response{
+    return false;
+}
+
 
 @end

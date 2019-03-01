@@ -83,4 +83,23 @@
     NSAssert(NO, @"Not Implemented, must implement in sub class");
 }
 
+- (void)setMiddlewareOptionsArray:(NSArray<MSMiddlewareOptions> *)middlewareOptionsArray
+{
+    _middlewareOptionsArray = [middlewareOptionsArray copy];
+}
+
+- (id<MSMiddlewareOptions>)getMiddlewareOptionWithType:(MSMiddlewareOptionsType)middlewareOptionsType
+{
+    id<MSMiddlewareOptions> middlewareOptionsToReturn;
+    for(id<MSMiddlewareOptions> middlewareOptions in _middlewareOptionsArray)
+    {
+        if(middlewareOptionsType == middlewareOptions.middlewareOptionsType)
+        {
+            middlewareOptionsToReturn = middlewareOptions;
+            break;
+        }
+    }
+    return middlewareOptionsToReturn;
+}
+
 @end

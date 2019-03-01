@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MSGraphClientSDK"
-  s.version      = "0.1.2"
+  s.version      = "0.1.3"
   s.summary      = "Microsoft Graph ObjC SDK."
 
   s.description  = <<-DESC
