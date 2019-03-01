@@ -53,6 +53,10 @@ typedef NS_ENUM(NSInteger, MSMiddlewareOptionsType)
 };
 
 extern NSString *const MSGraphBaseURL;
+extern NSString *const MSGraphChinaBaseURL;
+extern NSString *const MSGraphUSBaseURL;
+extern NSString *const MSGraphGermanyBaseURL;
+
 extern NSString *const MSHeaderSdkVersion;
 extern NSString *const MSGraphiOSSdkVersionHeaderPrefix;
 extern NSString *const MSGraphMacSdkVersionHeaderPrefix;

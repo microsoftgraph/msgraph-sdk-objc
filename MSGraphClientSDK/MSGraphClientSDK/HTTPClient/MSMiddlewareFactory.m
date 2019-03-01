@@ -16,7 +16,7 @@
     {
         case MSMiddlewareTypeHTTP:
         {
-             MSURLSessionManager *sessionManager = [[MSURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+             MSURLSessionManager *sessionManager = [[MSURLSessionManager alloc] init];
             return sessionManager;
         }
         case MSMiddlewareTypeRedirect:

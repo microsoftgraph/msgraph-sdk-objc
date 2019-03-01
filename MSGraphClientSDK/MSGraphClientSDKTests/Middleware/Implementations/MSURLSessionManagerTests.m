@@ -56,17 +56,36 @@
 
 }
 
+- (void)testMSURLSessionManagerInit {
+    MSURLSessionManager *sessionManager = [[MSURLSessionManager alloc] init];
+    XCTAssertEqual(sessionManager.urlSessionConfiguration.timeoutIntervalForRequest,100);
+}
+
 - (void)testMSURLSessionManagerInitWithNilconfig{
     MSURLSessionManager * sessionManager = [[MSURLSessionManager alloc] initWithSessionConfiguration:nil];
     XCTAssertNotNil(sessionManager);
     XCTAssertNotNil(sessionManager.urlSession.configuration);
     XCTAssertEqualObjects(sessionManager.urlSession.delegate, sessionManager);
 }
-- (void)testMSURLSessionManagerInit{
+- (void)testMSURLSessionManagerInitWithCustomConfig{
+    NSString* proxyHost = @"127.0.0.1";
+    NSNumber* proxyPort = [NSNumber numberWithInt: 8888];
+    //     Create an NSURLSessionConfiguration that uses the proxy
+    NSDictionary *proxyDict = @{
+                                @"HTTPSEnable":@1,
+                                @"HTTPSProxy":proxyHost,
+                                @"HTTPSPort":proxyPort
+                                };
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    config.connectionProxyDictionary = proxyDict;
+    config.timeoutIntervalForRequest = 10;
     MSURLSessionManager * sessionManager = [[MSURLSessionManager alloc] initWithSessionConfiguration:config];
     XCTAssertNotNil(sessionManager);
     XCTAssertNotNil(sessionManager.urlSessionConfiguration);
+    XCTAssertEqual([sessionManager.urlSessionConfiguration.connectionProxyDictionary objectForKey:@"HTTPSProxy"], proxyHost);
+    XCTAssertEqual([sessionManager.urlSessionConfiguration.connectionProxyDictionary objectForKey:@"HTTPSPort"], proxyPort);
+    XCTAssertEqual([sessionManager.urlSessionConfiguration.connectionProxyDictionary objectForKey:@"HTTPSEnable"], @1);
+    XCTAssertEqual([sessionManager.urlSessionConfiguration timeoutIntervalForRequest], 10);
     XCTAssertEqualObjects(sessionManager.urlSession.delegate, sessionManager);
 }
 
