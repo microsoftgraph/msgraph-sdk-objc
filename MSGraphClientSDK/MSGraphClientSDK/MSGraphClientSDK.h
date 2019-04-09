@@ -44,6 +44,7 @@ FOUNDATION_EXPORT const unsigned char MSGraphClientSDKVersionString[];
 #import "MSGraphClientSDK/MSRetryHandlerOptions.h"
 #import "MSGraphClientSDK/MSRedirectHandlerOptions.h"
 
+#import "MSGraphClientSDK/MSPageIterator.h"
 
 #endif
 
