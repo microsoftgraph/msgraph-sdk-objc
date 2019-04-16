@@ -45,6 +45,8 @@ FOUNDATION_EXPORT const unsigned char MSGraphClientSDKVersionString[];
 #import "MSGraphClientSDK/MSRedirectHandlerOptions.h"
 
 #import "MSGraphClientSDK/MSPageIterator.h"
+#import "MSGraphClientSDK/MSLargeFileUploadTask.h"
+#import "MSGraphClientSDK/MSGraphOneDriveLargeFileUploadTask.h"
 
 #endif
 
