@@ -43,6 +43,10 @@
 		E54D1237226472FB00EB517A /* MSLargeFileUploadTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E54D1236226472FB00EB517A /* MSLargeFileUploadTaskTests.m */; };
 		E54D123B2264858100EB517A /* LargeFileUploadResource.bmp in Resources */ = {isa = PBXBuildFile; fileRef = E54D123A2264858100EB517A /* LargeFileUploadResource.bmp */; };
 		E54D123D2264AEBD00EB517A /* MSGraphOneDriveLargeFileUploadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E54D123C2264AEBD00EB517A /* MSGraphOneDriveLargeFileUploadTests.m */; };
+		E54D12772270A39200EB517A /* MSAuthenticationHandlerOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = E54D12752270A39200EB517A /* MSAuthenticationHandlerOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E54D12782270A39200EB517A /* MSAuthenticationHandlerOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = E54D12762270A39200EB517A /* MSAuthenticationHandlerOptions.m */; };
+		E54D12892271C91D00EB517A /* MSAuthenticationProviderOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = E54D123E226EF79C00EB517A /* MSAuthenticationProviderOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E54D128F22733FCD00EB517A /* MSAuthenticationHandlerOptionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E54D128E22733FCD00EB517A /* MSAuthenticationHandlerOptionsTests.m */; };
 		E566782E2150BC4F00C6B7AE /* MSRedirectHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E566782D2150BC4F00C6B7AE /* MSRedirectHandlerTests.m */; };
 		E56678302150E1AF00C6B7AE /* MSAuthenticationHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E566782F2150E1AF00C6B7AE /* MSAuthenticationHandlerTests.m */; };
 		E56B101C2220086300ED640F /* MSRedirectHandlerOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = E56B101A2220086300ED640F /* MSRedirectHandlerOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -135,6 +139,10 @@
 		E54D1236226472FB00EB517A /* MSLargeFileUploadTaskTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSLargeFileUploadTaskTests.m; sourceTree = "<group>"; };
 		E54D123A2264858100EB517A /* LargeFileUploadResource.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = LargeFileUploadResource.bmp; sourceTree = "<group>"; };
 		E54D123C2264AEBD00EB517A /* MSGraphOneDriveLargeFileUploadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSGraphOneDriveLargeFileUploadTests.m; sourceTree = "<group>"; };
+		E54D123E226EF79C00EB517A /* MSAuthenticationProviderOptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSAuthenticationProviderOptions.h; sourceTree = "<group>"; };
+		E54D12752270A39200EB517A /* MSAuthenticationHandlerOptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSAuthenticationHandlerOptions.h; sourceTree = "<group>"; };
+		E54D12762270A39200EB517A /* MSAuthenticationHandlerOptions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSAuthenticationHandlerOptions.m; sourceTree = "<group>"; };
+		E54D128E22733FCD00EB517A /* MSAuthenticationHandlerOptionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAuthenticationHandlerOptionsTests.m; sourceTree = "<group>"; };
 		E566782D2150BC4F00C6B7AE /* MSRedirectHandlerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSRedirectHandlerTests.m; sourceTree = "<group>"; };
 		E566782F2150E1AF00C6B7AE /* MSAuthenticationHandlerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSAuthenticationHandlerTests.m; sourceTree = "<group>"; };
 		E56B101A2220086300ED640F /* MSRedirectHandlerOptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSRedirectHandlerOptions.h; sourceTree = "<group>"; };
@@ -215,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				E5DC73F6211418040040BAB6 /* MSAuthenticationProvider.h */,
+				E54D123E226EF79C00EB517A /* MSAuthenticationProviderOptions.h */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -363,6 +372,7 @@
 		E56B101E22237F3900ED640F /* Options */ = {
 			isa = PBXGroup;
 			children = (
+				E54D128E22733FCD00EB517A /* MSAuthenticationHandlerOptionsTests.m */,
 				E56B101F22237F6500ED640F /* MSRetryHandlerOptionsTests.m */,
 				E56B1021222382E400ED640F /* MSRedirectHandlerOptionsTests.m */,
 			);
@@ -425,6 +435,8 @@
 				E59EBFED221D3B6700B4B279 /* MSRetryHandlerOptions.m */,
 				E56B101A2220086300ED640F /* MSRedirectHandlerOptions.h */,
 				E56B101B2220086300ED640F /* MSRedirectHandlerOptions.m */,
+				E54D12752270A39200EB517A /* MSAuthenticationHandlerOptions.h */,
+				E54D12762270A39200EB517A /* MSAuthenticationHandlerOptions.m */,
 			);
 			path = Options;
 			sourceTree = "<group>";
@@ -557,6 +569,7 @@
 			files = (
 				E5DC7407211418050040BAB6 /* MSURLSessionManager.h in Headers */,
 				E5DC741C21142C430040BAB6 /* MSClientFactory.h in Headers */,
+				E54D12892271C91D00EB517A /* MSAuthenticationProviderOptions.h in Headers */,
 				E5DC740E211418050040BAB6 /* MSHttpProvider.h in Headers */,
 				E5DC740C211418050040BAB6 /* MSAuthenticationProvider.h in Headers */,
 				E5DC7410211418050040BAB6 /* MSGraphMiddleware.h in Headers */,
@@ -580,6 +593,7 @@
 				E56B101C2220086300ED640F /* MSRedirectHandlerOptions.h in Headers */,
 				E54D123222646CA900EB517A /* MSGraphOneDriveLargeFileUploadTask.h in Headers */,
 				E54D123322646CA900EB517A /* MSLargeFileUploadTask.h in Headers */,
+				E54D12772270A39200EB517A /* MSAuthenticationHandlerOptions.h in Headers */,
 				E54D1220225B59B300EB517A /* MSPageIterator.h in Headers */,
 				E5DC73DF211412BF0040BAB6 /* MSGraphClientSDK.h in Headers */,
 			);
@@ -692,6 +706,7 @@
 				E5204FFF2173A7C200E64160 /* MSBatchRequestStepTests.m in Sources */,
 				E52050042174C1DB00E64160 /* MSBatchResponseContentTests.m in Sources */,
 				E51E616F216E073F00F1B3C0 /* MSRetryHandlerTests.m in Sources */,
+				E54D128F22733FCD00EB517A /* MSAuthenticationHandlerOptionsTests.m in Sources */,
 				E54D123D2264AEBD00EB517A /* MSGraphOneDriveLargeFileUploadTests.m in Sources */,
 				E56B1022222382E400ED640F /* MSRedirectHandlerOptionsTests.m in Sources */,
 				E573EE072133FFF200C5E884 /* MSHTTPClientTests.m in Sources */,
@@ -724,6 +739,7 @@
 				E56B101D2220086300ED640F /* MSRedirectHandlerOptions.m in Sources */,
 				E5DC741A21142C430040BAB6 /* MSClientFactory.m in Sources */,
 				E5069AC9211AAEC900432372 /* MSConstants.m in Sources */,
+				E54D12782270A39200EB517A /* MSAuthenticationHandlerOptions.m in Sources */,
 				E56FDB9821D36A98001DFE68 /* MSURLSessionDownloadTask.m in Sources */,
 				E56FDB9921D36A98001DFE68 /* MSURLSessionUploadTask.m in Sources */,
 				E5ECE0A52146657900A289C2 /* MSRedirectHandler.m in Sources */,

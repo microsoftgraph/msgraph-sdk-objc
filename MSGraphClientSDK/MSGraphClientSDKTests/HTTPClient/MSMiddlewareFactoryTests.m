@@ -23,11 +23,15 @@
 }
 
 - (void)testCreateMiddlewareMethod {
-    id<MSGraphMiddleware>authHandler = [MSMiddlewareFactory createMiddleware:MSMiddlewareTypeAuthentication];
-    id<MSGraphMiddleware>httpMiddleware = [MSMiddlewareFactory createMiddleware:MSMiddlewareTypeHTTP];
-    id<MSGraphMiddleware>randomMiddleware = [MSMiddlewareFactory createMiddleware:4];
+    id<MSGraphMiddleware>authHandler = [MSMiddlewareFactory createMiddleware:MSMiddlewareTypeAuthentication withOptions:nil];
+    id<MSGraphMiddleware>httpMiddleware = [MSMiddlewareFactory createMiddleware:MSMiddlewareTypeHTTP withOptions:nil];
+    id<MSGraphMiddleware>retryMiddleware = [MSMiddlewareFactory createMiddleware:MSMiddlewareTypeRetry withOptions:nil];
+    id<MSGraphMiddleware>redirectMiddleware = [MSMiddlewareFactory createMiddleware:MSMiddlewareTypeRedirect withOptions:nil];
+    id<MSGraphMiddleware>randomMiddleware = [MSMiddlewareFactory createMiddleware:4 withOptions:nil];
     XCTAssertTrue([authHandler isKindOfClass:[MSAuthenticationHandler class]]);
     XCTAssertTrue([httpMiddleware isKindOfClass:[MSURLSessionManager class]]);
+    XCTAssertTrue([retryMiddleware isKindOfClass:[MSRetryHandler class]]);
+    XCTAssertTrue([redirectMiddleware isKindOfClass:[MSRedirectHandler class]]);
     XCTAssertNil(randomMiddleware);
 }
 

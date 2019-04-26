@@ -6,8 +6,12 @@
 #import "MSAuthenticationProvider.h"
 #import "MSGraphMiddleware.h"
 
+@class MSAuthenticationHandlerOptions;
+
 @interface MSAuthenticationHandler : NSObject<MSGraphMiddleware>
 
-@property (nonatomic, strong) id<MSAuthenticationProvider> authProvider;
+@property (nonatomic, strong, readonly) MSAuthenticationHandlerOptions *authHandlerOptions;
+
+- (instancetype)initWithOptions:(MSAuthenticationHandlerOptions *)authHandlerOptions;
 
 @end

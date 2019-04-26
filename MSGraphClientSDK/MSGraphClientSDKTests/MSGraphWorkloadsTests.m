@@ -41,8 +41,9 @@
     MSURLSessionManager *sessionManager = [[MSURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     MSRedirectHandler *redirectHandler = [[MSRedirectHandler alloc] init];
     MSRetryHandler *retryHandler = [[MSRetryHandler alloc] init];
-    MSAuthenticationHandler *authHandler = [[MSAuthenticationHandler alloc] init];
-    authHandler.authProvider = self.mockAuthProvider;
+    MSAuthenticationHandlerOptions *options = [[MSAuthenticationHandlerOptions alloc] initWithAuthenticationProvider:self.mockAuthProvider];
+
+    MSAuthenticationHandler *authHandler = [[MSAuthenticationHandler alloc] initWithOptions:options];
     [authHandler setNext:redirectHandler];
     [redirectHandler setNext:retryHandler];
     [retryHandler setNext:sessionManager];

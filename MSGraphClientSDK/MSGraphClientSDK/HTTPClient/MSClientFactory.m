@@ -8,6 +8,9 @@
 #import "MSMiddlewareFactory.h"
 #import "MSRedirectHandler.h"
 #import "MSRetryHandler.h"
+#import "MSAuthenticationHandlerOptions.h"
+#import "MSRedirectHandlerOptions.h"
+#import "MSRetryHandlerOptions.h"
 
 @implementation MSClientFactory
 
@@ -18,11 +21,10 @@
     //Creating a default chain of middlewares starting from Authentication
 
     //Initializing different default middlewares
-    MSAuthenticationHandler *authenticationHandler = (MSAuthenticationHandler *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeAuthentication];
-    authenticationHandler.authProvider = authenticationProvider;
-    MSRedirectHandler *redirectHandler = (MSRedirectHandler *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeRedirect];
-    MSRetryHandler *retryHandler = (MSRetryHandler *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeRetry];
-    MSURLSessionManager *sessionManager = (MSURLSessionManager *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeHTTP];
+    MSAuthenticationHandler *authenticationHandler = (MSAuthenticationHandler *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeAuthentication withOptions:[[MSAuthenticationHandlerOptions alloc] initWithAuthenticationProvider:authenticationProvider]];
+    MSRedirectHandler *redirectHandler = (MSRedirectHandler *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeRedirect withOptions:[[MSRedirectHandlerOptions alloc] init]];
+    MSRetryHandler *retryHandler = (MSRetryHandler *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeRetry withOptions:[[MSRetryHandlerOptions alloc] init]];
+    MSURLSessionManager *sessionManager = (MSURLSessionManager *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeHTTP withOptions:nil];
     //Creating a default chain
     [authenticationHandler setNext:redirectHandler];
     [redirectHandler setNext:retryHandler];
@@ -39,11 +41,10 @@
     //Creating a default chain of middlewares starting from Authentication
 
     //Initializing different default middlewares
-    MSAuthenticationHandler *authenticationHandler = (MSAuthenticationHandler *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeAuthentication];
-    authenticationHandler.authProvider = authenticationProvider;
-    MSRedirectHandler *redirectHandler = (MSRedirectHandler *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeRedirect];
-    MSRetryHandler *retryHandler = (MSRetryHandler *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeRetry];
-
+    MSAuthenticationHandler *authenticationHandler = (MSAuthenticationHandler *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeAuthentication withOptions:[[MSAuthenticationHandlerOptions alloc] initWithAuthenticationProvider:authenticationProvider]];
+    MSRedirectHandler *redirectHandler = (MSRedirectHandler *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeRedirect withOptions:[[MSRedirectHandlerOptions alloc] init]];
+    MSRetryHandler *retryHandler = (MSRetryHandler *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeRetry withOptions:[[MSRetryHandlerOptions alloc] init]];
+    
     //Create session manager with custom session configuration
     MSURLSessionManager *sessionManager = [[MSURLSessionManager alloc] initWithSessionConfiguration:sessionConfiguration];
 

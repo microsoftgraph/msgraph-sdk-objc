@@ -5,6 +5,7 @@
 
 #import <XCTest/XCTest.h>
 #import "MSGraphClientSDKTests.h"
+#import "MSAuthenticationHandlerOptions.h"
 
 @interface MSAuthenticationHandler()
 @property (nonatomic, strong) id<MSGraphMiddleware> nextMiddleware;
@@ -23,8 +24,9 @@
 
 - (void)setUp {
     [super setUp];
-    self.authenticationHandler = [[MSAuthenticationHandler alloc] init];
-    self.authenticationHandler.authProvider = self.mockAuthProvider;
+    MSAuthenticationHandlerOptions *options = [[MSAuthenticationHandlerOptions alloc] initWithAuthenticationProvider:self.mockAuthProvider];
+    self.authenticationHandler = [[MSAuthenticationHandler alloc] initWithOptions:options];
+
     [self.authenticationHandler setNextMiddleware:self.mockHttpProvider];
 
     _mockDataTask = [[MSURLSessionDataTask alloc] initWithRequest:self.requestForMock client:self.mockClient];

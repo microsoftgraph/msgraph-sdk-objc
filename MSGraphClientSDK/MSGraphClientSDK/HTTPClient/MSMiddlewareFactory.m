@@ -10,7 +10,7 @@
 
 @implementation MSMiddlewareFactory
 
-+(id<MSGraphMiddleware>)createMiddleware:(MSMiddlewareType)middlewareType
++(id<MSGraphMiddleware>)createMiddleware:(MSMiddlewareType)middlewareType withOptions:(id<MSMiddlewareOptions>)middlewareOptions
 {
     switch (middlewareType)
     {
@@ -21,18 +21,36 @@
         }
         case MSMiddlewareTypeRedirect:
         {
-            MSRedirectHandler *redirectHandler = [[MSRedirectHandler alloc] init];
+            MSRedirectHandler *redirectHandler;
+            if(middlewareOptions)
+            {
+                redirectHandler = [[MSRedirectHandler alloc] initWithOptions:(MSRedirectHandlerOptions *)middlewareOptions];
+            }else{
+                redirectHandler = [[MSRedirectHandler alloc] init];
+            }
             return redirectHandler;
-        }
-        case MSMiddlewareTypeAuthentication:
-        {
-            MSAuthenticationHandler *authenticationHandler = [[MSAuthenticationHandler alloc] init];
-            return authenticationHandler;
         }
         case MSMiddlewareTypeRetry:
         {
-            MSRetryHandler *retryHandler = [[MSRetryHandler alloc] init];
+            MSRetryHandler *retryHandler;
+            if(middlewareOptions)
+            {
+                retryHandler = [[MSRetryHandler alloc] initWithOptions:(MSRetryHandlerOptions *)middlewareOptions];
+            }else{
+                retryHandler = [[MSRetryHandler alloc] init];
+            }
             return retryHandler;
+        }
+        case MSMiddlewareTypeAuthentication:
+        {
+            MSAuthenticationHandler *authenticationHandler;
+            if(middlewareOptions)
+            {
+                authenticationHandler = [[MSAuthenticationHandler alloc] initWithOptions:(MSAuthenticationHandlerOptions *)middlewareOptions];
+            }else{
+                authenticationHandler = [[MSAuthenticationHandler alloc] init];
+            }
+            return authenticationHandler;
         }
         default:
             break;
