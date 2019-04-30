@@ -8,7 +8,6 @@
 
 #import <XCTest/XCTest.h>
 #import "MSGraphClientSDKTests.h"
-
 @interface MSAuthenticationHandlerOptionsTests : MSGraphClientSDKTests
 
 @end
@@ -25,15 +24,13 @@
     [super tearDown];
 }
 
-- (void)testInitWithNilAuthProvider {
-    XCTAssertThrows([[MSAuthenticationHandlerOptions alloc] initWithAuthenticationProvider:nil]);
-}
-
 - (void)testSuccfullInit {
-    MSAuthenticationHandlerOptions *authHandlerOptions = [[MSAuthenticationHandlerOptions alloc] initWithAuthenticationProvider:self.mockAuthProvider];
+    id<MSAuthenticationProviderOptions> providerOptions = OCMProtocolMock(@protocol(MSAuthenticationProviderOptions));
+    MSAuthenticationHandlerOptions *authHandlerOptions = [[MSAuthenticationHandlerOptions alloc] initWithAuthenticationProvider:self.mockAuthProvider andAuthProviderOptions:providerOptions];
 
     XCTAssertEqual(authHandlerOptions.authenticationProvider, self.mockAuthProvider);
     XCTAssertEqual(authHandlerOptions.middlewareOptionsType, MSMiddlewareOptionsTypeAuth);
+    XCTAssertEqual(authHandlerOptions.authenticationProviderOptions, providerOptions);
 }
 
 @end

@@ -30,10 +30,10 @@
 
 - (void)setUp {
     [super setUp];
-    OCMStub([self.mockAuthProvider getAccessTokenWithCompletion:[OCMArg any]])
+    OCMStub([self.mockAuthProvider getAccessTokenForProviderOptions:[OCMArg any] andCompletion:[OCMArg any]])
     .andDo(^(NSInvocation *invocation){
         void (^completionHandler)(NSString *accessToken, NSError *error);
-        [invocation getArgument:&completionHandler atIndex:2];
+        [invocation getArgument:&completionHandler atIndex:3];
         completionHandler(@"abcdefg",nil);
     });
      _OKresponse = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:MSGraphBaseURL] statusCode:MSExpectedResponseCodesOK HTTPVersion:@"foo" headerFields:nil];
@@ -41,9 +41,8 @@
     MSURLSessionManager *sessionManager = [[MSURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     MSRedirectHandler *redirectHandler = [[MSRedirectHandler alloc] init];
     MSRetryHandler *retryHandler = [[MSRetryHandler alloc] init];
-    MSAuthenticationHandlerOptions *options = [[MSAuthenticationHandlerOptions alloc] initWithAuthenticationProvider:self.mockAuthProvider];
 
-    MSAuthenticationHandler *authHandler = [[MSAuthenticationHandler alloc] initWithOptions:options];
+    MSAuthenticationHandler *authHandler = [[MSAuthenticationHandler alloc] initWithAuthenticationProvider:self.mockAuthProvider];
     [authHandler setNext:redirectHandler];
     [redirectHandler setNext:retryHandler];
     [retryHandler setNext:sessionManager];

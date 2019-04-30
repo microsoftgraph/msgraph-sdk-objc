@@ -4,7 +4,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MSGraphMiddleware.h"
-#import "MSMiddlewareOptions.h"
 
 @interface MSMiddlewareFactory : NSObject
 
@@ -24,6 +23,6 @@ typedef NS_ENUM(NSInteger, MSMiddlewareType)
  @param middlewareType Type of middleware which this method will create
  @return The middleware object of given type.
  */
-+(id<MSGraphMiddleware>)createMiddleware:(MSMiddlewareType)middlewareType withOptions:(id<MSMiddlewareOptions>)middlewareOptions;
++(id<MSGraphMiddleware>)createMiddleware:(MSMiddlewareType)middlewareType;
 
 @end

@@ -21,24 +21,28 @@
 
 @implementation MSAuthenticationHandler
 
-- (instancetype)initWithOptions:(MSAuthenticationHandlerOptions *)authHandlerOptions
+- (instancetype)initWithAuthenticationProvider:(id<MSAuthenticationProvider>)authProvider
 {
     self = [super init];
     if(self)
     {
-        _authHandlerOptions = authHandlerOptions;
+        _authenticationProvider = authProvider;
     }
     return self;
+}
+
+- (void)setAuthenticationProvider:(id<MSAuthenticationProvider>)authProvider
+{
+    _authenticationProvider = authProvider;
 }
 
 - (void)execute:(MSURLSessionTask *)task withCompletionHandler:(HTTPRequestCompletionHandler)completionHandler
 {
     MSAuthenticationHandlerOptions *authHandlerOptions = [task getMiddlewareOptionWithType:MSMiddlewareOptionsTypeAuth];
-    if(!authHandlerOptions)
-    {
-        authHandlerOptions = _authHandlerOptions;
-    }
-    [authHandlerOptions.authenticationProvider getAccessTokenWithCompletion:^(NSString *accessToken, NSError *error) {
+
+    id<MSAuthenticationProvider> authProvider = authHandlerOptions.authenticationProvider?authHandlerOptions.authenticationProvider:_authenticationProvider;
+
+    [authProvider getAccessTokenForProviderOptions:authHandlerOptions.authenticationProviderOptions andCompletion:^(NSString *accessToken, NSError *error) {
         if(!error)
         {
             NSMutableURLRequest *urlRequest = [task request];

@@ -9,13 +9,13 @@
 
 @synthesize middlewareOptionsType;
 
-- (instancetype)initWithAuthenticationProvider:(id<MSAuthenticationProvider>)authProvider
+- (instancetype)initWithAuthenticationProvider:(id<MSAuthenticationProvider>)authProvider andAuthProviderOptions:(id<MSAuthenticationProviderOptions>)authProviderOptions
 {
     self = [super init];
     if(self)
     {
-        NSAssert(authProvider, @"Authentication Provider is requried to authenticate the requests.");
         _authenticationProvider = authProvider;
+        _authenticationProviderOptions = authProviderOptions;
         middlewareOptionsType = MSMiddlewareOptionsTypeAuth;
     }
     return self;

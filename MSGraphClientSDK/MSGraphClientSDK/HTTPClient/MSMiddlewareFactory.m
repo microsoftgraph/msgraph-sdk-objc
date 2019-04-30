@@ -10,7 +10,7 @@
 
 @implementation MSMiddlewareFactory
 
-+(id<MSGraphMiddleware>)createMiddleware:(MSMiddlewareType)middlewareType withOptions:(id<MSMiddlewareOptions>)middlewareOptions
++(id<MSGraphMiddleware>)createMiddleware:(MSMiddlewareType)middlewareType
 {
     switch (middlewareType)
     {
@@ -21,36 +21,18 @@
         }
         case MSMiddlewareTypeRedirect:
         {
-            MSRedirectHandler *redirectHandler;
-            if(middlewareOptions)
-            {
-                redirectHandler = [[MSRedirectHandler alloc] initWithOptions:(MSRedirectHandlerOptions *)middlewareOptions];
-            }else{
-                redirectHandler = [[MSRedirectHandler alloc] init];
-            }
+            MSRedirectHandler *redirectHandler = [[MSRedirectHandler alloc] init];
             return redirectHandler;
-        }
-        case MSMiddlewareTypeRetry:
-        {
-            MSRetryHandler *retryHandler;
-            if(middlewareOptions)
-            {
-                retryHandler = [[MSRetryHandler alloc] initWithOptions:(MSRetryHandlerOptions *)middlewareOptions];
-            }else{
-                retryHandler = [[MSRetryHandler alloc] init];
-            }
-            return retryHandler;
         }
         case MSMiddlewareTypeAuthentication:
         {
-            MSAuthenticationHandler *authenticationHandler;
-            if(middlewareOptions)
-            {
-                authenticationHandler = [[MSAuthenticationHandler alloc] initWithOptions:(MSAuthenticationHandlerOptions *)middlewareOptions];
-            }else{
-                authenticationHandler = [[MSAuthenticationHandler alloc] init];
-            }
+            MSAuthenticationHandler *authenticationHandler = [[MSAuthenticationHandler alloc] init];
             return authenticationHandler;
+        }
+        case MSMiddlewareTypeRetry:
+        {
+            MSRetryHandler *retryHandler = [[MSRetryHandler alloc] init];
+            return retryHandler;
         }
         default:
             break;
