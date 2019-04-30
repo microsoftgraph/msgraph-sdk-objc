@@ -23,8 +23,8 @@
 
 - (void)setUp {
     [super setUp];
-    self.authenticationHandler = [[MSAuthenticationHandler alloc] init];
-    self.authenticationHandler.authProvider = self.mockAuthProvider;
+    self.authenticationHandler = [[MSAuthenticationHandler alloc] initWithAuthenticationProvider:self.mockAuthProvider];
+
     [self.authenticationHandler setNextMiddleware:self.mockHttpProvider];
 
     _mockDataTask = [[MSURLSessionDataTask alloc] initWithRequest:self.requestForMock client:self.mockClient];
@@ -36,6 +36,18 @@
     [super tearDown];
 }
 
+- (void)testInit {
+    MSAuthenticationHandler *handler = [[MSAuthenticationHandler alloc] initWithAuthenticationProvider:self.mockAuthProvider];
+    XCTAssertNotNil(handler);
+    XCTAssertEqual(handler.authenticationProvider, self.mockAuthProvider);
+}
+
+- (void)testSetAuthenticationProvider {
+    MSAuthenticationHandler *handler = [[MSAuthenticationHandler alloc] init];
+    [handler setAuthenticationProvider:self.mockAuthProvider];
+    XCTAssertEqual(handler.authenticationProvider, self.mockAuthProvider);
+}
+
 - (void)testExecuteWithSuccessInGettingToken {
     HTTPRequestCompletionHandler requestCompletion = ^(id data, NSURLResponse * _Nullable response, NSError * _Nullable error){
         [self completionBlockCodeInvoked];
@@ -45,10 +57,10 @@
         XCTAssertNotNil(data);
     };
     //Mocking auth to provide a test token
-    OCMStub([self.mockAuthProvider getAccessTokenWithCompletion:[OCMArg any]])
+    OCMStub([self.mockAuthProvider getAccessTokenForProviderOptions:[OCMArg any] andCompletion:[OCMArg any]])
     .andDo(^(NSInvocation *invocation){
         void (^completionHandler)(NSString *accessToken, NSError *error);
-        [invocation getArgument:&completionHandler atIndex:2];
+        [invocation getArgument:&completionHandler atIndex:3];
         completionHandler(TestToken,nil);
     });
 
@@ -77,10 +89,10 @@
         XCTAssertNil(data);
     };
     //Mocking auth to provide an error
-    OCMStub([self.mockAuthProvider getAccessTokenWithCompletion:[OCMArg any]])
+    OCMStub([self.mockAuthProvider getAccessTokenForProviderOptions:[OCMArg any] andCompletion:[OCMArg any]])
     .andDo(^(NSInvocation *invocation){
         void (^completionHandler)(NSString *accessToken, NSError *error);
-        [invocation getArgument:&completionHandler atIndex:2];
+        [invocation getArgument:&completionHandler atIndex:3];
         completionHandler(nil,[NSError errorWithDomain:@"TestDomain" code:0 userInfo:nil]);
     });
 

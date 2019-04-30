@@ -18,6 +18,7 @@ FOUNDATION_EXPORT const unsigned char MSGraphClientSDKVersionString[];
 #define MSSDK_h
 
 #import "MSGraphClientSDK/MSAuthenticationProvider.h"
+#import "MSGraphClientSDK/MSAuthenticationProviderOptions.h"
 #import "MSGraphClientSDK/MSHttpProvider.h"
 #import "MSGraphClientSDK/MSGraphMiddleware.h"
 #import "MSGraphClientSDK/MSMiddlewareOptions.h"
@@ -43,6 +44,7 @@ FOUNDATION_EXPORT const unsigned char MSGraphClientSDKVersionString[];
 
 #import "MSGraphClientSDK/MSRetryHandlerOptions.h"
 #import "MSGraphClientSDK/MSRedirectHandlerOptions.h"
+#import "MSGraphClientSDK/MSAuthenticationHandlerOptions.h"
 
 #import "MSGraphClientSDK/MSPageIterator.h"
 #import "MSGraphClientSDK/MSLargeFileUploadTask.h"

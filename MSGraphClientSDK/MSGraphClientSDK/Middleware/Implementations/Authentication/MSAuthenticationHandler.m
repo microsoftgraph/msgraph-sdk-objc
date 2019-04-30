@@ -4,6 +4,7 @@
 
 #import "MSAuthenticationHandler.h"
 #import "MSURLSessionTask.h"
+#import "MSAuthenticationHandlerOptions.h"
 
 @interface MSURLSessionTask()
 
@@ -20,9 +21,28 @@
 
 @implementation MSAuthenticationHandler
 
+- (instancetype)initWithAuthenticationProvider:(id<MSAuthenticationProvider>)authProvider
+{
+    self = [super init];
+    if(self)
+    {
+        _authenticationProvider = authProvider;
+    }
+    return self;
+}
+
+- (void)setAuthenticationProvider:(id<MSAuthenticationProvider>)authProvider
+{
+    _authenticationProvider = authProvider;
+}
+
 - (void)execute:(MSURLSessionTask *)task withCompletionHandler:(HTTPRequestCompletionHandler)completionHandler
 {
-    [self.authProvider getAccessTokenWithCompletion:^(NSString *accessToken, NSError *error) {
+    MSAuthenticationHandlerOptions *authHandlerOptions = [task getMiddlewareOptionWithType:MSMiddlewareOptionsTypeAuth];
+
+    id<MSAuthenticationProvider> authProvider = authHandlerOptions.authenticationProvider?authHandlerOptions.authenticationProvider:_authenticationProvider;
+
+    [authProvider getAccessTokenForProviderOptions:authHandlerOptions.authenticationProviderOptions andCompletion:^(NSString *accessToken, NSError *error) {
         if(!error)
         {
             NSMutableURLRequest *urlRequest = [task request];
