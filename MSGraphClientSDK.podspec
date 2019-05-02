@@ -30,8 +30,8 @@ Pod::Spec.new do |s|
 
  s.subspec "Common" do |common|
     common.dependency 'MSGraphClientSDK/Authentication'
-    common.source_files = "MSGraphClientSDK/MSGraphClientSDK/{Common,Middleware,GraphContent,HTTPClient}/**/*.{h,m}"
-    common.public_header_files = "MSGraphClientSDK/MSGraphClientSDK/{Common,Middleware,GraphContent,HTTPClient}/**/*.h"
+    common.source_files = "MSGraphClientSDK/MSGraphClientSDK/{Common,Middleware,GraphContent,HTTPClient,GraphTasks}/**/*.{h,m}"
+    common.public_header_files = "MSGraphClientSDK/MSGraphClientSDK/{Common,Middleware,GraphContent,HTTPClient,GraphTasks}/**/*.h"
   end
 
 end
