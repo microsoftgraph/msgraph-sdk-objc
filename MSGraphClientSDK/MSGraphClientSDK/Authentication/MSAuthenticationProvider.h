@@ -3,6 +3,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MSAuthenticationProviderOptions.h"
 
 typedef void(^MSAuthenticationCompletion)(NSMutableURLRequest *request, NSError *error);
 
@@ -14,9 +15,10 @@ typedef void(^MSAuthenticationCompletion)(NSMutableURLRequest *request, NSError 
 
 /**
  Gets the access token. This method should be implemented by a class which should provide the capability of providing the access token.
+ @param authProviderOptions Options which can be used to control the behaviour of AuthenticationProvider
  @param completion The completion handler to be called when access token or an error can be returned.
  */
 
-- (void) getAccessTokenWithCompletion:(void (^)(NSString *accessToken, NSError *error))completion;
+- (void) getAccessTokenForProviderOptions:(id<MSAuthenticationProviderOptions>)authProviderOptions andCompletion:(void (^)(NSString *accessToken, NSError *error))completion;
 
 @end

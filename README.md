@@ -2,13 +2,7 @@
 # Microsoft Graph SDK for ObjC
 
 
-This client library is a release candidate and is still in preview status - please continue to provide feedback as we iterate towards a production supported library.
-
-
-
-This library supports both iOS and MacOS platforms.
-
-
+Get started with the Microsoft Graph SDK for ObjectiveC by integrating it into your iOS and MacOS applications!
 
 ## Installation
 
@@ -166,3 +160,5 @@ And that's it. You have now successfully made call to graph server asking inform
 ## Usage Resources
 
 * [Batching](/Docs/Content/Batching.md)
+* [Page Iterator](/Docs/Tasks/PageIterator.md)
+* [Large File Upload Task](/Docs/Tasks/LargeFileUpload.md)
