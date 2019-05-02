@@ -166,3 +166,5 @@ And that's it. You have now successfully made call to graph server asking inform
 ## Usage Resources
 
 * [Batching](/Docs/Content/Batching.md)
+* [Page Iterator](/Docs/Tasks/PageIterator.md)
+* [Large File Upload Task](/Docs/Tasks/LargeFileUpload.md)
