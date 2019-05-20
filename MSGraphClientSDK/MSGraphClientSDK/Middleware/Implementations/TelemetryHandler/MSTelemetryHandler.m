@@ -26,13 +26,18 @@
 - (void)execute:(MSURLSessionTask *)task withCompletionHandler:(HTTPRequestCompletionHandler)completionHandler
 {
     [self setVersionHeader:task];
-    if([self.nextMiddleware isKindOfClass:[MSURLSessionManager class]])
-    {
-        [task setFeatureUsage:DEFAULT_HTTPROVIDER_ENABLED_FLAG];
-    }
+    [self setHTTPProviderFlag:task];
     [self setFeatureUsageHeader:task];
     [self setUUIDRequestHeader:task];
     [self.nextMiddleware execute:task withCompletionHandler:completionHandler];
+}
+
+- (void)setHTTPProviderFlag:(MSURLSessionTask *)task
+{
+    if([self.nextMiddleware isKindOfClass:[MSURLSessionManager class]])
+    {
+        [task setFeatureUsage:DEFAULT_HTTPPROVIDER_ENABLED_FLAG];
+    }
 }
 
 - (void)setVersionHeader:(MSURLSessionTask *)task

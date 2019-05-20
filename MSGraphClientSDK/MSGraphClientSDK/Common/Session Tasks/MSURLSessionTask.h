@@ -12,7 +12,7 @@
 #define REDIRECT_HANDLER_ENABLED_FLAG 1
 #define RETRY_HANDLER_ENABLED_FLAG 2
 #define AUTH_HANDLER_ENABLED_FLAG 4
-#define DEFAULT_HTTPROVIDER_ENABLED_FLAG 8
+#define DEFAULT_HTTPPROVIDER_ENABLED_FLAG 8
 
 /**
  The Upload Completion Handler to be called when an upload is completed.

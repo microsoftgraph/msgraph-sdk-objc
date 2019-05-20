@@ -11,6 +11,8 @@
 - (void)setRequest:(NSMutableURLRequest *)request;
 - (void)setInnerTask:(NSURLSessionTask *)innerTask;
 - (void)setSDKVersionRequestHeader;
+-(void)setFeatureUsage:(int)featureFlag;
+-(NSString *)getFeatureUsage;
 
 @end
 
@@ -190,4 +192,14 @@
     MSRetryHandlerOptions *retrievedRetryOptions = [sessionTask getMiddlewareOptionWithType:MSMiddlewareOptionsTypeRetry];
     XCTAssertNil(retrievedRetryOptions);
 }
+
+- (void)testSetAndGetFeatureUsage {
+    MSURLSessionDataTask *dataTask = [[MSURLSessionDataTask alloc] initWithRequest:self.requestForMock client:self.mockClient];
+    [dataTask setFeatureUsage:AUTH_HANDLER_ENABLED_FLAG];
+    [dataTask setFeatureUsage:REDIRECT_HANDLER_ENABLED_FLAG];
+    [dataTask setFeatureUsage:RETRY_HANDLER_ENABLED_FLAG];
+    [dataTask setFeatureUsage:DEFAULT_HTTPPROVIDER_ENABLED_FLAG];
+    XCTAssertEqualObjects([dataTask getFeatureUsage], @"F");
+}
+
 @end
