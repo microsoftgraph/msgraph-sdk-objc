@@ -8,6 +8,7 @@
 #import "MSMiddlewareFactory.h"
 #import "MSRedirectHandler.h"
 #import "MSRetryHandler.h"
+#import "MSTelemetryHandler.h"
 
 @implementation MSClientFactory
 
@@ -22,11 +23,13 @@
     authenticationHandler.authenticationProvider = authenticationProvider;
     MSRedirectHandler *redirectHandler = (MSRedirectHandler *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeRedirect];
     MSRetryHandler *retryHandler = (MSRetryHandler *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeRetry];
+    MSTelemetryHandler *telemetryHandler = (MSTelemetryHandler *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeTelemetry];
     MSURLSessionManager *sessionManager = (MSURLSessionManager *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeHTTP];
     //Creating a default chain
     [authenticationHandler setNext:redirectHandler];
     [redirectHandler setNext:retryHandler];
-    [retryHandler setNext:sessionManager];
+    [retryHandler setNext:telemetryHandler];
+    [telemetryHandler setNext:sessionManager];
 
     return [MSClientFactory createHTTPClientWithMiddleware:authenticationHandler];
 }
@@ -43,14 +46,16 @@
     authenticationHandler.authenticationProvider = authenticationProvider;
     MSRedirectHandler *redirectHandler = (MSRedirectHandler *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeRedirect];
     MSRetryHandler *retryHandler = (MSRetryHandler *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeRetry];
-    
+    MSTelemetryHandler *telemetryHandler = (MSTelemetryHandler *)[MSMiddlewareFactory createMiddleware:MSMiddlewareTypeTelemetry];
+
     //Create session manager with custom session configuration
     MSURLSessionManager *sessionManager = [[MSURLSessionManager alloc] initWithSessionConfiguration:sessionConfiguration];
 
     //Creating a default chain
     [authenticationHandler setNext:redirectHandler];
     [redirectHandler setNext:retryHandler];
-    [retryHandler setNext:sessionManager];
+    [retryHandler setNext:telemetryHandler];
+    [telemetryHandler setNext:sessionManager];
 
     return [MSClientFactory createHTTPClientWithMiddleware:authenticationHandler];
 }
@@ -58,7 +63,7 @@
 +(MSHTTPClient *)createHTTPClientWithMiddleware:(id<MSGraphMiddleware>)middleware
 {
     NSParameterAssert(middleware);
-    
+
     MSHTTPClient *httpClient = [[MSHTTPClient alloc] init];
     [httpClient setMiddleware:middleware];
     return httpClient;

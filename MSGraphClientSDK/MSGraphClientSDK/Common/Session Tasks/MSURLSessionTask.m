@@ -9,6 +9,7 @@
 @interface MSURLSessionTask()
 
 @property (atomic) BOOL isCancelled;
+@property (nonatomic) int featureUsage;
 
 @end
 
@@ -65,19 +66,6 @@
 
 }
 
-- (void)setSDKVersionRequestHeader
-{
-    NSDictionary *info = [[NSBundle bundleForClass:[self class]] infoDictionary];
-    NSString *version = [info objectForKey:@"CFBundleShortVersionString"];
-    if (TARGET_OS_OSX)
-    {
-        [_request setValue:[NSString stringWithFormat:@"%@%@", MSGraphMacSdkVersionHeaderPrefix, version] forHTTPHeaderField:MSHeaderSdkVersion];
-    }else
-    {
-        [_request setValue:[NSString stringWithFormat:@"%@%@", MSGraphiOSSdkVersionHeaderPrefix, version] forHTTPHeaderField:MSHeaderSdkVersion];
-    }
-}
-
 - (void)taskCompletedWithData:(id)data response:(NSURLResponse *)response andError:(NSError *)error
 {
     NSAssert(NO, @"Not Implemented, must implement in sub class");
@@ -100,6 +88,16 @@
         }
     }
     return middlewareOptionsToReturn;
+}
+
+-(void)setFeatureUsage:(int)featureFlag
+{
+    _featureUsage = _featureUsage | featureFlag;
+}
+
+-(NSString *)getFeatureUsage
+{
+    return [NSString stringWithFormat:@"%X", _featureUsage];
 }
 
 @end

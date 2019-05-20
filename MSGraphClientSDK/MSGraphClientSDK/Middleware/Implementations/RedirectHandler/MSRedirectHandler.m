@@ -10,6 +10,7 @@
 @interface MSURLSessionTask()
 
 -(void)setRequest:(NSMutableURLRequest *)request;
+-(void)setFeatureUsage:(int)featureFlag;
 
 @end
 
@@ -40,6 +41,7 @@
 #pragma mark - MSGraphMiddleware method implmentation
 - (void)execute:(MSURLSessionTask *)task withCompletionHandler:(HTTPRequestCompletionHandler)completionHandler
 {
+    [task setFeatureUsage:REDIRECT_HANDLER_ENABLED_FLAG];
     [self execute:task redirectsAttempted:0 withCompletionHandler:completionHandler];
 }
 

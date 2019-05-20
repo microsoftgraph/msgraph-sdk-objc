@@ -149,20 +149,6 @@
 
 }
 
-- (void)testSetVersionAsRequestHeader{
-    MSURLSessionTask *sessionTask = [[MSURLSessionTask alloc] initWithRequest:self.requestForMock client:self.mockClient];
-    [sessionTask setSDKVersionRequestHeader];
-    NSDictionary *info = [[NSBundle bundleForClass:[MSURLSessionTask class]] infoDictionary];
-    NSString *version = [info objectForKey:@"CFBundleShortVersionString"];
-    NSString *headerVersionString ;
-    if (TARGET_OS_OSX){
-        headerVersionString = [NSString stringWithFormat:@"%@%@", MSGraphMacSdkVersionHeaderPrefix, version];
-    }else{
-        headerVersionString = [NSString stringWithFormat:@"%@%@", MSGraphiOSSdkVersionHeaderPrefix, version];
-    }
-    XCTAssertEqualObjects([sessionTask.request valueForHTTPHeaderField:MSHeaderSdkVersion],headerVersionString);
-}
-
 - (void)testSetMiddlewareOptionsArray {
     MSURLSessionTask *sessionTask = [[MSURLSessionTask alloc] initWithRequest:self.requestForMock client:self.mockClient];
 

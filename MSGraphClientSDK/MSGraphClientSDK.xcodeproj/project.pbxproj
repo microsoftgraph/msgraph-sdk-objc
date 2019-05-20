@@ -70,6 +70,9 @@
 		E59EBFF0221D3B6800B4B279 /* MSRetryHandlerOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = E59EBFED221D3B6700B4B279 /* MSRetryHandlerOptions.m */; };
 		E59EBFF1221D3B6800B4B279 /* MSMiddlewareOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = E59EBFEE221D3B6700B4B279 /* MSMiddlewareOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5B6DB9821497DAA00836E1D /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B6DB9621497D7C00836E1D /* libOCMock.a */; };
+		E5C40A192292C9C700429A58 /* MSTelemetryHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C40A172292C9C700429A58 /* MSTelemetryHandler.m */; };
+		E5C40A1A2292C9C700429A58 /* MSTelemetryHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C40A182292C9C700429A58 /* MSTelemetryHandler.h */; };
+		E5C40A1F2292D1A500429A58 /* MSTelemetryHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C40A1E2292D1A500429A58 /* MSTelemetryHandlerTests.m */; };
 		E5DC73DF211412BF0040BAB6 /* MSGraphClientSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73DD211412BF0040BAB6 /* MSGraphClientSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5DC7403211418050040BAB6 /* MSAuthenticationHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DC73EB211418040040BAB6 /* MSAuthenticationHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5DC7405211418050040BAB6 /* MSURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DC73EE211418040040BAB6 /* MSURLSessionManager.m */; };
@@ -176,6 +179,9 @@
 		E5B6DB9421497CAC00836E1D /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
 		E5B6DB9521497CAC00836E1D /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
 		E5B6DB9621497D7C00836E1D /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
+		E5C40A172292C9C700429A58 /* MSTelemetryHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSTelemetryHandler.m; sourceTree = "<group>"; };
+		E5C40A182292C9C700429A58 /* MSTelemetryHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSTelemetryHandler.h; sourceTree = "<group>"; };
+		E5C40A1E2292D1A500429A58 /* MSTelemetryHandlerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSTelemetryHandlerTests.m; sourceTree = "<group>"; };
 		E5DC73DA211412BF0040BAB6 /* MSGraphClientSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MSGraphClientSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5DC73DD211412BF0040BAB6 /* MSGraphClientSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSGraphClientSDK.h; sourceTree = "<group>"; };
 		E5DC73DE211412BF0040BAB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -231,6 +237,7 @@
 		E5069AC3211AACCD00432372 /* Implementations */ = {
 			isa = PBXGroup;
 			children = (
+				E5C40A162292C9C700429A58 /* TelemetryHandler */,
 				E5190C7F216DE371001699B5 /* RetryHandler */,
 				E5ECE0A12146655000A289C2 /* RedirectHandler */,
 				E5069AC4211AACED00432372 /* Authentication */,
@@ -423,6 +430,7 @@
 				E566782D2150BC4F00C6B7AE /* MSRedirectHandlerTests.m */,
 				E566782F2150E1AF00C6B7AE /* MSAuthenticationHandlerTests.m */,
 				E51E616E216E073F00F1B3C0 /* MSRetryHandlerTests.m */,
+				E5C40A1E2292D1A500429A58 /* MSTelemetryHandlerTests.m */,
 			);
 			path = Implementations;
 			sourceTree = "<group>";
@@ -472,6 +480,15 @@
 				E5B6DB9521497CAC00836E1D /* OCMArg.h */,
 			);
 			path = OCMock;
+			sourceTree = "<group>";
+		};
+		E5C40A162292C9C700429A58 /* TelemetryHandler */ = {
+			isa = PBXGroup;
+			children = (
+				E5C40A182292C9C700429A58 /* MSTelemetryHandler.h */,
+				E5C40A172292C9C700429A58 /* MSTelemetryHandler.m */,
+			);
+			path = TelemetryHandler;
 			sourceTree = "<group>";
 		};
 		E5DC73D0211412BF0040BAB6 = {
@@ -578,6 +595,7 @@
 				E5069AC8211AAEC900432372 /* MSConstants.h in Headers */,
 				E5DC7406211418050040BAB6 /* MSURLSessionTaskDelegate.h in Headers */,
 				E5ECE09721427A6400A289C2 /* MSMiddlewareFactory.h in Headers */,
+				E5C40A1A2292C9C700429A58 /* MSTelemetryHandler.h in Headers */,
 				E56FDB9321D36A98001DFE68 /* MSURLSessionDownloadTask.h in Headers */,
 				E56FDB9A21D36A98001DFE68 /* MSURLSessionDataTask.h in Headers */,
 				E56FDB9521D36A98001DFE68 /* MSURLSessionUploadTask.h in Headers */,
@@ -717,6 +735,7 @@
 				E54D1237226472FB00EB517A /* MSLargeFileUploadTaskTests.m in Sources */,
 				E573EE092134167400C5E884 /* MSClientFactoryTests.m in Sources */,
 				E566782E2150BC4F00C6B7AE /* MSRedirectHandlerTests.m in Sources */,
+				E5C40A1F2292D1A500429A58 /* MSTelemetryHandlerTests.m in Sources */,
 				E54D1223225C882A00EB517A /* MSPageIteratorTests.m in Sources */,
 				E573EE0B213427ED00C5E884 /* MSURLSessionTaskDelegateTests.m in Sources */,
 				E5ECE09E2142992F00A289C2 /* MSMiddlewareFactoryTests.m in Sources */,
@@ -732,6 +751,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5C40A192292C9C700429A58 /* MSTelemetryHandler.m in Sources */,
 				E5204FF1216F1D9900E64160 /* MSBatchRequestContent.m in Sources */,
 				E56FDB9421D36A98001DFE68 /* MSURLSessionTask.m in Sources */,
 				E5204FF7216F371400E64160 /* MSErrorCodes.m in Sources */,
