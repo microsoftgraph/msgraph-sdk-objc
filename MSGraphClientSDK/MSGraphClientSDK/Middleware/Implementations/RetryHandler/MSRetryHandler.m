@@ -14,6 +14,7 @@ NSString * const TRANSFER_ENCODING = @"Transfer-Encoding";
 @interface MSURLSessionTask()
 
 -(void)setRequest:(NSMutableURLRequest *)request;
+-(void)setFeatureUsage:(int)featureFlag;
 
 @end
 
@@ -44,6 +45,7 @@ NSString * const TRANSFER_ENCODING = @"Transfer-Encoding";
 #pragma mark - MSGraphMiddleware method implmentation
 - (void)execute:(MSURLSessionTask *)task withCompletionHandler:(HTTPRequestCompletionHandler)completionHandler
 {
+    [task setFeatureUsage:RETRY_HANDLER_ENABLED_FLAG];
     [self execute:task retriesAttempted:0 withCompletionHandler:completionHandler];
 }
 

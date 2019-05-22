@@ -7,6 +7,7 @@
 #import "MSAuthenticationHandler.h"
 #import "MSRedirectHandler.h"
 #import "MSRetryHandler.h"
+#import "MSTelemetryHandler.h"
 
 @implementation MSMiddlewareFactory
 
@@ -33,6 +34,11 @@
         {
             MSRetryHandler *retryHandler = [[MSRetryHandler alloc] init];
             return retryHandler;
+        }
+        case MSMiddlewareTypeTelemetry:
+        {
+            MSTelemetryHandler *telemetryHanlder = [[MSTelemetryHandler alloc] init];
+            return telemetryHanlder;
         }
         default:
             break;

@@ -9,6 +9,7 @@
 @interface MSURLSessionTask()
 
 - (void)setRequest:(NSMutableURLRequest *)request;
+- (void)setFeatureUsage:(int)featureFlag;
 
 @end
 
@@ -48,6 +49,7 @@
             NSMutableURLRequest *urlRequest = [task request];
             [urlRequest setValue:[NSString stringWithFormat:@"Bearer %@",accessToken] forHTTPHeaderField:@"Authorization"];
             [task setRequest:urlRequest];
+            [task setFeatureUsage:AUTH_HANDLER_ENABLED_FLAG];
             [self.nextMiddleware execute:task withCompletionHandler:^(id data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                 completionHandler(data, response, error);
             }];

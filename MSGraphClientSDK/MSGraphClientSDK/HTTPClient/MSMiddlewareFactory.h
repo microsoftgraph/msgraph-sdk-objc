@@ -15,7 +15,8 @@ typedef NS_ENUM(NSInteger, MSMiddlewareType)
     MSMiddlewareTypeAuthentication,
     MSMiddlewareTypeHTTP,
     MSMiddlewareTypeRedirect,
-    MSMiddlewareTypeRetry
+    MSMiddlewareTypeRetry,
+    MSMiddlewareTypeTelemetry
 };
 
 /*

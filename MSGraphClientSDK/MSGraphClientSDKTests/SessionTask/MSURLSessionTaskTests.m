@@ -11,6 +11,8 @@
 - (void)setRequest:(NSMutableURLRequest *)request;
 - (void)setInnerTask:(NSURLSessionTask *)innerTask;
 - (void)setSDKVersionRequestHeader;
+-(void)setFeatureUsage:(int)featureFlag;
+-(NSString *)getFeatureUsage;
 
 @end
 
@@ -149,20 +151,6 @@
 
 }
 
-- (void)testSetVersionAsRequestHeader{
-    MSURLSessionTask *sessionTask = [[MSURLSessionTask alloc] initWithRequest:self.requestForMock client:self.mockClient];
-    [sessionTask setSDKVersionRequestHeader];
-    NSDictionary *info = [[NSBundle bundleForClass:[MSURLSessionTask class]] infoDictionary];
-    NSString *version = [info objectForKey:@"CFBundleShortVersionString"];
-    NSString *headerVersionString ;
-    if (TARGET_OS_OSX){
-        headerVersionString = [NSString stringWithFormat:@"%@%@", MSGraphMacSdkVersionHeaderPrefix, version];
-    }else{
-        headerVersionString = [NSString stringWithFormat:@"%@%@", MSGraphiOSSdkVersionHeaderPrefix, version];
-    }
-    XCTAssertEqualObjects([sessionTask.request valueForHTTPHeaderField:MSHeaderSdkVersion],headerVersionString);
-}
-
 - (void)testSetMiddlewareOptionsArray {
     MSURLSessionTask *sessionTask = [[MSURLSessionTask alloc] initWithRequest:self.requestForMock client:self.mockClient];
 
@@ -204,4 +192,14 @@
     MSRetryHandlerOptions *retrievedRetryOptions = [sessionTask getMiddlewareOptionWithType:MSMiddlewareOptionsTypeRetry];
     XCTAssertNil(retrievedRetryOptions);
 }
+
+- (void)testSetAndGetFeatureUsage {
+    MSURLSessionDataTask *dataTask = [[MSURLSessionDataTask alloc] initWithRequest:self.requestForMock client:self.mockClient];
+    [dataTask setFeatureUsage:AUTH_HANDLER_ENABLED_FLAG];
+    [dataTask setFeatureUsage:REDIRECT_HANDLER_ENABLED_FLAG];
+    [dataTask setFeatureUsage:RETRY_HANDLER_ENABLED_FLAG];
+    [dataTask setFeatureUsage:DEFAULT_HTTPPROVIDER_ENABLED_FLAG];
+    XCTAssertEqualObjects([dataTask getFeatureUsage], @"F");
+}
+
 @end

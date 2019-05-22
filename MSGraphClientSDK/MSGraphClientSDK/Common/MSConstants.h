@@ -60,6 +60,7 @@ extern NSString *const MSGraphGermanyBaseURL;
 extern NSString *const MSHeaderSdkVersion;
 extern NSString *const MSGraphiOSSdkVersionHeaderPrefix;
 extern NSString *const MSGraphMacSdkVersionHeaderPrefix;
+extern NSString *const MSClientRequestIdHeaderString;
 
 extern NSString *const MSErrorDomain;
 
