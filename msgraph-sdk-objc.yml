@@ -1,0 +1,16 @@
+page_type: sample
+products:
+  - office-365
+  - ms-graph
+languages:
+  - objc
+extensions:
+  contentType: sdks
+  technologies:
+    - Microsoft Graph
+    - Microsoft identity platform
+  platforms:
+    - iOS
+  createdDate: '8/2/2018 7:15:56 AM'
+title: Microsoft Graph SDK for Objective-C
+description: Microsoft Graph SDK built using Objective-C for Mac OS and iOS.
