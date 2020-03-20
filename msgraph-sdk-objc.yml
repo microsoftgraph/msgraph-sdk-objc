@@ -12,5 +12,5 @@ extensions:
   platforms:
     - iOS
   createdDate: '8/2/2018 7:15:56 AM'
-title: Microsoft Graph SDK for ObjC
-description: Microsoft Graph SDK for Objective-C
+title: Microsoft Graph SDK for Objective-C
+description: Microsoft Graph SDK built using Objective-C for Mac OS and iOS.
