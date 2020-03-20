@@ -1,12 +1,6 @@
 page_type: sample
 products:
-  - office-excel
   - office-365
-  - office-outlook
-  - office-onedrive
-  - office-onenote
-  - office-planner
-  - office-sp
   - ms-graph
 languages:
   - objc
@@ -15,22 +9,6 @@ extensions:
   technologies:
     - Microsoft Graph
     - Microsoft identity platform
-  services:
-    - Education
-    - Excel
-    - Groups
-    - Insights
-    - Intune
-    - Microsoft identity platform
-    - Office 365
-    - Outlook
-    - OneDrive
-    - OneNote
-    - Planner
-    - Reports
-    - Security
-    - SharePoint
-    - Users
   platforms:
     - iOS
   createdDate: '8/2/2018 7:15:56 AM'
