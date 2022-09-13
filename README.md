@@ -155,10 +155,13 @@ completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 
 
 
-And that's it. You have now successfully made call to graph server asking information about the user.
+And that's it. You have now successfully made call to graph server asking information about the user. Consider using the `MSGraphClientModels` CocoaPod to add models that you can serialize/deserialize into your calls to Microsoft Graph.
 
-## Usage Resources
+## Documentation and resources
 
 * [Batching](/Docs/Content/Batching.md)
 * [Page Iterator](/Docs/Tasks/PageIterator.md)
 * [Large File Upload Task](/Docs/Tasks/LargeFileUpload.md)
+* [Get started with Microsoft Graph and Objective-C](https://developer.microsoft.com/en-us/graph/get-started/ios)
+* [Models for the Microsoft Graph Objective-C SDK](https://github.com/microsoftgraph/msgraph-sdk-objc-models)
+
